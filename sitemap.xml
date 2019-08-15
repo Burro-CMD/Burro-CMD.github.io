@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://burro-cmd.github.io/about/index.html</loc>
+    
+    <lastmod>2019-08-15T08:10:18.732Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://burro-cmd.github.io/2019/08/14/markdown/</loc>
     
-    <lastmod>2019-08-14T13:29:27.396Z</lastmod>
+    <lastmod>2019-08-15T05:54:15.143Z</lastmod>
     
   </url>
   
