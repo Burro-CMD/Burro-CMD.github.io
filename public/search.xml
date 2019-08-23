@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Mac环境下安装Python3]]></title>
     <url>%2F2019%2F08%2F23%2F%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3%2F</url>
-    <content type="text"><![CDATA[欢迎参与讨论，转载请注明出处。 前言 MacOS Mojave:10.14.5 检查Mac自带Python版本 在Launchpad找到终端，输入Python； 终端显示Python2.7.10，按住Control+D来退出Python运行环境。安装X-code 在终端输入X-code-select –install, 按Enter； 安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。安装Brew 打开Brew官网：https://brew.sh，在brew官网复制/usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful安装Python3 在终端输入brew install python3，等待安装完成。 在终端输入brew install python3，会提示已经安装完成。]]></content>
+    <content type="text"><![CDATA[欢迎参与讨论，转载请注明出处。 前言 MacOS Mojave:10.14.5 检查Mac自带Python版本 在Launchpad找到终端，输入Python； 终端显示Python2.7.10，按住Control+D来退出Python运行环境。安装X-code 在终端输入X-code-select –install, 按Enter； 安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。安装Brew 打开Brew官网：https://brew.sh,在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful 安装Python3 在终端输入brew install python3，等待安装完成。 在终端输入brew install python3，会提示已经安装完成。]]></content>
       <categories>
         <category>Tech</category>
       </categories>
