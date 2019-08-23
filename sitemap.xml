@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://burro-cmd.github.io/about/index.html</loc>
+    <loc>http://burro-cmd.github.io/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</loc>
     
-    <lastmod>2019-08-19T05:11:18.469Z</lastmod>
+    <lastmod>2019-08-23T03:59:39.684Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://burro-cmd.github.io/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
     
-    <lastmod>2019-08-19T04:54:18.663Z</lastmod>
+    <lastmod>2019-08-23T03:00:54.776Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/about/index.html</loc>
+    
+    <lastmod>2019-08-19T05:11:18.469Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://burro-cmd.github.io/tags/index.html</loc>
     
     <lastmod>2019-08-13T08:53:32.108Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://burro-cmd.github.io/2019/08/12/test2/</loc>
-    
-    <lastmod>2019-08-12T13:26:17.815Z</lastmod>
     
   </url>
   
