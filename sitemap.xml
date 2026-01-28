@@ -2,66 +2,188 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://burro-cmd.github.io/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</loc>
+    <loc>http://burro-cmd.github.io/2023/01/28/Atom-command/</loc>
     
-    <lastmod>2019-08-26T01:02:01.906Z</lastmod>
+    <lastmod>2026-01-28</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>http://burro-cmd.github.io/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</loc>
-    
-    <lastmod>2019-08-23T09:17:56.149Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://burro-cmd.github.io/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
-    
-    <lastmod>2019-08-23T03:00:54.776Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://burro-cmd.github.io/about/index.html</loc>
-    
-    <lastmod>2019-08-19T05:11:18.469Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://burro-cmd.github.io/2019/08/14/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</loc>
-    
-    <lastmod>2019-08-15T12:28:56.775Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://burro-cmd.github.io/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-08-14T12:26:16.656Z</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://burro-cmd.github.io/tags/index.html</loc>
     
-    <lastmod>2019-08-13T08:53:32.108Z</lastmod>
+    <lastmod>2026-01-28</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://burro-cmd.github.io/categories/index.html</loc>
     
-    <lastmod>2019-08-12T07:41:33.276Z</lastmod>
+    <lastmod>2026-01-28</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://burro-cmd.github.io/2019/08/12/hello-world/</loc>
+    <loc>http://burro-cmd.github.io/about/index.html</loc>
     
-    <lastmod>2019-08-12T06:53:57.113Z</lastmod>
+    <lastmod>2026-01-28</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</loc>
+    
+    <lastmod>2019-08-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</loc>
+    
+    <lastmod>2019-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    
+    <lastmod>2019-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2019/08/14/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</loc>
+    
+    <lastmod>2019-08-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-08-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2026/01/28/hello-world/</loc>
+    
+    <lastmod>2019-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>http://burro-cmd.github.io/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/Atom/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/Markdown/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/Python/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/X-code/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/Brew/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/Hexo/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/GitHub/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/NPM/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/Node-js/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/EVUS/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>http://burro-cmd.github.io/categories/Tech/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
 </urlset>
