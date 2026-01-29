@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://burro-cmd.github.io/2026/01/29/Test/</loc>
+    <loc>http://burro-cmd.github.io/2026/01/29/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</loc>
     
     <lastmod>2026-01-29</lastmod>
     
@@ -167,6 +167,27 @@
   
   <url>
     <loc>http://burro-cmd.github.io/tags/Node-js/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/3D%E5%BB%BA%E6%A8%A1/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/3D%E6%89%93%E5%8D%B0/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/tags/%E7%B2%BE%E5%BA%A6/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
