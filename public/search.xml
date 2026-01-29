@@ -501,4 +501,10 @@ search | web前段开发工程师 | 码农
         <tag>EVUS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>testing</title>
+    <url>/2026/01/29/Test/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这是一个测试，仅仅是检查有没有推送成功。</p>
+]]></content>
+  </entry>
 </search>
