@@ -489,7 +489,7 @@ search | web前段开发工程师 | 码农
 <p>3）添加分类功能</p>
 <figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
 <p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>：生成网站文件夹，用于上传到GitHub仓库</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便惊醒这两根操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo g：生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便惊醒这两根操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
 
 <p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
 ]]></content>
