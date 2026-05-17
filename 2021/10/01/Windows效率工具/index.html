@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="效率,工具,Windows," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Dukto免费局域网传输工具&amp;emsp;&amp;emsp;Dukto 是一款非常简单实用的局域网文件传输工具，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，Dukto 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows效率工具">
+<meta property="og:url" content="http://burro-cmd.github.io/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="Dukto免费局域网传输工具&amp;emsp;&amp;emsp;Dukto 是一款非常简单实用的局域网文件传输工具，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，Dukto 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-10-01T11:11:21.000Z">
+<meta property="article:modified_time" content="2021-10-01T11:11:21.000Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="效率">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":"ture","onmobile":"ture"},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://burro-cmd.github.io/2021/10/01/Windows效率工具/"/>
+
+
+
+
+
+  <title>Windows效率工具 | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HUNPHY'S BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://burro-cmd.github.io/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Windows效率工具</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-10-01T19:11:21+08:00">
+                2021-10-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2021-10-01T19:11:21+08:00">
+                2021-10-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://www.msec.it/blog/dukto/">Dukto</a> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
+<h3 id="7-zip解压缩软件"><a href="#7-zip解压缩软件" class="headerlink" title="7-zip解压缩软件"></a>7-zip解压缩软件</h3><p>&emsp;&emsp;<strong><a target="_blank" rel="noopener" href="https://sparanoid.com/lab/7z/">7-Zip</a></strong> 是一款 <strong>开源</strong> 软件。大多数源代码都基于 <strong>GNU LGPL</strong> 许可协议下发布。AES 代码基于 BSD 许可下发布。unRAR 代码基于两种许可：GNU LGPL 和 unRAR 限制许可。更多下许可信息请查看：<a target="_blank" rel="noopener" href="https://github.com/sparanoid/7z/blob/master/zh-cn/License.txt">7-Zip 许可</a>。您可以在任何一台计算机上使用 7-Zip ，包括用在商业用途的计算机，不对 7-Zip 进行捐赠或支付并不影响您的使用。</p>
+<h4 id="7-Zip-主要特征"><a href="#7-Zip-主要特征" class="headerlink" title="7-Zip 主要特征"></a>7-Zip 主要特征</h4><ul>
+<li>使用了 <strong>LZMA</strong> 与 <strong>LZMA2</strong> 算法的 <a target="_blank" rel="noopener" href="https://sparanoid.com/lab/7z/7z.html">7z 格式</a> 拥有极高的压缩比</li>
+<li>支持格式：<ul>
+<li>压缩 &#x2F; 解压缩：7z, XZ, BZIP2, GZIP, TAR, ZIP and WIM</li>
+<li>仅解压缩：ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, LZH, LZMA, MBR, MSI, NSIS, NTFS, RAR, RPM, SquashFS, UDF, VHD, WIM, XAR, Z</li>
+</ul>
+</li>
+<li>对于 ZIP 及 GZIP 格式，<strong>7-Zip</strong> 能提供比使用 PKZip 及 WinZip 高 2-10% 的压缩比</li>
+<li>为 7z 与 ZIP 提供更完善的 AES-256 加密算法</li>
+<li>7z 格式支持创建自释放压缩包</li>
+<li>Windows 资源管理器集成</li>
+<li>强大的的文件管理器</li>
+<li>更给力的命令行版本</li>
+<li>支持 FAR Manager 插件</li>
+<li>支持 87 种语言<br><strong>7-Zip</strong> 适用于 Windows 10 &#x2F; 8 &#x2F; 7 &#x2F; Vista &#x2F; XP &#x2F; 2016 &#x2F; 2012 &#x2F; 2008 &#x2F; 2003 &#x2F; 2000 &#x2F; NT。</li>
+</ul>
+<h3 id="福昕PDF套件单文件绿色版高级编辑器"><a href="#福昕PDF套件单文件绿色版高级编辑器" class="headerlink" title="福昕PDF套件单文件绿色版高级编辑器"></a>福昕PDF套件单文件绿色版高级编辑器</h3><h3 id="PDF补丁丁"><a href="#PDF补丁丁" class="headerlink" title="PDF补丁丁"></a>PDF补丁丁</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>PDF补丁丁是一个用于修改PDF文件信息的工具。它具有以下功能：</p>
+<ul>
+<li>修改PDF信息：修改文档属性、页码编号、页面链接、页面尺寸；删除自动打开网页等动作，去除复制及打印限制；设置阅读器初始模式。</li>
+<li>贴心PDF书签编辑器：带有阅读界面（具有便于阅读竖排文档的从右到左阅读方式），可批量修改PDF书签属性（颜色、样式、目标页码、缩放比例等），在书签中执行查找替换（支持正则表达式及XPath匹配、可快速选择篇、章、节书签），<a target="_blank" rel="noopener" href="https://www.cnblogs.com/pdfpatcher/p/8452025.html">自动快速生成文档书签</a>。</li>
+<li>生成PDF书签：无需手工输入，自动识别正文标题或目录，为PDF文档生成书签。</li>
+<li>制作PDF文件：合并已有PDF文件或图片，生成新的PDF文件。合并后的PDF文档带有原文档的书签，还可挂上新书签（或根据文件名生成），新书签文本和样式可自定义。</li>
+<li>拆分或合并PDF文件，并保留原文件的书签或挂上新的书签。</li>
+<li>高速无损导出PDF文档的图片。</li>
+<li>提取或删除PDF文档中指定的页面，调整PDF文档的页面顺序。</li>
+<li>根据PDF文档元数据重命名PDF文件名。</li>
+<li>调用微软 Office 的图像识别引擎分析PDF文档图片中的文字；将图片PDF的目录页转换为PDF书签。识别结果可写入PDF文件。</li>
+<li>替换字库：替换文档中使用的字体库；嵌入字库到PDF文档，消除复制文本时的乱码，使之可在没有字库的设备（如Kindle等电子书阅读器）上阅读。</li>
+<li>分析文档结构：以树视图显示PDF文档结构，可编辑修改PDF文档节点，或将PDF文档导出成XML文件，供PDF爱好者分析、调试之用。</li>
+<li>永久免费，绝不过期，无广告，无弹出废话对话框。</li>
+</ul>
+<h4 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h4><ul>
+<li>支持 Windows 7 至 Windows 10 操作系统</li>
+<li>使用文字识别功能需要安装 Microsoft Office 2003（或2007）的 Document Imaging 组件（MODI）<br>说明：Office 2010 及其后的更高版本没有 MODI 组件，请<a target="_blank" rel="noopener" href="http://support.microsoft.com/kb/982760/zh-cn">参考此文介绍的办法</a>安装该组件。</li>
+</ul>
+<h4 id="下载安装及说明文档"><a href="#下载安装及说明文档" class="headerlink" title="下载安装及说明文档"></a>下载安装及说明文档</h4><ol>
+<li><strong>下载：<a target="_blank" rel="noopener" href="https://z701.com/d/12751606-24910846-996057">测试版 1.0.0.3755</a>、<a target="_blank" rel="noopener" href="https://z701.com/d/12751606-24910846-996057">稳定版 0.6.2.3694</a> 下载密码：8518 。</strong>解压到硬盘后，运行其中的“PDFPatcher.exe”文件。</li>
+<li><a target="_blank" rel="noopener" href="https://files.cnblogs.com/pdfpatcher/PDF%E8%A1%A5%E4%B8%81%E4%B8%810.3.3%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.pdf">下载 PDF补丁丁 使用手册</a>（0.3.3.100版，0.6 版暂无文档）测试版使用手册（暂不提供）</li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/pdfpatcher/archive/2011/02/23/1956350.html">软件功能简介及界面截图网页</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/pdfpatcher/archive/2011/04/12/2013974.html">开发计划及已知问题</a></li>
+</ol>
+<h4 id="SumatraPDF-Viewer"><a href="#SumatraPDF-Viewer" class="headerlink" title="SumatraPDF Viewer"></a>SumatraPDF Viewer</h4><p>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://www.sumatrapdfreader.org/free-pdf-reader">SumatraPDF</a>Sumatra PDF is a free PDF, eBook (<a target="_blank" rel="noopener" href="https://blog.kowalczyk.info/articles/epub-ebook-reader-viewer-for-windows">ePub</a>, <a target="_blank" rel="noopener" href="https://blog.kowalczyk.info/articles/mobi-ebook-reader-viewer-for-windows">Mobi</a>), XPS, DjVu, <a target="_blank" rel="noopener" href="https://blog.kowalczyk.info/articles/chm-reader-viewer-for-windows">CHM</a>, <a target="_blank" rel="noopener" href="https://blog.kowalczyk.info/articles/cbz-cbr-comic-book-reader-viewer-for-windows">Comic Book</a> (CBZ and CBR) viewer for Windows.<br>Sumatra PDF is powerful, small, portable and starts up very fast.<br>Simplicity of the user interface has a high priority.</p>
+<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://www.snipaste.com/#">Snipaste</a> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
+<h3 id="FastStone-Capture截图工具"><a href="#FastStone-Capture截图工具" class="headerlink" title="FastStone Capture截图工具"></a>FastStone Capture截图工具</h3><p>v8.4绿色中文版_屏幕捕捉工具</p>
+<h3 id="ScreenToGif动态图片制作软件"><a href="#ScreenToGif动态图片制作软件" class="headerlink" title="ScreenToGif动态图片制作软件"></a>ScreenToGif动态图片制作软件</h3><p><a target="_blank" rel="noopener" href="https://github.com/NickeManarin/ScreenToGif">ScreenToGif</a> allows you to record a selected area of your <strong>screen</strong>, live feed from your <strong>webcam</strong> or live drawings from a <strong>sketchboard</strong>. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images.</p>
+<h3 id="QuickLook"><a href="#QuickLook" class="headerlink" title="QuickLook"></a>QuickLook</h3><h4 id="官网"><a href="#官网" class="headerlink" title="官网"></a><a target="_blank" rel="noopener" href="https://github.com/QL-Win/QuickLook/releases/tag/3.7.1">官网</a></h4><p>Windows版本的文件预览工具</p>
+<h3 id="Wox"><a href="#Wox" class="headerlink" title="Wox"></a>Wox</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.wox.one/plugi">官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Wox-launcher/Wox">Github</a></li>
+<li>Wox是一款定位Windows系统软件快捷启动工具，其主要功能：<ul>
+<li>计算器_</li>
+<li>打开软件</li>
+<li>查找文件和目录_</li>
+<li>打开CMD终端</li>
+<li>使用谷歌和百度搜索内容_</li>
+<li>自定义搜狗微信收索</li>
+<li>自定义京东搜索</li>
+<li>安装有道翻译插件</li>
+<li>详细可以参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60477847">WOX 软件高效使用</a></li>
+</ul>
+</li>
+<li><h5 id="与Everything的搭配使用指南"><a href="#与Everything的搭配使用指南" class="headerlink" title="与Everything的搭配使用指南"></a>与<a target="_blank" rel="noopener" href="https://github.com/Wox-launcher/Wox/releases/tag/v1.3.524">Everything</a>的搭配使用指南</h5><ul>
+<li>首先安装Everything</li>
+<li>确保Everything和Wox都在运行</li>
+<li>Wox的配置</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    HUNPHY
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://burro-cmd.github.io/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" title="Windows效率工具">http://burro-cmd.github.io/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"><i class="fa fa-tag"></i> 效率</a>
+          
+            <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+          
+            <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/16/%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0Cpk/" rel="next" title="过程能力指数Cpk">
+                <i class="fa fa-chevron-left"></i> 过程能力指数Cpk
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="prev" title="MacBook效率工具">
+                MacBook效率工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/Avatar.JPG"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dukto%E5%85%8D%E8%B4%B9%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">Dukto免费局域网传输工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-zip%E8%A7%A3%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">7-zip解压缩软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Zip-%E4%B8%BB%E8%A6%81%E7%89%B9%E5%BE%81"><span class="nav-number">2.1.</span> <span class="nav-text">7-Zip 主要特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%8F%E6%98%95PDF%E5%A5%97%E4%BB%B6%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%BF%E8%89%B2%E7%89%88%E9%AB%98%E7%BA%A7%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">福昕PDF套件单文件绿色版高级编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PDF%E8%A1%A5%E4%B8%81%E4%B8%81"><span class="nav-number">4.</span> <span class="nav-text">PDF补丁丁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">4.2.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8F%8A%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3"><span class="nav-number">4.3.</span> <span class="nav-text">下载安装及说明文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SumatraPDF-Viewer"><span class="nav-number">4.4.</span> <span class="nav-text">SumatraPDF Viewer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Snipaste-%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7"><span class="nav-number">5.</span> <span class="nav-text">Snipaste - 免费开源截图工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastStone-Capture%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7"><span class="nav-number">6.</span> <span class="nav-text">FastStone Capture截图工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ScreenToGif%E5%8A%A8%E6%80%81%E5%9B%BE%E7%89%87%E5%88%B6%E4%BD%9C%E8%BD%AF%E4%BB%B6"><span class="nav-number">7.</span> <span class="nav-text">ScreenToGif动态图片制作软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QuickLook"><span class="nav-number">8.</span> <span class="nav-text">QuickLook</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E7%BD%91"><span class="nav-number">8.1.</span> <span class="nav-text">官网</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wox"><span class="nav-number">9.</span> <span class="nav-text">Wox</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8EEverything%E7%9A%84%E6%90%AD%E9%85%8D%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="nav-number">9.0.1.</span> <span class="nav-text">与Everything的搭配使用指南</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">16.9k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>
