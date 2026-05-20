@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://burro-cmd.github.io/2026/05/19/Camera%E6%B5%8B%E8%AF%95/</loc>
-    
-    <lastmod>2026-05-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://burro-cmd.github.io/2026/05/17/GRR/</loc>
     
     <lastmod>2026-05-17</lastmod>
@@ -131,6 +122,15 @@
     <loc>http://burro-cmd.github.io/2020/05/16/%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0Cpk/</loc>
     
     <lastmod>2020-05-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://burro-cmd.github.io/2026/05/19/Camera%E6%B5%8B%E8%AF%95/</loc>
+    
+    <lastmod>2020-01-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
