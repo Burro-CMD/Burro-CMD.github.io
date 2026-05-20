@@ -288,7 +288,7 @@ search | web前段开发工程师 | 码农
   </entry>
   <entry>
     <title>Camera测试</title>
-    <url>/2026/05/19/Camera%E6%B5%8B%E8%AF%95/</url>
+    <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
 <h2 id="测试项目"><a href="#测试项目" class="headerlink" title="测试项目"></a>测试项目</h2><ul>
 <li>Power On: Power on DUT by press power button</li>
