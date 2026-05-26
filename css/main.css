@@ -1219,7 +1219,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ff037d;
+  background: #94ffff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3051,4 +3051,84 @@ header.header {
 .posts-collapse .post-meta {
   display: block !important;
   width: 100% !important;
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+  }
+  .site-title {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+  }
+  .site-title::after {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    max-width: 72vw !important;
+  }
+  .menu .menu-item a {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+  .post-title,
+  .post-title-link {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+  }
+  .post-meta,
+  .post-meta-container {
+    font-size: 12px !important;
+    line-height: 1.75 !important;
+  }
+  .post-body {
+    font-size: 14px !important;
+    line-height: 1.85 !important;
+  }
+  .post-body p {
+    margin: 0 0 14px !important;
+  }
+  .post-body h2 {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    margin-top: 26px !important;
+    margin-bottom: 12px !important;
+  }
+  .post-body h3 {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+    margin-top: 22px !important;
+    margin-bottom: 10px !important;
+  }
+  .post-body h4 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    margin-top: 18px !important;
+    margin-bottom: 8px !important;
+  }
+  .post-body ul,
+  .post-body ol {
+    padding-left: 22px !important;
+    margin-top: 8px !important;
+    margin-bottom: 14px !important;
+  }
+  .post-body li {
+    margin-bottom: 6px !important;
+  }
+  .post-body pre,
+  .post-body code {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+  }
+  .post-button {
+    font-size: 13px !important;
+  }
+  .collection-title,
+  .page-title {
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+  }
+  .tag-cloud a {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
 }
