@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://burro-cmd.github.io/2026/05/17/GRR/</loc>
+    
+    <lastmod>2026-05-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://burro-cmd.github.io/2026/05/25/Tolerance-Stack-Up-Analysis/</loc>
     
     <lastmod>2026-05-26</lastmod>
@@ -57,15 +66,6 @@
   
   <url>
     <loc>https://burro-cmd.github.io/2019/08/12/hello-world/</loc>
-    
-    <lastmod>2026-05-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/2026/05/17/GRR/</loc>
     
     <lastmod>2026-05-26</lastmod>
     

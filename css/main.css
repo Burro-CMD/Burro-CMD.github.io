@@ -1219,7 +1219,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #94ffff;
+  background: #a1256a;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3130,5 +3130,68 @@ header.header {
   .tag-cloud a {
     font-size: 13px !important;
     line-height: 1.6 !important;
+  }
+}
+@media (max-width: 767px) {
+  .post-meta-container {
+    width: 100% !important;
+    text-align: center !important;
+    overflow: visible !important;
+  }
+  .post-meta {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    font-size: 11px !important;
+    line-height: 1.7 !important;
+    letter-spacing: -0.2px !important;
+  }
+  .post-meta br {
+    display: none !important;
+  }
+  .post-meta-item {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    margin: 0 2px !important;
+  }
+  .post-meta i,
+  .post-meta .fa {
+    margin-right: 3px !important;
+  }
+  .post-meta .post-meta-divider {
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+  }
+  .post-meta a,
+  .post-meta time,
+  .post-meta span {
+    white-space: nowrap !important;
+  }
+  .post-meta-item-text {
+    display: none !important;
+  }
+}
+@media (max-width: 390px) {
+  .post-meta .post-wordcount {
+    display: none !important;
+  }
+  .post-meta {
+    font-size: 10.5px !important;
+    letter-spacing: -0.3px !important;
+  }
+  .post-meta-item {
+    margin: 0 1px !important;
+  }
+  .post-meta .post-meta-divider {
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+  }
+  .post-meta i,
+  .post-meta .fa {
+    margin-right: 2px !important;
   }
 }
