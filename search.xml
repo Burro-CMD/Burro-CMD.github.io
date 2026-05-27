@@ -594,8 +594,12 @@ search | web前段开发工程师 | 码农
 <li><em><strong>Position: Hole patterns, bolt circles (#1).</strong></em></li>
 <li><em><strong>Concentricity: Rotating shafts, pulleys.</strong></em></li>
 <li><em><strong>Symmetry: Slots, tabs, symmetrical parts.</strong></em></li>
-<li>***Runout: Wheels, gears, rotating components.</li>
+<li><em><strong>Runout: Wheels, gears, rotating components.</strong></em></li>
 </ul>
+<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
+<li><a href="https://www.gdandtbasics.com/gdt-advice/">GD&amp;T Training Blog</a></li>
+<li><a href="https://www.gdandtbasics.com/gdt-symbols/">GD&amp;T Symbols Reference Guide</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>Tech</category>
@@ -1770,13 +1774,13 @@ search | web前段开发工程师 | 码农
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
 </blockquote>
+<span id="more"></span>
+
 <h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
 <li><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">Git</a></li>
 <li><a href="https://nodejs.org/zh-cn/download">Node.js</a></li>
 <li><a href="https://atom-editor.cc/">Atom</a></li>
 </ul>
-<span id="more"></span>
-
 <h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 
@@ -1906,12 +1910,225 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>工程选型计算工具</title>
+    <url>/2026/05/27/%E5%B7%A5%E7%A8%8B%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、电机选型（动力源计算）"><a href="#一、电机选型（动力源计算）" class="headerlink" title="一、电机选型（动力源计算）"></a>一、电机选型（动力源计算）</h2><h3 id="1-MISUMI-综合选型工具（首选）"><a href="#1-MISUMI-综合选型工具（首选）" class="headerlink" title="1. MISUMI 综合选型工具（首选）"></a>1. MISUMI 综合选型工具（首选）</h3><p><a href="https://techinfo.misumi.com.cn/tools/">https://techinfo.misumi.com.cn/tools/</a></p>
+<p><strong>主要用于：</strong>整机驱动能力计算</p>
+<span id="more"></span>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>驱动扭矩（Nm）</li>
+<li>电机功率（kW）</li>
+<li>转动惯量匹配</li>
+<li>加减速时间</li>
+<li>负载力 → 扭矩转换</li>
+</ul>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>丝杠驱动</li>
+<li>皮带驱动</li>
+<li>直线模组</li>
+</ul>
+<h3 id="2-SMC-FESTO（气动方案选型）"><a href="#2-SMC-FESTO（气动方案选型）" class="headerlink" title="2. SMC &#x2F; FESTO（气动方案选型）"></a>2. SMC &#x2F; FESTO（气动方案选型）</h3><p><a href="https://www.smc.com.cn/">https://www.smc.com.cn</a><br><a href="https://www.festo.com/">https://www.festo.com</a></p>
+<p><strong>主要用于：</strong>气缸&#x2F;夹爪替代电机方案</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>推力（N）</li>
+<li>气缸直径选型</li>
+<li>空气消耗</li>
+<li>负载能力</li>
+</ul>
+<h3 id="3-SKF（驱动合理性校核）"><a href="#3-SKF（驱动合理性校核）" class="headerlink" title="3. SKF（驱动合理性校核）"></a>3. SKF（驱动合理性校核）</h3><p><a href="https://www.skf.com/cn/digital-tools/select-and-evaluate">https://www.skf.com/cn/digital-tools/select-and-evaluate</a></p>
+<p><strong>主要用于：</strong>验证驱动系统是否合理</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>负载分布</li>
+<li>传动效率</li>
+<li>能耗评估</li>
+</ul>
+<h2 id="二、丝杠选型（直线传动核心）"><a href="#二、丝杠选型（直线传动核心）" class="headerlink" title="二、丝杠选型（直线传动核心）"></a>二、丝杠选型（直线传动核心）</h2><h3 id="1-MISUMI-丝杠计算工具（核心🔥）"><a href="#1-MISUMI-丝杠计算工具（核心🔥）" class="headerlink" title="1. MISUMI 丝杠计算工具（核心🔥）"></a>1. MISUMI 丝杠计算工具（核心🔥）</h3><p><a href="https://techinfo.misumi.com.cn/tools/">https://techinfo.misumi.com.cn/tools/</a></p>
+<p><strong>主要用于：</strong>旋转运动 → 直线运动转换计算</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>丝杠驱动扭矩</li>
+<li>推力（N）</li>
+<li>临界转速</li>
+<li>屈曲（失稳）</li>
+<li>寿命（km）</li>
+</ul>
+<h3 id="2-THK（高精度应用）"><a href="#2-THK（高精度应用）" class="headerlink" title="2. THK（高精度应用）"></a>2. THK（高精度应用）</h3><p><a href="https://www.thk.com/">https://www.thk.com</a></p>
+<p><strong>主要用于：</strong></p>
+<ul>
+<li>高端设备（半导体&#x2F;精密）</li>
+</ul>
+<p><strong>可关注：</strong></p>
+<ul>
+<li>精度等级（C3、C5）</li>
+<li>刚性</li>
+<li>寿命</li>
+</ul>
+<h3 id="3-Mechtool（丝杠快速校核）"><a href="#3-Mechtool（丝杠快速校核）" class="headerlink" title="3. Mechtool（丝杠快速校核）"></a>3. Mechtool（丝杠快速校核）</h3><p><a href="https://www.mechtool.cn/">https://www.mechtool.cn</a></p>
+<p><strong>主要用于：</strong>独立验证计算是否合理</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>丝杠寿命</li>
+<li>轴向负载</li>
+<li>扭矩</li>
+</ul>
+<h2 id="三、导轨选型（刚度-寿命计算）"><a href="#三、导轨选型（刚度-寿命计算）" class="headerlink" title="三、导轨选型（刚度&#x2F;寿命计算）"></a>三、导轨选型（刚度&#x2F;寿命计算）</h2><h3 id="1-MISUMI-导轨选型"><a href="#1-MISUMI-导轨选型" class="headerlink" title="1. MISUMI 导轨选型"></a>1. MISUMI 导轨选型</h3><p><a href="https://techinfo.misumi.com.cn/tools/">https://techinfo.misumi.com.cn/tools/</a></p>
+<p><strong>主要用于：</strong>承载 + 精度系统设计</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>动&#x2F;静载荷（N）</li>
+<li>力矩（Mx&#x2F;My&#x2F;Mz）</li>
+<li>使用寿命（km）</li>
+<li>安全系数</li>
+</ul>
+<h3 id="2-THK-HIWIN"><a href="#2-THK-HIWIN" class="headerlink" title="2. THK &#x2F; HIWIN"></a>2. THK &#x2F; HIWIN</h3><p><a href="https://www.thk.com/">https://www.thk.com</a><br><a href="https://www.hiwin.cn/">https://www.hiwin.cn</a></p>
+<p><strong>主要用于：</strong>标准工业导轨</p>
+<p><strong>可关注：</strong></p>
+<ul>
+<li>额定载荷</li>
+<li>刚度曲线</li>
+<li>精度等级</li>
+</ul>
+<h2 id="四、结构设计（建模-选型）"><a href="#四、结构设计（建模-选型）" class="headerlink" title="四、结构设计（建模+选型）"></a>四、结构设计（建模+选型）</h2><h3 id="1-MISUMI-3D库"><a href="#1-MISUMI-3D库" class="headerlink" title="1. MISUMI 3D库"></a>1. MISUMI 3D库</h3><p><a href="https://www.misumi.com.cn/">https://www.misumi.com.cn</a></p>
+<p><strong>主要用于：</strong>快速搭建标准件结构</p>
+<p><strong>功能：</strong></p>
+<ul>
+<li>标准件选型</li>
+<li>自动生成CAD模型</li>
+<li>参数配置</li>
+</ul>
+<h3 id="2-TraceParts"><a href="#2-TraceParts" class="headerlink" title="2. TraceParts"></a>2. TraceParts</h3><p><a href="https://www.traceparts.com/">https://www.traceparts.com</a></p>
+<p><strong>主要用于：</strong>非标品牌模型补充</p>
+<p><strong>内容：</strong></p>
+<ul>
+<li>电机</li>
+<li>减速机</li>
+<li>结构件</li>
+</ul>
+<h3 id="3-3D-ContentCentral"><a href="#3-3D-ContentCentral" class="headerlink" title="3. 3D ContentCentral"></a>3. 3D ContentCentral</h3><p><a href="https://www.3dcontentcentral.com/">https://www.3dcontentcentral.com</a></p>
+<p><strong>主要用于：</strong>SolidWorks生态模型下载</p>
+<h2 id="五、结构强度与设计校核（非常关键🔥）"><a href="#五、结构强度与设计校核（非常关键🔥）" class="headerlink" title="五、结构强度与设计校核（非常关键🔥）"></a>五、结构强度与设计校核（非常关键🔥）</h2><h3 id="1-Mechtool（万能计算工具）"><a href="#1-Mechtool（万能计算工具）" class="headerlink" title="1. Mechtool（万能计算工具）"></a>1. Mechtool（万能计算工具）</h3><p><a href="https://www.mechtool.cn/">https://www.mechtool.cn</a></p>
+<p><strong>主要用于：</strong>结构是否安全</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>轴强度（弯曲&#x2F;扭转）</li>
+<li>螺栓强度</li>
+<li>齿轮设计</li>
+<li>公差配合</li>
+</ul>
+<h3 id="2-SKF-工具（轴承-系统）"><a href="#2-SKF-工具（轴承-系统）" class="headerlink" title="2. SKF 工具（轴承+系统）"></a>2. SKF 工具（轴承+系统）</h3><p><a href="https://www.skf.com/cn/digital-tools/select-and-evaluate">https://www.skf.com/cn/digital-tools/select-and-evaluate</a></p>
+<p><strong>主要用于：</strong>旋转系统可靠性</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>轴承寿命（L10）</li>
+<li>润滑周期</li>
+<li>转速极限</li>
+</ul>
+<h3 id="3-MITCalc（进阶专业计算）"><a href="#3-MITCalc（进阶专业计算）" class="headerlink" title="3. MITCalc（进阶专业计算）"></a>3. MITCalc（进阶专业计算）</h3><p><a href="https://www.mitcalc.com/">https://www.mitcalc.com</a></p>
+<p><strong>主要用于：</strong>工程级设计校核</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>ISO标准安全系数</li>
+<li>疲劳寿命</li>
+<li>多工况负载</li>
+</ul>
+<h2 id="六、密封系统选型"><a href="#六、密封系统选型" class="headerlink" title="六、密封系统选型"></a>六、密封系统选型</h2><h3 id="1-Trelleborg-O‑Ring-Calculator"><a href="#1-Trelleborg-O‑Ring-Calculator" class="headerlink" title="1. Trelleborg O‑Ring Calculator"></a>1. Trelleborg O‑Ring Calculator</h3><p><a href="https://www.trelleborg.com/zh-cn/seals/resources/design-support-and-engineering-tools/o-ring-calculator">https://www.trelleborg.com/zh-cn/seals/resources/design-support-and-engineering-tools/o-ring-calculator</a></p>
+<p><strong>主要用于：</strong>O形圈的计算</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>沟槽设计</li>
+<li>压缩力气</li>
+<li>直径</li>
+<li>间隙</li>
+<li>拉伸率</li>
+</ul>
+<h3 id="2-Parker-O‑Ring-Selector"><a href="#2-Parker-O‑Ring-Selector" class="headerlink" title="2. Parker O‑Ring Selector"></a>2. Parker O‑Ring Selector</h3><p><a href="https://solutions.parker.com/ORingSelector_en">https://solutions.parker.com/ORingSelector_en</a></p>
+<p><strong>主要用于：</strong>完整密封系统选型（材料 + 尺寸一体化）</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>O型圈尺寸（内径、截面）</li>
+<li>材料选择（NBR &#x2F; FKM 等）</li>
+<li>热膨胀影响</li>
+<li>化学介质兼容性</li>
+<li>公差 + 装配匹配</li>
+</ul>
+<h2 id="七、通用压缩弹簧计算"><a href="#七、通用压缩弹簧计算" class="headerlink" title="七、通用压缩弹簧计算"></a>七、通用压缩弹簧计算</h2><h3 id="1-综合压缩弹簧设计工具（推荐）"><a href="#1-综合压缩弹簧设计工具（推荐）" class="headerlink" title="1. 综合压缩弹簧设计工具（推荐）"></a>1. 综合压缩弹簧设计工具（推荐）</h3><p><a href="https://konbinoxx-cell.github.io/compression-spring-designer/">https://konbinoxx-cell.github.io/compression-spring-designer/</a></p>
+<p><strong>主要用于：</strong>完整弹簧设计（从0开始设计）</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>弹簧刚度 k（N&#x2F;mm）</li>
+<li>载荷-位移关系</li>
+<li>剪应力校核</li>
+<li>材料选择</li>
+<li>技术图自动生成</li>
+</ul>
+<h3 id="2-压缩弹簧工程计算器（推荐✅）"><a href="#2-压缩弹簧工程计算器（推荐✅）" class="headerlink" title="2. 压缩弹簧工程计算器（推荐✅）"></a>2. 压缩弹簧工程计算器（推荐✅）</h3><p><a href="https://www.bchrt.com/tools/compression-spring-calculator/">https://www.bchrt.com/tools/compression-spring-calculator/</a></p>
+<p><strong>主要用于：</strong>标准工程计算 + 寿命校核</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>弹簧刚度</li>
+<li>最大剪应力（τ）</li>
+<li>Wahl修正系数</li>
+<li>疲劳寿命估算</li>
+</ul>
+<p><strong>基于经典公式：</strong></p>
+<ul>
+<li>k &#x3D; Gd⁴ &#x2F; (8D³n)</li>
+<li>τ &#x3D; 8FD &#x2F; (πd³)</li>
+</ul>
+<p><strong>可直接判断：</strong></p>
+<ul>
+<li>会不会断</li>
+<li>能不能长期用 [bchrt.com]</li>
+</ul>
+<h3 id="3-PCB-Tools-弹簧计算器（工程校核专用）"><a href="#3-PCB-Tools-弹簧计算器（工程校核专用）" class="headerlink" title="3. PCB Tools 弹簧计算器（工程校核专用）"></a>3. PCB Tools 弹簧计算器（工程校核专用）</h3><p><a href="https://pcb-tools.cn/spring_calculator.php">https://pcb-tools.cn/spring_calculator.php</a></p>
+<p><strong>主要用于：</strong>强度校核 + 工况分析</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>刚度（k）</li>
+<li>工作载荷（F1 &#x2F; F2）</li>
+<li>极限载荷（压死）</li>
+<li>应力校核（是否超许用）</li>
+</ul>
+<h3 id="4-AI-CNC-弹簧计算器（快速估算）"><a href="#4-AI-CNC-弹簧计算器（快速估算）" class="headerlink" title="4. AI CNC 弹簧计算器（快速估算）"></a>4. AI CNC 弹簧计算器（快速估算）</h3><p><a href="https://aicnc.org/zh/tools/spring-calculator/">https://aicnc.org/zh/tools/spring-calculator/</a></p>
+<p><strong>主要用于：</strong>快速参数估算</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>刚度 k</li>
+<li>载荷 F</li>
+<li>剪应力 τ</li>
+<li>弹簧指数 C</li>
+</ul>
+<h3 id="5-ZenQuery-弹簧设计工具（完整分析）"><a href="#5-ZenQuery-弹簧设计工具（完整分析）" class="headerlink" title="5. ZenQuery 弹簧设计工具（完整分析）"></a>5. ZenQuery 弹簧设计工具（完整分析）</h3><p><a href="https://www.getzenquery.com/tools/compression-spring-calculator/">https://www.getzenquery.com/tools/compression-spring-calculator/</a></p>
+<p><strong>主要用于：</strong>设计 + 分析 +优化</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>刚度（k）</li>
+<li>变形（δ）</li>
+<li>最大应力</li>
+<li>压实高度（Solid height）</li>
+<li>载荷曲线</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>选型</tag>
+        <tag>电机</tag>
+        <tag>O-ring</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>抽吸传感器低成本测试方案</title>
     <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
 <span id="more"></span>
-
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
 <h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
 <h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
 <h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
@@ -1977,8 +2194,8 @@ search | web前段开发工程师 | 码农
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p><strong>说明</strong>：本文用于电子烟测试标准的技术科普与知识记录，不构成消费建议、健康建议或合规结论。具体检测和判定应以正式发布的标准文本、法规要求及具备资质的实验室报告为准。</p>
 </blockquote>
-<h2 id="引入：为什么电子烟也需要被“标准化测试”？"><a href="#引入：为什么电子烟也需要被“标准化测试”？" class="headerlink" title="引入：为什么电子烟也需要被“标准化测试”？"></a>引入：为什么电子烟也需要被“标准化测试”？</h2><span id="more"></span>
-<p>提到电子烟，很多人第一反应是：它不像传统卷烟那样点燃烟草，而是通过电子装置产生“雾气”。从外观上看，电子烟更像一个小型电子产品；从使用方式看，它又和传统烟草制品有相似之处；从检测角度看，它其实同时涉及<strong>电子结构、雾化材料、气流控制和化学释放物</strong>。</p>
+<span id="more"></span>
+<h2 id="引入：为什么电子烟也需要被“标准化测试”？"><a href="#引入：为什么电子烟也需要被“标准化测试”？" class="headerlink" title="引入：为什么电子烟也需要被“标准化测试”？"></a>引入：为什么电子烟也需要被“标准化测试”？</h2><p>提到电子烟，很多人第一反应是：它不像传统卷烟那样点燃烟草，而是通过电子装置产生“雾气”。从外观上看，电子烟更像一个小型电子产品；从使用方式看，它又和传统烟草制品有相似之处；从检测角度看，它其实同时涉及<strong>电子结构、雾化材料、气流控制和化学释放物</strong>。</p>
 <p>也就是说，电子烟并不是简单的“电池加热烟油”。一支电子烟在工作时，电池要稳定供电，控制板要准确启动，雾化芯要在合适温度下加热，雾化物要被均匀输送，最后产生的气溶胶还需要通过气道被吸出。这个过程中，任何一个环节发生变化，都可能影响最终释放物的结果。</p>
 <p>比如，同一款电子烟：</p>
 <ul>
