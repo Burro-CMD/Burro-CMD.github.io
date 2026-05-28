@@ -1331,6 +1331,63 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Solidworks高效机械设计插件</title>
+    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><a href="https://ican.jlc.com/">ICAN工具箱</a></p>
+<span id="more"></span>
+<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
+<li>ICAN工具箱版本</li>
+<li>版本：V9.5.3</li>
+<li>发布日期：2026-05-07</li>
+<li>大小：69 Mb</li>
+<li>版本要求：Sw2016含以上</li>
+<li>支持系统：win7、win10、win11 64位</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
+<p>提供5种打孔功能,打孔效率提升10倍!</p>
+</blockquote>
+<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
+<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
+</blockquote>
+<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
+<p>快速装配常见紧固件,自动识别规格!</p>
+</blockquote>
+<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
+<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
+</blockquote>
+<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
+<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
+</blockquote>
+<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
+<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
+</blockquote>
+<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
+<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
+</blockquote>
+<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
+<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
+</blockquote>
+<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
+<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><a href="https://www.jlc-jdgf.com/icanhelp/JDGF00000108/56134">文字版</a></p>
+<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
+  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
+  您的浏览器不支持HTML5视频播放，请升级浏览器。
+</video>
+
+<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
+<p><a href="https://www.jlc-jdgf.com/document/detail/541433481957957635">FA插件使用教程</a></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>StrainGauge</title>
     <url>/2020/02/07/Strain%20Gauge/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
