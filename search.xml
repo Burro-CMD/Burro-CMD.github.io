@@ -684,21 +684,21 @@ search | web前段开发工程师 | 码农
   <tr>
     <td>参考</td>
     <td>
-
-<ol>
-<li><a href="https://zh.wikipedia.org/wiki/聚醚醚酮">Wikipedia</a><br></li>
-<li><a href="https://baike.baidu.com/item/聚醚醚酮">百度百科</a><br>
- </td>
- <td></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%81%9A%E7%94%B2%E9%86%9B">Wikipedia</a><br></li>
-<li><a href="https://baike.baidu.com/item/%E8%81%9A%E7%94%B2%E9%86%9B#6">百度百科</a><br>
+1. <a href="https://zh.wikipedia.org/wiki/聚醚醚酮">Wikipedia</a><br>
+2. <a href="https://baike.baidu.com/item/聚醚醚酮">百度百科</a>
+<br>
     </td>
     <td>
-    1. <a href="https://baike.baidu.com/item/%E7%8E%AF%E6%B0%A7%E7%8E%BB%E7%92%83%E5%B8%83%E5%B1%82%E5%8E%8B%E6%9D%BF/10619236?fr=aladdin">百度百科</a>
+1. <a href="https://zh.wikipedia.org/wiki/%E8%81%9A%E7%94%B2%E9%86%9B">Wikipedia</a><br>
+2. <a href="https://baike.baidu.com/item/%E8%81%9A%E7%94%B2%E9%86%9B#6">百度百科</a>
+<br>
+    </td>
+    <td>
+1. <a href="https://baike.baidu.com/item/%E7%8E%AF%E6%B0%A7%E7%8E%BB%E7%92%83%E5%B8%83%E5%B1%82%E5%8E%8B%E6%9D%BF/10619236?fr=aladdin">百度百科</a>
     </td>
   </tr>
-</table></li>
-</ol>
+</table>
+
 <h3 id="转接板-Wire-Harness-PCB"><a href="#转接板-Wire-Harness-PCB" class="headerlink" title="转接板 (Wire Harness &#x2F; PCB)"></a><strong>转接板</strong> (Wire Harness &#x2F; PCB)</h3><p>&emsp;&emsp;转接板，也称为适配器板或接口PCB，是一种中间电路板，用于连接探针接口（弹簧针）和外部测试系统（ATE）。它在FCT夹具中充当结构化、工程化的信号路由层。</p>
 <p>与传统的线束不同，接口板为信号分配提供了一种可控、可扩展且易于维护的解决方案。</p>
 <h3 id="转接头-To-Test-Equipment"><a href="#转接头-To-Test-Equipment" class="headerlink" title="转接头 (To Test Equipment)"></a><strong>转接头</strong> (To Test Equipment)</h3><p>&emsp;&emsp;接口连接器用作夹具与外部测试设备（ATE 系统）之间的连接点。</p>
