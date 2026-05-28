@@ -2940,6 +2940,43 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<span id="more"></span>
+
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>申请美国EVUS（签证更新电子系统）</title>
     <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
@@ -2975,43 +3012,6 @@ th {
       </categories>
       <tags>
         <tag>EVUS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<span id="more"></span>
-
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
-</ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
-</ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>精度</tag>
       </tags>
   </entry>
   <entry>
