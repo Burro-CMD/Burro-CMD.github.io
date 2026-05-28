@@ -553,6 +553,322 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>FCT治具机械结构与设计规范</title>
+    <url>/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="FCT概述"><a href="#FCT概述" class="headerlink" title="FCT概述"></a>FCT概述</h2><p>&emsp;&emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。</p>
+<span id="more"></span>
+<h2 id="FCT治具结构"><a href="#FCT治具结构" class="headerlink" title="FCT治具结构"></a>FCT治具结构</h2><p><img src="https://www.kita-mfg.com/english/use/img/using.gif" alt="Needle Plate Module"></p>
+<h3 id="下压系统-Cylinder-Toggle-Clamp"><a href="#下压系统-Cylinder-Toggle-Clamp" class="headerlink" title="下压系统 (Cylinder &#x2F; Toggle Clamp)"></a><strong>下压系统</strong> (Cylinder &#x2F; Toggle Clamp)</h3><p>&emsp;&emsp;压紧系统是功能测试 (FCT) 夹具中的关键机械子系统。其主要作用是施加可控且可重复的力，以确保测试探针（弹簧探针）与被测单元 (UUT)（通常为印刷电路板组件 (PCBA)）之间可靠的电接触。</p>
+<h3 id="压板-Acrylic-FR4-Plate"><a href="#压板-Acrylic-FR4-Plate" class="headerlink" title="压板 (Acrylic &#x2F; FR4 Plate)"></a><strong>压板</strong> (Acrylic &#x2F; FR4 Plate)</h3><p>&emsp;&emsp;压板是功能测试 (FCT) 夹具中的关键机械部件。它位于压机系统和被测单元 (UUT)（通常为印刷电路板组件 (PCBA)）之间，负责在测试周期内将施加的力均匀分布到电路板上。</p>
+<h3 id="UUT-PCBA-Unit-Under-Test"><a href="#UUT-PCBA-Unit-Under-Test" class="headerlink" title="UUT (PCBA) Unit Under Test"></a><strong>UUT (PCBA)</strong> Unit Under Test</h3><p>&emsp;&emsp;被测单元 (UUT) 是指在 FCT 夹具中被测试的设备，通常是印刷电路板组件 (PCBA) 或完全组装的电子产品。</p>
+<h3 id="探针-Pogo-Pins"><a href="#探针-Pogo-Pins" class="headerlink" title="探针 (Pogo Pins)"></a><strong>探针</strong> (Pogo Pins)</h3><p>&emsp;&emsp;测试探针广泛应用于半导体（IC）及电路板（PCB）测试领域，探针被安装在 插座或夹具内部，插座或夹具安置在被测物和测试基板的中间，探针连接被测物 与测试基板，通过传输一定电流和频率来判定被测物是否合格。</p>
+<ul>
+<li>Double action probe　Movable plunger: Two<br><img src="https://www.kita-mfg.com/english/use/img/soket_01.svg" alt="探针结构"></li>
+</ul>
+<p><img src="https://www.kita-mfg.com/english/use/img/fins.gif"></p>
+<ul>
+<li>Single action probe　Movable plunger: One</li>
+</ul>
+<p><img src="https://www.kita-mfg.com/english/use/img/soket_02.svg"></p>
+<p><img src="https://www.kita-mfg.com/english/use/img/fins2.gif"></p>
+<h3 id="探针板-FR4-导向板"><a href="#探针板-FR4-导向板" class="headerlink" title="探针板(FR4)  + 导向板"></a><strong>探针板(FR4)  + 导向板</strong></h3><p>&emsp;&emsp;探针板组件是用于固定和对准测试探针的结构平台。它通常由一块FR4主板以及上下导向板组成，导向板也叫浮动板。</p>
+<h4 id="针板ESD要求"><a href="#针板ESD要求" class="headerlink" title="针板ESD要求"></a>针板ESD要求</h4><ul>
+<li>Material itself ESD: 1x10<sup>5</sup>Ω&lt;Resistance&lt;1x10<sup>9</sup>Ω</li>
+<li>Material to ground: 0&lt;Voltage&lt;100V</li>
+<li>Material to ground: 0&lt;Resistance to ground&lt;1Ω</li>
+</ul>
+<table>
+  <tr>
+    <th>项目</th>
+    <th>PEEK</th>
+    <th>POM</th>
+    <th>FR4</th>
+  </tr>
+
+  <tr>
+    <td>缩写</td>
+    <td>PEEK</td>
+    <td>POM</td>
+    <td>FR4</td>
+  </tr>
+
+  <tr>
+    <td>英文名</td>
+    <td>Polyether ether ketone</td>
+    <td>Polyoxymethylene</td>
+    <td>FR-4 Epoxy Glass Cloth</td>
+  </tr>
+
+  <tr>
+    <td>中文名</td>
+    <td>聚醚醚酮</td>
+    <td>聚甲醛</td>
+    <td>环氧玻璃纤维板</td>
+  </tr>
+
+  <!-- 特性 -->
+  <tr>
+    <td rowspan="4">特性</td>
+    <td>密度：1320 kg/m³</td>
+    <td>1.410–1.420 g/cm³</td>
+    <td>1.850 g/cm³</td>
+  </tr>
+
+  <tr>
+    <td>弹性模量：3.6 GPa</td>
+    <td>2800 MPa</td>
+    <td>24900 MPa</td>
+  </tr>
+
+  <tr>
+    <td>拉伸强度：90–100 MPa</td>
+    <td>42 MPa</td>
+    <td>415 MPa</td>
+  </tr>
+
+  <tr>
+    <td>导热系数：0.25 W/(m·K)</td>
+    <td>0.27 W/(m·K)</td>
+    <td>0.29 W/(m·K)</td>
+  </tr>
+
+  <!-- 性能 -->
+  <tr>
+    <td>性能</td>
+    <td>
+      1. 很好的机械性能和化学性能<br>
+      2. 高高温热塑性树脂，长期使用温度250℃，短期300℃<br>
+      3. 加工方便：流动性好，便于二次加工<br>
+      4. 耐药性：仅溶于浓硫酸<br>
+      5. 阻燃性：UL94-0级自然性，低发烟
+    </td>
+    <td>
+      1. 耐磨性高<br>
+      2. 摩擦系数低<br>
+      3. 耐热性高<br>
+      4. 良好的电气和介电性能<br>
+      5. 吸水率低
+    </td>
+    <td>
+      1. 电绝缘性能稳定<br>
+      2. 平整度好，表面光滑，无凹坑<br>
+      3. 应用于高性能电子绝缘要求的产品<br>
+      4. 隔热性：导热性能<br>
+      5. 吸音性：优良的吸音、隔声性能<br>
+      6. 吸湿性：高吸水率、吸湿率
+    </td>
+  </tr>
+
+  <!-- 应用 -->
+  <tr>
+    <td>应用</td>
+    <td>
+      1. 航空航天领域：高精度飞机零部件<br>
+      2. 汽车制造：发动机内罩、轴承、密封件等<br>
+      3. 工业：压缩机阀片、活塞环等<br>
+      4. 医疗器械：无毒、质轻、耐腐蚀<br>
+      5. 高温电气绝缘等
+    </td>
+    <td>
+      1. 滑动、转动机械零件（齿轮、轴承）<br>
+      2. 医疗器械（心脏起搏器、假肢）
+    </td>
+    <td>
+      1. 冷库保温材料、通风沟道材料<br>
+      2. 建筑保温层（隔声、保温）<br>
+      3. 墙面隔热隔声板
+    </td>
+  </tr>
+
+  <!-- 参考 -->
+  <tr>
+    <td>参考</td>
+    <td>
+
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/聚醚醚酮">Wikipedia</a><br></li>
+<li><a href="https://baike.baidu.com/item/聚醚醚酮">百度百科</a><br>
+ </td>
+ <td></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%81%9A%E7%94%B2%E9%86%9B">Wikipedia</a><br></li>
+<li><a href="https://baike.baidu.com/item/%E8%81%9A%E7%94%B2%E9%86%9B#6">百度百科</a><br>
+    </td>
+    <td>
+    1. <a href="https://baike.baidu.com/item/%E7%8E%AF%E6%B0%A7%E7%8E%BB%E7%92%83%E5%B8%83%E5%B1%82%E5%8E%8B%E6%9D%BF/10619236?fr=aladdin">百度百科</a>
+    </td>
+  </tr>
+</table></li>
+</ol>
+<h3 id="转接板-Wire-Harness-PCB"><a href="#转接板-Wire-Harness-PCB" class="headerlink" title="转接板 (Wire Harness &#x2F; PCB)"></a><strong>转接板</strong> (Wire Harness &#x2F; PCB)</h3><p>&emsp;&emsp;转接板，也称为适配器板或接口PCB，是一种中间电路板，用于连接探针接口（弹簧针）和外部测试系统（ATE）。它在FCT夹具中充当结构化、工程化的信号路由层。</p>
+<p>与传统的线束不同，接口板为信号分配提供了一种可控、可扩展且易于维护的解决方案。</p>
+<h3 id="转接头-To-Test-Equipment"><a href="#转接头-To-Test-Equipment" class="headerlink" title="转接头 (To Test Equipment)"></a><strong>转接头</strong> (To Test Equipment)</h3><p>&emsp;&emsp;接口连接器用作夹具与外部测试设备（ATE 系统）之间的连接点。</p>
+<h3 id="测试系统-Power-DAQ-Software"><a href="#测试系统-Power-DAQ-Software" class="headerlink" title="测试系统 Power &#x2F; DAQ &#x2F; Software"></a><strong>测试系统</strong> Power &#x2F; DAQ &#x2F; Software</h3><p>&emsp;&emsp;ATE系统是FCT装置的控制和测量核心。它执行测试序列，控制功率和信号，并评估被测设备的性能。</p>
+<h2 id="公差分析（Tolerance-Stack-Up-Analysis）"><a href="#公差分析（Tolerance-Stack-Up-Analysis）" class="headerlink" title="公差分析（Tolerance Stack-Up Analysis）"></a>公差分析（Tolerance Stack-Up Analysis）</h2><p>&emsp;&emsp;公差分析是指评估所有影响探针与被测单元（UUT）对准的机械部件的累积尺寸偏差的过程。<br>其主要目标是在最不利的尺寸条件下确保探针与焊盘之间可靠的接触。</p>
+<p><strong>公差尺寸链</strong></p>
+<ul>
+<li>Guide System (Pins&#x2F; Bushings)——导向轴&#x2F;轴承公差</li>
+<li>Probe Plate Hole Position——针板孔位公差</li>
+<li>Guide Plate Position——导向板位公差</li>
+<li>UUT locating holes&#x2F; edges——被测物孔&#x2F; 边线公差</li>
+<li>PCB fabrication tolerance——PCB板制造公差</li>
+<li>Test pad position——测试点位置公差</li>
+</ul>
+<p><strong>最小距离和最小测试点尺寸</strong></p>
+<p>&emsp;&emsp;每种测试夹具都存在不同的公差，导致测试点位置与最佳位置存在偏差。因此，测试点的最小尺寸以及测试点与被测电路板元件之间的最小距离都存在实际的限制。以下是一些典型值的概述：</p>
+<p><strong>距离定义</strong></p>
+<ul>
+<li>A: Distance between test points (center to center)  </li>
+<li>B: Distance between test point (center) and component (edge)  </li>
+<li>C: Centering hole diameter</li>
+<li>D: Distance between test point (edge) and centering hole (edge)  </li>
+<li>E: Distance between test point (edge)  and board edge  </li>
+<li>F: Test point diameter</li>
+</ul>
+<table>
+  <tr>
+    <th>Minimum distance test point – test point by center</th>
+    <th>mm</th>
+    <th>mil</th>
+    <th>Dimension</th>
+  </tr>
+  <tr>
+    <td>100 mil</td>
+    <td>2.05</td>
+    <td>81</td>
+    <td rowspan="3">A</td>
+  </tr>
+  <tr>
+    <td>75 mil</td>
+    <td>1.70</td>
+    <td>67</td>
+  </tr>
+  <tr>
+    <td>50 mil</td>
+    <td>1.27</td>
+    <td>50</td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th rowspan="2">Minimum distance test point – component</th>
+    <th colspan="2">Component height &lt; 3 mm</th>
+    <th colspan="2">Component height &gt; 3 mm</th>
+    <th rowspan="2">Dimension</th>
+  </tr>
+  <tr>
+    <th>mm</th>
+    <th>mil</th>
+    <th>mm</th>
+    <th>mil</th>
+  </tr>
+  <tr>
+    <td>100 mil</td>
+    <td>0.85</td>
+    <td>33</td>
+    <td>1.24</td>
+    <td>49</td>
+    <td rowspan="3">B</td>
+  </tr>
+  <tr>
+    <td>75 mil</td>
+    <td>0.72</td>
+    <td>28</td>
+    <td>1.05</td>
+    <td>41</td>
+  </tr>
+  <tr>
+    <td>50 mil</td>
+    <td>0.65</td>
+    <td>26</td>
+    <td>0.93</td>
+    <td>36</td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Further minimum distances and minimum sizes</th>
+    <th>mm</th>
+    <th>mil</th>
+    <th>Note</th>
+    <th>Dimension</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Centering hole diameter tolerance</td>
+    <td>+0.10 / -0.05</td>
+    <td>+4 / -2</td>
+    <td>TP ≥ 0.8</td>
+    <td rowspan="2">C</td>
+  </tr>
+  <tr>
+    <td>±0.05</td>
+    <td>±2</td>
+    <td>TP &lt; 0.8</td>
+  </tr>
+  <tr>
+    <td>Test point – centering hole</td>
+    <td>1.0</td>
+    <td>40</td>
+    <td></td>
+    <td>D</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Test point – board edge</td>
+    <td>0.3</td>
+    <td>12</td>
+    <td></td>
+    <td rowspan="2">E</td>
+  </tr>
+  <tr>
+    <td>3.0</td>
+    <td>119</td>
+    <td>with mold</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Test point size</td>
+    <td>&gt; 0.8</td>
+    <td>32</td>
+    <td>without guiding plate</td>
+    <td rowspan="3">F</td>
+  </tr>
+  <tr>
+    <td>&gt; 0.7</td>
+    <td>28</td>
+    <td>with guiding plate</td>
+  </tr>
+  <tr>
+    <td>&gt; 0.4</td>
+    <td>16</td>
+    <td>rigid probe</td>
+  </tr>
+  <tr>
+    <td>Tolerance of board contour</td>
+    <td>±0.25</td>
+    <td>±10</td>
+    <td>positioning by pilot pin</td>
+    <td></td>
+  </tr>
+</table>
+
+
+<h2 id="应力分析（Simulation）"><a href="#应力分析（Simulation）" class="headerlink" title="应力分析（Simulation）"></a>应力分析（Simulation）</h2><p>&emsp;&emsp;应力分析旨在评估操作过程中被测单元（UUT）所承受的机械载荷和由此产生的应力。一般是±500微应变。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://www.kita-mfg.com/chinese1/">株式会社喜多制作所</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>FCT</tag>
+        <tag>结构设计</tag>
+        <tag>设计规范</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
     <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><span id="more"></span>
@@ -680,6 +996,176 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>ICT与FCT的区别</title>
+    <url>/2020/01/15/ICT%E4%B8%8EFCT%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>FCT 和 ICT 都是电子产品&#x2F;PCBA（电路板组件）制造中的测试手段.</p>
+</blockquote>
+<ul>
+<li>ICT：In-Circuit Test，在线测试 &#x2F; 电路内测试</li>
+<li>FCT：Functional Circuit Test，功能测试<span id="more"></span>
+通俗地说：ICT 主要检查“板子装得对不对”，FCT 主要检查“产品功能能不能正常工作”。</li>
+</ul>
+<h2 id="主要区别"><a href="#主要区别" class="headerlink" title="主要区别"></a>主要区别</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">ICT</th>
+<th align="center">FCT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">测试目的</td>
+<td align="center">检查元器件、焊接、线路是否正确</td>
+<td align="center">检查整板或整机功能是否正常</td>
+</tr>
+<tr>
+<td align="center">测试阶段</td>
+<td align="center">通常在 PCBA 完成后、功能测试前</td>
+<td align="center">通常在 ICT 后、出货前</td>
+</tr>
+<tr>
+<td align="center">测试对象</td>
+<td align="center">单个元件、网络、焊点、开短路</td>
+<td align="center">产品实际功能、接口、信号、通信、动作</td>
+</tr>
+<tr>
+<td align="center">测试方式</td>
+<td align="center">通过探针接触测试点进行电气测量</td>
+<td align="center">给产品上电，模拟实际工作条件</td>
+</tr>
+<tr>
+<td align="center">典型设备</td>
+<td align="center">针床、飞针测试机、ICT 测试仪</td>
+<td align="center">工装夹具、电源、负载、上位机、仪器仪表</td>
+</tr>
+<tr>
+<td align="center">覆盖问题</td>
+<td align="center">错件、漏件、反向、短路、开路、虚焊</td>
+<td align="center">功能异常、通信失败、性能不达标、程序问题</td>
+</tr>
+<tr>
+<td align="center">对测试点依赖</td>
+<td align="center">很高</td>
+<td align="center">相对较低</td>
+</tr>
+<tr>
+<td align="center">是否需要产品运行</td>
+<td align="center">一般不需要完整运行</td>
+<td align="center">需要上电运行</td>
+</tr>
+</tbody></table>
+<h2 id="ICT-是什么？"><a href="#ICT-是什么？" class="headerlink" title="ICT 是什么？"></a>ICT 是什么？</h2><p><strong>ICT 在线测试</strong>主要用于检测 PCBA 上的元器件和线路是否存在制造缺陷。</p>
+<blockquote>
+<p>它通常通过针床或飞针接触 PCB 上的测试点，然后测量电阻、电容、电感、二极管、晶体管、IC 引脚、电源网络等</p>
+</blockquote>
+<h3 id="ICT-主要能发现的问题"><a href="#ICT-主要能发现的问题" class="headerlink" title="ICT 主要能发现的问题"></a>ICT 主要能发现的问题</h3><ul>
+<li>元器件漏装</li>
+<li>元器件错装</li>
+<li>阻容值错误</li>
+<li>极性件反向，例如二极管、电解电容</li>
+<li>焊接短路</li>
+<li>焊接开路</li>
+<li>虚焊、连锡</li>
+<li>PCB 网络开短路</li>
+<li>部分 IC 引脚焊接问题</li>
+</ul>
+<h3 id="ICT-的优点"><a href="#ICT-的优点" class="headerlink" title="ICT 的优点"></a>ICT 的优点</h3><ul>
+<li>定位问题快，可以精确到某个元件或网络</li>
+<li>适合大批量生产</li>
+<li>对制造缺陷检出率高</li>
+<li>测试速度快</li>
+</ul>
+<h3 id="ICT-的局限"><a href="#ICT-的局限" class="headerlink" title="ICT 的局限"></a>ICT 的局限</h3><ul>
+<li>需要 PCB 设计阶段预留测试点</li>
+<li>对 BGA、细间距器件测试覆盖有限</li>
+<li>无法完全验证产品实际功能</li>
+<li>针床夹具成本较高，适合批量产品</li>
+</ul>
+<h2 id="FCT-是什么？"><a href="#FCT-是什么？" class="headerlink" title="FCT 是什么？"></a>FCT 是什么？</h2><p><strong>FCT 功能测试</strong>是让 PCBA 或整机在接近真实使用场景下运行，检查产品功能是否满足设计要求。</p>
+<blockquote>
+<p>例如给板子供电，下载或运行程序，检测输入输出、通信接口、传感器、执行器、电机、继电器、显示屏、按键、LED、无线模块等是否正常。</p>
+</blockquote>
+<h3 id="FCT-主要能发现的问题"><a href="#FCT-主要能发现的问题" class="headerlink" title="FCT 主要能发现的问题"></a>FCT 主要能发现的问题</h3><ul>
+<li>产品无法开机</li>
+<li>电源电压异常</li>
+<li>MCU 程序运行异常</li>
+<li>通信失败，如 CAN、LIN、UART、I²C、SPI、Ethernet、USB</li>
+<li>按键、LED、蜂鸣器、显示屏异常</li>
+<li>传感器读数异常</li>
+<li>电机、继电器、阀、泵等执行器动作异常</li>
+<li>校准参数错误</li>
+<li>功耗、电流不达标</li>
+<li>软件版本错误</li>
+<li>整机功能不符合规格</li>
+</ul>
+<h3 id="FCT-的优点"><a href="#FCT-的优点" class="headerlink" title="FCT 的优点"></a>FCT 的优点</h3><ul>
+<li>能验证产品真实功能</li>
+<li>更接近客户使用场景</li>
+<li>可结合软件、固件、通信、机械动作一起测试</li>
+<li>对最终质量把关非常关键</li>
+</ul>
+<h3 id="FCT-的局限"><a href="#FCT-的局限" class="headerlink" title="FCT 的局限"></a>FCT 的局限</h3><ul>
+<li>故障定位不如 ICT 精准</li>
+<li>测试时间通常较长</li>
+<li>工装和测试程序需要根据产品定制</li>
+<li>若前面制程缺陷多，FCT 会变成“问题暴露点”，维修压力大</li>
+</ul>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>假设有一块控制板，上面有 MCU、电源芯片、电阻、电容、继电器、CAN 通信接口。</p>
+<h3 id="ICT-会检查："><a href="#ICT-会检查：" class="headerlink" title="ICT 会检查："></a>ICT 会检查：</h3><ul>
+<li>R101 是不是 10kΩ？</li>
+<li>C205 有没有漏装？</li>
+<li>D3 有没有装反？</li>
+<li>5V 和 GND 有没有短路？</li>
+<li>MCU 某些引脚有没有虚焊？</li>
+<li>继电器线圈阻值是否正常？</li>
+</ul>
+<h3 id="FCT-会检查："><a href="#FCT-会检查：" class="headerlink" title="FCT 会检查："></a>FCT 会检查：</h3><ul>
+<li>板子上电后 5V&#x2F;3.3V 是否正常？</li>
+<li>MCU 是否启动？</li>
+<li>CAN 通信能不能收发？</li>
+<li>继电器能不能按指令吸合？</li>
+<li>LED 是否按逻辑点亮？</li>
+<li>输入信号变化后输出是否正确？</li>
+<li>产品整体功能是否符合规格？</li>
+</ul>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><h3 id="适合做-ICT-的情况"><a href="#适合做-ICT-的情况" class="headerlink" title="适合做 ICT 的情况"></a>适合做 ICT 的情况</h3><ul>
+<li>批量较大</li>
+<li>PCB 测试点充足</li>
+<li>元件数量多</li>
+<li>制造缺陷风险高</li>
+<li>需要快速定位失效点</li>
+<li>维修分析要求高</li>
+</ul>
+<h3 id="适合重点做-FCT-的情况"><a href="#适合重点做-FCT-的情况" class="headerlink" title="适合重点做 FCT 的情况"></a>适合重点做 FCT 的情况</h3><ul>
+<li>产品功能复杂</li>
+<li>涉及通信、控制、传感器、执行器</li>
+<li>需要模拟实际应用场景</li>
+<li>小批量或多品种产品</li>
+<li>ICT 测试点不足</li>
+<li>最终出货质量要求高</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以这样理解：</p>
+<blockquote>
+<p>ICT 是检查 PCBA “装配是否正确”；FCT 是检查产品“是否能正常工作”。</p>
+</blockquote>
+<h3 id="具体表现："><a href="#具体表现：" class="headerlink" title="具体表现："></a>具体表现：</h3><ul>
+<li><strong>ICT</strong> 关注制造缺陷</li>
+<li><strong>FCT</strong> 关注功能表现</li>
+<li><strong>ICT</strong> 更适合定位硬件装配问题</li>
+<li><strong>FCT</strong> 更适合验证系统级功能</li>
+</ul>
+<p>实际生产中通常 ICT + FCT 搭配使用，质量保障效果最好</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>FCT</tag>
+        <tag>ICT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MacBook效率工具</title>
     <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<a href="https://ezip.awehunt.com/">MacZip</a> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
@@ -782,8 +1268,8 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
-    <title>Tolerance-Stack-Up-Analysis</title>
-    <url>/2026/05/25/Tolerance-Stack-Up-Analysis/</url>
+    <title>Tolerance Stack Up Analysis</title>
+    <url>/2020/02/16/Tolerance-Stack-Up-Analysis/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="What-is-Tolerance-Stack-Up"><a href="#What-is-Tolerance-Stack-Up" class="headerlink" title="What is Tolerance Stack-Up?"></a>What is Tolerance Stack-Up?</h2><span id="more"></span>
 <h3 id="Understanding-Tolerances"><a href="#Understanding-Tolerances" class="headerlink" title="Understanding Tolerances"></a>Understanding Tolerances</h3><p><strong>Tolerance</strong> is the permissible variation in a dimension. No manufacturing process is perfect—every part will have slight variations. For example:</p>
 <ul>
