@@ -3,38 +3,146 @@
   <entry>
     <title>Atom Command</title>
     <url>/2026/01/15/Atom-command/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Atom-MacOs-快捷键"><a href="#Atom-MacOs-快捷键" class="headerlink" title="Atom MacOs 快捷键"></a>Atom MacOs 快捷键</h1><h2 id="文件切换"><a href="#文件切换" class="headerlink" title="文件切换"></a>文件切换</h2><p>ctrl-shift-s 保存所有打开的文件<br>cmd-shift-o 打开目录<br>cmd-\ 显示或隐藏目录树<br>ctrl-0 焦点移到目录树<br>目录树下，使用a，m，delete来增加，修改和删除<br>cmd-t或cmd-p 查找文件<br>cmd-b 在打开的文件之间切换<br>cmd-shift-b 只搜索从上次git commit后修改或者新增的文件</p>
-<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><p>（等价于上下左右）<br>ctrl-p 前一行<br>ctrl-n 后一行<br>ctrl-f 前一个字符<br>ctrl-b 后一个字符</p>
-<p>alt-B, alt-left 移动到单词开始<br>alt-F, alt-right 移动到单词末尾</p>
-<p>cmd-right, ctrl-E 移动到一行结束<br>cmd-left, ctrl-A 移动到一行开始</p>
-<p>cmd-up 移动到文件开始<br>cmd-down 移动到文件结束</p>
-<p>ctrl-g 移动到指定行 row:column 处</p>
-<p>cmd-r 在方法之间跳转</p>
-<h2 id="目录树操作"><a href="#目录树操作" class="headerlink" title="目录树操作"></a>目录树操作</h2><p>cmd-\ 或者 cmd-k cmd-b 显示(隐藏)目录树<br>ctrl-0 焦点切换到目录树(再按一次或者Esc退出目录树)<br>a 添加文件<br>d 将当前文件另存为(duplicate)<br>i 显示(隐藏)版本控制忽略的文件<br>alt-right 和 alt-left 展开(隐藏)所有目录<br>ctrl-al-] 和 ctrl-al-[ 同上<br>ctrl-[ 和 ctrl-] 展开(隐藏)当前目录<br>ctrl-f 和 ctrl-b 同上<br>cmd-k h 或者 cmd-k left 在左半视图中打开文件<br>cmd-k j 或者 cmd-k down 在下半视图中打开文件<br>cmd-k k 或者 cmd-k up 在上半视图中打开文件<br>cmd-k l 或者 cmd-k right 在右半视图中打开文件<br>ctrl-shift-C 复制当前文件绝对路径</p>
-<h2 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h2><p>cmd-F2 在本行增加书签<br>F2 跳到当前文件的下一条书签<br>shift-F2 跳到当前文件的上一条书签<br>ctrl-F2 列出当前工程所有书签</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Atom-MacOs-快捷键"><a href="#Atom-MacOs-快捷键" class="headerlink" title="Atom MacOs 快捷键"></a>Atom MacOs 快捷键</h1><h2 id="文件切换"><a href="#文件切换" class="headerlink" title="文件切换"></a>文件切换</h2><ul>
+<li>ctrl-shift-s 保存所有打开的文件</li>
+<li>cmd-shift-o 打开目录</li>
+<li>cmd-\ 显示或隐藏目录树</li>
+<li>ctrl-0 焦点移到目录树</li>
+<li>目录树下，使用a，m，delete来增加，修改和删除</li>
+<li>cmd-t或cmd-p 查找文件</li>
+<li>cmd-b 在打开的文件之间切换</li>
+<li>cmd-shift-b 只搜索从上次git commit后修改或者新增的文件</li>
+</ul>
+<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><p>（等价于上下左右）</p>
+<ul>
+<li>ctrl-p 前一行</li>
+<li>ctrl-n 后一行</li>
+<li>ctrl-f 前一个字符</li>
+<li>ctrl-b 后一个字符</li>
+<li>alt-B, alt-left 移动到单词开始</li>
+<li>alt-F, alt-right 移动到单词末尾</li>
+<li>cmd-right, ctrl-E 移动到一行结束</li>
+<li>cmd-left, ctrl-A 移动到一行开始</li>
+<li>cmd-up 移动到文件开始</li>
+<li>cmd-down 移动到文件结束</li>
+<li>ctrl-g 移动到指定行 row:column 处</li>
+<li>cmd-r 在方法之间跳转</li>
+</ul>
+<h2 id="目录树操作"><a href="#目录树操作" class="headerlink" title="目录树操作"></a>目录树操作</h2><ul>
+<li>cmd-\ 或者 cmd-k cmd-b 显示(隐藏)目录树</li>
+<li>ctrl-0 焦点切换到目录树(再按一次或者Esc退出目录树)</li>
+<li>a 添加文件</li>
+<li>d 将当前文件另存为(duplicate)</li>
+<li>i 显示(隐藏)版本控制忽略的文件</li>
+<li>alt-right 和 alt-left 展开(隐藏)所有目录</li>
+<li>ctrl-al-] 和 ctrl-al-[ 同上</li>
+<li>ctrl-[ 和 ctrl-] 展开(隐藏)当前目录</li>
+<li>ctrl-f 和 ctrl-b 同上</li>
+<li>cmd-k h 或者 cmd-k left 在左半视图中打开文件</li>
+<li>cmd-k j 或者 cmd-k down 在下半视图中打开文件</li>
+<li>cmd-k k 或者 cmd-k up 在上半视图中打开文件</li>
+<li>cmd-k l 或者 cmd-k right 在右半视图中打开文件</li>
+<li>ctrl-shift-C 复制当前文件绝对路径</li>
+</ul>
+<h2 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h2><ul>
+<li>cmd-F2 在本行增加书签</li>
+<li>F2 跳到当前文件的下一条书签</li>
+<li>shift-F2 跳到当前文件的上一条书签</li>
+<li>ctrl-F2 列出当前工程所有书签</li>
+</ul>
 <h2 id="选取"><a href="#选取" class="headerlink" title="选取"></a>选取</h2><blockquote>
 <p>大部分和导航一致，只不过加上shift</p>
 </blockquote>
-<p>ctrl-shift-P 选取至上一行<br>ctrl-shift-N 选取至下一样<br>ctrl-shift-B 选取至前一个字符<br>ctrl-shift-F 选取至后一个字符<br>alt-shift-B, alt-shift-left 选取至字符开始<br>alt-shift-F, alt-shift-right 选取至字符结束<br>ctrl-shift-E, cmd-shift-right 选取至本行结束<br>ctrl-shift-A, cmd-shift-left 选取至本行开始<br>cmd-shift-up 选取至文件开始<br>cmd-shift-down 选取至文件结尾<br>cmd-A 全选<br>cmd-L 选取一行，继续按回选取下一行<br>ctrl-shift-W 选取当前单词</p>
-<h2 id="编辑和删除文本"><a href="#编辑和删除文本" class="headerlink" title="编辑和删除文本"></a>编辑和删除文本</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>ctrl-T 使光标前后字符交换<br>cmd-J 将下一行与当前行合并<br>ctrl-cmd-up, ctrl-cmd-down 使当前行向上或者向下移动<br>cmd-shift-D 复制当前行到下一行<br>cmd-K, cmd-U 使当前字符大写<br>cmd-K, cmd-L 使当前字符小写<br>cmd-shift-P 搜索命令</p>
-<h3 id="删除和剪切"><a href="#删除和剪切" class="headerlink" title="删除和剪切"></a>删除和剪切</h3><p>ctrl-shift-K 删除当前行<br>cmd-backspace 删除到当前行开始<br>cmd-fn-backspace 删除到当前行结束<br>ctrl-K 剪切到当前行结束<br>alt-backspace 或 alt-H 删除到当前单词开始<br>alt-delete 或 alt-D 删除到当前单词结束</p>
-<h3 id="多光标和多处选取"><a href="#多光标和多处选取" class="headerlink" title="多光标和多处选取"></a>多光标和多处选取</h3><p>cmd-click 增加新光标<br>cmd-shift-L 将多行选取改为多行光标<br>ctrl-shift-up, ctrl-shift-down 增加上（下）一行光标<br>cmd-D 选取文档中和当前单词相同的下一处<br>ctrl-cmd-G 选取文档中所有和当前光标单词相同的位置</p>
-<h3 id="括号跳转"><a href="#括号跳转" class="headerlink" title="括号跳转"></a>括号跳转</h3><p>ctrl-m 相应括号之间，html tag之间等跳转<br>ctrl-cmd-m 括号(tag)之间文本选取<br>alt-cmd-. 关闭当前XML&#x2F;HTML tag</p>
-<h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><p>ctrl-shift-U 调出切换编码选项</p>
-<h3 id="查找和替换"><a href="#查找和替换" class="headerlink" title="查找和替换"></a>查找和替换</h3><p>cmd-F 在buffer中查找<br>cmd-shift-f 在整个工程中查找</p>
-<h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><p>alt-shift-S 查看当前可用代码片段</p>
+<ul>
+<li>ctrl-shift-P 选取至上一行</li>
+<li>ctrl-shift-N 选取至下一样</li>
+<li>ctrl-shift-B 选取至前一个字符</li>
+<li>ctrl-shift-F 选取至后一个字符</li>
+<li>alt-shift-B, alt-shift-left 选取至字符开始</li>
+<li>alt-shift-F, alt-shift-right 选取至字符结束</li>
+<li>ctrl-shift-E, cmd-shift-right 选取至本行结束</li>
+<li>ctrl-shift-A, cmd-shift-left 选取至本行开始</li>
+<li>cmd-shift-up 选取至文件开始</li>
+<li>cmd-shift-down 选取至文件结尾</li>
+<li>cmd-A 全选</li>
+<li>cmd-L 选取一行，继续按回选取下一行</li>
+<li>ctrl-shift-W 选取当前单词</li>
+</ul>
+<h2 id="编辑和删除文本"><a href="#编辑和删除文本" class="headerlink" title="编辑和删除文本"></a>编辑和删除文本</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ul>
+<li>ctrl-T 使光标前后字符交换</li>
+<li>cmd-J 将下一行与当前行合并</li>
+<li>ctrl-cmd-up, ctrl-cmd-down 使当前行向上或者向下移动</li>
+<li>cmd-shift-D 复制当前行到下一行</li>
+<li>cmd-K, cmd-U 使当前字符大写</li>
+<li>cmd-K, cmd-L 使当前字符小写</li>
+<li>cmd-shift-P 搜索命令</li>
+</ul>
+<h3 id="删除和剪切"><a href="#删除和剪切" class="headerlink" title="删除和剪切"></a>删除和剪切</h3><ul>
+<li>ctrl-shift-K 删除当前行</li>
+<li>cmd-backspace 删除到当前行开始</li>
+<li>cmd-fn-backspace 删除到当前行结束</li>
+<li>ctrl-K 剪切到当前行结束</li>
+<li>alt-backspace 或 alt-H 删除到当前单词开始</li>
+<li>alt-delete 或 alt-D 删除到当前单词结束</li>
+</ul>
+<h3 id="多光标和多处选取"><a href="#多光标和多处选取" class="headerlink" title="多光标和多处选取"></a>多光标和多处选取</h3><ul>
+<li>cmd-click 增加新光标</li>
+<li>cmd-shift-L 将多行选取改为多行光标</li>
+<li>ctrl-shift-up, ctrl-shift-down 增加上（下）一行光标</li>
+<li>cmd-D 选取文档中和当前单词相同的下一处</li>
+<li>ctrl-cmd-G 选取文档中所有和当前光标单词相同的位置</li>
+</ul>
+<h3 id="括号跳转"><a href="#括号跳转" class="headerlink" title="括号跳转"></a>括号跳转</h3><ul>
+<li>ctrl-m 相应括号之间，html tag之间等跳转</li>
+<li>ctrl-cmd-m 括号(tag)之间文本选取</li>
+<li>alt-cmd-. 关闭当前XML&#x2F;HTML tag</li>
+</ul>
+<h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><ul>
+<li>ctrl-shift-U 调出切换编码选项</li>
+</ul>
+<h3 id="查找和替换"><a href="#查找和替换" class="headerlink" title="查找和替换"></a>查找和替换</h3><ul>
+<li>cmd-F 在buffer中查找</li>
+<li>cmd-shift-f 在整个工程中查找</li>
+</ul>
+<h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><ul>
+<li>alt-shift-S 查看当前可用代码片段</li>
+</ul>
 <blockquote>
 <p>在~&#x2F;.atom目录下snippets.cson文件中存放了你定制的snippets</p>
 </blockquote>
 <p>定制说明</p>
-<h3 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h3><p>ctrl-space 提示补全信息</p>
-<h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><p>alt-cmd-[ 折叠<br>alt-cmd-] 展开<br>alt-cmd-shift-{ 折叠全部<br>alt-cmd-shift-} 展开全部<br>cmd-k cmd-N 指定折叠层级 N为层级数</p>
-<h3 id="文件语法高亮"><a href="#文件语法高亮" class="headerlink" title="文件语法高亮"></a>文件语法高亮</h3><p>ctrl-shift-L 选择文本类型</p>
-<h3 id="使用Atom进行写作"><a href="#使用Atom进行写作" class="headerlink" title="使用Atom进行写作"></a>使用Atom进行写作</h3><p>ctrl-shift-M Markdown预览<br>可用代码片段</p>
+<h3 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h3><ul>
+<li>ctrl-space 提示补全信息</li>
+</ul>
+<h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><ul>
+<li>alt-cmd-[ 折叠</li>
+<li>alt-cmd-] 展开</li>
+<li>alt-cmd-shift-{ 折叠全部</li>
+<li>alt-cmd-shift-} 展开全部</li>
+<li>cmd-k cmd-N 指定折叠层级 N为层级数</li>
+</ul>
+<h3 id="文件语法高亮"><a href="#文件语法高亮" class="headerlink" title="文件语法高亮"></a>文件语法高亮</h3><ul>
+<li>ctrl-shift-L 选择文本类型</li>
+</ul>
+<h3 id="使用Atom进行写作"><a href="#使用Atom进行写作" class="headerlink" title="使用Atom进行写作"></a>使用Atom进行写作</h3><ul>
+<li>ctrl-shift-M Markdown预览可用代码片段</li>
+</ul>
 <blockquote>
 <p>b, legal, img, l, i, code, t, table</p>
 </blockquote>
-<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><p>cmd-alt-Z checkout HEAD 版本<br>cmd-shift-B 弹出untracked 和 modified文件列表<br>alt-g down alt-g up 在修改处跳转<br>alt-G D 弹出diff列表<br>alt-G O 在github上打开文件<br>alt-G G 在github上打开项目地址<br>alt-G B 在github上打开文件blame<br>alt-G H 在github上打开文件history<br>alt-G I 在github上打开issues<br>alt-G R 在github打开分支比较<br>alt-G C 拷贝当前文件在gihub上的网址</p>
+<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><ul>
+<li>cmd-alt-Z checkout HEAD 版本</li>
+<li>cmd-shift-B 弹出untracked 和 modified文件列表</li>
+<li>alt-g down alt-g up 在修改处跳转</li>
+<li>alt-G D 弹出diff列表</li>
+<li>alt-G O 在github上打开文件</li>
+<li>alt-G G 在github上打开项目地址</li>
+<li>alt-G B 在github上打开文件blame</li>
+<li>alt-G H 在github上打开文件history</li>
+<li>alt-G I 在github上打开issues</li>
+<li>alt-G R 在github打开分支比较</li>
+<li>alt-G C 拷贝当前文件在gihub上的网址</li>
+</ul>
 <h2 id="推荐一些好用的插件"><a href="#推荐一些好用的插件" class="headerlink" title="推荐一些好用的插件"></a>推荐一些好用的插件</h2><ul>
 <li>主题</li>
 <li>atom-material-ui 好看到爆</li>
@@ -74,6 +182,102 @@
       </categories>
   </entry>
   <entry>
+    <title>Atom中Markdown语法</title>
+    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>无序1</li>
+<li>无序2</li>
+<li>无序3</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+</blockquote>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<strong>加粗的内容</strong></p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<em>斜体的内容</em></p>
+<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
+<p>我是需要___粗斜体的内容___</p>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果：<del>删除线</del></p>
+<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
+<p>我是需要***<del>粗斜体删除的内容</del>***</p>
+<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
+<hr>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<u>这是需要下划线的内容</u></p>
+<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<center>这是要居中的文本内容</center></p>
+<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Java</li>
+<li><input disabled="" type="checkbox"> C</li>
+<li><input disabled="" type="checkbox"> C++</li>
+</ul>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
+<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
+<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
+<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
+<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
+<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
+
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<center>行1 |<center>行2 |<center>行3
+:----: | :----: | :----:
+小程序 | vue | 菜鸟
+search | web前段开发工程师 | 码农
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>Example: This is an <a href="http://example.com/" title="With a Title">example link</a>.</li>
+<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
+<p>语法示例：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>早饭后，我打开 <a href="https://dict.eudic.net/ting" title="每日英语听力 - 欧路词典">每日英语听力</a> 学习英语。遇到不懂的英语单词，我借助 <a href="https://dict.eudic.net/" title="《欧路词典》在线版">欧路在线词典</a><br>查看释义并加入生词本，方便使用 <a href="https://www.eudic.net/v4/en/app/eudic" title="《欧路词典》英语翻译软件官方主页">客户端</a> 随时记忆单词。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Atom</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Atom使用</title>
     <url>/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h3><p><strong>1. Simplified-chinese-menu</strong><br>Atom 的简体中文汉化语言包,目前最全的汉化包。包含菜单汉化、右键菜单汉化以及设置汉化。</p>
@@ -81,7 +285,7 @@
 <p><strong>3. File-icons</strong><br>不同格式的文本显示 不同颜色和类型的图标，便于分辨。</p>
 <p><strong>4. Color-picker</strong><br>顾名思义，颜色采集器，非常清晰好用。快捷键 ctrl+alt+option 启动使用。</p>
 <p><strong>5. Atom-beautify</strong><br>美化格式插件，规范缩进，删除多余空行等等。快捷键 ctrl+option+b 启动使用。</p>
-<p><strong>6. Markdown-scroll-sync</strong><br>atom 自带markdown 预览功能，快捷键 ctrl+shift+m 会打开两个面板的视图，但文档太长的时候，不会跟着同步滚动，这个插件就是做这个用的，滚动文档的时候预览内容同步滚动。</p>
+<p><strong>6. Markdown-scroll-sync</strong><br>Atom 自带markdown 预览功能，快捷键 ctrl+shift+m 会打开两个面板的视图，但文档太长的时候，不会跟着同步滚动，这个插件就是做这个用的，滚动文档的时候预览内容同步滚动。</p>
 <p><strong>7. Minimap</strong><br>编辑器右侧小面板，快捷展示当前编辑的内容在整个文档中的位置。同 sublime 极为相似。</p>
 <p><strong>8. Docblocker</strong><br>便捷的添加注释代码，&#x2F;** 按 tab 键即添加注释代码快。</p>
 <p><strong>9. Atom-terminal-panel</strong><br>快速调取使用终端面板，快捷键 ctrl+ `启动，底部工具条的 + 也可以点击展示终端面板。</p>
@@ -189,102 +393,6 @@
       </categories>
       <tags>
         <tag>Atom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Atom中Markdown语法</title>
-    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li>无序1</li>
-<li>无序2</li>
-<li>无序3</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>有序1</li>
-<li>有序2</li>
-<li>有序3</li>
-</ol>
-<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>静夜思<br>窗前看月光<br>抬头望山月</p>
-</blockquote>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<strong>加粗的内容</strong></p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<em>斜体的内容</em></p>
-<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
-<p>我是需要___粗斜体的内容___</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：<del>删除线</del></p>
-<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
-<p>我是需要***<del>粗斜体删除的内容</del>***</p>
-<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
-<hr>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<u>这是需要下划线的内容</u></p>
-<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<center>这是要居中的文本内容</center></p>
-<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Java</li>
-<li><input disabled="" type="checkbox"> C</li>
-<li><input disabled="" type="checkbox"> C++</li>
-</ul>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
-<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
-<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
-<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
-<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
-<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
-
-
-<p>效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<center>行1 |<center>行2 |<center>行3
-:----: | :----: | :----:
-小程序 | vue | 菜鸟
-search | web前段开发工程师 | 码农
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>Example: This is an <a href="http://example.com/" title="With a Title">example link</a>.</li>
-<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
-<p>语法示例：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>早饭后，我打开 <a href="https://dict.eudic.net/ting" title="每日英语听力 - 欧路词典">每日英语听力</a> 学习英语。遇到不懂的英语单词，我借助 <a href="https://dict.eudic.net/" title="《欧路词典》在线版">欧路在线词典</a><br>查看释义并加入生词本，方便使用 <a href="https://www.eudic.net/v4/en/app/eudic" title="《欧路词典》英语翻译软件官方主页">客户端</a> 随时记忆单词。</p>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
-<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Atom</tag>
-        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -2216,6 +2324,7 @@ th {
       </categories>
       <tags>
         <tag>deploy</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2235,6 +2344,9 @@ th {
 
 <p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 ]]></content>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
   </entry>
   <entry>
     <title>Mac环境下安装Python3</title>
@@ -2531,6 +2643,7 @@ th {
         <category>Tech</category>
       </categories>
       <tags>
+        <tag>Blog</tag>
         <tag>Github</tag>
         <tag>SSH Key</tag>
         <tag>Permission denied (publickey)</tag>

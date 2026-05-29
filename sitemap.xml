@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://burro-cmd.github.io/2026/01/15/Atom-command/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/2019/08/12/hello-world/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://burro-cmd.github.io/2020/02/16/Tolerance-Stack-Up-Analysis/</loc>
     
     <lastmod>2026-05-29</lastmod>
@@ -29,24 +74,6 @@
   </url>
   
   <url>
-    <loc>https://burro-cmd.github.io/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-    
-    <lastmod>2026-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2026-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://burro-cmd.github.io/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2026-05-29</lastmod>
@@ -66,15 +93,6 @@
   
   <url>
     <loc>https://burro-cmd.github.io/2020/01/15/ICT%E4%B8%8EFCT%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
-    
-    <lastmod>2026-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/2019/08/12/hello-world/</loc>
     
     <lastmod>2026-05-29</lastmod>
     
@@ -128,15 +146,6 @@
   </url>
   
   <url>
-    <loc>https://burro-cmd.github.io/2026/01/15/Atom-command/</loc>
-    
-    <lastmod>2026-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://burro-cmd.github.io/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</loc>
     
     <lastmod>2026-05-29</lastmod>
@@ -156,15 +165,6 @@
   
   <url>
     <loc>https://burro-cmd.github.io/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</loc>
-    
-    <lastmod>2026-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2026-05-29</lastmod>
     
@@ -455,6 +455,13 @@
   
   <url>
     <loc>https://burro-cmd.github.io/tags/deploy/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/Blog/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
