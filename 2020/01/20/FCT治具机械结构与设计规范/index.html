@@ -18,12 +18,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="FCT概述&amp;emsp;&amp;emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。">
+    <meta name="description" content="功能性测试治具FCT的结构设计与一些常规的设计规范。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FCT治具机械结构与设计规范">
 <meta property="og:url" content="https://burro-cmd.github.io/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.html">
 <meta property="og:site_name" content="HUNPHY&#39;S BLOG">
-<meta property="og:description" content="FCT概述&amp;emsp;&amp;emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。">
+<meta property="og:description" content="功能性测试治具FCT的结构设计与一些常规的设计规范。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.kita-mfg.com/english/use/img/using.gif">
 <meta property="og:image" content="https://www.kita-mfg.com/english/use/img/soket_01.svg">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://www.kita-mfg.com/english/use/img/soket_02.svg">
 <meta property="og:image" content="https://www.kita-mfg.com/english/use/img/fins2.gif">
 <meta property="article:published_time" content="2020-01-20T13:20:50.000Z">
-<meta property="article:modified_time" content="2026-05-28T07:50:06.302Z">
+<meta property="article:modified_time" content="2026-05-29T07:00:48.655Z">
 <meta property="article:author" content="HUNPHY">
 <meta property="article:tag" content="FCT">
 <meta property="article:tag" content="结构设计">
@@ -240,7 +240,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="FCT治具机械结构与设计规范 | HUNPHY'S BLOG">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="功能性测试治具FCT的结构设计与一些常规的设计规范。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -262,7 +262,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-05-28 15:50:06" itemprop="dateModified" datetime="2026-05-28T15:50:06+08:00">2026-05-28</time>
+      <time title="Modified: 2026-05-29 15:00:48" itemprop="dateModified" datetime="2026-05-29T15:00:48+08:00">2026-05-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -299,6 +299,7 @@
     </span>
 </div>
 
+            <div class="post-description">功能性测试治具FCT的结构设计与一些常规的设计规范。</div>
         </div>
       </header>
 
@@ -306,7 +307,6 @@
     
     
     <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="FCT概述"><a href="#FCT概述" class="headerlink" title="FCT概述"></a>FCT概述</h2><p>&emsp;&emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。</p>
-<span id="more"></span>
 <h2 id="FCT治具结构"><a href="#FCT治具结构" class="headerlink" title="FCT治具结构"></a>FCT治具结构</h2><p><img src="https://www.kita-mfg.com/english/use/img/using.gif" alt="Needle Plate Module"></p>
 <h3 id="下压系统-Cylinder-Toggle-Clamp"><a href="#下压系统-Cylinder-Toggle-Clamp" class="headerlink" title="下压系统 (Cylinder &#x2F; Toggle Clamp)"></a><strong>下压系统</strong> (Cylinder &#x2F; Toggle Clamp)</h3><p>&emsp;&emsp;压紧系统是功能测试 (FCT) 夹具中的关键机械子系统。其主要作用是施加可控且可重复的力，以确保测试探针（弹簧探针）与被测单元 (UUT)（通常为印刷电路板组件 (PCBA)）之间可靠的电接触。</p>
 <h3 id="压板-Acrylic-FR4-Plate"><a href="#压板-Acrylic-FR4-Plate" class="headerlink" title="压板 (Acrylic &#x2F; FR4 Plate)"></a><strong>压板</strong> (Acrylic &#x2F; FR4 Plate)</h3><p>&emsp;&emsp;压板是功能测试 (FCT) 夹具中的关键机械部件。它位于压机系统和被测单元 (UUT)（通常为印刷电路板组件 (PCBA)）之间，负责在测试周期内将施加的力均匀分布到电路板上。</p>
