@@ -510,6 +510,13 @@
   </url>
   
   <url>
+    <loc>https://burro-cmd.github.io/tags/Github/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://burro-cmd.github.io/tags/SSH-Key/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -518,13 +525,6 @@
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Permission-denied-publickey/</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/tags/Github/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
