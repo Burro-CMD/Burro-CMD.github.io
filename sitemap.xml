@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://burro-cmd.github.io/2026/05/29/%E8%BF%9E%E6%8E%A5%E5%99%A8%E6%8F%92%E6%8B%94%E6%9C%BA%E6%9E%84%E6%B0%94%E7%BC%B8%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/2026/05/27/%E5%B7%A5%E7%A8%8B%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
+    
+    <lastmod>2026-05-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://burro-cmd.github.io/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</loc>
     
     <lastmod>2026-05-28</lastmod>
@@ -66,15 +84,6 @@
   
   <url>
     <loc>https://burro-cmd.github.io/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</loc>
-    
-    <lastmod>2026-05-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/2026/05/27/%E5%B7%A5%E7%A8%8B%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2026-05-27</lastmod>
     
@@ -256,7 +265,7 @@
 
   <url>
     <loc>https://burro-cmd.github.io/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -264,350 +273,371 @@
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Atom/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Markdown/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Camera/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Chart/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/FOV/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/FCT/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/GD-T/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/GRR/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E5%9D%87%E5%80%BC%E2%80%94%E2%80%94%E6%9E%81%E5%B7%AE%E6%B3%95/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%B3%95/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E6%9E%81%E5%B7%AE%E6%B3%95/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/ICT/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/MacBook/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E6%95%88%E7%8E%87/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Solidworks/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Sensor/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Gauge/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%CE%BCstrain/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Engineering/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Tolerance/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Stak-Up/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Windows/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/deploy/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Python/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/X-code/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Brew/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Hexo/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/GitHub/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/NPM/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Node-js/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/tags/Github/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/SSH-Key/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Permission-denied-publickey/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/Github/</loc>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E9%80%89%E5%9E%8B/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E7%94%B5%E6%9C%BA/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/O-ring/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Spring/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/3D%E5%BB%BA%E6%A8%A1/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/3D%E6%89%93%E5%8D%B0/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E6%B0%94%E5%8A%A8%E5%9B%9E%E8%B7%AF%E5%9B%BE/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/E-cigarette/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://burro-cmd.github.io/tags/%E6%A0%87%E5%87%86/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/%E7%B2%BE%E5%BA%A6/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/%E6%A0%87%E5%87%86/</loc>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/EVUS/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Cpk/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/tags/Cp/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/USB-C/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/Receptacle/</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/Plug/</loc>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -616,28 +646,28 @@
   
   <url>
     <loc>https://burro-cmd.github.io/categories/Tech/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/categories/Blog/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://burro-cmd.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

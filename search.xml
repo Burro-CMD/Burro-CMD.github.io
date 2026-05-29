@@ -2419,6 +2419,58 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<span id="more"></span>
+
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
+</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <a href="https://github.com/settings/keys">https://github.com/settings/keys</a> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Win平台上部署Hexo</title>
     <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -2508,58 +2560,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<span id="more"></span>
-
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <a href="https://github.com/settings/keys">https://github.com/settings/keys</a> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>工程选型计算工具</title>
     <url>/2026/05/27/%E5%B7%A5%E7%A8%8B%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、电机选型（动力源计算）"><a href="#一、电机选型（动力源计算）" class="headerlink" title="一、电机选型（动力源计算）"></a>一、电机选型（动力源计算）</h2><h3 id="1-MISUMI-综合选型工具（首选）"><a href="#1-MISUMI-综合选型工具（首选）" class="headerlink" title="1. MISUMI 综合选型工具（首选）"></a>1. MISUMI 综合选型工具（首选）</h3><p><a href="https://techinfo.misumi.com.cn/tools/">https://techinfo.misumi.com.cn/tools/</a></p>
@@ -2596,7 +2596,7 @@ th {
 <li>传动效率</li>
 <li>能耗评估</li>
 </ul>
-<h2 id="二、丝杠选型（直线传动核心）"><a href="#二、丝杠选型（直线传动核心）" class="headerlink" title="二、丝杠选型（直线传动核心）"></a>二、丝杠选型（直线传动核心）</h2><h3 id="1-MISUMI-丝杠计算工具（核心🔥）"><a href="#1-MISUMI-丝杠计算工具（核心🔥）" class="headerlink" title="1. MISUMI 丝杠计算工具（核心🔥）"></a>1. MISUMI 丝杠计算工具（核心🔥）</h3><p><a href="https://techinfo.misumi.com.cn/tools/">https://techinfo.misumi.com.cn/tools/</a></p>
+<h2 id="二、丝杠选型（直线传动核心）"><a href="#二、丝杠选型（直线传动核心）" class="headerlink" title="二、丝杠选型（直线传动核心）"></a>二、丝杠选型（直线传动核心）</h2><h3 id="1-MISUMI-丝杠计算工具"><a href="#1-MISUMI-丝杠计算工具" class="headerlink" title="1. MISUMI 丝杠计算工具"></a>1. MISUMI 丝杠计算工具</h3><p><a href="https://techinfo.misumi.com.cn/tools/">https://techinfo.misumi.com.cn/tools/</a></p>
 <p><strong>主要用于：</strong>旋转运动 → 直线运动转换计算</p>
 <p><strong>可计算内容：</strong></p>
 <ul>
@@ -2660,7 +2660,7 @@ th {
 </ul>
 <h3 id="3-3D-ContentCentral"><a href="#3-3D-ContentCentral" class="headerlink" title="3. 3D ContentCentral"></a>3. 3D ContentCentral</h3><p><a href="https://www.3dcontentcentral.com/">https://www.3dcontentcentral.com</a></p>
 <p><strong>主要用于：</strong>SolidWorks生态模型下载</p>
-<h2 id="五、结构强度与设计校核（非常关键🔥）"><a href="#五、结构强度与设计校核（非常关键🔥）" class="headerlink" title="五、结构强度与设计校核（非常关键🔥）"></a>五、结构强度与设计校核（非常关键🔥）</h2><h3 id="1-Mechtool（万能计算工具）"><a href="#1-Mechtool（万能计算工具）" class="headerlink" title="1. Mechtool（万能计算工具）"></a>1. Mechtool（万能计算工具）</h3><p><a href="https://www.mechtool.cn/">https://www.mechtool.cn</a></p>
+<h2 id="五、结构强度与设计校核"><a href="#五、结构强度与设计校核" class="headerlink" title="五、结构强度与设计校核"></a>五、结构强度与设计校核</h2><h3 id="1-Mechtool（万能计算工具）"><a href="#1-Mechtool（万能计算工具）" class="headerlink" title="1. Mechtool（万能计算工具）"></a>1. Mechtool（万能计算工具）</h3><p><a href="https://www.mechtool.cn/">https://www.mechtool.cn</a></p>
 <p><strong>主要用于：</strong>结构是否安全</p>
 <p><strong>可计算内容：</strong></p>
 <ul>
@@ -2715,7 +2715,7 @@ th {
 <li>材料选择</li>
 <li>技术图自动生成</li>
 </ul>
-<h3 id="2-压缩弹簧工程计算器（推荐✅）"><a href="#2-压缩弹簧工程计算器（推荐✅）" class="headerlink" title="2. 压缩弹簧工程计算器（推荐✅）"></a>2. 压缩弹簧工程计算器（推荐✅）</h3><p><a href="https://www.bchrt.com/tools/compression-spring-calculator/">https://www.bchrt.com/tools/compression-spring-calculator/</a></p>
+<h3 id="2-压缩弹簧工程计算器"><a href="#2-压缩弹簧工程计算器" class="headerlink" title="2. 压缩弹簧工程计算器"></a>2. 压缩弹簧工程计算器</h3><p><a href="https://www.bchrt.com/tools/compression-spring-calculator/">https://www.bchrt.com/tools/compression-spring-calculator/</a></p>
 <p><strong>主要用于：</strong>标准工程计算 + 寿命校核</p>
 <p><strong>可计算内容：</strong></p>
 <ul>
@@ -2799,6 +2799,43 @@ th {
         <tag>3D打印</tag>
         <tag>气动回路图</tag>
         <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<span id="more"></span>
+
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
       </tags>
   </entry>
   <entry>
@@ -2940,43 +2977,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<span id="more"></span>
-
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
-</ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
-</ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>精度</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>申请美国EVUS（签证更新电子系统）</title>
     <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
@@ -3077,6 +3077,309 @@ th {
       <tags>
         <tag>Cpk</tag>
         <tag>Cp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>连接器插拔机构气缸选型计算</title>
+    <url>/2026/05/29/%E8%BF%9E%E6%8E%A5%E5%99%A8%E6%8F%92%E6%8B%94%E6%9C%BA%E6%9E%84%E6%B0%94%E7%BC%B8%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>&emsp;&emsp;为一款USBC receptacle的plug模组气缸选型，以型号217B-CA05的C口连接器为例，<a href="https://www.attend.com.tw/data/download/file/217B-CA05.pdf">Datasheet</a>，插拔力：  </p>
+<span id="more"></span>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">MECHANICAL</span></span><br><span class="line"><span class="attribute">2</span>.<span class="number">2</span>  Insertion Force:  <span class="number">5</span> to <span class="number">20</span>N  </span><br><span class="line"><span class="attribute">2</span>.<span class="number">3</span>  Extraction Force:  <span class="number">8</span> to <span class="number">20</span>N</span><br></pre></td></tr></table></figure>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>对气缸来说，需要完成两个方向的力：</p>
+<table>
+<thead>
+<tr>
+<th align="center">动作</th>
+<th align="center">连接器给出的力</th>
+<th align="center">气缸需要克服</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">插入</td>
+<td align="center">5 ~ 20 N</td>
+<td align="center">最大插入力 + 机构摩擦 + 安全系数</td>
+</tr>
+<tr>
+<td align="center">拔出</td>
+<td align="center">8 ~ 20 N</td>
+<td align="center">最大拔出力 + 机构摩擦 + 安全系数</td>
+</tr>
+</tbody></table>
+<p>所以基础计算按最大值取：</p>
+<ul>
+<li>F_insert_max &#x3D; 20N</li>
+<li>Fextract_max &#x3D; 20N</li>
+</ul>
+<p><strong>注意：</strong><br><strong>20 N 是连接器插拔力，不是建议你让气缸直接输出很大的力。</strong><br>气缸理论力如果太大，可能会压坏 USB‑C receptacle、PCB 焊点或 plug 舌片，所以后面要同时考虑：</p>
+<ul>
+<li>气缸必须有足够能力完成插拔；</li>
+<li>实际作用到连接器上的力必须被限制在合理范围内。</li>
+</ul>
+<h2 id="模组阻力"><a href="#模组阻力" class="headerlink" title="模组阻力"></a>模组阻力</h2><p>Plug模组一般包括：</p>
+<ul>
+<li>气缸</li>
+<li>线性导轨</li>
+<li>Plug固定机构</li>
+<li>浮动接头</li>
+<li>限位结构</li>
+<li>可能还有弹性缓冲结构</li>
+</ul>
+<p>插拔方向若是水平，重力基本不参与轴向力；如果是垂直方向，需要加上模组重量。</p>
+<ol>
+<li><p><strong>一般工程估算：</strong><br>F_friction &#x3D; 3 ~ 8 N</p>
+</li>
+<li><p><strong>如果导轨质量较好、滑块较小，可以先取：</strong><br>F_friction &#x3D; 5 N</p>
+</li>
+</ol>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Q:</span> 为什么只用了一个“<span class="number">5</span><span class="built_in">N</span>摩擦”，而不是分解每个部件？</span><br><span class="line"><span class="symbol">A:</span> 本机构为低载荷小行程系统，各阻力来源存在较大非线性及装配依赖性，难以逐项精确建模。</span><br><span class="line"></span><br><span class="line">因此在方案阶段采用等效阻力法，将导轨、气缸密封、连接结构及装配误差等因素统一等效为系统阻力项 F_loss。</span><br><span class="line"></span><br><span class="line">该值参考类似机构经验取 <span class="number">3</span>~<span class="number">8</span><span class="built_in">N</span>，并结合 <span class="number">2.5</span> 安全系数覆盖不确定性，</span><br><span class="line">满足工程设计精度要求。</span><br><span class="line"></span><br><span class="line">后续可以通过调压阀控制输出力，并在样机阶段进行实际插拔力验证，</span><br><span class="line">确保不超过连接器设计上限</span><br><span class="line"></span><br><span class="line">这里的摩檫力其实是：</span><br><span class="line"><span class="number">1</span>) F_required = (F_insert_max + F_loss) × S</span><br><span class="line"><span class="number">2</span>) F_loss = F_导轨 + F_气缸 + F_接头 + F_偏心 + F_结构干涉</span><br><span class="line"><span class="number">3</span>) 工程设计中不会逐项展开，而是<span class="symbol">:</span></span><br><span class="line">F_loss ≈ <span class="number">3</span> ~ <span class="number">8</span> <span class="built_in">N</span>（经验等效）</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>所以单方向基础需求力为：</strong><br>F_base &#x3D; F_connector_max + F_friction &#x3D; 20 + 5 &#x3D; 25 N</p>
+</li>
+<li><p><strong>安全系数</strong></p>
+</li>
+</ol>
+<p>气缸选型时，不能刚好等于理论需求，因为实际存在：</p>
+<ul>
+<li>气压波动</li>
+<li>密封摩擦</li>
+<li>滑台摩擦变化</li>
+<li>plug 与 receptacle 的同轴度误差</li>
+<li>机构老化</li>
+<li>温度影响</li>
+<li>动态冲击</li>
+</ul>
+<p>建议安全系数：S &#x3D; 2 ~ 3</p>
+<p>测试治具、自动化插拔机构，建议取：S &#x3D; 2.5</p>
+<p>则<strong>气缸有效输出力</strong>要求：<br>F_required &#x3D; F_base × S &#x3D; 25 × 2.5 &#x3D; <strong>62.5 N</strong></p>
+<p>所以气缸在插入和拔出方向，实际有效力最好都能达到约：<br>F_required ≈ 60 ~ 65 N</p>
+<h2 id="气缸输出力公式"><a href="#气缸输出力公式" class="headerlink" title="气缸输出力公式"></a>气缸输出力公式</h2><p>双作用气缸有两个方向作用力。</p>
+<h3 id="伸出推力"><a href="#伸出推力" class="headerlink" title="伸出推力"></a>伸出推力</h3><p>F_push &#x3D; P × A_piston × η，其中 A_piston &#x3D; πD² &#x2F; 4</p>
+<h3 id="缩回拉力"><a href="#缩回拉力" class="headerlink" title="缩回拉力"></a>缩回拉力</h3><p>F_pull &#x3D; P × A_annular × η，其中 A_annular &#x3D; π ×, D² - d², &#x2F; 4</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">P</td>
+<td align="left">工作压力，单位 MPa，1 MPa &#x3D; 1 N&#x2F;mm²</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="left">气缸缸径，mm</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td align="left">活塞杆直径，mm</td>
+</tr>
+<tr>
+<td align="center">η</td>
+<td align="left">气缸效率，一般取 0.7 ~ 0.85</td>
+</tr>
+<tr>
+<td align="center">F_push</td>
+<td align="left">伸出推力</td>
+</tr>
+<tr>
+<td align="center">F_pull</td>
+<td align="left">缩回拉力</td>
+</tr>
+</tbody></table>
+<p>一般工程计算可先取：<br>P &#x3D; 0.5 MPa, η &#x3D; 0.75</p>
+<h2 id="缸径力值估算"><a href="#缸径力值估算" class="headerlink" title="缸径力值估算"></a>缸径力值估算</h2><ol>
+<li><p>工作气压：P &#x3D; 0.5 MPa</p>
+</li>
+<li><p>气缸机械效率：η &#x3D; 0.75</p>
+</li>
+<li><p>气缸类型：标准双作用气缸</p>
+</li>
+<li><p>活塞杆直径按常规比例选取（经验值）：<br> φ8 → d&#x3D;4</p>
+</li>
+</ol>
+<ul>
+<li><h3 id="活塞面积"><a href="#活塞面积" class="headerlink" title="活塞面积"></a>活塞面积</h3></li>
+</ul>
+<p>A_p &#x3D; πD² &#x2F; 4</p>
+<ul>
+<li><h3 id="有效推力（伸出）"><a href="#有效推力（伸出）" class="headerlink" title="有效推力（伸出）"></a>有效推力（伸出）</h3></li>
+</ul>
+<p>F_push &#x3D; P × A_p × η</p>
+<ul>
+<li><h3 id="有效拉力（缩回）"><a href="#有效拉力（缩回）" class="headerlink" title="有效拉力（缩回）"></a>有效拉力（缩回）</h3></li>
+</ul>
+<p>F_pull &#x3D; P × A_r × η<br>A_r &#x3D; π(D² - d²) &#x2F; 4</p>
+<ul>
+<li><h4 id="φ8气缸"><a href="#φ8气缸" class="headerlink" title="φ8气缸"></a><strong>φ8气缸</strong></h4></li>
+<li><h5 id="面积"><a href="#面积" class="headerlink" title="面积"></a><strong>面积</strong></h5></li>
+</ul>
+<p>A_p &#x3D; π × 8² &#x2F; 4 &#x3D; π × 64 &#x2F; 4 &#x3D; 50.27 mm²</p>
+<ul>
+<li><h5 id="推力"><a href="#推力" class="headerlink" title="推力"></a><strong>推力</strong></h5></li>
+</ul>
+<p>F_push &#x3D; 0.5 × 50.27 × 0.75 ≈ 18.8 N</p>
+<ul>
+<li><h5 id="拉力（d-4）"><a href="#拉力（d-4）" class="headerlink" title="拉力（d&#x3D;4）"></a><strong>拉力（d&#x3D;4）</strong></h5></li>
+</ul>
+<p>A_r &#x3D; π(64 - 16)&#x2F;4 &#x3D; π×48&#x2F;4 &#x3D; 37.7<br>F_pull &#x3D; 0.5 × 37.7 × 0.75 ≈ 14.1 N</p>
+<ul>
+<li><h4 id="以此类推计算所得："><a href="#以此类推计算所得：" class="headerlink" title="以此类推计算所得："></a><strong>以此类推计算所得：</strong></h4></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">缸径</th>
+<th align="center">有效推力</th>
+<th align="center">有效拉力</th>
+<th align="left">是否满足约 62.5 N</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">φ8约</td>
+<td align="center">18.8 N</td>
+<td align="center">约 14.1 N</td>
+<td align="left">不满足</td>
+</tr>
+<tr>
+<td align="center">φ10约</td>
+<td align="center">29.5 N</td>
+<td align="center">约 24.7 N</td>
+<td align="left">不满足</td>
+</tr>
+<tr>
+<td align="center">φ12约</td>
+<td align="center">42.4 N</td>
+<td align="center">约 31.8 N</td>
+<td align="left">不满足</td>
+</tr>
+<tr>
+<td align="center">φ16约</td>
+<td align="center">75.4 N</td>
+<td align="center">约 64.8 N</td>
+<td align="left">满足</td>
+</tr>
+<tr>
+<td align="center">φ20约</td>
+<td align="center">117.8 N</td>
+<td align="center">约 99.0 N</td>
+<td align="left">满足，但偏大</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="所以如果按："><a href="#所以如果按：" class="headerlink" title="所以如果按："></a><strong>所以如果按：</strong></h4></li>
+<li><p>最大插拔力 20 N</p>
+</li>
+<li><p>机构摩擦 5 N</p>
+</li>
+<li><p>安全系数 2.5</p>
+</li>
+<li><p>工作压力 0.5 MPa</p>
+</li>
+<li><p>效率 0.75</p>
+</li>
+<li><h4 id="来选，推荐最小缸径约为："><a href="#来选，推荐最小缸径约为：" class="headerlink" title="来选，推荐最小缸径约为："></a><strong>来选，推荐最小缸径约为：</strong></h4></li>
+</ul>
+<p>φ16 双作用气缸</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>&emsp;&emsp;虽然按安全系数计算，φ16 气缸比较合适，但 USB‑C receptacle 本身插拔力只有 20 N 级别。如果 φ16 气缸在 0.5 MPa 下直接硬推，实际有效推力约 75 N，可能造成：</p>
+<ul>
+<li>receptacle 塑胶舌片损伤；</li>
+<li>plug 端子变形；</li>
+<li>PCB 焊盘受力过大；</li>
+<li>连接器外壳变形；</li>
+<li>插偏时直接撞坏产品。</li>
+</ul>
+<p>所以实际设计中要做<strong>力限制</strong>。</p>
+<h2 id="气缸方案"><a href="#气缸方案" class="headerlink" title="气缸方案"></a>气缸方案</h2><p><strong>方案 A：φ16 双作用气缸 + 调压阀 + 浮动接头，推荐</strong></p>
+<h3 id="气缸选"><a href="#气缸选" class="headerlink" title="气缸选"></a>气缸选</h3><ul>
+<li>双作用气缸</li>
+<li>缸径：φ16</li>
+<li>行程：根据 plug 插入深度确定，通常 10 ~ 20 mm</li>
+<li>工作压力：0.15 ~ 0.25 MPa 调试</li>
+</ul>
+<h3 id="φ16-气缸面积约："><a href="#φ16-气缸面积约：" class="headerlink" title="φ16 气缸面积约："></a>φ16 气缸面积约：</h3><p>A &#x3D; π × 16² &#x2F; 4 ≈ 201 mm²</p>
+<h3 id="若按效率-η-0-75，压力-0-18-MPa-时："><a href="#若按效率-η-0-75，压力-0-18-MPa-时：" class="headerlink" title="若按效率 η &#x3D; 0.75，压力 0.18 MPa 时："></a>若按效率 η &#x3D; 0.75，压力 0.18 MPa 时：</h3><p>F_push &#x3D; 0.18 × 201 × 0.75 ≈ 27 N</p>
+<h3 id="缩回拉力约："><a href="#缩回拉力约：" class="headerlink" title="缩回拉力约："></a>缩回拉力约：</h3><p>F_pull ≈ 23 N</p>
+<p>这样实际力比较接近 USB‑C 的插拔力需求，调试空间也比较好。</p>
+<h3 id="建议实际调试压力："><a href="#建议实际调试压力：" class="headerlink" title="建议实际调试压力："></a>建议实际调试压力：</h3><p>0.15 ~ 0.20 MPa 起调</p>
+<h3 id="如果拔出不稳定，再逐步增加到："><a href="#如果拔出不稳定，再逐步增加到：" class="headerlink" title="如果拔出不稳定，再逐步增加到："></a>如果拔出不稳定，再逐步增加到：</h3><p>0.20 ~ 0.25 MPa</p>
+<h2 id="行程选择"><a href="#行程选择" class="headerlink" title="行程选择"></a>行程选择</h2><p>&emsp;USB‑C plug 的有效插入深度通常只有几 mm，但自动化机构不能只按插入深度选行程，还要考虑：</p>
+<ul>
+<li>plug 初始避让位置；</li>
+<li>产品放置误差；</li>
+<li>预压缓冲距离；</li>
+<li>传感器触发距离；</li>
+<li>机构限位空间。</li>
+</ul>
+<h4 id="建议："><a href="#建议：" class="headerlink" title="建议："></a>建议：</h4><p>气缸行程 &#x3D; 实际插入深度 + 安全退让距离 + 调试余量</p>
+<ul>
+<li>USB-C 插入有效行程：约 6 ~ 8 mm</li>
+<li>退让距离：3 ~ 5 mm</li>
+<li>调试余量：2 ~ 5 mm</li>
+</ul>
+<h4 id="所以："><a href="#所以：" class="headerlink" title="所以："></a>所以：</h4><p>行程 10 mm，适合空间紧凑场合<br>行程 15 mm，推荐<br>行程 20 mm，调试余量大</p>
+<h4 id="推荐优先考虑："><a href="#推荐优先考虑：" class="headerlink" title="推荐优先考虑："></a>推荐优先考虑：</h4><p>φ16 × 15 mm 双作用气缸</p>
+<h2 id="推荐配置"><a href="#推荐配置" class="headerlink" title="推荐配置"></a>推荐配置</h2><table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="left">推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">气缸类型</td>
+<td align="left">双作用气缸</td>
+</tr>
+<tr>
+<td align="center">缸</td>
+<td align="left">径φ16</td>
+</tr>
+<tr>
+<td align="center">行程</td>
+<td align="left">15 mm 或 20 mm</td>
+</tr>
+<tr>
+<td align="center">工作压力</td>
+<td align="left">0.15 ~ 0.25 MPa 调试</td>
+</tr>
+<tr>
+<td align="center">最大供气</td>
+<td align="left">可按 0.5 MPa 设计，但需调压</td>
+</tr>
+<tr>
+<td align="center">导向方式</td>
+<td align="left">外置线性导轨或滑台</td>
+</tr>
+<tr>
+<td align="center">接头</td>
+<td align="left">浮动接头</td>
+</tr>
+<tr>
+<td align="center">速度控制</td>
+<td align="left">双向节流阀，排气节流</td>
+</tr>
+<tr>
+<td align="center">检测</td>
+<td align="left">前后磁性开关</td>
+</tr>
+<tr>
+<td align="center">保护</td>
+<td align="left">机械限位 + 弹性缓冲</td>
+</tr>
+<tr>
+<td align="center">可选</td>
+<td align="left">小量程力传感器，0 ~ 50 N 或 0 ~ 100 N</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>USB-C</tag>
+        <tag>Receptacle</tag>
+        <tag>Plug</tag>
       </tags>
   </entry>
 </search>
