@@ -178,7 +178,7 @@
 <p>  From: <a href="https://leoatchina.github.io/2017/02/16/atom-shortcuts-macos/">https://leoatchina.github.io/2017/02/16/atom-shortcuts-macos/</a></p>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
   </entry>
   <entry>
@@ -270,7 +270,7 @@ search | web前段开发工程师 | 码农
 <p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>Atom</tag>
@@ -389,7 +389,7 @@ search | web前段开发工程师 | 码农
 </tbody></table>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>Atom</tag>
@@ -1477,7 +1477,7 @@ th {
 <p><a href="https://www.jlc-jdgf.com/document/detail/541433481957957635">FA插件使用教程</a></p>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>Solidworks</tag>
@@ -2344,6 +2344,9 @@ th {
 
 <p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
       <tags>
         <tag>Blog</tag>
       </tags>
@@ -2370,7 +2373,7 @@ th {
 </ul>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -2502,9 +2505,10 @@ th {
 <h3 id="后记-5"><a href="#后记-5" class="headerlink" title="后记"></a>后记</h3><p>　　有时候把一些配置文件搞炸的时候或者上传有问题时，可以使用**<code>hexo clean</code>**来尝试修复。<br>　　如果觉得GitHub的传输速度过慢，可考虑修改host尝试能否增速，以下是一个江湖偏方：<br>　　<strong><code>151.101.88.249 github.global.ssl.fastly.Net</code></strong></p>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
+        <tag>Blog</tag>
         <tag>Hexo</tag>
         <tag>GitHub</tag>
         <tag>NPM</tag>
@@ -2590,9 +2594,10 @@ th {
 <p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
+        <tag>Blog</tag>
         <tag>Hexo</tag>
         <tag>Node.js</tag>
         <tag>Github</tag>
@@ -2640,7 +2645,7 @@ th {
 <figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>Blog</tag>
@@ -2853,7 +2858,7 @@ th {
 </ul>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>选型</tag>
@@ -2916,7 +2921,7 @@ th {
 </ul>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>生活</category>
       </categories>
       <tags>
         <tag>3D建模</tag>
