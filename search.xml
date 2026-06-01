@@ -2219,6 +2219,31 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<a href="https://www.msec.it/blog/dukto/">Dukto</a> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -2299,31 +2324,6 @@ th {
         <tag>效率</tag>
         <tag>工具</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2470,6 +2470,153 @@ th {
         <tag>需求</tag>
         <tag>风险前置</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑</title>
+    <url>/2019/09/20/%E4%BB%8E%E2%80%9C%E8%B0%83%E9%80%9A%E8%AE%BE%E5%A4%87%E2%80%9D%E5%88%B0%E2%80%9C%E7%A8%B3%E5%AE%9A%E4%BA%A4%E4%BB%98%E2%80%9D%EF%BC%9AFCT%20%E6%B2%BB%E5%85%B7%E8%B0%83%E8%AF%95%E4%B8%AD%E7%9A%84%E6%9C%BA%E6%A2%B0%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="FCT-调试先看产品状态"><a href="#FCT-调试先看产品状态" class="headerlink" title="FCT 调试先看产品状态"></a>FCT 调试先看产品状态</h1><p>&emsp;&emsp;FCT 治具与产品强相关。产品状态不稳定，设备调试就很容易失去判断基准。<br>调试前通常需要确认：</p>
+<ul>
+<li>产品是否为design lock版本；</li>
+<li>PCB、连接器装配状态是否一致；</li>
+<li>测试点位置是否存在批次偏差；</li>
+<li>产品进入 FCT 前的制程状态是否稳定；</li>
+<li>是否存在翘曲、毛刺、残胶、污染；</li>
+<li>产品图纸状态与现场实物状态是否一致。</li>
+</ul>
+<p>&emsp;&emsp;很多 FCT 异常表面是测试 fail，实际根因在产品输入端。产品未design lock、测试点偏移，都会导致治具调试方向被误导。所以调试早期必须先区分：是产品不稳定，还是治具不稳定；是单件问题，还是批量问题；是结构偏差，还是接触问题。</p>
+<h1 id="治具架设的核心是建立稳定基准"><a href="#治具架设的核心是建立稳定基准" class="headerlink" title="治具架设的核心是建立稳定基准"></a>治具架设的核心是建立稳定基准</h1><p>&emsp;&emsp;FCT 治具的第一目标不是夹紧产品，而是让产品每次以相同姿态进入测试位置。<br>定位设计和架设时，我通常重点看：</p>
+<ul>
+<li>主定位基准是否选在产品稳定特征上；</li>
+<li>定位基准与测试点之间的尺寸链是否清楚；</li>
+<li>是否存在过定位；</li>
+<li>产品放入治具是否自然顺畅；</li>
+<li>不同人员取放后落位是否一致；</li>
+<li>定位块、导向边、限位面是否有调整余量；</li>
+<li>产品落位后是否存在翘起、晃动或局部受力。</li>
+</ul>
+<p>&emsp;&emsp;FCT 治具中，定位过紧和定位不足都会带来问题。过紧会导致产品放置困难、卡滞、局部变形；过松会导致测试点位置漂移、探针接触不稳定。比较稳定的做法是：关键方向明确定位，非关键方向合理释放。治具要控制产品姿态，但不能把产品制造误差强行锁死。</p>
+<h1 id="压合调试重点看受力路径"><a href="#压合调试重点看受力路径" class="headerlink" title="压合调试重点看受力路径"></a>压合调试重点看受力路径</h1><p>&emsp;&emsp;FCT 压合机构不能只看“是否压到位”。压合动作真正要确认的是：力从哪里进来，经过哪里传递，最后由哪里承受。<br>调试中重点检查：</p>
+<ul>
+<li>压头是否压在结构支撑附近；</li>
+<li>压合后产品是否产生翘曲；</li>
+<li>PCB 是否存在局部下沉；</li>
+<li>压头与产品接触面是否平行；</li>
+<li>是否存在侧向推力；</li>
+<li>气缸动作是否平稳；</li>
+<li>机械限位是否可靠；</li>
+<li>压合终点是否依赖气缸行程，而不是硬限位；</li>
+<li>压合后探针压缩量是否一致。</li>
+</ul>
+<p>&emsp;&emsp;压得住不代表压得对。有些治具测试不稳定，不是压力不够，而是压力路径不合理。产品局部被压弯后，探针虽然接触了测试点，但接触力分布已经不一致。FCT 压合的目标不是“大力压紧”，而是“受控压合”。压合位置、支撑位置、限位高度和产品变形必须一起看。</p>
+<h1 id="探针接触看重复性，不看单次导通"><a href="#探针接触看重复性，不看单次导通" class="headerlink" title="探针接触看重复性，不看单次导通"></a>探针接触看重复性，不看单次导通</h1><p>&emsp;&emsp;FCT 调试中，探针接触是高频问题源。单次导通没有太大价值，关键是多次取放、多次压合、多件产品测试后，接触状态是否一致。<br>探针调试重点包括：</p>
+<ul>
+<li>探针压缩量是否在推荐范围内；</li>
+<li>探针是否垂直接触测试点；</li>
+<li>压痕位置是否居中或2&#x2F;3；</li>
+<li>压痕大小是否一致；</li>
+<li>探针板与产品定位基准是否匹配；</li>
+<li>测试点表面是否有污染、氧化、Flux或残胶；</li>
+<li>探针是否存在卡滞、弯曲、磨损；</li>
+<li>长时间测试后接触状态是否变化。</li>
+</ul>
+<p>&emsp;&emsp;偶发 fail 通常要优先看压痕。压痕偏、浅、不一致，往往说明机械定位或压合存在问题。此时如果只从程序、电气或测试阈值上调整，容易掩盖根因。<br>&emsp;&emsp;探针问题不能只靠导通结果判断，必须结合压痕、压缩量、重复测试和产品落位状态一起判断。</p>
+<h1 id="误判问题要先分层"><a href="#误判问题要先分层" class="headerlink" title="误判问题要先分层"></a>误判问题要先分层</h1><p>&emsp;&emsp;FCT 调试现场最容易出现的问题，是看到 fail 就直接改。实际项目中，改得越快，不一定收敛越快。FCT 异常需要先分层。<br>通常按以下顺序拆：</p>
+<ul>
+<li><p>产品层<br>产品是否合格？测试点是否干净？装配是否到位？是否有批次差异？</p>
+</li>
+<li><p>治具层<br>产品是否稳定落位？定位是否重复？压合是否一致？探针是否接触可靠？</p>
+</li>
+<li><p>电气层<br>线束、转接板、探针板、连接器、接地、屏蔽是否稳定？</p>
+</li>
+<li><p>软件层<br>测试程序、判定阈值、时序、通讯是否合理？</p>
+</li>
+<li><p>操作层<br>放置手法、压合节奏、扫码流程、取放动作是否影响结果？</p>
+</li>
+</ul>
+<p>&emsp;&emsp;FCT fail 是结果，不是原因。如果没有分层，很容易把机械问题当成电气问题，把产品问题当成治具问题，把偶发问题当成程序问题。调试效率高低，很多时候取决于问题是否被正确分层。</p>
+<h1 id="调试验证要覆盖重复性"><a href="#调试验证要覆盖重复性" class="headerlink" title="调试验证要覆盖重复性"></a>调试验证要覆盖重复性</h1><p>&emsp;&emsp;FCT 设备最终服务于连续生产，所以调试验证不能只看一次 pass。<br>常用验证方式包括：</p>
+<ul>
+<li>同一产品重复取放测试；</li>
+<li>同一产品连续压合测试；</li>
+<li>多件产品交叉测试；</li>
+<li>不同操作人员测试；</li>
+<li>异常点复测；</li>
+<li>连续节拍测试；</li>
+<li>探针压痕复查；</li>
+<li>长时间运行后复检定位、压头、限位和探针状态。</li>
+</ul>
+<p>一次通过只能说明设备“能测”。重复通过，才说明设备趋于稳定。</p>
+<p>对于 FCT 治具，我更关注以下数据：  </p>
+<ul>
+<li>首次通过率；</li>
+<li>重测通过率；</li>
+<li>偶发 fail 点位；</li>
+<li>fail 是否集中在某几个测试点；</li>
+<li>fail 是否与产品批次相关；</li>
+<li>fail 是否与操作人员相关；</li>
+<li>fail 是否随运行时间增加。</li>
+</ul>
+<p>这些信息比单纯的 pass&#x2F;fail 更有价值。</p>
+<h1 id="治具要为调整留空间"><a href="#治具要为调整留空间" class="headerlink" title="治具要为调整留空间"></a>治具要为调整留空间</h1><p>&emsp;&emsp;FCT 治具调试一定会遇到现场调整。问题不在于是否需要调整，而在于调整成本有多高。<br>以下位置通常需要保留调整或更换能力：</p>
+<ul>
+<li>产品定位块；</li>
+<li>导向件；</li>
+<li>限位块；</li>
+<li>压头；</li>
+<li>探针板；</li>
+<li>产品接触保护件；</li>
+<li>局部支撑块。</li>
+</ul>
+<p>不确定结构尽量不要直接做进主结构。与产品强相关的区域，应尽量模块化、可拆换、可微调。<br>常见做法包括：</p>
+<ul>
+<li>长孔调节；</li>
+<li>垫片调整；</li>
+<li>可更换压头；</li>
+<li>可调探针板；</li>
+<li>分体式仿形件；</li>
+<li>预留安装孔；</li>
+</ul>
+<p>&emsp;&emsp;FCT 治具不能只按理想产品设计。产品制程波动、客户设计变更、测试点偏移、现场操作差异，都需要治具有一定吸收能力。</p>
+<h1 id="调试记录决定问题能否闭环"><a href="#调试记录决定问题能否闭环" class="headerlink" title="调试记录决定问题能否闭环"></a>调试记录决定问题能否闭环</h1><p>&emsp;&emsp;FCT 调试变量多，机械、电气、软件经常同步调整。如果没有记录，很容易出现问题看似解决，但根因不清。<br>调试记录至少包括：</p>
+<ul>
+<li>问题现象；</li>
+<li>产品编号；</li>
+<li>fail 点位；</li>
+<li>当前治具状态；</li>
+<li>调整内容；</li>
+<li>调整前后测试数据；</li>
+<li>是否复现；</li>
+<li>是否关闭；</li>
+<li>剩余风险；</li>
+<li>后续责任人。</li>
+</ul>
+<p>&emsp;&emsp;调试中尽量一次只改一个关键变量。如果多个变量同时改，后续很难判断真正起作用的是哪一个。记录不是为了留痕，而是为了减少重复排查。尤其是偶发问题，没有过程记录，后面基本无法追溯。</p>
+<h1 id="FCT-调试中常见机械问题"><a href="#FCT-调试中常见机械问题" class="headerlink" title="FCT 调试中常见机械问题"></a>FCT 调试中常见机械问题</h1><p>结合多个项目，FCT 治具中较常见的机械问题主要集中在以下几类：</p>
+<ol>
+<li>产品定位不一致<br>表现为测试点偏移、压痕位置变化、偶发 fail。<br>常见原因是定位间隙过大、导向不足、基准选择不合理、产品装配浮动。</li>
+<li>压合后产品变形<br>表现为部分点位接触不稳定，重复测试结果波动。<br>常见原因是压头位置不合理、支撑不足、限位高度不一致、压合力过大。</li>
+<li>探针压缩量不稳定<br>表现为同一点位偶发导通异常。<br>常见原因是产品浮动、探针板位置偏差、限位不稳定、探针磨损。</li>
+<li>治具局部刚性不足<br>表现为初期可用，运行一段时间后结果漂移。<br>常见原因是探针板支撑不足、压合结构变形、安装面刚性不够。</li>
+<li>操作窗口不足<br>表现为产品放置不顺、误放、偏放、节拍不稳定。<br>常见原因是导向设计不足、避让空间不够、防呆不清晰。</li>
+<li>调整成本过高<br>表现为一个小偏差需要大改结构。<br>常见原因是产品相关特征直接集成到主结构，缺少可调件和替换件。</li>
+</ol>
+<h1 id="调试后的工程沉淀"><a href="#调试后的工程沉淀" class="headerlink" title="调试后的工程沉淀"></a>调试后的工程沉淀</h1><p>FCT 调试完成后，我通常会复盘如下内容：</p>
+<ul>
+<li>产品定位基准是否合理；</li>
+<li>探针接触问题是否闭环；</li>
+<li>压合受力路径是否验证；</li>
+<li>哪些结构后续需要优化；</li>
+<li>哪些位置必须保留可调；</li>
+<li>哪些问题应进入设计check list；</li>
+<li>哪些供应商加工或装配问题需要反馈；</li>
+<li>哪些测试点在后续项目中要重点关注。</li>
+</ul>
+<p>&emsp;&emsp;调试的价值不只是解决当前设备问题，也要反哺下一套治具设计。如果同类问题在不同项目中反复出现，说明它不再是单点问题，而是设计规范或评审清单中缺失了一项。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;FCT 设备治具调试的核心，是把影响测试结果的机械变量逐步收敛。<br>&emsp;&emsp;产品要稳定落位，压合要受控，探针要可靠接触，结构要有刚性，关键位置要可调，问题要可复现、可验证、可关闭。<br>&emsp;&emsp;FCT 测试结果虽然表现为电气数据，但机械端决定了测试条件是否一致。定位偏一点、压合歪一点、探针浅一点、产品浮一点，都可能变成偶发 fail。<br>&emsp;&emsp;FCT 治具从“能测”到“稳定测”，靠的不是某一次调试，而是前期设计留余量，现场调试分层排查，验证阶段看重复性，项目结束后把问题复盘回标准和check list。<br>&emsp;&emsp;这也是 FCT 调试最有价值的部分：不只是把一台设备调通，而是让下一台设备少走同样的弯路。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
   </entry>
   <entry>
     <title>Mac环境下安装Python3</title>
