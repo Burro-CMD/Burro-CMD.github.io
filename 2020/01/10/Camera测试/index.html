@@ -16,7 +16,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="摄像头FOV，char尺寸的计算以及整个测试机台的机构设计。">
 <meta property="og:type" content="article">
@@ -184,7 +184,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -195,7 +195,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -303,7 +303,7 @@
 <li>Factory Default: Set factory default, clear all test data</li>
 <li>Power Off: Power off the DUT by press power button</li>
 </ul>
-<h2 id="摄像头参数"><a href="#摄像头参数" class="headerlink" title="摄像头参数"></a>摄像头参数</h2><h3 id="摄像头型号：VS6955CA"><a href="#摄像头型号：VS6955CA" class="headerlink" title="摄像头型号：VS6955CA"></a>摄像头型号：<a target="_blank" rel="noopener" href="https://www.alldatasheetcn.com/datasheet-pdf/download/797942/STMICROELECTRONICS/VS6955CAQ05I1.html">VS6955CA</a></h3><p><img src="/images/CameraParameters.png" alt="摄像头参数"></p>
+<h2 id="摄像头参数"><a href="#摄像头参数" class="headerlink" title="摄像头参数"></a>摄像头参数</h2><h3 id="摄像头型号：VS6955CA"><a href="#摄像头型号：VS6955CA" class="headerlink" title="摄像头型号：VS6955CA"></a>摄像头型号：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span></h3><p><img src="/images/CameraParameters.png" alt="摄像头参数"></p>
 <h3 id="VFOV-Vertical-Field-of-View"><a href="#VFOV-Vertical-Field-of-View" class="headerlink" title="VFOV (Vertical Field of View):"></a>VFOV (Vertical Field of View):</h3><blockquote>
 <p>表示相机在垂直方向能够看到的角度范围。它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际高度</strong>计算公式：</p>
 </blockquote>
@@ -424,7 +424,7 @@
 </tr>
 </tbody></table>
 <p>&emsp;&emsp;本项目中，VS6955CA datasheet 给出的 Diagonal FOV 为 74° ±1°，因此该摄像头可归类为<strong>广角镜头</strong>。广角镜头适合在较短测试距离下覆盖较大的 chart 范围，但测试设计中需要特别关注边缘畸变、边缘照度下降和机构遮挡问题。</p>
-<h2 id="测试机设计"><a href="#测试机设计" class="headerlink" title="测试机设计"></a>测试机设计</h2><p>&emsp;&emsp;由<a target="_blank" rel="noopener" href="https://www.alldatasheetcn.com/datasheet-pdf/download/797942/STMICROELECTRONICS/VS6955CAQ05I1.html">VS6955CA</a> datasheet可知，厂商给出摄像头在设计外壳或设备时的注意点，<strong>所以行业推荐在设计测试机时按照这个视角去设计</strong>。</p>
+<h2 id="测试机设计"><a href="#测试机设计" class="headerlink" title="测试机设计"></a>测试机设计</h2><p>&emsp;&emsp;由<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span> datasheet可知，厂商给出摄像头在设计外壳或设备时的注意点，<strong>所以行业推荐在设计测试机时按照这个视角去设计</strong>。</p>
 <ol>
 <li>EDGES OF CIRCULAR HOLES IN CUSTOMER’S EQUIPMENT MUST NOT INTRUDE INTO THE CONE.<br>&emsp;客户设备中圆形孔的边缘不得侵入圆锥体内部。</li>
 <li>EDGES OF RECTANGULAR HOLES MUST NOT PROTRUDE INTO THE PYRAMID.<br>&emsp;矩形孔的边缘不得突出到棱锥体内部。</li>
@@ -603,13 +603,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">84k</span>
+    <span title="Word count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:16</span>
+    <span title="Reading time total">1:20</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -630,7 +630,7 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
 
     </div>
