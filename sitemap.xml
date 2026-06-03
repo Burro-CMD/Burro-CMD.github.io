@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://burro-cmd.github.io/2026/06/03/Honda%20WH150T%20Maintenace%20(Official)/</loc>
+    
+    <lastmod>2026-06-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://burro-cmd.github.io/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</loc>
     
     <lastmod>2026-06-03</lastmod>
@@ -431,6 +440,34 @@
   </url>
   
   <url>
+    <loc>https://burro-cmd.github.io/tags/Motorcycle/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/Maintenace/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/PCX160/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://burro-cmd.github.io/tags/HondaWH150T/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://burro-cmd.github.io/tags/ICT/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -790,14 +827,14 @@
   </url>
   
   <url>
-    <loc>https://burro-cmd.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://burro-cmd.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://burro-cmd.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://burro-cmd.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
