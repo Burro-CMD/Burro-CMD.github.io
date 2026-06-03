@@ -2219,30 +2219,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/08/12/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -2346,8 +2322,32 @@ th {
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
         <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/08/12/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2795,6 +2795,7 @@ th {
 <li><code>Custom URL</code>：用于生成 jsDelivr 链接</li>
 </ul>
 <p>保存配置，并将 <strong>GitHub 设置为默认图床</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo_Github_Setting_0603.png"></p>
 <hr>
 <h2 id="配置输出为-Markdown-格式（强烈推荐）"><a href="#配置输出为-Markdown-格式（强烈推荐）" class="headerlink" title="配置输出为 Markdown 格式（强烈推荐）"></a>配置输出为 Markdown 格式（强烈推荐）</h2><p>在 PicGo 设置中：</p>
 <ol>
@@ -3746,6 +3747,71 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>过程能力指数Cpk</title>
+    <url>/2020/05/16/%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0Cpk/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
+<li><strong>Cp（Process Capability Index，过程能力指数）</strong>：衡量的是过程在没有考虑均值偏移的情况下，其分布范围相对于规格限的宽窄程度。它反映了过程的潜在能力或“理想”状态下的能力。<span id="more"></span></li>
+<li><strong>CpkProcess Capability Index with K, 带有偏移量的过程能力指数</strong>。它衡量的是你的工艺输出相对于规格限的稳定程度。</li>
+</ol>
+<h2 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h2><ol>
+<li><p>Cp &#x3D; (USL-LSL)&#x2F;6σ&#x3D; T&#x2F;6σ<br>T&#x3D;允许最大值（USL）-允许最小值（LSL）</p>
+</li>
+<li><p>Cpk &#x3D; min[(USL – μ) &#x2F; (3σ), (μ – LSL) &#x2F; (3σ)]</p>
+<blockquote>
+<p>其中：<br>USL &#x3D; 规格上限（Upper Specification Limit）<br>LSL &#x3D; 规格下限（Lower Specification Limit）<br>μ &#x3D; 过程均值<br>σ &#x3D; 过程标准差</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h2><ol>
+<li>Cp的意义：</li>
+</ol>
+<ul>
+<li><p>主要用于评估过程的潜在能力，即如果过程均值恰好位于规格中心时，过程能够满足规格要求的能力。</p>
+</li>
+<li><p>对于新设计的过程或经过重大改进后的过程，Cp是一个有用的指标，因为它不考虑历史数据中的均值偏移。</p>
+</li>
+</ul>
+<ol start="2">
+<li>Cpk的意义:</li>
+</ol>
+<ul>
+<li><p>更贴近实际情况，因为大多数过程都会存在一定的均值偏移。</p>
+</li>
+<li><p>用于评估当前过程在满足规格要求方面的实际能力。</p>
+</li>
+<li><p>在持续改进过程中，Cpk是衡量过程性能改善的重要指标。</p>
+</li>
+</ul>
+<ol>
+<li>CPK＜1.0  制程不良多，必须整改</li>
+<li>1.0≤CPK＜1.33  一般水准，需改善</li>
+<li>1.33≤CPK＜1.67  良好，稳定可控</li>
+<li>1.67≤CPK＜2.0  优秀，高精量产</li>
+<li>CPK≥2.0  极高精度，冗余充足</li>
+</ol>
+<p><strong>简单说：Cpk 越大，说明你的工艺越稳定，产品越不容易超出规格。</strong></p>
+<h2 id="比较与选择"><a href="#比较与选择" class="headerlink" title="比较与选择"></a>比较与选择</h2><ul>
+<li><p>当过程处于稳定状态且均值接近目标值时，Cp和Cpk的值会相近。然而，在实际应用中，由于各种因素的影响（如原材料变化、设备磨损等），过程均值往往会发生偏移，此时Cpk更能准确反映过程的实际能力。</p>
+</li>
+<li><p>选择使用哪个指标取决于具体的应用场景和目标。对于新项目或过程的初步设计阶段，可能更关注Cp以了解潜在能力；而对于现有过程的监控和改进，则更倾向于使用Cpk来评估实际性能和进行决策。</p>
+</li>
+</ul>
+<h2 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h2><p>Ppk（过程性能指数）和 Cpk 的计算公式相同，区别在于标准差的计算方式：</p>
+<ul>
+<li>Cpk 使用的是组内标准差（within-group），反映短期能力</li>
+<li>Ppk 使用的是总体标准差（overall），反映长期性能</li>
+</ul>
+<p>一般来说 Ppk ≤ Cpk。如果两者差距很大，说明过程中存在特殊原因变异（比如设备漂移）。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Cpk</tag>
+        <tag>Cp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>连接器插拔机构气缸选型计算</title>
     <url>/2020/03/07/%E8%BF%9E%E6%8E%A5%E5%99%A8%E6%8F%92%E6%8B%94%E6%9C%BA%E6%9E%84%E6%B0%94%E7%BC%B8%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>&emsp;&emsp;为一款USBC receptacle的plug模组气缸选型，以型号217B-CA05的C口连接器为例，<span class="exturl" data-url="aHR0cHM6Ly93d3cuYXR0ZW5kLmNvbS50dy9kYXRhL2Rvd25sb2FkL2ZpbGUvMjE3Qi1DQTA1LnBkZg==">Datasheet<i class="fa fa-external-link-alt"></i></span>，插拔力：  </p>
@@ -4045,71 +4111,6 @@ th {
         <tag>USB-C</tag>
         <tag>Receptacle</tag>
         <tag>Plug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>过程能力指数Cpk</title>
-    <url>/2020/05/16/%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0Cpk/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
-<li><strong>Cp（Process Capability Index，过程能力指数）</strong>：衡量的是过程在没有考虑均值偏移的情况下，其分布范围相对于规格限的宽窄程度。它反映了过程的潜在能力或“理想”状态下的能力。<span id="more"></span></li>
-<li><strong>CpkProcess Capability Index with K, 带有偏移量的过程能力指数</strong>。它衡量的是你的工艺输出相对于规格限的稳定程度。</li>
-</ol>
-<h2 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h2><ol>
-<li><p>Cp &#x3D; (USL-LSL)&#x2F;6σ&#x3D; T&#x2F;6σ<br>T&#x3D;允许最大值（USL）-允许最小值（LSL）</p>
-</li>
-<li><p>Cpk &#x3D; min[(USL – μ) &#x2F; (3σ), (μ – LSL) &#x2F; (3σ)]</p>
-<blockquote>
-<p>其中：<br>USL &#x3D; 规格上限（Upper Specification Limit）<br>LSL &#x3D; 规格下限（Lower Specification Limit）<br>μ &#x3D; 过程均值<br>σ &#x3D; 过程标准差</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h2><ol>
-<li>Cp的意义：</li>
-</ol>
-<ul>
-<li><p>主要用于评估过程的潜在能力，即如果过程均值恰好位于规格中心时，过程能够满足规格要求的能力。</p>
-</li>
-<li><p>对于新设计的过程或经过重大改进后的过程，Cp是一个有用的指标，因为它不考虑历史数据中的均值偏移。</p>
-</li>
-</ul>
-<ol start="2">
-<li>Cpk的意义:</li>
-</ol>
-<ul>
-<li><p>更贴近实际情况，因为大多数过程都会存在一定的均值偏移。</p>
-</li>
-<li><p>用于评估当前过程在满足规格要求方面的实际能力。</p>
-</li>
-<li><p>在持续改进过程中，Cpk是衡量过程性能改善的重要指标。</p>
-</li>
-</ul>
-<ol>
-<li>CPK＜1.0  制程不良多，必须整改</li>
-<li>1.0≤CPK＜1.33  一般水准，需改善</li>
-<li>1.33≤CPK＜1.67  良好，稳定可控</li>
-<li>1.67≤CPK＜2.0  优秀，高精量产</li>
-<li>CPK≥2.0  极高精度，冗余充足</li>
-</ol>
-<p><strong>简单说：Cpk 越大，说明你的工艺越稳定，产品越不容易超出规格。</strong></p>
-<h2 id="比较与选择"><a href="#比较与选择" class="headerlink" title="比较与选择"></a>比较与选择</h2><ul>
-<li><p>当过程处于稳定状态且均值接近目标值时，Cp和Cpk的值会相近。然而，在实际应用中，由于各种因素的影响（如原材料变化、设备磨损等），过程均值往往会发生偏移，此时Cpk更能准确反映过程的实际能力。</p>
-</li>
-<li><p>选择使用哪个指标取决于具体的应用场景和目标。对于新项目或过程的初步设计阶段，可能更关注Cp以了解潜在能力；而对于现有过程的监控和改进，则更倾向于使用Cpk来评估实际性能和进行决策。</p>
-</li>
-</ul>
-<h2 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h2><p>Ppk（过程性能指数）和 Cpk 的计算公式相同，区别在于标准差的计算方式：</p>
-<ul>
-<li>Cpk 使用的是组内标准差（within-group），反映短期能力</li>
-<li>Ppk 使用的是总体标准差（overall），反映长期性能</li>
-</ul>
-<p>一般来说 Ppk ≤ Cpk。如果两者差距很大，说明过程中存在特殊原因变异（比如设备漂移）。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Cpk</tag>
-        <tag>Cp</tag>
       </tags>
   </entry>
 </search>
