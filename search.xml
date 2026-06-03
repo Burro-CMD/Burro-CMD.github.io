@@ -1201,6 +1201,52 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Github图床删除图片</title>
+    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
+</blockquote>
+<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
+<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
+<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
+<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
+<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
+<hr>
+<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
+<hr>
+<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
+<p>❌ PicGo 本身不支持删除远端图片</p>
+</blockquote>
+<p>原因很简单：</p>
+<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
+<p>👉 删除一定要回到 GitHub 仓库</p>
+<hr>
+<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>可能：</p>
+<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
+<p>这是 CDN 缓存，不是你删错。</p>
+<hr>
+<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>PicGo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ICT与FCT的区别</title>
     <url>/2020/01/15/ICT%E4%B8%8EFCT%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -2727,9 +2773,9 @@ th {
         <category>Blog</category>
       </categories>
       <tags>
+        <tag>图床</tag>
         <tag>GitHub</tag>
         <tag>Hexo</tag>
-        <tag>图床</tag>
         <tag>jsDelivr</tag>
       </tags>
   </entry>
@@ -3009,8 +3055,8 @@ th {
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
         <tag>GitHub</tag>
+        <tag>Blog</tag>
         <tag>Hexo</tag>
         <tag>NPM</tag>
         <tag>Node.js</tag>
