@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文介绍了如何通过 PicGo 将截图自动上传到 GitHub 图床，并生成可直接使用的 jsDelivr 链接，从而实现高效、稳定的博客图片管理流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）">
+<meta property="og:url" content="https://burro-cmd.github.io/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="本文介绍了如何通过 PicGo 将截图自动上传到 GitHub 图床，并生成可直接使用的 jsDelivr 链接，从而实现高效、稳定的博客图片管理流程。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20Token%20Setting.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo_Github_Setting_0603.png">
+<meta property="article:published_time" content="2026-06-02T07:23:14.000Z">
+<meta property="article:modified_time" content="2026-06-03T01:22:11.366Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="PicGo - GitHub - 图床 - jsDelivr - Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20Token%20Setting.png">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/","path":"2026/06/02/使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）/","title":"使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr） | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-PicGo%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么需要 PicGo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-PicGo"><span class="nav-number">2.</span> <span class="nav-text">安装 PicGo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E4%B8%8B%E8%BD%BD-PicGo"><span class="nav-number">2.1.</span> <span class="nav-text">1️⃣ 下载 PicGo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87-GitHub-Token%EF%BC%88%E5%BF%85%E9%A1%BB%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">准备 GitHub Token（必须）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E5%88%9B%E5%BB%BA-Token"><span class="nav-number">3.1.</span> <span class="nav-text">1️⃣ 创建 Token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-Token-%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">2️⃣ Token 权限设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-PicGo%EF%BC%88GitHub-%E5%9B%BE%E5%BA%8A%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">配置 PicGo（GitHub 图床）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%BE%93%E5%87%BA%E4%B8%BA-Markdown-%E6%A0%BC%E5%BC%8F%EF%BC%88%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">配置输出为 Markdown 格式（强烈推荐）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE-%E2%86%92-%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0-%E2%86%92-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">一键截图 → 自动上传 → 自动生成链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%BB%BA%E8%AE%AE"><span class="nav-number">7.</span> <span class="nav-text">常见问题与实践建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E5%9B%BE%E7%89%87%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98"><span class="nav-number">7.1.</span> <span class="nav-text">1️⃣ 图片覆盖问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E7%9B%AE%E5%BD%95%E8%A7%84%E5%88%92%E5%BB%BA%E8%AE%AE"><span class="nav-number">7.2.</span> <span class="nav-text">2️⃣ 目录规划建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-Token-%E5%AE%89%E5%85%A8"><span class="nav-number">7.3.</span> <span class="nav-text">3️⃣ Token 安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%80%BB%E6%95%88%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">最总效果总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr） | HUNPHY'S BLOG">
+      <meta itemprop="description" content="本文介绍了如何通过 PicGo 将截图自动上传到 GitHub 图床，并生成可直接使用的 jsDelivr 链接，从而实现高效、稳定的博客图片管理流程。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-06-02 15:23:14" itemprop="dateCreated datePublished" datetime="2026-06-02T15:23:14+08:00">2026-06-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">本文介绍了如何通过 PicGo 将截图自动上传到 GitHub 图床，并生成可直接使用的 jsDelivr 链接，从而实现高效、稳定的博客图片管理流程。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在上一篇文章中，我已经搭建好了基于 <strong>GitHub 公共仓库 + jsDelivr CDN</strong> 的免费图床方案。<br>但在实际写博客时，如果每次都要：</p>
+<ul>
+<li>手动截图  </li>
+<li>打开 GitHub  </li>
+<li>上传图片  </li>
+<li>复制链接</li>
+</ul>
+<p>这个流程仍然偏重。</p>
+<p>本文将进一步优化这一流程，目标是：</p>
+<blockquote>
+<p><strong>截图 → 自动上传 → 自动生成 Markdown 图片链接</strong></p>
+</blockquote>
+<p>最终实现 <strong>几乎“无感”的图片插入体验</strong>。</p>
+<hr>
+<h2 id="为什么需要-PicGo？"><a href="#为什么需要-PicGo？" class="headerlink" title="为什么需要 PicGo？"></a>为什么需要 PicGo？</h2><p>PicGo 是一款 <strong>开源的图片上传工具</strong>，支持多种图床后端，包括：</p>
+<ul>
+<li>GitHub</li>
+<li>GitLab</li>
+<li>七牛云 &#x2F; 阿里云 OSS</li>
+<li>自定义接口</li>
+</ul>
+<p>在本方案中，PicGo 的作用是：</p>
+<ul>
+<li>自动把图片上传到 GitHub 图床仓库</li>
+<li>自动生成 jsDelivr 访问链接</li>
+<li>自动复制 Markdown 图片语法到剪贴板</li>
+</ul>
+<hr>
+<h2 id="安装-PicGo"><a href="#安装-PicGo" class="headerlink" title="安装 PicGo"></a>安装 PicGo</h2><h3 id="1️⃣-下载-PicGo"><a href="#1️⃣-下载-PicGo" class="headerlink" title="1️⃣ 下载 PicGo"></a>1️⃣ 下载 PicGo</h3><p>官方项目地址：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv">https://github.com/Molunerfinn/PicGo<i class="fa fa-external-link-alt"></i></span></p>
+<p>根据系统下载对应版本：</p>
+<ul>
+<li>Windows：<code>.exe</code></li>
+<li>macOS：<code>.dmg</code></li>
+<li>Linux：AppImage &#x2F; deb</li>
+</ul>
+<p>安装完成后启动 PicGo。</p>
+<hr>
+<h2 id="准备-GitHub-Token（必须）"><a href="#准备-GitHub-Token（必须）" class="headerlink" title="准备 GitHub Token（必须）"></a>准备 GitHub Token（必须）</h2><p>PicGo 通过 GitHub API 上传图片，需要一个 <strong>Personal Access Token</strong>。</p>
+<h3 id="1️⃣-创建-Token"><a href="#1️⃣-创建-Token" class="headerlink" title="1️⃣ 创建 Token"></a>1️⃣ 创建 Token</h3><p>在 GitHub 中：</p>
+<ol>
+<li>进入 <strong>Settings → Developer settings</strong></li>
+<li>打开 <strong>Personal access tokens</strong></li>
+<li>选择 <strong>Tokens (classic)</strong></li>
+<li>点击 <strong>Generate new token</strong></li>
+</ol>
+<h3 id="2️⃣-Token-权限设置"><a href="#2️⃣-Token-权限设置" class="headerlink" title="2️⃣ Token 权限设置"></a>2️⃣ Token 权限设置</h3><p>至少勾选：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20Token%20Setting.png"></p>
+<p>✅ repo</p>
+<p>生成后复制 Token（只显示一次）。</p>
+<hr>
+<h2 id="配置-PicGo（GitHub-图床）"><a href="#配置-PicGo（GitHub-图床）" class="headerlink" title="配置 PicGo（GitHub 图床）"></a>配置 PicGo（GitHub 图床）</h2><p>打开 PicGo，进入 <strong>图床设置 → GitHub</strong>，填写如下信息：</p>
+<p>Repo: Burro-CMD&#x2F;burro-imgbed<br>Branch: main<br>Token: &lt;你的 GitHub Token&gt;<br>Path: images&#x2F;blog&#x2F;<br>Custom URL: <span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
+<p>说明：</p>
+<ul>
+<li><code>Repo</code>：你的图床仓库</li>
+<li><code>Path</code>：图片上传到的子目录</li>
+<li><code>Custom URL</code>：用于生成 jsDelivr 链接</li>
+</ul>
+<p>保存配置，并将 <strong>GitHub 设置为默认图床</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo_Github_Setting_0603.png"></p>
+<hr>
+<h2 id="配置输出为-Markdown-格式（强烈推荐）"><a href="#配置输出为-Markdown-格式（强烈推荐）" class="headerlink" title="配置输出为 Markdown 格式（强烈推荐）"></a>配置输出为 Markdown 格式（强烈推荐）</h2><p>在 PicGo 设置中：</p>
+<ol>
+<li>打开 <strong>设置 → 设置 Server</strong></li>
+<li>勾选 <strong>上传后自动复制链接</strong></li>
+<li>链接格式选择：</li>
+</ol>
+<p>生成格式示例：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![image](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
+
+<h2 id="一键截图-→-自动上传-→-自动生成链接"><a href="#一键截图-→-自动上传-→-自动生成链接" class="headerlink" title="一键截图 → 自动上传 → 自动生成链接"></a>一键截图 → 自动上传 → 自动生成链接</h2><p>推荐使用方式</p>
+<ul>
+<li>Windows：截图工具 &#x2F; Snipaste</li>
+<li>macOS：系统截图</li>
+<li>Linux：系统截图工具</li>
+</ul>
+<p>截图完成后：</p>
+<ol>
+<li>复制图片到剪贴板</li>
+<li>点击 PicGo 的 Upload</li>
+<li>PicGo 自动完成：<ul>
+<li>上传图片</li>
+<li>生成 jsDelivr 链接</li>
+<li>复制 Markdown 语法</li>
+</ul>
+</li>
+</ol>
+<p>你只需要<strong>粘贴即可</strong>。</p>
+<h2 id="常见问题与实践建议"><a href="#常见问题与实践建议" class="headerlink" title="常见问题与实践建议"></a>常见问题与实践建议</h2><h3 id="1️⃣-图片覆盖问题"><a href="#1️⃣-图片覆盖问题" class="headerlink" title="1️⃣ 图片覆盖问题"></a>1️⃣ 图片覆盖问题</h3><p>jsDelivr有缓存机制，不建议覆盖同名文件。<br>推荐开启PicGo的<strong>时间戳重命名</strong>，或使用如下命名策略：<br>hexo-arch-20260602-1530.png</p>
+<h3 id="2️⃣-目录规划建议"><a href="#2️⃣-目录规划建议" class="headerlink" title="2️⃣ 目录规划建议"></a>2️⃣ 目录规划建议</h3><p>推荐在 PicGo 中按内容拆分路径，例如：<br>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
+<p>不同文章可使用不同 Path。</p>
+<h3 id="3️⃣-Token-安全"><a href="#3️⃣-Token-安全" class="headerlink" title="3️⃣ Token 安全"></a>3️⃣ Token 安全</h3><ul>
+<li>Token 不要提交到 GitHub</li>
+<li>不要截图公开</li>
+<li>如泄露，立即删除并重新生成</li>
+</ul>
+<hr>
+<h2 id="最总效果总结"><a href="#最总效果总结" class="headerlink" title="最总效果总结"></a>最总效果总结</h2><p>完成以上配置后，图片插入流程将变为：<br>截图 → Ctrl+V → 上传 → 粘贴 Markdown</p>
+<p>无需再手动操作 GitHub 页面。  </p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 PicGo + GitHub 图床 + jsDelivr CDN，可以实现一套：</p>
+<ul>
+<li>✅ 免费</li>
+<li>✅ 稳定</li>
+<li>✅ 高效率</li>
+<li>✅ 适合长期维护</li>
+</ul>
+<p>的图片管理方案。对于 Hexo &#x2F; GitHub Pages &#x2F; NexT 等工程型博客，这是目前性价比极高的一种实践方式。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PicGo-GitHub-%E5%9B%BE%E5%BA%8A-jsDelivr-Hexo/" rel="tag"><i class="fa fa-tag"></i> PicGo - GitHub - 图床 - jsDelivr - Hexo</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/" rel="prev" title="使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）">
+                  <i class="fa fa-angle-left"></i> 使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/" rel="next" title="Github图床删除图片">
+                  Github图床删除图片 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">95k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

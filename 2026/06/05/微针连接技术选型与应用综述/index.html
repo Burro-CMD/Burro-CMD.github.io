@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="随着电子产品向高密度、小型化、模块化发展，传统焊接方式逐渐无法满足柔性连接、可维护性以及超细间距（fine pitch）的需求。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微针连接技术选型与应用综述">
+<meta property="og:url" content="https://burro-cmd.github.io/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="随着电子产品向高密度、小型化、模块化发展，传统焊接方式逐渐无法满足柔性连接、可维护性以及超细间距（fine pitch）的需求。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blogBlade%20Pin.png">
+<meta property="og:image" content="https://www.qatech.com/images/home/2020/5_probes_banner.png">
+<meta property="article:published_time" content="2026-06-05T06:36:47.000Z">
+<meta property="article:modified_time" content="2026-06-05T13:53:44.423Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="FCT">
+<meta property="article:tag" content="探针">
+<meta property="article:tag" content="ICT">
+<meta property="article:tag" content="ACS">
+<meta property="article:tag" content="Blade Pin">
+<meta property="article:tag" content="Pogo Pin">
+<meta property="article:tag" content="Pitch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/","path":"2026/06/05/微针连接技术选型与应用综述/","title":"微针连接技术选型与应用综述"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>微针连接技术选型与应用综述 | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E5%92%8C%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">分类和技术原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ACS-%E7%A1%85%E8%83%B6%E6%8E%A2%E9%92%88"><span class="nav-number">1.1.</span> <span class="nav-text">ACS&#x2F; 硅胶探针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ACS%E7%9A%84%E4%BC%98%E5%8A%BF%E4%B8%BB%E8%A6%81%E5%9C%A8%E4%BA%8E%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">ACS的优势主要在于：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACS%E7%9A%84%E5%B1%80%E9%99%90%EF%BC%9A"><span class="nav-number">1.1.2.</span> <span class="nav-text">ACS的局限：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blade-Pin-%E7%89%87%E9%92%88-%E5%8F%B6%E7%89%87%E9%92%88"><span class="nav-number">1.2.</span> <span class="nav-text">Blade Pin&#x2F; 片针&#x2F; 叶片针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Blade-Pin%E7%9A%84%E4%BC%98%E5%8A%BF%E4%B8%BB%E8%A6%81%E5%9C%A8%E4%BA%8E%EF%BC%9A"><span class="nav-number">1.2.1.</span> <span class="nav-text">Blade Pin的优势主要在于：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Blade-Pin%E5%AF%B9%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82%E4%B9%9F%E6%AF%94%E8%BE%83%E9%AB%98%EF%BC%9A"><span class="nav-number">1.2.2.</span> <span class="nav-text">Blade Pin对结构设计要求也比较高：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Pin-%E5%BC%B9%E7%B0%A7%E9%92%88-Pogo-Pin"><span class="nav-number">1.3.</span> <span class="nav-text">Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pitch%E9%80%89%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">Pitch选型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pitch-0-10-mm"><span class="nav-number">2.1.</span> <span class="nav-text">Pitch &lt; 0.10 mm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pitch-0-10-0-175-mm"><span class="nav-number">2.1.1.</span> <span class="nav-text">Pitch 0.10 ~ 0.175 mm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pitch-0-175-0-30-mm"><span class="nav-number">2.1.2.</span> <span class="nav-text">Pitch 0.175 ~ 0.30 mm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pitch-0-30-0-40-mm"><span class="nav-number">2.1.3.</span> <span class="nav-text">Pitch 0.30 ~ 0.40 mm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pitch-0-40-mm"><span class="nav-number">2.1.4.</span> <span class="nav-text">Pitch &gt; 0.40 mm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pitch%E9%80%89%E5%9E%8B%E6%80%BB%E7%BB%93"><span class="nav-number">2.1.5.</span> <span class="nav-text">Pitch选型总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Pitch-0-10-mm-1"><span class="nav-number">2.1.5.1.</span> <span class="nav-text">Pitch &lt; 0.10 mm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pitch-0-10-0-175-mm-1"><span class="nav-number">2.1.5.2.</span> <span class="nav-text">Pitch 0.10 ~ 0.175 mm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pitch-0-175-0-30-mm-1"><span class="nav-number">2.1.5.3.</span> <span class="nav-text">Pitch 0.175 ~ 0.30 mm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pitch-0-30-0-40-mm-1"><span class="nav-number">2.1.5.4.</span> <span class="nav-text">Pitch 0.30 ~ 0.40 mm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pitch-0-40-mm-1"><span class="nav-number">2.1.5.5.</span> <span class="nav-text">Pitch &gt; 0.40 mm</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pitch%E8%8C%83%E5%9B%B4"><span class="nav-number">3.</span> <span class="nav-text">pitch范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.</span> <span class="nav-text">应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MEMS-%E4%B8%8E%E8%B6%85%E7%BB%86-pad-%E9%98%B5%E5%88%97"><span class="nav-number">4.1.</span> <span class="nav-text">MEMS 与超细 pad 阵列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Camera-Module%E6%B5%8B%E8%AF%95"><span class="nav-number">4.2.</span> <span class="nav-text">Camera Module测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Display-Module-%E6%B5%8B%E8%AF%95"><span class="nav-number">4.3.</span> <span class="nav-text">Display Module 测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICT-FCT-%E4%B8%8E%E6%9D%BF%E7%BA%A7%E6%B5%8B%E8%AF%95"><span class="nav-number">4.4.</span> <span class="nav-text">ICT &#x2F; FCT 与板级测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%89%B9%E6%80%A7%E5%AF%B9%E6%AF%94"><span class="nav-number">5.</span> <span class="nav-text">工程特性对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E5%9E%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">6.</span> <span class="nav-text">选型注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pitch%E5%8F%AA%E6%98%AF%E5%9F%BA%E6%9C%AC%E6%9D%A1%E4%BB%B6%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%9C%80%E7%BB%88%E7%AD%94%E6%A1%88"><span class="nav-number">6.1.</span> <span class="nav-text">Pitch只是基本条件，不是最终答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A2%AB%E6%B5%8B%E4%BB%B6%E8%83%BD%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E6%8E%A5%E8%A7%A6%E5%8A%9B"><span class="nav-number">6.2.</span> <span class="nav-text">被测件能不能承受接触力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%AF%E5%90%A6%E6%B6%89%E5%8F%8A%E9%AB%98%E9%80%9F%E4%BF%A1%E5%8F%B7%E6%88%96%E7%94%B5%E6%BA%90%E8%B7%AF%E5%BE%84"><span class="nav-number">6.3.</span> <span class="nav-text">是否涉及高速信号或电源路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%BB%E5%85%B7%E7%BB%93%E6%9E%84%E6%98%AF%E5%90%A6%E8%83%BD%E4%BF%9D%E8%AF%81%E7%A8%B3%E5%AE%9A%E6%8E%A5%E8%A7%A6"><span class="nav-number">6.4.</span> <span class="nav-text">治具结构是否能保证稳定接触</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E9%A3%8E%E9%99%A9%E7%82%B9"><span class="nav-number">7.</span> <span class="nav-text">常见问题与风险点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E5%BC%B9%E7%B0%A7%E9%92%88%E7%A1%AC%E5%81%9A%E8%BF%87%E5%B0%8F-pitch"><span class="nav-number">7.1.</span> <span class="nav-text">用弹簧针硬做过小 pitch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A-ACS-%E7%94%A8%E5%9C%A8%E5%A4%A7%E7%94%B5%E6%B5%81%E6%88%96%E9%AB%98%E9%A2%91%E5%9C%BA%E6%99%AF"><span class="nav-number">7.2.</span> <span class="nav-text">把 ACS 用在大电流或高频场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%BD%E7%95%A5-pad-%E8%A1%A8%E9%9D%A2%E5%A4%84%E7%90%86"><span class="nav-number">7.3.</span> <span class="nav-text">忽略 pad 表面处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E6%8A%8A%E5%85%AC%E5%B7%AE%E9%93%BE%E7%AE%97%E6%B8%85%E6%A5%9A"><span class="nav-number">7.4.</span> <span class="nav-text">没有把公差链算清楚</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Referance"><span class="nav-number">9.</span> <span class="nav-text">Referance</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="微针连接技术选型与应用综述 | HUNPHY'S BLOG">
+      <meta itemprop="description" content="随着电子产品向高密度、小型化、模块化发展，传统焊接方式逐渐无法满足柔性连接、可维护性以及超细间距（fine pitch）的需求。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微针连接技术选型与应用综述
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-06-05 14:36:47" itemprop="dateCreated datePublished" datetime="2026-06-05T14:36:47+08:00">2026-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">随着电子产品向高密度、小型化、模块化发展，传统焊接方式逐渐无法满足柔性连接、可维护性以及超细间距（fine pitch）的需求。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试solution可以大致分为三类：  </p>
+<ul>
+<li>ACS&#x2F; 硅胶探针  </li>
+<li>Blade Pin&#x2F; 片针&#x2F; 叶片针  </li>
+<li>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</li>
+</ul>
+<p>这三类方案覆盖的pitch区间不同，适合的测试对象也不同。下面主要从工程实际使用角度来分享这三类微针的不同。</p>
+<h2 id="分类和技术原理"><a href="#分类和技术原理" class="headerlink" title="分类和技术原理"></a>分类和技术原理</h2><h3 id="ACS-硅胶探针"><a href="#ACS-硅胶探针" class="headerlink" title="ACS&#x2F; 硅胶探针"></a>ACS&#x2F; 硅胶探针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png"></p>
+<p>&emsp;&emsp;ACS (Anisotropic Conductive Sheet) 可以理解为一种基于弹性体的异向导电接触方案。常见形式是在硅胶或类似弹性材料中布置导电介质，通过压缩后实现Z向导通，同时尽量保持平面方向的绝缘。  </p>
+<p>比较典型的pitch区间：<strong>0.08 ~ 0.30mm</strong>。</p>
+<p>&emsp;&emsp;从使用场景来看，ACS更适合处理超细pitch、较脆弱pad、大面积阵列接触这类问题。<br><strong>面向超细间距和柔性接触的测试方案</strong>  </p>
+<h4 id="ACS的优势主要在于："><a href="#ACS的优势主要在于：" class="headerlink" title="ACS的优势主要在于："></a>ACS的优势主要在于：</h4><ul>
+<li>能够支持较小pitch；  </li>
+<li>对被测件表面高度差有一定适应能力；  </li>
+<li>接触应力相对分散；  </li>
+<li>对glass、MEMS、细小pad阵列相对友好。</li>
+</ul>
+<h4 id="ACS的局限："><a href="#ACS的局限：" class="headerlink" title="ACS的局限："></a>ACS的局限：</h4><ul>
+<li><strong>电流能力有限；</strong>  </li>
+<li><strong>接触电阻一致性依赖压缩量和压力均匀性；</strong>  </li>
+<li><strong>高频信号能力通常不是强项；</strong>  </li>
+<li><strong>治具结构需要保证比较均匀的压合状态。</strong></li>
+</ul>
+<p>因此，ACS 更适合解决<strong>“接触点很密、被测件较脆弱、测试电流不大”</strong>的问题。</p>
+<h3 id="Blade-Pin-片针-叶片针"><a href="#Blade-Pin-片针-叶片针" class="headerlink" title="Blade Pin&#x2F; 片针&#x2F; 叶片针"></a>Blade Pin&#x2F; 片针&#x2F; 叶片针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blogBlade%20Pin.png"></p>
+<p>&emsp;&emsp;Blade Pin是一种金属片式接触结构。它不像传统弹簧针那样依靠针管和内部弹簧提供行程，而是通过金属片本身的结构形变、刃口或接触边缘与pad形成导通。<br>&emsp;&emsp;在工程应用中，Blade Pin的定位比较明确：<br><strong>它主要解决 ACS 和传统弹簧针之间的中间 pitch 精密测试问题。</strong></p>
+<p>比较典型的 Blade Pin pitch区间是：<strong>0.175 ~ 0.350mm</strong>。</p>
+<h4 id="Blade-Pin的优势主要在于："><a href="#Blade-Pin的优势主要在于：" class="headerlink" title="Blade Pin的优势主要在于："></a>Blade Pin的优势主要在于：</h4><ul>
+<li>能支持较高密度的金属接触；</li>
+<li>接触路径比ACS更明确；</li>
+<li>接触电阻相对容易控制；</li>
+<li>对camera module、display module、B-to-B connector区域测试比较适用。</li>
+</ul>
+<h4 id="Blade-Pin对结构设计要求也比较高："><a href="#Blade-Pin对结构设计要求也比较高：" class="headerlink" title="Blade Pin对结构设计要求也比较高："></a>Blade Pin对结构设计要求也比较高：</h4><ul>
+<li>对位精度要求高；</li>
+<li>对被测pad的平面度和位置公差敏感；</li>
+<li>不适合直接压在过于脆弱的材料上；</li>
+<li>接触力、刮擦量和pad表面处理需要提前验证。</li>
+</ul>
+<p>所以一般不会把Blade Pin视为通用探针，而是把它看作一种针对<strong>fine pitch connector或精密模组接口的专用测试方案</strong>。</p>
+<h3 id="Spring-Pin-弹簧针-Pogo-Pin"><a href="#Spring-Pin-弹簧针-Pogo-Pin" class="headerlink" title="Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin"></a>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</h3><p><img src="https://www.qatech.com/images/home/2020/5_probes_banner.png"></p>
+<p>&emsp;&emsp;弹簧针是测试治具中最常见的方案之一。它依靠内部弹簧提供行程补偿，通过针头与pad接触实现导通。</p>
+<p>弹簧针的优点不在于支持最小pitch，而在于：</p>
+<ul>
+<li>技术成熟；</li>
+<li>规格丰富；</li>
+<li>寿命较好；</li>
+<li>维护方便；</li>
+<li>对治具公差有一定容忍度；</li>
+<li>可以覆盖信号、电源、功能测试等多种需求。</li>
+</ul>
+<p>一般把弹簧针归类为：<br><strong>面向较大 pitch、通用测试和可靠连接的成熟方案。</strong></p>
+<p>&emsp;&emsp;弹簧针适合ICT、FCT、模组接口、电池接口、电源测试、板级测试等场景。只要pitch 条件允许，弹簧针通常是<strong>优先考虑的方案</strong>。</p>
+<p>在fine pitch场景下，弹簧针会遇到限制：</p>
+<ul>
+<li>结构尺寸较大；</li>
+<li>pitch缩小后成本和制造难度上升；</li>
+<li>高密度排布下维护难度增加；</li>
+<li>过小pitch下容易受到对位、偏摆和针头尺寸限制。</li>
+</ul>
+<p>因此，当<strong>pitch小于0.4mm</strong>时，通常会谨慎评估弹簧针方案的可行性。</p>
+<h2 id="Pitch选型"><a href="#Pitch选型" class="headerlink" title="Pitch选型"></a>Pitch选型</h2><p>&emsp;&emsp;在实际项目中，通常是优先看pitch。pitch决定了接触单元能不能放得下，也决定了后续加工、装配、对位和维护的难度。</p>
+<p>下面是在方案评估中常用的pitch分界。</p>
+<h3 id="Pitch-0-10-mm"><a href="#Pitch-0-10-mm" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h3><p>&emsp;&emsp;当 pitch小于0.10mm 时，基本进入超细间距范围。<br>&emsp;&emsp;这个区间内，传统金属针类方案很难稳定实现。接触单元尺寸、加工精度、装配公差和对位能力都会成为问题。</p>
+<p>这种情况下，通常会优先考虑：</p>
+<ul>
+<li>ACS&#x2F; 硅胶探针；</li>
+<li>其他基于弹性体或面接触的方案。</li>
+</ul>
+<p>这个区间的核心不是追求高电流或长寿命，而是先解决“能否稳定接触”的问题</p>
+<h4 id="Pitch-0-10-0-175-mm"><a href="#Pitch-0-10-0-175-mm" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h4><p>&emsp;&emsp;当pitch 在 0.10 ~ 0.175 mm 时，ACS 仍然是主要方案。<br>&emsp;&emsp;这个区间虽然比 0.10 mm 以下稍宽，但对接触结构的尺寸和位置精度仍然非常敏感。<br>&emsp;&emsp;Blade Pin 在这个区间通常不是常规选择，除非供应商有成熟的定制能力，并且项目能够接受较高的开发和验证风险。  </p>
+<p>这个区间通常会重点关注：</p>
+<ul>
+<li>pad尺寸；</li>
+<li>pad表面处理；</li>
+<li>压缩量；</li>
+<li>被测件平面度；</li>
+<li>治具压合均匀性。</li>
+</ul>
+<h4 id="Pitch-0-175-0-30-mm"><a href="#Pitch-0-175-0-30-mm" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h4><p>&emsp;&emsp;当pitch进入 0.175 ~ 0.30 mm 后，ACS 和Blade Pin 会出现重叠。<br>&emsp;&emsp;这个区间是方案判断比较关键的区域。不能只看pitch，还要结合测试目标。  </p>
+<ul>
+<li>如果被测件比较脆弱，例如 glass、MEMS、薄型 sensor或细小pad阵列，倾向 ACS。  </li>
+<li>如果项目更关注接触电阻、金属导通路径、信号稳定性和重复测试寿命，倾向Blade Pin。</li>
+</ul>
+<p>这个区间可以理解为：ACS和 Blade Pin的竞争区间。</p>
+<p>在实际评估时，重点看以下几个问题：</p>
+<ul>
+<li>被测pad是否能承受金属接触；</li>
+<li>是否有高速信号；</li>
+<li>是否有电流需求；</li>
+<li>测试寿命要求是多少；</li>
+<li>治具是否能保证稳定对位；</li>
+<li>允许的维护周期和成本是多少。</li>
+</ul>
+<h4 id="Pitch-0-30-0-40-mm"><a href="#Pitch-0-30-0-40-mm" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h4><p>&emsp;&emsp;当pitch在 0.30 ~ 0.40 mm 时，Blade Pin通常会更有优势。<br>&emsp;&emsp;这个区间内，Blade Pin的尺寸、接触稳定性和可制造性相对比较平衡。<br>&emsp;&emsp;相对 ACS，Blade Pin的金属接触路径更清楚；相对弹簧针，Blade Pin又可以支持更小的间距。</p>
+<p>因此，在camera module、display module、fine pitch B-to-B connector测试中，这个区间经常会考虑Blade Pin。  </p>
+<p>&emsp;&emsp;当然，是否最终采用 Blade Pin，还要看 pad设计和被测件结构。如果pad面积太小、表面处理不适合，或者被测件不能承受局部接触力，仍然需要重新评估。</p>
+<h4 id="Pitch-0-40-mm"><a href="#Pitch-0-40-mm" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h4><p>&emsp;&emsp;当pitch 大于 0.40 mm 时，弹簧针通常会成为更自然的选择。</p>
+<p>&emsp;&emsp;这个区间已经有足够空间布置弹簧针结构。</p>
+<p>&emsp;&emsp;相比 ACS 和 Blade Pin，弹簧针在以下方面更成熟：</p>
+<ul>
+<li>行程补偿；</li>
+<li>插拔寿命；</li>
+<li>维护更换；</li>
+<li>标准件选择；</li>
+<li>电流能力；</li>
+<li>治具适配性。</li>
+</ul>
+<p>&emsp;&emsp;所以在ICT、FCT、板级测试、模组接口、电池连接和电源类测试中，如果pitch允许，一般会优先考虑弹簧针。</p>
+<h4 id="Pitch选型总结"><a href="#Pitch选型总结" class="headerlink" title="Pitch选型总结"></a>Pitch选型总结</h4><p>下面是在工程评估中比较常用的简化判断逻辑：</p>
+<h5 id="Pitch-0-10-mm-1"><a href="#Pitch-0-10-mm-1" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h5><p>→ 主要考虑ACS&#x2F; 硅胶探针</p>
+<h5 id="Pitch-0-10-0-175-mm-1"><a href="#Pitch-0-10-0-175-mm-1" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h5><p>→ ACS&#x2F; 硅胶探针为主</p>
+<h5 id="Pitch-0-175-0-30-mm-1"><a href="#Pitch-0-175-0-30-mm-1" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h5><p>→ ACS与Blade Pin竞争区间</p>
+<h5 id="Pitch-0-30-0-40-mm-1"><a href="#Pitch-0-30-0-40-mm-1" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h5><p>→ Blade Pin&#x2F; 片针为主</p>
+<h5 id="Pitch-0-40-mm-1"><a href="#Pitch-0-40-mm-1" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h5><p>→ 弹簧针&#x2F; Pogo Pin 为主</p>
+<p>进一步简化，可以概括为：<br><strong>小pitch看ACS，中间pitch看Blade Pin，大pitch看弹簧针。</strong></p>
+<h2 id="pitch范围"><a href="#pitch范围" class="headerlink" title="pitch范围"></a>pitch范围</h2><table>
+<thead>
+<tr>
+<th>测试方案</th>
+<th>典型 pitch 范围</th>
+<th>推荐应用区间</th>
+<th>工程定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ACS &#x2F; 硅胶探针</td>
+<td>0.08 ~ 0.30 mm</td>
+<td>0.10 ~ 0.20 mm</td>
+<td>超细 pitch 柔性接触</td>
+</tr>
+<tr>
+<td>Blade Pin &#x2F; 片针</td>
+<td>0.175 ~ 0.350 mm</td>
+<td>0.20 ~ 0.30 mm</td>
+<td>中等 fine pitch 精密金属接触</td>
+</tr>
+<tr>
+<td>弹簧针 &#x2F; Pogo Pin</td>
+<td>0.40 ~ 3.00 mm</td>
+<td>0.50 ~ 1.50 mm</td>
+<td>通用测试与可靠连接</td>
+</tr>
+</tbody></table>
+<p>这里的范围更偏向工程量产可用区间，而不是实验室极限能力。不同供应商、不同材料、不同治具结构下，实际边界会有差异。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="MEMS-与超细-pad-阵列"><a href="#MEMS-与超细-pad-阵列" class="headerlink" title="MEMS 与超细 pad 阵列"></a>MEMS 与超细 pad 阵列</h3><p>&emsp;&emsp;MEMS 或超细 pad 阵列通常 pitch 小、pad 面积小，同时被测件本身也比较敏感。</p>
+<p>这类场景下，通常会优先看 ACS。原因主要有三点：</p>
+<ul>
+<li>ACS 支持更小 pitch；</li>
+<li>接触应力分布相对柔和；</li>
+<li>对微小高度差有一定补偿能力。</li>
+</ul>
+<p><strong>如果测试信号电流不大，ACS 往往是更合适的方向。</strong></p>
+<h3 id="Camera-Module测试"><a href="#Camera-Module测试" class="headerlink" title="Camera Module测试"></a>Camera Module测试</h3><p>&emsp;&emsp;Camera module 是比较典型的混合型应用。不同接口位置可能需要不同方案。</p>
+<p>一般会这样拆分：</p>
+<ul>
+<li>sensor 端或细密 pad：优先考虑 ACS；</li>
+<li>B-to-B connector 区域：优先考虑 Blade Pin；</li>
+<li>模组级接口或较大 pad：可以考虑弹簧针。</li>
+</ul>
+<p><strong>Camera module的测试不能只看 pitch，还要考虑高速信号、接地设计、接触电阻、压合结构和模组定位精度。</strong></p>
+<h3 id="Display-Module-测试"><a href="#Display-Module-测试" class="headerlink" title="Display Module 测试"></a>Display Module 测试</h3><p>&emsp;&emsp;Display module 中，如果涉及 glass、FPC、细间距 pad，ACS 通常更合适。  </p>
+<p>&emsp;&emsp;如果测试点位在 B-to-B connector 或相对刚性的模组接口上，Blade Pin 也可以作为候选方案。  </p>
+<p>对于显示模组，会特别关注两个问题：</p>
+<ul>
+<li>被测件是否容易压伤；</li>
+<li>接触区是否允许金属针刮擦或局部压接。</li>
+</ul>
+<p>如果答案不明确，需要提前做样件验证。</p>
+<h3 id="ICT-FCT-与板级测试"><a href="#ICT-FCT-与板级测试" class="headerlink" title="ICT &#x2F; FCT 与板级测试"></a>ICT &#x2F; FCT 与板级测试</h3><p>&emsp;&emsp;ICT 和 FCT 场景中，弹簧针仍然是最常见的方案。</p>
+<p>原因是这类测试通常更关注：</p>
+<ul>
+<li>使用寿命；</li>
+<li>维护效率；</li>
+<li>治具成本；</li>
+<li>标准化；</li>
+<li>稳定接触；</li>
+<li>快速更换。</li>
+</ul>
+<p>只要 pitch 和结构空间允许，弹簧针通常是比较稳妥的选择。</p>
+<h2 id="工程特性对比"><a href="#工程特性对比" class="headerlink" title="工程特性对比"></a>工程特性对比</h2><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>ACS &#x2F; 硅胶探针</th>
+<th>Blade Pin &#x2F; 片针</th>
+<th>弹簧针 &#x2F; Pogo Pin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适合pitch</td>
+<td>最小</td>
+<td>中等fine pitch</td>
+<td>较大pitch</td>
+</tr>
+<tr>
+<td>接触形式</td>
+<td>弹性体面接触</td>
+<td>金属片接触</td>
+<td>金属点接触</td>
+</tr>
+<tr>
+<td>对位要求</td>
+<td>中等</td>
+<td>较高</td>
+<td>相对较低</td>
+</tr>
+<tr>
+<td>对平面度适应</td>
+<td>较好</td>
+<td>一般</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>接触电阻</td>
+<td>中等</td>
+<td>较低</td>
+<td>较低</td>
+</tr>
+<tr>
+<td>电流能力</td>
+<td>较弱</td>
+<td>中等</td>
+<td>较强</td>
+</tr>
+<tr>
+<td>高频能力</td>
+<td>一般</td>
+<td>较好</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>被测件友好性</td>
+<td>较好</td>
+<td>取决于接触设计</td>
+<td>取决于针头和压力</td>
+</tr>
+<tr>
+<td>寿命与维护</td>
+<td>中等</td>
+<td>中等</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>典型场景</td>
+<td>MEMS、glass、细pad</td>
+<td>camera、display、B-to-B</td>
+<td>ICT、FCT、电源、模组接口</td>
+</tr>
+</tbody></table>
+<h2 id="选型注意事项"><a href="#选型注意事项" class="headerlink" title="选型注意事项"></a>选型注意事项</h2><h3 id="Pitch只是基本条件，不是最终答案"><a href="#Pitch只是基本条件，不是最终答案" class="headerlink" title="Pitch只是基本条件，不是最终答案"></a>Pitch只是基本条件，不是最终答案</h3><p>&emsp;&emsp;Pitch能帮助快速排除不合适的方案，但不能单独决定最终方案。<br>在pitch满足的前提下，还要看电性能、机械结构和量产维护。</p>
+<p>&emsp;&emsp;例如，0.25mm pitch的场景，ACS和Blade Pin都可能可行。<br>如果被测件是glass，会更倾向 ACS。</p>
+<p>&emsp;&emsp;如果被测对象是B-to-B connector，并且需要更稳定的金属接触，我会更倾向 Blade Pin。</p>
+<h3 id="被测件能不能承受接触力"><a href="#被测件能不能承受接触力" class="headerlink" title="被测件能不能承受接触力"></a>被测件能不能承受接触力</h3><p>&emsp;&emsp;这是早期评估中很容易被低估的问题。</p>
+<p>不同方案的接触方式不同：</p>
+<ul>
+<li>ACS 的接触压力相对分散；</li>
+<li>lade Pin的局部接触更明显；</li>
+<li>弹簧针的针头形状和弹簧力会直接影响 pad 表面。</li>
+</ul>
+<p>如果被测件容易压伤、刮伤或变形，方案就不能只从电性能角度判断。</p>
+<h3 id="是否涉及高速信号或电源路径"><a href="#是否涉及高速信号或电源路径" class="headerlink" title="是否涉及高速信号或电源路径"></a>是否涉及高速信号或电源路径</h3><p>&emsp;&emsp;如果测试中包含高速信号或电源路径，则需要更谨慎地使用ACS。</p>
+<p>&emsp;&emsp;ACS适合fine pitch和柔性接触，但在高速信号完整性和电流能力方面并不是优势方案。</p>
+<p>&emsp;&emsp;Blade Pin和弹簧针在金属导通路径、接触电阻和电流能力方面通常更容易控制。</p>
+<h3 id="治具结构是否能保证稳定接触"><a href="#治具结构是否能保证稳定接触" class="headerlink" title="治具结构是否能保证稳定接触"></a>治具结构是否能保证稳定接触</h3><p>&emsp;&emsp;微针方案最终都要落到治具结构上。如果治具的定位、压合方向、平面度或行程控制不稳定，再好的探针也很难稳定工作。</p>
+<p>一般会同时检查以下内容：</p>
+<ul>
+<li>被测件定位方式；</li>
+<li>压合方向是否垂直；</li>
+<li>接触区平面度；</li>
+<li>压缩量或工作行程；</li>
+<li>接触力分布；</li>
+<li>pad表面处理；</li>
+<li>测试寿命和维护周期。</li>
+</ul>
+<h2 id="常见问题与风险点"><a href="#常见问题与风险点" class="headerlink" title="常见问题与风险点"></a>常见问题与风险点</h2><h3 id="用弹簧针硬做过小-pitch"><a href="#用弹簧针硬做过小-pitch" class="headerlink" title="用弹簧针硬做过小 pitch"></a>用弹簧针硬做过小 pitch</h3><p>&emsp;&emsp;弹簧针虽然成熟，但不适合无限缩小。<br>当 pitch 太小时，针体尺寸、偏摆、装配公差和维护难度都会明显增加。<br>如果 pitch 已经接近 0.3 mm，需要谨慎评估是否应该切换到 Blade Pin 或其他方案。</p>
+<h3 id="把-ACS-用在大电流或高频场景"><a href="#把-ACS-用在大电流或高频场景" class="headerlink" title="把 ACS 用在大电流或高频场景"></a>把 ACS 用在大电流或高频场景</h3><p>&emsp;&emsp;ACS 的优势是 fine pitch 和柔性接触，不是大电流能力。<br>如果测试中有明显的电源路径、高速信号或严格的接触电阻要求，ACS 需要经过充分验证，不能只因为 pitch 合适就直接选用。</p>
+<h3 id="忽略-pad-表面处理"><a href="#忽略-pad-表面处理" class="headerlink" title="忽略 pad 表面处理"></a>忽略 pad 表面处理</h3><p>&emsp;&emsp;不同探针对 pad 表面处理的敏感度不同。<br>金属接触类方案通常更关注镀层、氧化、污染和磨耗。<br>如果 pad 表面状态不稳定，接触电阻和寿命都会受到影响。</p>
+<h3 id="没有把公差链算清楚"><a href="#没有把公差链算清楚" class="headerlink" title="没有把公差链算清楚"></a>没有把公差链算清楚</h3><p>&emsp;&emsp;fine pitch测试最大的问题往往不是单个零件，而是整个系统的公差叠加。</p>
+<p>常见影响因素包括：</p>
+<ul>
+<li>DUT定位公差；</li>
+<li>载具加工公差；</li>
+<li>探针阵列位置公差；</li>
+<li>压合机构偏差；</li>
+<li>DUT翘曲；</li>
+<li>pad实际位置偏差。</li>
+</ul>
+<p>这些因素如果前期没有评估，后期容易出现间歇性接触不良。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;ACS、Blade Pin和弹簧针不是简单的优劣关系，而是分别对应不同的pitch区间和工程约束。</p>
+<p>对三类方案的理解可以总结为：<br>ACS解决超细pitch和柔性接触问题；Blade Pin解决中等fine pitch下的精密金属接触问题；弹簧针解决较大pitch下的通用测试和可靠连接问题。</p>
+<p>在实际选型中，通常按照下面的顺序判断：<br>1.	先看pitch，确认技术边界；<br>2.	再看被测件材质和pad结构；<br>3.	接着看电流、信号和接触电阻要求；<br>4.	最后结合治具结构、寿命和维护成本确定方案。</p>
+<p>一句话总结：<br><strong>Pitch决定可选范围，接触方式决定稳定性，治具结构决定最终效果。</strong></p>
+<h2 id="Referance"><a href="#Referance" class="headerlink" title="Referance"></a>Referance</h2><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb21wb25lbnRzLm9tcm9uLmNvbS5jbi9zb2x1dGlvbnMvZWZjLXNvY2tldHMtYW5kLXByb2JlLXBpbnMtZm9yLWljLXRlc3Rpbmc=">EFC IC检查测试座和探针<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucWF0ZWNoLmNvbS9jbi9wcm9kdWN0cy9wcm9kdWN0cy5odG1s">QA探针<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC5pcGFhY3MuY29tLw==">ACS垂直导电胶<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/FCT/" rel="tag"><i class="fa fa-tag"></i> FCT</a>
+              <a href="/tags/%E6%8E%A2%E9%92%88/" rel="tag"><i class="fa fa-tag"></i> 探针</a>
+              <a href="/tags/ICT/" rel="tag"><i class="fa fa-tag"></i> ICT</a>
+              <a href="/tags/ACS/" rel="tag"><i class="fa fa-tag"></i> ACS</a>
+              <a href="/tags/Blade-Pin/" rel="tag"><i class="fa fa-tag"></i> Blade Pin</a>
+              <a href="/tags/Pogo-Pin/" rel="tag"><i class="fa fa-tag"></i> Pogo Pin</a>
+              <a href="/tags/Pitch/" rel="tag"><i class="fa fa-tag"></i> Pitch</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/" rel="prev" title="换空气滤芯篇（实操）">
+                  <i class="fa fa-angle-left"></i> 换空气滤芯篇（实操）
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">95k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

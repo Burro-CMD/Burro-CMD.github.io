@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="摄像头FOV，char尺寸的计算以及整个测试机台的机构设计。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Camera测试">
+<meta property="og:url" content="https://burro-cmd.github.io/2020/01/10/Camera%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="摄像头FOV，char尺寸的计算以及整个测试机台的机构设计。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://burro-cmd.github.io/images/CameraParameters.png">
+<meta property="article:published_time" content="2020-01-10T13:05:20.000Z">
+<meta property="article:modified_time" content="2020-01-10T13:05:20.000Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="Camera">
+<meta property="article:tag" content="Chart">
+<meta property="article:tag" content="FOV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://burro-cmd.github.io/images/CameraParameters.png">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2020/01/10/Camera%E6%B5%8B%E8%AF%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2020/01/10/Camera%E6%B5%8B%E8%AF%95/","path":"2020/01/10/Camera测试/","title":"Camera测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Camera测试 | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">测试项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%84%E5%83%8F%E5%A4%B4%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">摄像头参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%84%E5%83%8F%E5%A4%B4%E5%9E%8B%E5%8F%B7%EF%BC%9AVS6955CA"><span class="nav-number">3.1.</span> <span class="nav-text">摄像头型号：VS6955CA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VFOV-Vertical-Field-of-View"><span class="nav-number">3.2.</span> <span class="nav-text">VFOV (Vertical Field of View):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HFOV-Horizontal-Field-of-View"><span class="nav-number">3.3.</span> <span class="nav-text">HFOV (Horizontal Field of View):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFOV-Diagonal-Field-of-View"><span class="nav-number">3.4.</span> <span class="nav-text">DFOV (Diagonal Field of View):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9C%BA%E8%A7%92%E5%88%86%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">视场角分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%9C%BA%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.</span> <span class="nav-text">测试机设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E5%B0%BA%E5%AF%B8"><span class="nav-number">5.1.</span> <span class="nav-text">整体尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">5.2.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chart%E8%AE%A1%E7%AE%97"><span class="nav-number">6.</span> <span class="nav-text">Chart计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="nav-number">6.1.</span> <span class="nav-text">计算公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89-B-68%C2%B0-%E8%AE%A1%E7%AE%97-chart-%E5%AE%BD%E5%BA%A6"><span class="nav-number">6.2.</span> <span class="nav-text">按 B &#x3D; 68° 计算 chart 宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89-C-53-7%C2%B0-%E8%AE%A1%E7%AE%97-chart-%E9%AB%98%E5%BA%A6"><span class="nav-number">6.3.</span> <span class="nav-text">按 C &#x3D; 53.7° 计算 chart 高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E5%8F%AF%E8%A7%81-chart-%E5%8C%BA%E5%9F%9F"><span class="nav-number">6.4.</span> <span class="nav-text">理论可见 chart 区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-80-3%C2%B0-%E7%9A%84-Cone-%E5%B0%BA%E5%AF%B8"><span class="nav-number">6.5.</span> <span class="nav-text">A &#x3D; 80.3° 的 Cone 尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E8%A1%A8%E6%A0%BC-D-E-F-%E6%AF%94%E4%BE%8B%E6%A0%A1%E9%AA%8C"><span class="nav-number">6.6.</span> <span class="nav-text">结合表格 D&#x2F;E&#x2F;F 比例校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90-chart-%E7%89%A9%E7%90%86%E5%B0%BA%E5%AF%B8"><span class="nav-number">6.7.</span> <span class="nav-text">推荐 chart 物理尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E7%BB%93%E6%9E%9C"><span class="nav-number">6.8.</span> <span class="nav-text">最终结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9A%E6%96%B9%E5%BD%A2%E5%A4%96%E6%A1%86"><span class="nav-number">6.9.</span> <span class="nav-text">做方形外框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2020/01/10/Camera%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Camera测试 | HUNPHY'S BLOG">
+      <meta itemprop="description" content="摄像头FOV，char尺寸的计算以及整个测试机台的机构设计。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Camera测试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-10 21:05:20" itemprop="dateCreated datePublished" datetime="2020-01-10T21:05:20+08:00">2020-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">摄像头FOV，char尺寸的计算以及整个测试机台的机构设计。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
+<h2 id="测试项目"><a href="#测试项目" class="headerlink" title="测试项目"></a>测试项目</h2><ul>
+<li>Power On: Power on DUT by press power button</li>
+<li>Camera Test:<br>&ensp;&ensp;  - Take Chart Picture (press button)<br>&ensp;&ensp;  - Play a video on TV<br>&ensp;&ensp;  - Take video (press button) for 10 seconds<br>&ensp;&ensp;  - Check buzzer&#x2F;LED during recording<br>&ensp;&ensp;  - Plug USB cable<br>&ensp;&ensp;  - Open the App<br>&ensp;&ensp;  - Transfer Picture and Video to PC<br>&ensp;&ensp;  - <strong>MTF</strong> Analysis<br>&ensp;&ensp;  - <strong>Tilt</strong> Analysis<br>&ensp;&ensp;  - <strong>Rotation</strong> Analysis<br>&ensp;&ensp;  - <strong>Blemish</strong> Analysis<br>&ensp;&ensp;  - <strong>Shading</strong> Analysis<br>&ensp;&ensp;  - <strong>SNR</strong> Analysis<br>&ensp;&ensp;  - <strong>Color</strong> Analysis<br>&ensp;&ensp;  - Play the recorded video<br>&ensp;&ensp;  - Check video&#x2F;audio quality (Manual)  </li>
+<li>Charging Status Chek: Check battery charging status</li>
+<li>Factory Default: Set factory default, clear all test data</li>
+<li>Power Off: Power off the DUT by press power button</li>
+</ul>
+<h2 id="摄像头参数"><a href="#摄像头参数" class="headerlink" title="摄像头参数"></a>摄像头参数</h2><h3 id="摄像头型号：VS6955CA"><a href="#摄像头型号：VS6955CA" class="headerlink" title="摄像头型号：VS6955CA"></a>摄像头型号：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span></h3><p><img src="/images/CameraParameters.png" alt="摄像头参数"></p>
+<h3 id="VFOV-Vertical-Field-of-View"><a href="#VFOV-Vertical-Field-of-View" class="headerlink" title="VFOV (Vertical Field of View):"></a>VFOV (Vertical Field of View):</h3><blockquote>
+<p>表示相机在垂直方向能够看到的角度范围。它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际高度</strong>计算公式：</p>
+</blockquote>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">目标平面高度 = <span class="number">2</span> × 工作距离 × <span class="function"><span class="title">tan</span>(<span class="variable">VFOV</span> / <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
+<p>例：计算工作距离为350mm时，VFOV &#x3D; 68°能看到的实际宽度。</p>
+<h3 id="HFOV-Horizontal-Field-of-View"><a href="#HFOV-Horizontal-Field-of-View" class="headerlink" title="HFOV (Horizontal Field of View):"></a>HFOV (Horizontal Field of View):</h3><blockquote>
+<p>表示相机在水平方向能够看到的角度范围，它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际宽度</strong>，计算公式：</p>
+</blockquote>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">目标平面宽度 = <span class="number">2</span> × 工作距离 × <span class="function"><span class="title">tan</span>(<span class="variable">HFOV</span> / <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
+<p>例：计算工作距离为350mm时，HFOV &#x3D; 68°能看到的实际宽度。<br>实际可见宽度 &#x3D; 2 × 350 × tan(68° &#x2F; 2)</p>
+<h3 id="DFOV-Diagonal-Field-of-View"><a href="#DFOV-Diagonal-Field-of-View" class="headerlink" title="DFOV (Diagonal Field of View):"></a>DFOV (Diagonal Field of View):</h3><blockquote>
+<p>表示相机沿图像对角线方向能够看到的最大角度，通常DFOV &gt; HFOV &gt; VFOV，原因是图像<strong>对角线最长</strong>，所以对角方向的视场角最大。</p>
+</blockquote>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按照VS6955CA datasheet 的 Lens characteristics可知其DFOV <span class="operator">=</span> <span class="number">74</span>°±<span class="number">1</span> ；该 sensor 的 full FOV 模式为 <span class="number">2600</span> × <span class="number">1952</span>，接近 <span class="number">4</span>:<span class="number">3</span>，因此可以按 <span class="number">4</span>:<span class="number">3</span> 反推 HFOV <span class="symbol">/</span> VFOV。<span class="symbol">&lt;br&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Diagonal ratio &#x3D; √(4² + 3²) &#x3D; 5</li>
+<li>Width ratio &#x3D; 4 &#x2F; 5 &#x3D; 0.8</li>
+<li>Height ratio &#x3D; 3 &#x2F; 5 &#x3D; 0.6</li>
+</ul>
+<p><strong>Step1 由DFOV反推HFOV, VFOV:</strong></p>
+<ul>
+<li><p>HFOV &#x3D; 2 × arctan[ (W &#x2F; D) × tan(DFOV &#x2F; 2) ]</p>
+</li>
+<li><p>VFOV &#x3D; 2 × arctan[ (H &#x2F; D) × tan(DFOV &#x2F; 2) ]</p>
+</li>
+</ul>
+<p><strong>Step2 带入4：3</strong></p>
+<ul>
+<li><p>HFOV &#x3D; 2 × arctan[ 0.8 × tan(74° &#x2F; 2) ] &#x3D; 2 × arctan(0.8 × 0.7536) &#x3D; 2 × arctan(0.6029) ≈ 62.17°</p>
+</li>
+<li><p>VFOV &#x3D; 2 × arctan[ 0.6 × tan(74° &#x2F; 2) ] &#x3D; 2 × arctan(0.6 × 0.7536) &#x3D; 2 × arctan(0.4522) ≈ 48.66°</p>
+</li>
+</ul>
+<p><strong>Step3 结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">FOV类型</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DFOV</td>
+<td align="center">74°</td>
+</tr>
+<tr>
+<td align="center">HFOV</td>
+<td align="center">≈ 62.17°</td>
+</tr>
+<tr>
+<td align="center">VFOV</td>
+<td align="center">≈ 48.66°</td>
+</tr>
+</tbody></table>
+<p><strong>Step3 最终结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">DFOV</th>
+<th align="center">HFOV</th>
+<th align="center">VFOV</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">73°</td>
+<td align="center">61.25°</td>
+<td align="center">47.88°</td>
+</tr>
+<tr>
+<td align="center"><strong>74°</strong></td>
+<td align="center">≈ <strong>62.17°</strong></td>
+<td align="center"><strong>48.66°</strong></td>
+</tr>
+<tr>
+<td align="center">75°</td>
+<td align="center">≈ 63.09°</td>
+<td align="center">49.44°</td>
+</tr>
+</tbody></table>
+<h2 id="视场角分类"><a href="#视场角分类" class="headerlink" title="视场角分类"></a>视场角分类</h2><table>
+<thead>
+<tr>
+<th align="center">镜头类型</th>
+<th align="center">视场角范围</th>
+<th align="left">使用场景</th>
+<th align="left">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">长焦镜头 &#x2F; 窄角镜头</td>
+<td align="center">&lt; 20°</td>
+<td align="left">远距离拍摄、局部特征观察、远距离监控</td>
+<td align="left">视野窄，放大倍率高，畸变小，但覆盖范围有限</td>
+</tr>
+<tr>
+<td align="center">标准镜头</td>
+<td align="center">30° 左右</td>
+<td align="left">一般拍摄、常规检测、普通机器视觉</td>
+<td align="left">视角接近常规观察范围，畸变较小，图像自然</td>
+</tr>
+<tr>
+<td align="center">广角镜头</td>
+<td align="center">60° ~ 90°</td>
+<td align="left">大范围观察、近距离拍摄、空间受限场景</td>
+<td align="left">覆盖范围较大，适合短距离测试，但边缘可能出现一定畸变</td>
+</tr>
+<tr>
+<td align="center">超广角镜头</td>
+<td align="center">90° ~ 120°</td>
+<td align="left">运动相机、全景辅助、车载、安防</td>
+<td align="left">视野很大，边缘畸变和暗角更明显</td>
+</tr>
+<tr>
+<td align="center">鱼眼镜头</td>
+<td align="center">&gt; 120°</td>
+<td align="left">全景监控、特殊视觉、环视系统</td>
+<td align="left">视野极大，但图像变形严重，通常需要畸变校正</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;本项目中，VS6955CA datasheet 给出的 Diagonal FOV 为 74° ±1°，因此该摄像头可归类为<strong>广角镜头</strong>。广角镜头适合在较短测试距离下覆盖较大的 chart 范围，但测试设计中需要特别关注边缘畸变、边缘照度下降和机构遮挡问题。</p>
+<h2 id="测试机设计"><a href="#测试机设计" class="headerlink" title="测试机设计"></a>测试机设计</h2><p>&emsp;&emsp;由<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span> datasheet可知，厂商给出摄像头在设计外壳或设备时的注意点，<strong>所以行业推荐在设计测试机时按照这个视角去设计</strong>。</p>
+<ol>
+<li>EDGES OF CIRCULAR HOLES IN CUSTOMER’S EQUIPMENT MUST NOT INTRUDE INTO THE CONE.<br>&emsp;客户设备中圆形孔的边缘不得侵入圆锥体内部。</li>
+<li>EDGES OF RECTANGULAR HOLES MUST NOT PROTRUDE INTO THE PYRAMID.<br>&emsp;矩形孔的边缘不得突出到棱锥体内部。</li>
+<li>DIMENSIONS SHOWN ARE MAXIMUM.<br>&emsp;所示尺寸为最大值。<br><strong>EXCLUSION ZONE DIMENSIONS</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">MODULE&#x2F; SILICON</th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.4µM 5M Pixel</td>
+<td align="center">80.3°</td>
+<td align="center">68°</td>
+<td align="center">53.7°</td>
+<td align="center">1.67</td>
+<td align="center">1.34</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<h3 id="整体尺寸"><a href="#整体尺寸" class="headerlink" title="整体尺寸"></a>整体尺寸</h3><p>&emsp;&emsp;按照工厂生产线一般规划，预估出测试机的整体尺寸为1000x 1100x 1850mm。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ul>
+<li>相机到光源的垂直距离：30mm (这部分可以调整)</li>
+<li><strong>相机到chart的垂直距离：350mm</strong></li>
+<li>相机到TV的垂直距离：650mm</li>
+</ul>
+<h2 id="Chart计算"><a href="#Chart计算" class="headerlink" title="Chart计算"></a>Chart计算</h2><p>&emsp;&emsp;按照厂商给的参数（Page 80）进行计算。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A &#x3D; 80.3°</td>
+<td align="center">Cone，圆锥禁入区</td>
+<td align="center">结构避让 &#x2F; 防遮挡</td>
+</tr>
+<tr>
+<td align="center">B &#x3D; 68°</td>
+<td align="center">Pyramid，矩形水平视场计算</td>
+<td align="center">chart 宽度</td>
+</tr>
+<tr>
+<td align="center">C &#x3D; 53.7°</td>
+<td align="center">Vertical，垂直视场计算</td>
+<td align="center">chart 高度</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;所以 chart 的矩形尺寸主要用 B 和 C 计算：<br>Width  用 B &#x3D; 68°, Height 用 C &#x3D; 53.7°</p>
+<h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p>半幅尺寸 &#x3D; L × tan(FOV &#x2F; 2)<br>全幅尺寸 &#x3D; 2 × L × tan(FOV &#x2F; 2)</p>
+<h3 id="按-B-68°-计算-chart-宽度"><a href="#按-B-68°-计算-chart-宽度" class="headerlink" title="按 B &#x3D; 68° 计算 chart 宽度"></a>按 B &#x3D; 68° 计算 chart 宽度</h3><p>Half Width &#x3D; 350 × tan(68° &#x2F; 2) &#x3D; 350 × tan(34°) ≈ 236.08 mm<br>Full Width &#x3D; 2 × 236.08 ≈ 472.16 mm</p>
+<h3 id="按-C-53-7°-计算-chart-高度"><a href="#按-C-53-7°-计算-chart-高度" class="headerlink" title="按 C &#x3D; 53.7° 计算 chart 高度"></a>按 C &#x3D; 53.7° 计算 chart 高度</h3><p>Half Height &#x3D; 350 × tan(53.7° &#x2F; 2) &#x3D; 350 × tan(26.85°) ≈ 177.18 mm<br>Full Height &#x3D; 2 × 177.18 ≈ 354.36 m</p>
+<h3 id="理论可见-chart-区域"><a href="#理论可见-chart-区域" class="headerlink" title="理论可见 chart 区域"></a>理论可见 chart 区域</h3><p>因此，在 350 mm 工作距离下，按照表格中的 Pyramid 68° &#x2F; Vertical 53.7° 计算：<br>理论矩形视场 ≈ 472 mm × 354 mm</p>
+<table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">尺寸</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">理论可见宽度</td>
+<td align="center">≈ 472 mm</td>
+</tr>
+<tr>
+<td align="center">理论可见高度</td>
+<td align="center">≈ 354 mm</td>
+</tr>
+</tbody></table>
+<h3 id="A-80-3°-的-Cone-尺寸"><a href="#A-80-3°-的-Cone-尺寸" class="headerlink" title="A &#x3D; 80.3° 的 Cone 尺寸"></a>A &#x3D; 80.3° 的 Cone 尺寸</h3><p>A &#x3D; 80.3° 不用于矩形 chart 宽高，而是用于结构避让。<br>Half Cone &#x3D; 350 × tan(80.3° &#x2F; 2) &#x3D; 350 × tan(40.15°) ≈ 295.25 mm<br>Full Cone Diameter ≈ 590.5 mm<br>这个值表示结构件、开孔、遮光罩不能侵入这个 Cone 区域，不建议直接用它作为 chart 矩形尺寸。</p>
+<h3 id="结合表格-D-E-F-比例校验"><a href="#结合表格-D-E-F-比例校验" class="headerlink" title="结合表格 D&#x2F;E&#x2F;F 比例校验"></a>结合表格 D&#x2F;E&#x2F;F 比例校验</h3><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">D &#x3D; 1.67</td>
+<td align="center">Cone 相对尺寸</td>
+</tr>
+<tr>
+<td align="center">E &#x3D; 1.34</td>
+<td align="center">Pyramid 宽度相对尺寸</td>
+</tr>
+<tr>
+<td align="center">F &#x3D; 1</td>
+<td align="center">Pyramid高度相对尺寸</td>
+</tr>
+</tbody></table>
+<p>如果以高度 354.36 mm 作为 F &#x3D; 1，则：Pyramid Width &#x3D; 1.34 × 354.36 ≈ 474.85 mm，这和用 68° 直接计算出来的：472.16 mm，非常接近，差异主要来自表格比例四舍五入。<br>所以两种方法是一致的。</p>
+<h3 id="推荐-chart-物理尺寸"><a href="#推荐-chart-物理尺寸" class="headerlink" title="推荐 chart 物理尺寸"></a>推荐 chart 物理尺寸</h3><p>理论可见区域是：472 × 354 mm，但实际做测试机不能刚好做这个尺寸，需要考虑：装配误差，chart安装偏差，相机光轴偏移，软件裁剪余量，机构公差；建议每边增加约 20 mm margin：<br>Chart Width  &#x3D; 472 + 40 ≈ 512 mm<br>Chart Height &#x3D; 354 + 40 ≈ 394 mm</p>
+<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><ul>
+<li>理论 chart 尺寸：472 mm × 354 mm</li>
+<li>推荐 chart 物理尺寸：512 mm × 394 mm</li>
+</ul>
+<h3 id="做方形外框"><a href="#做方形外框" class="headerlink" title="做方形外框"></a>做方形外框</h3><ul>
+<li>外框板：500 mm × 500 mm</li>
+<li>但真正有效测试内容建议布置在：512 mm × 394 mm 内部区域</li>
+<li>实际中心区域约 60% ~ 80% FOV 区域</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>视场角在系统中分为四层：</p>
+<ol>
+<li>Optical FOV（74°）<br>表示镜头真实成像能力，用于理论分析；</li>
+<li>Engineering FOV（Pyramid 68° &#x2F; Vertical 53.7°）<br>用于保证图像完整不裁边，是chart尺寸设计依据；</li>
+<li>Structural FOV（Cone 80.3°）<br>用于结构避让，确保设备不会遮挡光路；</li>
+<li>Effective FOV（中心60~80%）<br>用于图像质量分析（SFR &#x2F; MTF &#x2F; Color &#x2F; Gray）。<br><strong>设计中需明确区分各类FOV用途，避免误用。</strong></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Camera/" rel="tag"><i class="fa fa-tag"></i> Camera</a>
+              <a href="/tags/Chart/" rel="tag"><i class="fa fa-tag"></i> Chart</a>
+              <a href="/tags/FOV/" rel="tag"><i class="fa fa-tag"></i> FOV</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/09/20/%E4%BB%8E%E2%80%9C%E8%B0%83%E9%80%9A%E8%AE%BE%E5%A4%87%E2%80%9D%E5%88%B0%E2%80%9C%E7%A8%B3%E5%AE%9A%E4%BA%A4%E4%BB%98%E2%80%9D%EF%BC%9AFCT%20%E6%B2%BB%E5%85%B7%E8%B0%83%E8%AF%95%E4%B8%AD%E7%9A%84%E6%9C%BA%E6%A2%B0%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/" rel="prev" title="从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑">
+                  <i class="fa fa-angle-left"></i> 从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/01/15/ICT%E4%B8%8EFCT%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="ICT与FCT的区别">
+                  ICT与FCT的区别 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">95k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

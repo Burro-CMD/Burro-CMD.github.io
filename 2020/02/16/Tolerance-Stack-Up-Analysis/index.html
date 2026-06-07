@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一步一步带你了解什么是公差，如何进行公差分析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tolerance Stack Up Analysis">
+<meta property="og:url" content="https://burro-cmd.github.io/2020/02/16/Tolerance-Stack-Up-Analysis/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="一步一步带你了解什么是公差，如何进行公差分析。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-16T12:05:45.000Z">
+<meta property="article:modified_time" content="2020-02-16T12:05:45.000Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="Engineering">
+<meta property="article:tag" content="Tolerance">
+<meta property="article:tag" content="Stak-Up">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2020/02/16/Tolerance-Stack-Up-Analysis/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2020/02/16/Tolerance-Stack-Up-Analysis/","path":"2020/02/16/Tolerance-Stack-Up-Analysis/","title":"Tolerance Stack Up Analysis"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Tolerance Stack Up Analysis | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Tolerance-Stack-Up"><span class="nav-number">1.</span> <span class="nav-text">What is Tolerance Stack-Up?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-Tolerances"><span class="nav-number">1.1.</span> <span class="nav-text">Understanding Tolerances</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Stack-Up-Analysis-Matters"><span class="nav-number">1.2.</span> <span class="nav-text">Why Stack-Up Analysis Matters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-Concepts-Explained"><span class="nav-number">2.</span> <span class="nav-text">Key Concepts Explained</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Bilateral-vs-Unilateral-Tolerances"><span class="nav-number">2.1.</span> <span class="nav-text">1. Bilateral vs Unilateral Tolerances</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-The-Vector-Loop-Method"><span class="nav-number">2.2.</span> <span class="nav-text">2. The Vector Loop Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Analysis-Methods"><span class="nav-number">2.3.</span> <span class="nav-text">3. Analysis Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Worst-Case-Analysis"><span class="nav-number">2.3.1.</span> <span class="nav-text">Worst-Case Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RSS-Root-Sum-Square-Analysis"><span class="nav-number">2.3.2.</span> <span class="nav-text">RSS - Root Sum Square Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Monte-Carlo-Simulation"><span class="nav-number">2.3.3.</span> <span class="nav-text">Monte Carlo Simulation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Distribution-Types"><span class="nav-number">2.4.</span> <span class="nav-text">4. Distribution Types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Clearance-Fit-Analysis"><span class="nav-number">2.5.</span> <span class="nav-text">5. Clearance Fit Analysis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Process-Capability-C-pk-Quality"><span class="nav-number">3.</span> <span class="nav-text">Process Capability ($C_{pk}$) &amp; Quality</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Impact-of-Cpk-on-Manufacturing-Reference-Table"><span class="nav-number">3.1.</span> <span class="nav-text">Impact of Cpk on Manufacturing (Reference Table)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manufacturing-Process-Capabilities"><span class="nav-number">4.</span> <span class="nav-text">Manufacturing Process Capabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Here-is-the-1D-calculate-tool"><span class="nav-number">5.</span> <span class="nav-text">Here is the 1D calculate tool</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-by-Step-Guide"><span class="nav-number">5.1.</span> <span class="nav-text">Step-by-Step Guide</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Workflow"><span class="nav-number">5.2.</span> <span class="nav-text">Example Workflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interpreting-Results"><span class="nav-number">6.</span> <span class="nav-text">Interpreting Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#When-to-Use-Which-Method"><span class="nav-number">6.1.</span> <span class="nav-text">When to Use Which Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-Monte-Carlo-Results"><span class="nav-number">6.2.</span> <span class="nav-text">Reading Monte Carlo Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-Mistakes-to-Avoid"><span class="nav-number">6.3.</span> <span class="nav-text">Common Mistakes to Avoid</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-Examples"><span class="nav-number">7.</span> <span class="nav-text">Practical Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1-Simple-Linear-Stack"><span class="nav-number">7.1.</span> <span class="nav-text">Example 1: Simple Linear Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2-Clearance-Calculation"><span class="nav-number">7.2.</span> <span class="nav-text">Example 2: Clearance Calculation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-3-Gap-in-Assembly"><span class="nav-number">7.3.</span> <span class="nav-text">Example 3: Gap in Assembly</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References-and-Further-Reading"><span class="nav-number">8.</span> <span class="nav-text">References and Further Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Standards-and-Specifications"><span class="nav-number">8.1.</span> <span class="nav-text">Standards and Specifications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Books"><span class="nav-number">8.2.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Technical-Papers-and-Articles"><span class="nav-number">8.3.</span> <span class="nav-text">Technical Papers and Articles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Online-Resources"><span class="nav-number">8.4.</span> <span class="nav-text">Online Resources</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Software-and-Tools"><span class="nav-number">8.5.</span> <span class="nav-text">Software and Tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Industry-Guidelines"><span class="nav-number">8.6.</span> <span class="nav-text">Industry Guidelines</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Video-Tutorials-and-Courses"><span class="nav-number">8.7.</span> <span class="nav-text">Video Tutorials and Courses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Professional-Organizations"><span class="nav-number">8.8.</span> <span class="nav-text">Professional Organizations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Background"><span class="nav-number">8.9.</span> <span class="nav-text">Statistical Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-Studies-and-Applications"><span class="nav-number">8.10.</span> <span class="nav-text">Case Studies and Applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculators-and-Quick-References"><span class="nav-number">8.11.</span> <span class="nav-text">Calculators and Quick References</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Academic-Research-Centers"><span class="nav-number">8.12.</span> <span class="nav-text">Academic Research Centers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glossary-of-Terms"><span class="nav-number">9.</span> <span class="nav-text">Glossary of Terms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acknowledgments"><span class="nav-number">10.</span> <span class="nav-text">Acknowledgments</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2020/02/16/Tolerance-Stack-Up-Analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Tolerance Stack Up Analysis | HUNPHY'S BLOG">
+      <meta itemprop="description" content="一步一步带你了解什么是公差，如何进行公差分析。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tolerance Stack Up Analysis
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-16 20:05:45" itemprop="dateCreated datePublished" datetime="2020-02-16T20:05:45+08:00">2020-02-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>15k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>13 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">一步一步带你了解什么是公差，如何进行公差分析。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="What-is-Tolerance-Stack-Up"><a href="#What-is-Tolerance-Stack-Up" class="headerlink" title="What is Tolerance Stack-Up?"></a>What is Tolerance Stack-Up?</h2><h3 id="Understanding-Tolerances"><a href="#Understanding-Tolerances" class="headerlink" title="Understanding Tolerances"></a>Understanding Tolerances</h3><p><strong>Tolerance</strong> is the permissible variation in a dimension. No manufacturing process is perfect—every part will have slight variations. For example:</p>
+<ul>
+<li>A shaft specified as 10.00 mm ±0.05 mm can be anywhere from 9.95 mm to 10.05 mm</li>
+<li>The ±0.05 mm is the <strong>tolerance</strong></li>
+<li>10.00 mm is the <strong>nominal</strong> (target) dimension</li>
+</ul>
+<h3 id="Why-Stack-Up-Analysis-Matters"><a href="#Why-Stack-Up-Analysis-Matters" class="headerlink" title="Why Stack-Up Analysis Matters"></a>Why Stack-Up Analysis Matters</h3><p>When you assemble multiple parts, their individual tolerances <strong>accumulate</strong> or “stack up.” This can cause:</p>
+<ul>
+<li>✅ <strong>Good outcome</strong>: Parts fit together perfectly</li>
+<li>❌ <strong>Bad outcome</strong>: Assembly won’t fit, has excessive gaps, or doesn’t function</li>
+</ul>
+<p><strong>Real-world example</strong>: A phone case assembly</p>
+<ul>
+<li>Battery compartment depth: 8.0 mm ±0.1 mm</li>
+<li>Battery thickness: 7.5 mm ±0.1 mm</li>
+<li>Battery cover thickness: 0.4 mm ±0.05 mm</li>
+</ul>
+<p>Question: Will the battery fit? How much clearance will there be?</p>
+<p><strong>Worst case</strong>:</p>
+<ul>
+<li>Smallest compartment: 8.0 - 0.1 &#x3D; 7.9 mm</li>
+<li>Largest battery + cover: 7.5 + 0.1 + 0.4 + 0.05 &#x3D; 8.05 mm</li>
+<li><strong>Problem!</strong> 8.05 &gt; 7.9 → Won’t fit!</li>
+</ul>
+<p>This is why tolerance stack-up analysis is critical in design.</p>
+<h2 id="Key-Concepts-Explained"><a href="#Key-Concepts-Explained" class="headerlink" title="Key Concepts Explained"></a>Key Concepts Explained</h2><h3 id="1-Bilateral-vs-Unilateral-Tolerances"><a href="#1-Bilateral-vs-Unilateral-Tolerances" class="headerlink" title="1. Bilateral vs Unilateral Tolerances"></a>1. <strong>Bilateral vs Unilateral Tolerances</strong></h3><p><strong>Bilateral Tolerance</strong> (±):</p>
+<ul>
+<li>Variation goes both directions from nominal</li>
+<li>Example: 10 mm ±0.05 mm means 9.95 to 10.05 mm</li>
+<li>Most common in mechanical design</li>
+</ul>
+<p><strong>Unilateral Tolerance</strong> (+&#x2F;- or -&#x2F;0):</p>
+<ul>
+<li>Variation in only one direction</li>
+<li>Example: 10 mm +0.05&#x2F;-0 means 10.00 to 10.05 mm</li>
+<li>Common for holes (always larger, never smaller)</li>
+</ul>
+<h3 id="2-The-Vector-Loop-Method"><a href="#2-The-Vector-Loop-Method" class="headerlink" title="2. The Vector Loop Method"></a>2. <strong>The Vector Loop Method</strong></h3><p>This application uses the <strong>1D Vector Loop Method</strong>.</p>
+<ul>
+<li><strong>Positive (+) Vectors:</strong> Dimensions that contribute to the size of the stack in the direction of the analysis.</li>
+<li><strong>Negative (-) Vectors:</strong> Dimensions that subtract from the size (closing the loop).</li>
+</ul>
+<p><strong>Formula for Gap:</strong><br>$$ G &#x3D; \sum_{i&#x3D;1}^{n} (D_i \cdot S_i) $$<br>Where $D_i$ is the dimension value and $S_i$ is the sign ($\pm 1$).</p>
+<h3 id="3-Analysis-Methods"><a href="#3-Analysis-Methods" class="headerlink" title="3. Analysis Methods"></a>3. <strong>Analysis Methods</strong></h3><h4 id="Worst-Case-Analysis"><a href="#Worst-Case-Analysis" class="headerlink" title="Worst-Case Analysis"></a>Worst-Case Analysis</h4><ul>
+<li><strong>Method</strong>: Add up all maximum tolerances</li>
+<li><strong>Formula</strong>:<br>$$ T_{asm} &#x3D; \sum T_i $$</li>
+<li><strong>Pros</strong>: 100% of parts guaranteed to work</li>
+<li><strong>Cons</strong>: Very conservative, expensive (tight tolerances)</li>
+<li><strong>Use when</strong>: Safety-critical, low production volume, no rework allowed</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Part</span> A: <span class="number">10</span>.<span class="number">0</span> ±<span class="number">0</span>.<span class="number">1</span> mm</span><br><span class="line"><span class="attribute">Part</span> B: <span class="number">20</span>.<span class="number">0</span> ±<span class="number">0</span>.<span class="number">2</span> mm  </span><br><span class="line"><span class="attribute">Part</span> C: <span class="number">5</span>.<span class="number">0</span> ±<span class="number">0</span>.<span class="number">05</span> mm</span><br><span class="line"><span class="attribute">Worst</span>-case total: <span class="number">35</span>.<span class="number">0</span> ±<span class="number">0</span>.<span class="number">35</span> mm (<span class="number">0</span>.<span class="number">1</span>+<span class="number">0</span>.<span class="number">2</span>+<span class="number">0</span>.<span class="number">05</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="RSS-Root-Sum-Square-Analysis"><a href="#RSS-Root-Sum-Square-Analysis" class="headerlink" title="RSS - Root Sum Square Analysis"></a>RSS - Root Sum Square Analysis</h4><ul>
+<li><strong>Method</strong>: Statistical approach assuming normal distribution</li>
+<li><strong>Formula</strong>:<br>  $$ \sigma_{asm} &#x3D; \sqrt{ \sum \sigma_i^2 } $$<br>  $$ T_{asm} &#x3D; 3 \cdot \sigma_{asm} $$</li>
+<li><strong>Pros</strong>: More realistic, allows looser (cheaper) tolerances</li>
+<li><strong>Cons</strong>: Not 100% guaranteed (typically 99.73% with 3σ)</li>
+<li><strong>Use when</strong>: High production volume, some scrap acceptable, capable processes</li>
+</ul>
+<p><strong>Example</strong> (same parts as above):</p>
+<figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">RSS total: 35.0 ±0.23 mm</span></span><br><span class="line"><span class="attr">√(0.1² + 0.2² + 0.05²) </span>=<span class="string"> √0.0525 = 0.23</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Tolerance reduction: 34%!</strong> This means you can use cheaper manufacturing.</p>
+<h4 id="Monte-Carlo-Simulation"><a href="#Monte-Carlo-Simulation" class="headerlink" title="Monte Carlo Simulation"></a>Monte Carlo Simulation</h4><ul>
+<li><strong>Method</strong>: Computer simulation of thousands of random assemblies</li>
+<li><strong>How it works</strong>: Randomly generates dimensions within tolerance, assembles them</li>
+<li><strong>Pros</strong>: Most realistic, handles any distribution type, gives probability curves</li>
+<li><strong>Cons</strong>: Requires computer, more complex to understand</li>
+<li><strong>Use when</strong>: Complex assemblies, mixed distributions, need confidence levels</li>
+</ul>
+<h3 id="4-Distribution-Types"><a href="#4-Distribution-Types" class="headerlink" title="4. Distribution Types"></a>4. <strong>Distribution Types</strong></h3><p>Manufacturing processes don’t produce parts randomly—they follow patterns:</p>
+<p><strong>Normal (Gaussian) Distribution</strong>:</p>
+<ul>
+<li>Most common in nature and manufacturing</li>
+<li>Bell curve: most parts near nominal, fewer at extremes</li>
+<li>Example: CNC machining, injection molding</li>
+<li><strong>Use for</strong>: Stable, controlled processes</li>
+</ul>
+<p><strong>Uniform Distribution</strong>:</p>
+<ul>
+<li>All values equally likely within range</li>
+<li>Flat probability across tolerance</li>
+<li>Example: Manual operations, rough processes</li>
+<li><strong>Use for</strong>: Conservative estimates, poorly controlled processes</li>
+</ul>
+<p><strong>Bernoulli Distribution</strong>:</p>
+<ul>
+<li>Binary: parts are either at min or max tolerance</li>
+<li>Represents worst-case within statistical framework</li>
+<li>Example: Go&#x2F;no-go gauging effects</li>
+<li><strong>Use for</strong>: Very tight specifications</li>
+</ul>
+<p><strong>Trapezoidal Distribution</strong>:</p>
+<ul>
+<li>More realistic than uniform, less than normal</li>
+<li>Higher probability near center, but not bell-shaped</li>
+<li>Example: Processes with some control but not optimized</li>
+<li><strong>Use for</strong>: Semi-controlled processes</li>
+</ul>
+<h3 id="5-Clearance-Fit-Analysis"><a href="#5-Clearance-Fit-Analysis" class="headerlink" title="5. Clearance Fit Analysis"></a>5. <strong>Clearance Fit Analysis</strong></h3><p>When a shaft fits into a hole, three types of fits are possible:</p>
+<p><strong>Clearance Fit</strong>:</p>
+<ul>
+<li>Shaft is always smaller than hole</li>
+<li>Min clearance &gt; 0</li>
+<li>Parts can move relative to each other</li>
+<li>Example: Door hinge, bearing with play</li>
+</ul>
+<p><strong>Transition Fit</strong>:</p>
+<ul>
+<li>Sometimes clearance, sometimes interference</li>
+<li>Min clearance &lt; 0, Max clearance &gt; 0</li>
+<li>Assembly may require light force</li>
+<li>Example: Precision location pins</li>
+</ul>
+<p><strong>Interference Fit</strong>:</p>
+<ul>
+<li>Shaft is always larger than hole</li>
+<li>Max clearance &lt; 0</li>
+<li>Requires force to assemble (press fit)</li>
+<li>Example: Bearing on shaft, permanent assembly</li>
+</ul>
+<p><strong>ISO 286 Standard</strong>:</p>
+<ul>
+<li>International standard for hole&#x2F;shaft fits</li>
+<li>Hole basis: H6, H7, H8, H9 (hole is fixed)</li>
+<li>Shaft basis: f6, g6, h6, k6, n6 (varies for fit type)</li>
+<li>Lower number &#x3D; tighter tolerance (H6 tighter than H7)</li>
+</ul>
+<h2 id="Process-Capability-C-pk-Quality"><a href="#Process-Capability-C-pk-Quality" class="headerlink" title="Process Capability ($C_{pk}$) &amp; Quality"></a>Process Capability ($C_{pk}$) &amp; Quality</h2><p>A unique feature of TolStack Pro is the integration of $C_{pk}$. The $C_{pk}$ index measures how close a process is to its specification limits, relative to the natural variability of the process.</p>
+<p><strong>Relationship between Tolerance and Standard Deviation:</strong><br>$$ \sigma &#x3D; \frac{\text{Tolerance}}{3 \cdot C_{pk}} $$</p>
+<h3 id="Impact-of-Cpk-on-Manufacturing-Reference-Table"><a href="#Impact-of-Cpk-on-Manufacturing-Reference-Table" class="headerlink" title="Impact of Cpk on Manufacturing (Reference Table)"></a>Impact of Cpk on Manufacturing (Reference Table)</h3><table>
+<thead>
+<tr>
+<th align="left">Cpk Value</th>
+<th align="left">Sigma Level</th>
+<th align="left">PPM (Parts Per Million Defective)</th>
+<th align="left">Interpretation</th>
+<th align="left">Cost Implication</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>0.67</strong></td>
+<td align="left">2$\sigma$</td>
+<td align="left">45,500</td>
+<td align="left"><strong>Poor.</strong> Process is not capable.</td>
+<td align="left">High scrap&#x2F;rework costs. Requires 100% inspection.</td>
+</tr>
+<tr>
+<td align="left"><strong>1.00</strong></td>
+<td align="left">3$\sigma$</td>
+<td align="left">2,700</td>
+<td align="left"><strong>Marginal.</strong> The process width equals the tolerance width.</td>
+<td align="left">Statistical control is difficult. Frequent tuning required.</td>
+</tr>
+<tr>
+<td align="left"><strong>1.33</strong></td>
+<td align="left">4$\sigma$</td>
+<td align="left">63</td>
+<td align="left"><strong>Standard.</strong> Industry standard for “Capable”.</td>
+<td align="left">Good balance of cost and quality. Sample inspection sufficient.</td>
+</tr>
+<tr>
+<td align="left"><strong>1.67</strong></td>
+<td align="left">5$\sigma$</td>
+<td align="left">0.57</td>
+<td align="left"><strong>High Precision.</strong></td>
+<td align="left">Very low defect rate.</td>
+</tr>
+<tr>
+<td align="left"><strong>2.00</strong></td>
+<td align="left">6$\sigma$</td>
+<td align="left">~0.002</td>
+<td align="left"><strong>Six Sigma (World Class).</strong></td>
+<td align="left">Virtually zero defects. Allows for automated assembly.</td>
+</tr>
+</tbody></table>
+<h2 id="Manufacturing-Process-Capabilities"><a href="#Manufacturing-Process-Capabilities" class="headerlink" title="Manufacturing Process Capabilities"></a><strong>Manufacturing Process Capabilities</strong></h2><p>Different processes have different natural capabilities:</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Typical Tolerance</th>
+<th>Cpk</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CNC Turning</td>
+<td>±0.025 mm</td>
+<td>1.67</td>
+<td>Excellent for tight tolerances</td>
+</tr>
+<tr>
+<td>CNC Milling</td>
+<td>±0.05 mm</td>
+<td>1.33</td>
+<td>Good precision</td>
+</tr>
+<tr>
+<td>Injection Molding</td>
+<td>±0.15 mm</td>
+<td>1.0</td>
+<td>Varies with size&#x2F;material</td>
+</tr>
+<tr>
+<td>Sheet Metal</td>
+<td>±0.25 mm</td>
+<td>0.83</td>
+<td>Harder to control</td>
+</tr>
+<tr>
+<td>3D Printing (FDM)</td>
+<td>±0.5 mm</td>
+<td>0.67</td>
+<td>Lowest precision</td>
+</tr>
+<tr>
+<td>3D Printing (SLA)</td>
+<td>±0.15 mm</td>
+<td>1.0</td>
+<td>Better than FDM</td>
+</tr>
+</tbody></table>
+<p><strong>Key insight</strong>: Don’t specify ±0.01 mm tolerance if you’re using 3D printing!</p>
+<h2 id="Here-is-the-1D-calculate-tool"><a href="#Here-is-the-1D-calculate-tool" class="headerlink" title="Here is the 1D calculate tool"></a>Here is the 1D calculate tool</h2><blockquote>
+<p>Live Application: <span class="exturl" data-url="aHR0cHM6Ly90b2wtc3RhY2stcHJvMi52ZXJjZWwuYXBwLw==">https://tol-stack-pro2.vercel.app/<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<h3 id="Step-by-Step-Guide"><a href="#Step-by-Step-Guide" class="headerlink" title="Step-by-Step Guide"></a>Step-by-Step Guide</h3><ol>
+<li><p><strong>Add Your Dimensions</strong></p>
+<ul>
+<li>Click “Add Dimension” for each part in your assembly</li>
+<li>Enter nominal value and tolerance</li>
+<li>Choose bilateral (±) or unilateral tolerance</li>
+</ul>
+</li>
+<li><p><strong>Set Direction</strong></p>
+<ul>
+<li><strong>Add (+)</strong>: Dimension increases the total (e.g., part length)</li>
+<li><strong>Subtract (−)</strong>: Dimension decreases the total (e.g., gap, clearance)</li>
+</ul>
+</li>
+<li><p><strong>Choose Distribution</strong></p>
+<ul>
+<li>Select based on your manufacturing process</li>
+<li>When in doubt, use “Normal” for controlled processes</li>
+<li>Use “Uniform” for conservative estimates</li>
+</ul>
+</li>
+<li><p><strong>View Results</strong></p>
+<ul>
+<li>Go to “Results” tab</li>
+<li>Compare Worst-Case vs RSS</li>
+<li>Check process capability (Cp&#x2F;Cpk)</li>
+<li>Run Monte Carlo for detailed probability</li>
+</ul>
+</li>
+<li><p><strong>Fit Analysis</strong> (Optional)</p>
+<ul>
+<li>Enable if analyzing hole&#x2F;shaft fit</li>
+<li>Enter hole and shaft dimensions</li>
+<li>See clearance&#x2F;interference results</li>
+</ul>
+</li>
+</ol>
+<h3 id="Example-Workflow"><a href="#Example-Workflow" class="headerlink" title="Example Workflow"></a>Example Workflow</h3><p><strong>Scenario</strong>: Designing a battery compartment</p>
+<ol>
+<li>Add dimensions:</li>
+</ol>
+<ul>
+<li>Compartment depth: 8.0 mm ±0.1 mm (Add)</li>
+<li>Battery height: -7.5 mm ±0.1 mm (Subtract)</li>
+<li>Cover thickness: -0.4 mm ±0.05 mm (Subtract)</li>
+</ul>
+<ol start="2">
+<li>Results show:</li>
+</ol>
+<ul>
+<li>Nominal clearance: 0.1 mm</li>
+<li>Worst-case min: -0.15 mm ❌ (interference!)</li>
+<li>RSS min: -0.05 mm ⚠️ (still risky)</li>
+</ul>
+<ol start="3">
+<li>Solution: Increase compartment depth or reduce battery tolerance</li>
+</ol>
+<h2 id="Interpreting-Results"><a href="#Interpreting-Results" class="headerlink" title="Interpreting Results"></a>Interpreting Results</h2><h3 id="When-to-Use-Which-Method"><a href="#When-to-Use-Which-Method" class="headerlink" title="When to Use Which Method"></a>When to Use Which Method</h3><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Recommended Method</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Safety-critical (aircraft, medical)</td>
+<td>Worst-Case</td>
+<td>100% guarantee</td>
+</tr>
+<tr>
+<td>Low volume production (&lt; 1000)</td>
+<td>Worst-Case</td>
+<td>Can’t afford rejects</td>
+</tr>
+<tr>
+<td>High volume, capable process</td>
+<td>RSS</td>
+<td>Cost savings</td>
+</tr>
+<tr>
+<td>Very high volume (millions)</td>
+<td>Monte Carlo</td>
+<td>Optimize for cost vs quality</td>
+</tr>
+<tr>
+<td>Prototype&#x2F;feasibility</td>
+<td>RSS or Monte Carlo</td>
+<td>Realistic estimate</td>
+</tr>
+<tr>
+<td>Mixed processes</td>
+<td>Monte Carlo</td>
+<td>Different distributions</td>
+</tr>
+</tbody></table>
+<h3 id="Reading-Monte-Carlo-Results"><a href="#Reading-Monte-Carlo-Results" class="headerlink" title="Reading Monte Carlo Results"></a>Reading Monte Carlo Results</h3><p><strong>Percentiles explained</strong>:</p>
+<ul>
+<li><strong>P0.1%</strong>: Only 1 in 1000 parts will be smaller</li>
+<li><strong>P1%</strong>: Only 1 in 100 parts will be smaller</li>
+<li><strong>P50%</strong>: Median (half above, half below)</li>
+<li><strong>P99%</strong>: Only 1 in 100 parts will be larger</li>
+<li><strong>P99.9%</strong>: Only 1 in 1000 parts will be larger</li>
+</ul>
+<p><strong>Example interpretation</strong>:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">P1</span>% = <span class="number">9</span>.<span class="number">85</span> mm</span><br><span class="line"><span class="attribute">P99</span>% = <span class="number">10</span>.<span class="number">15</span> mm</span><br></pre></td></tr></table></figure>
+<p>Means: 98% of assemblies will be between 9.85 and 10.15 mm.</p>
+<h3 id="Common-Mistakes-to-Avoid"><a href="#Common-Mistakes-to-Avoid" class="headerlink" title="Common Mistakes to Avoid"></a>Common Mistakes to Avoid</h3><p>❌ <strong>Using worst-case always</strong>: Costs too much<br>✅ Use RSS when Cpk ≥ 1.33</p>
+<p>❌ <strong>Assuming normal distribution for all processes</strong>: Not always true<br>✅ Match distribution to process</p>
+<p>❌ <strong>Ignoring process capability</strong>: Specifying impossible tolerances<br>✅ Check if your supplier can achieve it</p>
+<p>❌ <strong>Forgetting direction</strong>: Adding when should subtract<br>✅ Think carefully about + vs −</p>
+<p>❌ <strong>Not validating with prototypes</strong>: Calculations aren’t everything<br>✅ Build and measure real parts</p>
+<h2 id="Practical-Examples"><a href="#Practical-Examples" class="headerlink" title="Practical Examples"></a>Practical Examples</h2><h3 id="Example-1-Simple-Linear-Stack"><a href="#Example-1-Simple-Linear-Stack" class="headerlink" title="Example 1: Simple Linear Stack"></a>Example 1: Simple Linear Stack</h3><p><strong>Problem</strong>: Three blocks stacked vertically</p>
+<ul>
+<li>Block A: 10 mm ±0.1 mm</li>
+<li>Block B: 20 mm ±0.2 mm</li>
+<li>Block C: 15 mm ±0.15 mm</li>
+<li>Question: What’s the total height range?</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Nominal</span>: <span class="number">10</span> + <span class="number">20</span> + <span class="number">15</span> = <span class="number">45</span> mm</span><br><span class="line"></span><br><span class="line"><span class="attribute">Worst</span>-case: ±(<span class="number">0</span>.<span class="number">1</span> + <span class="number">0</span>.<span class="number">2</span> + <span class="number">0</span>.<span class="number">15</span>) = ±<span class="number">0</span>.<span class="number">45</span> mm</span><br><span class="line"><span class="attribute">Range</span>: <span class="number">44</span>.<span class="number">55</span> to <span class="number">45</span>.<span class="number">45</span> mm</span><br><span class="line"></span><br><span class="line"><span class="attribute">RSS</span>: ±√(<span class="number">0</span>.<span class="number">1</span>² + <span class="number">0</span>.<span class="number">2</span>² + <span class="number">0</span>.<span class="number">15</span>²) = ±<span class="number">0</span>.<span class="number">27</span> mm</span><br><span class="line"><span class="attribute">Range</span>: <span class="number">44</span>.<span class="number">73</span> to <span class="number">45</span>.<span class="number">27</span> mm</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example-2-Clearance-Calculation"><a href="#Example-2-Clearance-Calculation" class="headerlink" title="Example 2: Clearance Calculation"></a>Example 2: Clearance Calculation</h3><p><strong>Problem</strong>: Shaft in bearing</p>
+<ul>
+<li>Bearing ID: 10.00 mm +0.10&#x2F;-0 mm (10.00 to 10.10)</li>
+<li>Shaft OD: 9.95 mm ±0.05 mm (9.90 to 10.00)</li>
+<li>Question: What’s the clearance?</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Max</span> clearance: <span class="number">10</span>.<span class="number">10</span> - <span class="number">9</span>.<span class="number">90</span> = <span class="number">0</span>.<span class="number">20</span> mm</span><br><span class="line"><span class="attribute">Min</span> clearance: <span class="number">10</span>.<span class="number">00</span> - <span class="number">10</span>.<span class="number">00</span> = <span class="number">0</span>.<span class="number">00</span> mm</span><br><span class="line"><span class="attribute">Fit</span> type: Clearance (min ≥ <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Example-3-Gap-in-Assembly"><a href="#Example-3-Gap-in-Assembly" class="headerlink" title="Example 3: Gap in Assembly"></a>Example 3: Gap in Assembly</h3><p><strong>Problem</strong>: Cover plate assembly</p>
+<ul>
+<li>Box width: 100 mm ±0.5 mm (Add)</li>
+<li>Cover width: -99 mm ±0.3 mm (Subtract)</li>
+<li>Question: What’s the gap?</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Nominal gap</span><span class="punctuation">:</span> <span class="string">100 - 99 = 1.0 mm</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">Worst-case</span><span class="punctuation">:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Max gap: 100.5 - 98.7 = 1.8 mm</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Min gap: 99.5 - 99.3 = 0.2 mm</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">RSS</span><span class="punctuation">:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Total tolerance: √(0.5² + 0.3²) = 0.58 mm</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Range: 0.42 to 1.58 mm</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="References-and-Further-Reading"><a href="#References-and-Further-Reading" class="headerlink" title="References and Further Reading"></a>References and Further Reading</h2><h3 id="Standards-and-Specifications"><a href="#Standards-and-Specifications" class="headerlink" title="Standards and Specifications"></a>Standards and Specifications</h3><ol>
+<li><p><strong>ISO 286-1:2010</strong> - Geometrical product specifications (GPS) — ISO code system for tolerances on linear sizes — Part 1: Basis of tolerances, deviations and fits</p>
+<ul>
+<li>The international standard for hole and shaft tolerances</li>
+<li>Defines tolerance grades IT01 through IT18</li>
+</ul>
+</li>
+<li><p><strong>ISO 286-2:2010</strong> - Part 2: Tables of standard tolerance classes and limit deviations for holes and shafts</p>
+<ul>
+<li>Practical tables for common fits (H7&#x2F;g6, etc.)</li>
+</ul>
+</li>
+<li><p><strong>ASME Y14.5-2018</strong> - Dimensioning and Tolerancing</p>
+<ul>
+<li>American standard for GD&amp;T (Geometric Dimensioning and Tolerancing)</li>
+<li>Essential for understanding tolerance stack-ups in North America</li>
+</ul>
+</li>
+<li><p><strong>ISO 2768</strong> - General tolerances for linear and angular dimensions</p>
+<ul>
+<li>Default tolerances when not specified on drawings</li>
+</ul>
+</li>
+</ol>
+<h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><ol>
+<li><p><strong>“Mechanical Tolerance Stack-up and Analysis” by Benton Bryan Fischer</strong> (2nd Edition, 2011)</p>
+<ul>
+<li>Comprehensive guide to tolerance analysis</li>
+<li>Excellent for beginners and practitioners</li>
+<li>ISBN: 978-0849370670</li>
+</ul>
+</li>
+<li><p><strong>“Dimensioning and Tolerancing Handbook” by Paul J. Drake Jr.</strong> (1999)</p>
+<ul>
+<li>Reference manual for GD&amp;T and tolerance stack-up</li>
+<li>ISBN: 978-0070181311</li>
+</ul>
+</li>
+<li><p><strong>“Statistical Tolerancing in Design for Six Sigma” by Forrest W. Breyfogle III</strong></p>
+<ul>
+<li>Advanced statistical methods for tolerance analysis</li>
+<li>Links Six Sigma methodology to tolerance design</li>
+</ul>
+</li>
+<li><p><strong>“Tolerance Design: A Handbook for Developing Optimal Specifications” by C.M. Creveling</strong> (1997)</p>
+<ul>
+<li>Taguchi methods applied to tolerance design</li>
+<li>Optimization techniques</li>
+<li>ISBN: 978-0201634730</li>
+</ul>
+</li>
+<li><p><strong>“The GD&amp;T Hierarchy” by Don Day</strong></p>
+<ul>
+<li>Modern approach to geometric tolerancing</li>
+<li>Practical examples and case studies</li>
+</ul>
+</li>
+</ol>
+<h3 id="Technical-Papers-and-Articles"><a href="#Technical-Papers-and-Articles" class="headerlink" title="Technical Papers and Articles"></a>Technical Papers and Articles</h3><ol>
+<li><strong>“Statistical Tolerance Analysis Using a Modification of Taguchi’s Method” by K.C. Kapur</strong> (Technometrics, 1988)</li>
+</ol>
+<ul>
+<li>Foundational paper on statistical tolerance methods</li>
+</ul>
+<ol start="2">
+<li><strong>“Tolerance Analysis of 2-D and 3-D Assemblies” by Kenneth W. Chase et al.</strong> (ADCATS Report No. 94-4, 1994)</li>
+</ol>
+<ul>
+<li>Brigham Young University research</li>
+<li>Vector loop method for complex assemblies</li>
+</ul>
+<ol start="3">
+<li><strong>“A Comprehensive Study of Three-Dimensional Tolerancing Analysis Methods” by Shen Z. et al.</strong> (Journal of Computing and Information Science in Engineering, 2005)</li>
+</ol>
+<ul>
+<li>Comparison of different tolerance analysis approaches</li>
+</ul>
+<ol start="4">
+<li><strong>“Monte Carlo Simulation of Tolerancing Problems in Discrete-Part Manufacturing and Assembly” by A.T. Soderberg and L. Lindkvist</strong> (CIRP Annals, 1999)</li>
+</ol>
+<ul>
+<li>Detailed Monte Carlo methodology</li>
+</ul>
+<h3 id="Online-Resources"><a href="#Online-Resources" class="headerlink" title="Online Resources"></a>Online Resources</h3><ol>
+<li><strong>NIST Engineering Statistics Handbook</strong></li>
+</ol>
+<ul>
+<li>URL: <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXRsLm5pc3QuZ292L2Rpdjg5OC9oYW5kYm9vay8=">https://www.itl.nist.gov/div898/handbook/<i class="fa fa-external-link-alt"></i></span></li>
+<li>Free, comprehensive resource on statistical methods</li>
+<li>Section 5.5 covers process capability</li>
+</ul>
+<ol start="2">
+<li><strong>MIT OpenCourseWare - Precision Engineering</strong></li>
+</ol>
+<ul>
+<li>Course materials on tolerance analysis and precision design</li>
+<li>Free lectures and problem sets</li>
+</ul>
+<ol start="3">
+<li><strong>ASQ (American Society for Quality) - Process Capability Resources</strong></li>
+</ol>
+<ul>
+<li>URL: <span class="exturl" data-url="aHR0cHM6Ly9hc3Eub3JnL3F1YWxpdHktcmVzb3VyY2VzL3Byb2Nlc3MtY2FwYWJpbGl0eQ==">https://asq.org/quality-resources/process-capability<i class="fa fa-external-link-alt"></i></span></li>
+<li>Tutorials on Cp, Cpk, and process capability</li>
+</ul>
+<ol start="4">
+<li><strong>Machinery’s Handbook</strong> (31st Edition)</li>
+</ol>
+<ul>
+<li>Essential reference for machinists and engineers</li>
+<li>Tables for standard fits and tolerances</li>
+<li>Available in print and digital</li>
+</ul>
+<h3 id="Software-and-Tools"><a href="#Software-and-Tools" class="headerlink" title="Software and Tools"></a>Software and Tools</h3><ol>
+<li><strong>3DCS Variation Analyst</strong> (Commercial)</li>
+</ol>
+<ul>
+<li>Industry-standard 3D tolerance analysis software</li>
+<li>Integrates with CAD systems</li>
+</ul>
+<ol start="2">
+<li><strong>Cetol 6σ by Sigmetrix</strong> (Commercial)</li>
+</ol>
+<ul>
+<li>Tolerance analysis within CAD environment</li>
+<li>Monte Carlo and worst-case analysis</li>
+</ul>
+<ol start="3">
+<li><strong>VisVSA (Variation Systems Analysis)</strong> (Commercial)</li>
+</ol>
+<ul>
+<li>3D tolerance stack-up analysis</li>
+<li>Root cause analysis tools</li>
+</ul>
+<ol start="4">
+<li><strong>EZtol</strong> (Commercial)</li>
+</ol>
+<ul>
+<li>1D tolerance stack-up analysis</li>
+<li>Educational pricing available</li>
+</ul>
+<ol start="5">
+<li><strong>OpenTOL</strong> (Open Source)</li>
+</ol>
+<ul>
+<li>Free tolerance analysis software</li>
+<li>Limited to 1D and 2D analysis</li>
+</ul>
+<h3 id="Industry-Guidelines"><a href="#Industry-Guidelines" class="headerlink" title="Industry Guidelines"></a>Industry Guidelines</h3><ol>
+<li><strong>SAE J1100</strong> - Motor Vehicle Dimensions</li>
+</ol>
+<ul>
+<li>Automotive industry tolerance practices</li>
+</ul>
+<ol start="2">
+<li><strong>IPC-2221</strong> - Generic Standard on Printed Board Design</li>
+</ol>
+<ul>
+<li>Tolerances for PCB manufacturing</li>
+</ul>
+<ol start="3">
+<li><strong>Semiconductor Industry Association (SIA) Roadmap</strong></li>
+</ol>
+<ul>
+<li>Tolerance requirements for semiconductor manufacturing</li>
+</ul>
+<h3 id="Video-Tutorials-and-Courses"><a href="#Video-Tutorials-and-Courses" class="headerlink" title="Video Tutorials and Courses"></a>Video Tutorials and Courses</h3><ol>
+<li><strong>YouTube: “GD&amp;T Basics” by Tec-Ease</strong></li>
+</ol>
+<ul>
+<li>Free tutorial series on geometric tolerancing</li>
+</ul>
+<ol start="2">
+<li><strong>Coursera: “Manufacturing Process Control”</strong></li>
+</ol>
+<ul>
+<li>Statistical process control and capability analysis</li>
+</ul>
+<ol start="3">
+<li><strong>LinkedIn Learning: “Tolerance Stack-Up Analysis”</strong></li>
+</ol>
+<ul>
+<li>Practical examples and software tutorials</li>
+</ul>
+<h3 id="Professional-Organizations"><a href="#Professional-Organizations" class="headerlink" title="Professional Organizations"></a>Professional Organizations</h3><ol>
+<li><strong>ASME (American Society of Mechanical Engineers)</strong></li>
+</ol>
+<ul>
+<li>URL: <span class="exturl" data-url="aHR0cHM6Ly93d3cuYXNtZS5vcmcv">https://www.asme.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Standards development and training</li>
+</ul>
+<ol start="2">
+<li><strong>ASQ (American Society for Quality)</strong></li>
+</ol>
+<ul>
+<li>URL: <span class="exturl" data-url="aHR0cHM6Ly9hc3Eub3JnLw==">https://asq.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Quality engineering certifications and resources</li>
+</ul>
+<ol start="3">
+<li><strong>SME (Society of Manufacturing Engineers)</strong></li>
+</ol>
+<ul>
+<li>URL: <span class="exturl" data-url="aHR0cHM6Ly93d3cuc21lLm9yZy8=">https://www.sme.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Manufacturing technology and education</li>
+</ul>
+<h3 id="Statistical-Background"><a href="#Statistical-Background" class="headerlink" title="Statistical Background"></a>Statistical Background</h3><ol>
+<li><strong>“Introduction to Statistical Quality Control” by Douglas C. Montgomery</strong> (8th Edition)</li>
+</ol>
+<ul>
+<li>Comprehensive coverage of SPC and process capability</li>
+<li>ISBN: 978-1119399308</li>
+</ul>
+<ol start="2">
+<li><strong>“Statistics for Engineers and Scientists” by William Navidi</strong></li>
+</ol>
+<ul>
+<li>Statistical methods applicable to tolerance analysis</li>
+<li>Clear explanations of distributions and confidence intervals</li>
+</ul>
+<ol start="3">
+<li><strong>“Probability and Statistics for Engineering and the Sciences” by Jay L. Devore</strong></li>
+</ol>
+<ul>
+<li>Foundation for understanding Monte Carlo methods</li>
+<li>ISBN: 978-1305251809</li>
+</ul>
+<h3 id="Case-Studies-and-Applications"><a href="#Case-Studies-and-Applications" class="headerlink" title="Case Studies and Applications"></a>Case Studies and Applications</h3><ol>
+<li><strong>Boeing Statistical Tolerancing Handbook</strong></li>
+</ol>
+<ul>
+<li>Aerospace industry best practices (internal document)</li>
+<li>Often referenced in academic papers</li>
+</ul>
+<ol start="2">
+<li><strong>Ford Motor Company “Geometric Dimensioning and Tolerancing” Training Manual</strong></li>
+</ol>
+<ul>
+<li>Automotive industry approaches</li>
+</ul>
+<ol start="3">
+<li><strong>NASA Technical Standards Program - Dimensional Management</strong></li>
+</ol>
+<ul>
+<li>Space systems tolerance requirements</li>
+</ul>
+<h3 id="Calculators-and-Quick-References"><a href="#Calculators-and-Quick-References" class="headerlink" title="Calculators and Quick References"></a>Calculators and Quick References</h3><ol>
+<li><strong>Tolerance Analysis Calculator</strong> by Engineers Edge</li>
+</ol>
+<ul>
+<li>URL: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZW5naW5lZXJzZWRnZS5jb20v">https://www.engineersedge.com<i class="fa fa-external-link-alt"></i></span></li>
+<li>Free online calculators</li>
+</ul>
+<ol start="2">
+<li><strong>Fits and Tolerances Calculator</strong> by ISO Limits &amp; Fits</li>
+</ol>
+<ul>
+<li>Quick reference for ISO 286 fits</li>
+</ul>
+<ol start="3">
+<li><strong>Process Capability Calculator</strong> (Multiple sources available)</li>
+</ol>
+<ul>
+<li>Calculate Cp, Cpk from measurement data</li>
+</ul>
+<h3 id="Academic-Research-Centers"><a href="#Academic-Research-Centers" class="headerlink" title="Academic Research Centers"></a>Academic Research Centers</h3><ol>
+<li><strong>Brigham Young University - ADCATS Laboratory</strong></li>
+</ol>
+<ul>
+<li>Leading research in tolerance analysis</li>
+<li>Developed assembly variation analysis methods</li>
+</ul>
+<ol start="2">
+<li><strong>MIT - Mechanical Engineering Department</strong></li>
+</ol>
+<ul>
+<li>Precision engineering research</li>
+<li>Tolerancing and metrology</li>
+</ul>
+<ol start="3">
+<li><strong>Penn State - Applied Research Laboratory</strong></li>
+</ol>
+<ul>
+<li>Manufacturing tolerancing research</li>
+</ul>
+<h2 id="Glossary-of-Terms"><a href="#Glossary-of-Terms" class="headerlink" title="Glossary of Terms"></a>Glossary of Terms</h2><ul>
+<li><strong>Bilateral Tolerance</strong>: Tolerance that varies equally in both directions from nominal (±)</li>
+<li><strong>Clearance</strong>: Space between mating parts</li>
+<li><strong>Cp</strong>: Process Capability - ratio of tolerance to process spread</li>
+<li><strong>Cpk</strong>: Process Capability Index - accounts for process centering</li>
+<li><strong>GD&amp;T</strong>: Geometric Dimensioning and Tolerancing</li>
+<li><strong>Interference</strong>: Negative clearance (shaft larger than hole)</li>
+<li><strong>ISO 286</strong>: International standard for limits and fits</li>
+<li><strong>LSL</strong>: Lower Specification Limit</li>
+<li><strong>Monte Carlo</strong>: Simulation method using random sampling</li>
+<li><strong>Nominal</strong>: Target or ideal dimension</li>
+<li><strong>Normal Distribution</strong>: Bell curve, most common statistical distribution</li>
+<li><strong>PPM</strong>: Parts Per Million (defect rate)</li>
+<li><strong>RSS</strong>: Root Sum Square - statistical tolerance method</li>
+<li><strong>Stack-Up</strong>: Accumulation of tolerances in an assembly</li>
+<li><strong>Transition Fit</strong>: Fit that may be clearance or interference</li>
+<li><strong>Unilateral Tolerance</strong>: Tolerance in only one direction</li>
+<li><strong>USL</strong>: Upper Specification Limit</li>
+<li><strong>Worst-Case</strong>: Conservative analysis method adding all tolerances</li>
+</ul>
+<h2 id="Acknowledgments"><a href="#Acknowledgments" class="headerlink" title="Acknowledgments"></a>Acknowledgments</h2><p>This tool is built on decades of research and industrial practice in tolerance analysis. Special recognition to:</p>
+<ul>
+<li>Dr. Kenneth W. Chase (Brigham Young University) for pioneering tolerance analysis research</li>
+<li>The ASME Y14.5 committee for standardizing GD&amp;T practices</li>
+<li>ISO TC 213 for international standards on tolerancing</li>
+<li>The quality engineering community for developing process capability metrics</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Engineering/" rel="tag"><i class="fa fa-tag"></i> Engineering</a>
+              <a href="/tags/Tolerance/" rel="tag"><i class="fa fa-tag"></i> Tolerance</a>
+              <a href="/tags/Stak-Up/" rel="tag"><i class="fa fa-tag"></i> Stak-Up</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/07/Strain%20Gauge/" rel="prev" title="StrainGauge">
+                  <i class="fa fa-angle-left"></i> StrainGauge
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/07/%E8%BF%9E%E6%8E%A5%E5%99%A8%E6%8F%92%E6%8B%94%E6%9C%BA%E6%9E%84%E6%B0%94%E7%BC%B8%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97/" rel="next" title="连接器插拔机构气缸选型计算">
+                  连接器插拔机构气缸选型计算 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">95k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

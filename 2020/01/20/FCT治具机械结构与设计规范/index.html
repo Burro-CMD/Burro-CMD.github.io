@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="功能性测试治具FCT的结构设计与一些常规的设计规范。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FCT治具机械结构与设计规范">
+<meta property="og:url" content="https://burro-cmd.github.io/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="功能性测试治具FCT的结构设计与一些常规的设计规范。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.kita-mfg.com/english/use/img/using.gif">
+<meta property="og:image" content="https://www.kita-mfg.com/english/use/img/soket_01.svg">
+<meta property="og:image" content="https://www.kita-mfg.com/english/use/img/fins.gif">
+<meta property="og:image" content="https://www.kita-mfg.com/english/use/img/soket_02.svg">
+<meta property="og:image" content="https://www.kita-mfg.com/english/use/img/fins2.gif">
+<meta property="article:published_time" content="2020-01-20T13:20:50.000Z">
+<meta property="article:modified_time" content="2026-06-05T13:53:33.548Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="FCT">
+<meta property="article:tag" content="Strain Gauge">
+<meta property="article:tag" content="探针">
+<meta property="article:tag" content="结构设计">
+<meta property="article:tag" content="设计规范">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.kita-mfg.com/english/use/img/using.gif">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/","path":"2020/01/20/FCT治具机械结构与设计规范/","title":"FCT治具机械结构与设计规范"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>FCT治具机械结构与设计规范 | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FCT%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">FCT概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FCT%E6%B2%BB%E5%85%B7%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">FCT治具结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E5%8E%8B%E7%B3%BB%E7%BB%9F-Cylinder-Toggle-Clamp"><span class="nav-number">2.1.</span> <span class="nav-text">下压系统 (Cylinder &#x2F; Toggle Clamp)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%8B%E6%9D%BF-Acrylic-FR4-Plate"><span class="nav-number">2.2.</span> <span class="nav-text">压板 (Acrylic &#x2F; FR4 Plate)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UUT-PCBA-Unit-Under-Test"><span class="nav-number">2.3.</span> <span class="nav-text">UUT (PCBA) Unit Under Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E9%92%88-Pogo-Pins"><span class="nav-number">2.4.</span> <span class="nav-text">探针 (Pogo Pins)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E9%92%88%E6%9D%BF-FR4-%E5%AF%BC%E5%90%91%E6%9D%BF"><span class="nav-number">2.5.</span> <span class="nav-text">探针板(FR4)  + 导向板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%92%88%E6%9D%BFESD%E8%A6%81%E6%B1%82"><span class="nav-number">2.5.1.</span> <span class="nav-text">针板ESD要求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8E%A5%E6%9D%BF-Wire-Harness-PCB"><span class="nav-number">2.6.</span> <span class="nav-text">转接板 (Wire Harness &#x2F; PCB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8E%A5%E5%A4%B4-To-Test-Equipment"><span class="nav-number">2.7.</span> <span class="nav-text">转接头 (To Test Equipment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%B3%BB%E7%BB%9F-Power-DAQ-Software"><span class="nav-number">2.8.</span> <span class="nav-text">测试系统 Power &#x2F; DAQ &#x2F; Software</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%B7%AE%E5%88%86%E6%9E%90%EF%BC%88Tolerance-Stack-Up-Analysis%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">公差分析（Tolerance Stack-Up Analysis）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E5%8A%9B%E5%88%86%E6%9E%90%EF%BC%88Simulation%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">应力分析（Simulation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="FCT治具机械结构与设计规范 | HUNPHY'S BLOG">
+      <meta itemprop="description" content="功能性测试治具FCT的结构设计与一些常规的设计规范。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          FCT治具机械结构与设计规范
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-20 21:20:50" itemprop="dateCreated datePublished" datetime="2020-01-20T21:20:50+08:00">2020-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">功能性测试治具FCT的结构设计与一些常规的设计规范。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="FCT概述"><a href="#FCT概述" class="headerlink" title="FCT概述"></a>FCT概述</h2><p>&emsp;&emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。</p>
+<h2 id="FCT治具结构"><a href="#FCT治具结构" class="headerlink" title="FCT治具结构"></a>FCT治具结构</h2><p><img src="https://www.kita-mfg.com/english/use/img/using.gif" alt="Needle Plate Module"></p>
+<h3 id="下压系统-Cylinder-Toggle-Clamp"><a href="#下压系统-Cylinder-Toggle-Clamp" class="headerlink" title="下压系统 (Cylinder &#x2F; Toggle Clamp)"></a><strong>下压系统</strong> (Cylinder &#x2F; Toggle Clamp)</h3><p>&emsp;&emsp;压紧系统是功能测试 (FCT) 夹具中的关键机械子系统。其主要作用是施加可控且可重复的力，以确保测试探针（弹簧探针）与被测单元 (UUT)（通常为印刷电路板组件 (PCBA)）之间可靠的电接触。</p>
+<h3 id="压板-Acrylic-FR4-Plate"><a href="#压板-Acrylic-FR4-Plate" class="headerlink" title="压板 (Acrylic &#x2F; FR4 Plate)"></a><strong>压板</strong> (Acrylic &#x2F; FR4 Plate)</h3><p>&emsp;&emsp;压板是功能测试 (FCT) 夹具中的关键机械部件。它位于压机系统和被测单元 (UUT)（通常为印刷电路板组件 (PCBA)）之间，负责在测试周期内将施加的力均匀分布到电路板上。</p>
+<h3 id="UUT-PCBA-Unit-Under-Test"><a href="#UUT-PCBA-Unit-Under-Test" class="headerlink" title="UUT (PCBA) Unit Under Test"></a><strong>UUT (PCBA)</strong> Unit Under Test</h3><p>&emsp;&emsp;被测单元 (UUT) 是指在 FCT 夹具中被测试的设备，通常是印刷电路板组件 (PCBA) 或完全组装的电子产品。</p>
+<h3 id="探针-Pogo-Pins"><a href="#探针-Pogo-Pins" class="headerlink" title="探针 (Pogo Pins)"></a><strong>探针</strong> (Pogo Pins)</h3><p>&emsp;&emsp;测试探针广泛应用于半导体（IC）及电路板（PCB）测试领域，探针被安装在 插座或夹具内部，插座或夹具安置在被测物和测试基板的中间，探针连接被测物 与测试基板，通过传输一定电流和频率来判定被测物是否合格。</p>
+<ul>
+<li>Double action probe　Movable plunger: Two<br><img src="https://www.kita-mfg.com/english/use/img/soket_01.svg" alt="探针结构"></li>
+</ul>
+<p><img src="https://www.kita-mfg.com/english/use/img/fins.gif"></p>
+<ul>
+<li>Single action probe　Movable plunger: One</li>
+</ul>
+<p><img src="https://www.kita-mfg.com/english/use/img/soket_02.svg"></p>
+<p><img src="https://www.kita-mfg.com/english/use/img/fins2.gif"></p>
+<h3 id="探针板-FR4-导向板"><a href="#探针板-FR4-导向板" class="headerlink" title="探针板(FR4)  + 导向板"></a><strong>探针板(FR4)  + 导向板</strong></h3><p>&emsp;&emsp;探针板组件是用于固定和对准测试探针的结构平台。它通常由一块FR4主板以及上下导向板组成，导向板也叫浮动板。</p>
+<h4 id="针板ESD要求"><a href="#针板ESD要求" class="headerlink" title="针板ESD要求"></a>针板ESD要求</h4><ul>
+<li>Material itself ESD: 1x10<sup>5</sup>Ω&lt;Resistance&lt;1x10<sup>9</sup>Ω</li>
+<li>Material to ground: 0&lt;Voltage&lt;100V</li>
+<li>Material to ground: 0&lt;Resistance to ground&lt;1Ω</li>
+</ul>
+<style>
+table {
+  border-collapse: collapse;                /* 合并边框（关键） */
+  border: 1px solid #e0e0e0;                /* 外框：浅灰 */
+}
+
+th, td {
+  border: 1px solid #e0e0e0;                /* 内部线同样浅灰 */
+  padding: 8px;
+}
+
+th {
+  background-color: #f5f5f5;                /* 表头稍微浅灰 */
+}
+</style>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th>项目</th>
+    <th>陶瓷填充PEEK</th>
+    <th>Torlon</th>
+  </tr>
+
+  <tr>
+    <td>英文</td>
+    <td>Ceramic PEEK</td>
+    <td>Torlon4203</td>
+  </tr>
+
+  <tr>
+    <td>中文</td>
+    <td>陶瓷PEEK</td>
+    <td>聚酰胺酰亚胺</td>
+  </tr>
+
+  <!-- 特性 -->
+  <tr>
+    <td rowspan="4">特性</td>
+    <td>密度：1.65 g/cm³</td>
+    <td>1.41 g/cm³</td>
+  </tr>
+
+  <tr>
+    <td>弹性模量：5500 MPa</td>
+    <td>4000 MPa</td>
+  </tr>
+
+  <tr>
+    <td>拉伸强度：105 MPa</td>
+    <td>192 MPa</td>
+  </tr>
+
+  <tr>
+    <td>导热系数：0.38 W/(m·K)</td>
+    <td>0.26 W/(m·K)</td>
+  </tr>
+
+  <!-- 性能 -->
+  <tr>
+    <td>性能</td>
+    <td>
+      1. 优点：低吸水率、不易变形、优异的耐高温冲击性能、优良的加工性能、耐摩擦，并具备优异的机械性能。<br>
+      2. 陶瓷PEEK除浓硫酸外几乎不溶于任何溶剂，具有优异的耐化学性。<br>
+      3. 与其他工程塑料相比，其耐热性能更强，在高温高压条件下仍能保持良好性能。<br>
+      4. 相比普通PEEK，加工性更好、尺寸稳定性更高、耐辐射、阻燃性好，并能减少钻孔毛刺。
+    </td>
+    <td>
+      1. 在高温（最高约275℃）下具有优异的长期强度和刚性，耐磨性能优秀。<br>
+      2. 在低温到275℃范围内具有优异韧性，对强酸及大多数有机物有耐性，且本身具有阻燃性。
+    </td>
+  </tr>
+
+  <!-- 应用 -->
+  <tr>
+    <td>应用</td>
+    <td>
+      1. 电气与电子领域。<br>
+      2. 常用于IC测试座、半导体清洗治具、液晶制造设备等。<br>
+      3. 广泛用于高绝缘端子及相关领域。
+    </td>
+    <td>
+      1. 航空领域（紧固件、机械零件）。<br>
+      2. 汽车/卡车传动部件、涂层、复合材料、添加剂、电机零件。<br>
+      3. 半导体制造、IC测试座。<br>
+      4. 石油天然气设备、轴承保持架、齿轮、衬套、密封件。
+    </td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>项目</th>
+    <th>PEEK</th>
+    <th>POM</th>
+    <th>FR4</th>
+  </tr>
+
+  <tr>
+    <td>缩写</td>
+    <td>PEEK</td>
+    <td>POM</td>
+    <td>FR4</td>
+  </tr>
+
+  <tr>
+    <td>英文</td>
+    <td>Polyether ether ketone</td>
+    <td>Polyoxymethylene</td>
+    <td>FR-4 Epoxy Glass Cloth</td>
+  </tr>
+
+  <tr>
+    <td>中文</td>
+    <td>聚醚醚酮</td>
+    <td>聚甲醛</td>
+    <td>环氧玻璃纤维板</td>
+  </tr>
+
+  <!-- 特性 -->
+  <tr>
+    <td rowspan="4">特性</td>
+    <td>密度：1320 kg/m³</td>
+    <td>1.410–1.420 g/cm³</td>
+    <td>1.850 g/cm³</td>
+  </tr>
+
+  <tr>
+    <td>弹性模量：3.6 GPa</td>
+    <td>2800 MPa</td>
+    <td>24900 MPa</td>
+  </tr>
+
+  <tr>
+    <td>拉伸强度：90–100 MPa</td>
+    <td>42 MPa</td>
+    <td>415 MPa</td>
+  </tr>
+
+  <tr>
+    <td>导热系数：0.25 W/(m·K)</td>
+    <td>0.27 W/(m·K)</td>
+    <td>0.29 W/(m·K)</td>
+  </tr>
+
+  <!-- 性能 -->
+  <tr>
+    <td>性能</td>
+    <td>
+      1. 很好的机械性能和化学性能<br>
+      2. 高高温热塑性树脂，长期使用温度250℃，短期300℃<br>
+      3. 加工方便：流动性好，便于二次加工<br>
+      4. 耐药性：仅溶于浓硫酸<br>
+      5. 阻燃性：UL94-0级自然性，低发烟
+    </td>
+    <td>
+      1. 耐磨性高<br>
+      2. 摩擦系数低<br>
+      3. 耐热性高<br>
+      4. 良好的电气和介电性能<br>
+      5. 吸水率低
+    </td>
+    <td>
+      1. 电绝缘性能稳定<br>
+      2. 平整度好，表面光滑，无凹坑<br>
+      3. 应用于高性能电子绝缘要求的产品<br>
+      4. 隔热性：导热性能<br>
+      5. 吸音性：优良的吸音、隔声性能<br>
+      6. 吸湿性：高吸水率、吸湿率
+    </td>
+  </tr>
+
+  <!-- 应用 -->
+  <tr>
+    <td>应用</td>
+    <td>
+      1. 航空航天领域：高精度飞机零部件<br>
+      2. 汽车制造：发动机内罩、轴承、密封件等<br>
+      3. 工业：压缩机阀片、活塞环等<br>
+      4. 医疗器械：无毒、质轻、耐腐蚀<br>
+      5. 高温电气绝缘等
+    </td>
+    <td>
+      1. 滑动、转动机械零件（齿轮、轴承）<br>
+      2. 医疗器械（心脏起搏器、假肢）
+    </td>
+    <td>
+      1. 冷库保温材料、通风沟道材料<br>
+      2. 建筑保温层（隔声、保温）<br>
+      3. 墙面隔热隔声板
+    </td>
+  </tr>
+
+  <!-- 参考 -->
+  <tr>
+    <td>参考</td>
+    <td>
+1. <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv6IGa6Yaa6Yaa6YWu">Wikipedia<i class="fa fa-external-link-alt"></i></span><br>
+2. <span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS/ogZrphprphprpha4=">百度百科<i class="fa fa-external-link-alt"></i></span>
+<br>
+    </td>
+    <td>
+1. <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JTgxJTlBJUU3JTk0JUIyJUU5JTg2JTlC">Wikipedia<i class="fa fa-external-link-alt"></i></span><br>
+2. <span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTglODElOUElRTclOTQlQjIlRTklODYlOUIjNg==">百度百科<i class="fa fa-external-link-alt"></i></span>
+<br>
+    </td>
+    <td>
+1. <span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTclOEUlQUYlRTYlQjAlQTclRTclOEUlQkIlRTclOTIlODMlRTUlQjglODMlRTUlQjElODIlRTUlOEUlOEIlRTYlOUQlQkYvMTA2MTkyMzY/ZnI9YWxhZGRpbg==">百度百科<i class="fa fa-external-link-alt"></i></span>
+    </td>
+  </tr>
+</table>
+
+<h3 id="转接板-Wire-Harness-PCB"><a href="#转接板-Wire-Harness-PCB" class="headerlink" title="转接板 (Wire Harness &#x2F; PCB)"></a><strong>转接板</strong> (Wire Harness &#x2F; PCB)</h3><p>&emsp;&emsp;转接板，也称为适配器板或接口PCB，是一种中间电路板，用于连接探针接口（弹簧针）和外部测试系统（ATE）。它在FCT夹具中充当结构化、工程化的信号路由层。</p>
+<p>与传统的线束不同，接口板为信号分配提供了一种可控、可扩展且易于维护的解决方案。</p>
+<h3 id="转接头-To-Test-Equipment"><a href="#转接头-To-Test-Equipment" class="headerlink" title="转接头 (To Test Equipment)"></a><strong>转接头</strong> (To Test Equipment)</h3><p>&emsp;&emsp;接口连接器用作夹具与外部测试设备（ATE 系统）之间的连接点。</p>
+<h3 id="测试系统-Power-DAQ-Software"><a href="#测试系统-Power-DAQ-Software" class="headerlink" title="测试系统 Power &#x2F; DAQ &#x2F; Software"></a><strong>测试系统</strong> Power &#x2F; DAQ &#x2F; Software</h3><p>&emsp;&emsp;ATE系统是FCT装置的控制和测量核心。它执行测试序列，控制功率和信号，并评估被测设备的性能。</p>
+<h2 id="公差分析（Tolerance-Stack-Up-Analysis）"><a href="#公差分析（Tolerance-Stack-Up-Analysis）" class="headerlink" title="公差分析（Tolerance Stack-Up Analysis）"></a>公差分析（Tolerance Stack-Up Analysis）</h2><p>&emsp;&emsp;公差分析是指评估所有影响探针与被测单元（UUT）对准的机械部件的累积尺寸偏差的过程。<br>其主要目标是在最不利的尺寸条件下确保探针与焊盘之间可靠的接触。</p>
+<p><strong>公差尺寸链</strong></p>
+<ul>
+<li>Guide System (Pins&#x2F; Bushings)——导向轴&#x2F;轴承公差</li>
+<li>Probe Plate Hole Position——针板孔位公差</li>
+<li>Guide Plate Position——导向板位公差</li>
+<li>UUT locating holes&#x2F; edges——被测物孔&#x2F; 边线公差</li>
+<li>PCB fabrication tolerance——PCB板制造公差</li>
+<li>Test pad position——测试点位置公差</li>
+</ul>
+<p><strong>最小距离和最小测试点尺寸</strong></p>
+<p>&emsp;&emsp;每种测试夹具都存在不同的公差，导致测试点位置与最佳位置存在偏差。因此，测试点的最小尺寸以及测试点与被测电路板元件之间的最小距离都存在实际的限制。以下是一些典型值的概述：</p>
+<p><strong>距离定义</strong></p>
+<ul>
+<li>A: Distance between test points (center to center)  </li>
+<li>B: Distance between test point (center) and component (edge)  </li>
+<li>C: Centering hole diameter</li>
+<li>D: Distance between test point (edge) and centering hole (edge)  </li>
+<li>E: Distance between test point (edge)  and board edge  </li>
+<li>F: Test point diameter</li>
+</ul>
+<table>
+  <tr>
+    <th>Minimum distance test point – test point by center</th>
+    <th>mm</th>
+    <th>mil</th>
+    <th>Dimension</th>
+  </tr>
+  <tr>
+    <td>100 mil</td>
+    <td>2.05</td>
+    <td>81</td>
+    <td rowspan="3">A</td>
+  </tr>
+  <tr>
+    <td>75 mil</td>
+    <td>1.70</td>
+    <td>67</td>
+  </tr>
+  <tr>
+    <td>50 mil</td>
+    <td>1.27</td>
+    <td>50</td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th rowspan="2">Minimum distance test point – component</th>
+    <th colspan="2">Component height &lt; 3 mm</th>
+    <th colspan="2">Component height &gt; 3 mm</th>
+    <th rowspan="2">Dimension</th>
+  </tr>
+  <tr>
+    <th>mm</th>
+    <th>mil</th>
+    <th>mm</th>
+    <th>mil</th>
+  </tr>
+  <tr>
+    <td>100 mil</td>
+    <td>0.85</td>
+    <td>33</td>
+    <td>1.24</td>
+    <td>49</td>
+    <td rowspan="3">B</td>
+  </tr>
+  <tr>
+    <td>75 mil</td>
+    <td>0.72</td>
+    <td>28</td>
+    <td>1.05</td>
+    <td>41</td>
+  </tr>
+  <tr>
+    <td>50 mil</td>
+    <td>0.65</td>
+    <td>26</td>
+    <td>0.93</td>
+    <td>36</td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+    <th>Further minimum distances and minimum sizes</th>
+    <th>mm</th>
+    <th>mil</th>
+    <th>Note</th>
+    <th>Dimension</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Centering hole diameter tolerance</td>
+    <td>+0.10 / -0.05</td>
+    <td>+4 / -2</td>
+    <td>TP ≥ 0.8</td>
+    <td rowspan="2">C</td>
+  </tr>
+  <tr>
+    <td>±0.05</td>
+    <td>±2</td>
+    <td>TP &lt; 0.8</td>
+  </tr>
+  <tr>
+    <td>Test point – centering hole</td>
+    <td>1.0</td>
+    <td>40</td>
+    <td></td>
+    <td>D</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Test point – board edge</td>
+    <td>0.3</td>
+    <td>12</td>
+    <td></td>
+    <td rowspan="2">E</td>
+  </tr>
+  <tr>
+    <td>3.0</td>
+    <td>119</td>
+    <td>with mold</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Test point size</td>
+    <td>&gt; 0.8</td>
+    <td>32</td>
+    <td>without guiding plate</td>
+    <td rowspan="3">F</td>
+  </tr>
+  <tr>
+    <td>&gt; 0.7</td>
+    <td>28</td>
+    <td>with guiding plate</td>
+  </tr>
+  <tr>
+    <td>&gt; 0.4</td>
+    <td>16</td>
+    <td>rigid probe</td>
+  </tr>
+  <tr>
+    <td>Tolerance of board contour</td>
+    <td>±0.25</td>
+    <td>±10</td>
+    <td>positioning by pilot pin</td>
+    <td></td>
+  </tr>
+</table>
+
+
+<h2 id="应力分析（Simulation）"><a href="#应力分析（Simulation）" class="headerlink" title="应力分析（Simulation）"></a>应力分析（Simulation）</h2><p>&emsp;&emsp;应力分析旨在评估操作过程中被测单元（UUT）所承受的机械载荷和由此产生的应力。一般是±500微应变。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua2l0YS1tZmcuY29tL2NoaW5lc2UxLw==">株式会社喜多制作所<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/FCT/" rel="tag"><i class="fa fa-tag"></i> FCT</a>
+              <a href="/tags/Strain-Gauge/" rel="tag"><i class="fa fa-tag"></i> Strain Gauge</a>
+              <a href="/tags/%E6%8E%A2%E9%92%88/" rel="tag"><i class="fa fa-tag"></i> 探针</a>
+              <a href="/tags/%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="tag"><i class="fa fa-tag"></i> 结构设计</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" rel="tag"><i class="fa fa-tag"></i> 设计规范</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/01/15/ICT%E4%B8%8EFCT%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="ICT与FCT的区别">
+                  <i class="fa fa-angle-left"></i> ICT与FCT的区别
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/07/Strain%20Gauge/" rel="next" title="StrainGauge">
+                  StrainGauge <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">95k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="应变计（有时称为应变片）是电阻随作用力变化的传感器；它将力、压力、张力、重量等物理量转化为电阻的变化，从而测量这些物理量。当外力作用于固定物体时，就会产生应力和应变。物体内部产生的（对外力的）反作用力即为应力，产生的位移和形变即为应变。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StrainGauge">
+<meta property="og:url" content="https://burro-cmd.github.io/2020/02/07/Strain%20Gauge/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="应变计（有时称为应变片）是电阻随作用力变化的传感器；它将力、压力、张力、重量等物理量转化为电阻的变化，从而测量这些物理量。当外力作用于固定物体时，就会产生应力和应变。物体内部产生的（对外力的）反作用力即为应力，产生的位移和形变即为应变。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png">
+<meta property="article:published_time" content="2020-02-07T13:30:33.000Z">
+<meta property="article:modified_time" content="2026-06-05T13:56:35.845Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="Strain Gauge">
+<meta property="article:tag" content="Sensor">
+<meta property="article:tag" content="μstrain">
+<meta property="article:tag" content="应力分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2020/02/07/Strain%20Gauge/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2020/02/07/Strain%20Gauge/","path":"2020/02/07/Strain Gauge/","title":"StrainGauge"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>StrainGauge | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Strain-gauge"><span class="nav-number">1.</span> <span class="nav-text">Strain gauge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Physical-operation"><span class="nav-number">2.</span> <span class="nav-text">Physical operation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gauge-factor"><span class="nav-number">3.</span> <span class="nav-text">Gauge factor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-practice"><span class="nav-number">4.</span> <span class="nav-text">In practice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applications"><span class="nav-number">5.</span> <span class="nav-text">Applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E5%8F%98%E7%89%87%E5%9C%A8BE%E6%AE%B5PCBA%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">应变片在BE段PCBA测试中的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">8.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2020/02/07/Strain%20Gauge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="StrainGauge | HUNPHY'S BLOG">
+      <meta itemprop="description" content="应变计（有时称为应变片）是电阻随作用力变化的传感器；它将力、压力、张力、重量等物理量转化为电阻的变化，从而测量这些物理量。当外力作用于固定物体时，就会产生应力和应变。物体内部产生的（对外力的）反作用力即为应力，产生的位移和形变即为应变。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          StrainGauge
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-07 21:30:33" itemprop="dateCreated datePublished" datetime="2020-02-07T21:30:33+08:00">2020-02-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>7.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">应变计（有时称为应变片）是电阻随作用力变化的传感器；它将力、压力、张力、重量等物理量转化为电阻的变化，从而测量这些物理量。当外力作用于固定物体时，就会产生应力和应变。物体内部产生的（对外力的）反作用力即为应力，产生的位移和形变即为应变。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
+<p>&ensp;&ensp;Invented by Edward E. Simmons and Arthur C. Ruge in 1938, the most common type of strain gauge consists of an insulating flexible backing which supports a metallic foil pattern.<br>&ensp;&ensp;应变计由 Edward E. Simmons 和 Arthur C. Ruge 于 1938 年发明，最常见的类型是由绝缘柔性背衬支撑金属箔图案组成。</p>
+<p>&ensp;&ensp;The gauge is attached to the object by a <strong>suitable adhesive</strong>, such as cyanoacrylate (氰基丙烯酸酯). Proper adhesion is critical, as any air gaps or flexibility in the bonding layer will introduce measurement errors known as creep or hysteresis. As the object is deformed, the foil is deformed, causing its electrical resistance to change. This resistance change, usually measured using a Wheatstone bridge, is related to the strain by the quantity known as the gauge factor.<br>&ensp;&ensp;应变片通过合适的粘合剂（例如氰基丙烯酸酯）固定在被测物体上。良好的粘合至关重要，因为粘合层中的任何气隙或柔性都会引入测量误差，称为蠕变或滞后。当被测物体发生形变时，应变片也会发生形变，导致其电阻发生变化。这种电阻变化通常使用惠斯通电桥测量，它与应变之间的关系称为应变系数。</p>
+<h2 id="Physical-operation"><a href="#Physical-operation" class="headerlink" title="Physical operation"></a>Physical operation</h2><p>&ensp;&ensp;A strain gauge takes advantage of the physical property of electrical conductance and its dependence on the conductor’s geometry.<br>&ensp;&ensp;应变计利用了电导率的物理特性及其对导体几何形状的依赖性。</p>
+<p>&ensp;&ensp;When an electrical conductor is stretched within the limits of its elasticity such that it does not break or permanently deform, it will become narrower and longer, which increases its electrical resistance end-to-end.<br>&ensp;&ensp;当电导体在其弹性极限内被拉伸而不断裂或永久变形时，它会变得更窄更长，从而增加其端到端的电阻。</p>
+<p>&ensp;&ensp;Conversely, when a conductor is compressed such that it does not buckle, it will broaden and shorten, which decreases its electrical resistance end-to-end. From the measured electrical resistance of the strain gauge, the amount of induced stress may be inferred.<br>&ensp;&ensp;反之，当导体受到压缩而不发生屈曲时，它会变宽变短，从而降低其端到端的电阻。通过测量应变片的电阻值，可以推断出所施加的应力大小。</p>
+<p>&ensp;&ensp;A typical strain gauge arranges a long, thin conductive strip in a zig-zag pattern of parallel lines. This does not increase the sensitivity, since the percentage change in resistance for a given strain for the entire zig-zag is the same as for any single trace. A single linear trace would have to be extremely thin, hence liable to overheating (which would change its resistance and cause it to expand), or would need to be operated at a much lower voltage, making it difficult to measure resistance changes accurately.<br>&ensp;&ensp;典型的应变计将一条细长的导电条以锯齿状平行线排列。但这并不会提高灵敏度，因为对于给定的应变，整个锯齿状区域的电阻变化百分比与任何单条导线的电阻变化百分比相同。单条线性导线必须非常细，因此容易过热（过热会改变其电阻并导致其膨胀），或者需要使用低得多的电压，这使得精确测量电阻变化变得困难。</p>
+<h2 id="Gauge-factor"><a href="#Gauge-factor" class="headerlink" title="Gauge factor"></a>Gauge factor</h2><p>&ensp;&ensp;The gauge factor GF is defined as:<br>GF &#x3D; (ΔR &#x2F; RG) &#x2F; ε  <br> ΔR is the change in resistance caused by strain,<br> ΔR 是由应变引起的电阻变化，<br> RG is the resistance of the undeformed gauge, and ϵ is strain.<br> RG 是未变形应变片的电阻，ϵ 是应变。</p>
+<p>&ensp;&ensp;For common metallic foil gauges, the gauge factor is usually a little over 2. For a single active gauge and three dummy resistors of the same resistance about the active gauge in a balanced Wheatstone bridge configuration, the output sensor voltage<br>SV from the bridge is approximately:<br>&ensp;&ensp;对于常见的金属箔式电磁感应计，其灵敏度系数通常略大于 2。在平衡惠斯通电桥配置中，对于单个有效电磁感应计和围绕其的三个相同阻值的假电阻，电桥的输出传感器电压SV 约为：<br><br> SV &#x3D; EV × (GF·ε &#x2F; 4)<br><br> &ensp;&ensp;Foil gauges typically have active areas of about 2–10 mm2 in size. With careful installation, the correct gauge, and the correct adhesive, strains up to at least 10% can be measured.<br>&ensp;&ensp;箔式应变计的有效测量面积通常约为 2–10 mm²。只要安装得当，使用正确的应变计和粘合剂，就可以测量至少 10% 的应变。</p>
+<h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><p><a title="Izantux, CC0, via Wikimedia Commons" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:StrainGaugeVisualization.svg"><img width="250" alt="StrainGaugeVisualization" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png"></a></p>
+<p>&ensp;&ensp;Strain gauges are attached to the <strong>substrate with a special glue</strong>. The type of glue depends on the required lifetime of the measurement system. For <strong>short term</strong> measurements (up to some weeks) <strong>cyanoacrylate</strong> glue is appropriate, for <strong>long lasting installation</strong> <strong>epoxy glue(环氧树脂胶)</strong> is required. Usually epoxy glue requires high temperature curing (at about 80-100 °C). The preparation of the surface where the strain gauge is to be glued is of the utmost importance. <strong>The surface must be smoothed</strong> (e.g. with very fine sand paper), <strong>deoiled with solvents</strong>, <u>the solvent traces must then be removed and the strain gauge must be glued immediately after this to avoid oxidation or pollution of the prepared area. <strong>If these steps are not followed the strain gauge binding to the surface may be unreliable and unpredictable measurement errors may be generated.</strong></u><br><br> &ensp;&ensp;应变片通过<strong>专用胶水</strong>粘贴到基材上。胶水的类型取决于测量系统的预期使用寿命。对于<strong>短期</strong>测量（数周以内），<strong>氰基丙烯酸酯胶</strong>适用；对于<strong>长期安装</strong>，则需要<strong>环氧树脂胶</strong>。环氧树脂胶通常需要在高温下固化（约 80-100 °C）。应变片粘贴表面的准备工作至关重要。<strong>必须将表面打磨光滑</strong>（例如使用极细的砂纸），<strong>用溶剂脱油</strong>，然后清除溶剂残留，并立即粘贴应变片，以避免氧化或污染处理过的区域。<strong>如果不遵循这些步骤，应变片与表面的粘合可能不可靠，并可能产生不可预测的测量误差。</strong></p>
+<p>&ensp;&ensp;Strain gauge based technology is used commonly in the manufacture of pressure sensors. The gauges used in pressure sensors themselves are commonly made from silicon, polysilicon, metal film, thick film, and bonded foil.<br><br> &ensp;&ensp;基于应变片的技术广泛应用于压力传感器的制造。压力传感器中使用的压力表通常由硅、多晶硅、金属薄膜、厚膜和粘合箔制成。</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p><strong>PCBA testing</strong> PCBA测试<br><br> &ensp;&ensp;During automated or semi-automated testing of PCBA boards, the mechanical stress they experience is often difficult to quantify and assess. Excessive stress can lead to hidden defects such as microcracks and solder joint damage, directly impacting product reliability. Furthermore, the lack of stress data hinders process optimization, resulting in a bottleneck in yield improvement.<br><br> &ensp;&ensp;PCBA 在自动化或半自动化测试过程中，PCBA板承受的机械应力往往难以量化评估。应力过大可能导致微裂纹、焊点损伤等隐性缺陷，直接影响产品可靠性；应力数据缺失则使得工艺优化缺乏依据，良率提升陷入瓶颈。</p>
+<hr>
+<h2 id="应变片在BE段PCBA测试中的应用"><a href="#应变片在BE段PCBA测试中的应用" class="headerlink" title="应变片在BE段PCBA测试中的应用"></a><strong>应变片在BE段PCBA测试中的应用</strong></h2><ul>
+<li>Specfic: Strain guage is to qualify test fixtures, the values need to meet ±300μstrain (±500μstrain max)</li>
+<li>Deminisons: 1.5x1.5mm</li>
+<li>Mode: <span class="exturl" data-url="aHR0cHM6Ly9zdHJlc3NwaS5jb20vc2lwLTE3MDMtc2VyaWVz">Minebea SIP 1703<i class="fa fa-external-link-alt"></i></span> (1.5x1.5mm) YFR0512L50W3MS</li>
+</ul>
+<p><strong><span class="exturl" data-url="aHR0cHM6Ly9wcm9kdWN0Lm1pbmViZWFtaXRzdW1pLmNvbS9lbi90ZWNobm9sb2d5L3NlbnNpbmdfZGV2aWNlcy9zLWdhZ2VzX3RlY2hub3RlLmh0bWw=">Here is the basic technology introduction<i class="fa fa-external-link-alt"></i></span></strong></p>
+<hr>
+<p><strong>Structural health monitoring</strong> 结构健康监测<br><br> &ensp;&ensp;Structural health monitoring (SHM) is used to monitor structures after their completion. To prevent failures, strain gauges are used to detect and locate damages and creep. A specific example is the monitoring of bridge cables increasing safety by detecting possible damages. Also, the bridge’s behavior to unusual loads such as special heavy-duty transports can be analyzed.<br><br> &ensp;&ensp;结构健康监测（SHM）用于在结构完工后进行监测。为防止故障，应变计用于检测和定位损伤及蠕变。一个具体例子是监控桥梁电缆，通过检测可能的损坏来提高安全性。此外，还可以分析桥梁对特殊重型运输等特殊载荷的行为。</p>
+<p><strong>Biological measurements</strong> 生物测量<br><br> &ensp;&ensp;Measuring the strain of skin can provide a multitude of biomechanic measurements such as posture, joint rotation, respiration and swelling both in humans and other animals. Resistive foil strain gauges are seldom used for these applications, however, due to their low strain limit. Instead, soft and deformable strain gauges are often attached to a host garment, to make it simple to apply the sensor to the correct part of the body, though sometimes they are attached directly to the skin. Typically in these applications, such soft strain gauges are known as stretch sensors. For medical use, the sensors must be accurate and repeatable which typically requires the use of capacitive stretch sensors.<br><br> &ensp;&ensp;测量皮肤应变可以提供多种生物力学测量，如姿势、关节旋转、呼吸以及人类及其他动物的肿胀。然而，由于应变极限较低，电阻箔应变计很少用于这些应用。相反，软质且可变形的应变计通常会安装在主体服装上，以便将传感器贴合到身体的正确部位，尽管有时传感器会直接连接到皮肤上。在这些应用中，通常这种软应变计被称为拉伸传感器。对于医疗用途，传感器必须准确且可重复，通常需要使用电容拉伸传感器。</p>
+<p><strong>Predictive maintenance</strong> 预防性维护<br><br> &ensp;&ensp;Many objects and materials in industrial applications have a finite life. To improve their lifetime and cost of ownership, predictive maintenance principles are used. Strain gauges can be used to monitor the strain as an indicator of fatigue in materials to enable software systems to predict when certain components need to be replaced or serviced. Resistive foil gauges can be used to instrument stiff materials like metals, ceramics, composites and similar, whereas highly elastic strain gauges are used to monitor softer materials such as rubber, plastics, textiles and the like.<br><br> &ensp;&ensp;工业应用中的许多物品和材料寿命有限。为了延长使用寿命和使用成本，采用了预测性维护原则。应变计可用于监测应变，作为材料疲劳的指示器，使软件系统能够预测何时需要更换或维护某些部件。电阻箔计可用于仪器化刚性材料，如金属、陶瓷、复合材料等，而高弹性应变计则用于监测橡胶、塑料、纺织等较软材料。</p>
+<p><strong>Aviation</strong> 航空<br><br> &ensp;&ensp;In aviation, strain gauges are the standard approach to measuring the structural load and calculating wing deflection. Strain gauges are fixed in several locations on the aircraft. However, deflection measurement systems have been shown to measure strains reliably remotely. This reduces instrumentation weight on the aircraft and thus is replacing (certain) strain gauges.<br><br> &ensp;&ensp;在航空领域，应变计是测量结构载荷和计算机翼挠度的标准方法。应变计固定在飞机的多个位置。然而，偏转测量系统已被证明能够可靠地远程测量应变。这减轻了飞机上的仪表重量，从而更换了（某些）应变计。</p>
+<p><strong>Repurposing</strong> 再利用<br><br> &ensp;&ensp;There are also applications where it isn’t first obvious that you would measure strain to get to the wanted result. So for example in the detection of intruders on certain structures, strain gauges can be used to detect the presence of such an intruder. This is done by measuring the slight change in strain of the said structure.<br><br> &ensp;&ensp;也有些应用中，测量应变以达到理想结果并不明显。例如，在某些结构上的入侵者检测时，应变计可以用来检测入侵者的存在。这是通过测量该结构应变的细微变化来完成的。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU3RyYWluX2dhdWdl">Strain Gauge<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5lZnVuZGEuY29tL2Rlc2lnbnN0YW5kYXJkcy9zZW5zb3JzL3N0cmFpbl9nYWdlcy9zdHJhaW5fZ2FnZV9zZWxlY3Rpb25fbWF0bC5jZm0=">Strain Gauge Material<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Strain-Gauge/" rel="tag"><i class="fa fa-tag"></i> Strain Gauge</a>
+              <a href="/tags/Sensor/" rel="tag"><i class="fa fa-tag"></i> Sensor</a>
+              <a href="/tags/%CE%BCstrain/" rel="tag"><i class="fa fa-tag"></i> μstrain</a>
+              <a href="/tags/%E5%BA%94%E5%8A%9B%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 应力分析</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/" rel="prev" title="FCT治具机械结构与设计规范">
+                  <i class="fa fa-angle-left"></i> FCT治具机械结构与设计规范
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/16/Tolerance-Stack-Up-Analysis/" rel="next" title="Tolerance Stack Up Analysis">
+                  Tolerance Stack Up Analysis <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">95k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
