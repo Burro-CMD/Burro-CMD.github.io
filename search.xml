@@ -182,102 +182,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Atom中Markdown语法</title>
-    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li>无序1</li>
-<li>无序2</li>
-<li>无序3</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>有序1</li>
-<li>有序2</li>
-<li>有序3</li>
-</ol>
-<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>静夜思<br>窗前看月光<br>抬头望山月</p>
-</blockquote>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<strong>加粗的内容</strong></p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<em>斜体的内容</em></p>
-<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
-<p>我是需要___粗斜体的内容___</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：<del>删除线</del></p>
-<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
-<p>我是需要***<del>粗斜体删除的内容</del>***</p>
-<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
-<hr>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<u>这是需要下划线的内容</u></p>
-<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<center>这是要居中的文本内容</center></p>
-<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Java</li>
-<li><input disabled="" type="checkbox"> C</li>
-<li><input disabled="" type="checkbox"> C++</li>
-</ul>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
-<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
-<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
-<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
-<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
-<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
-
-
-<p>效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<center>行1 |<center>行2 |<center>行3
-:----: | :----: | :----:
-小程序 | vue | 菜鸟
-search | web前段开发工程师 | 码农
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
-<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
-<p>语法示例：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
-<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Atom</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Atom使用</title>
     <url>/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h3><p><strong>1. Simplified-chinese-menu</strong><br>Atom 的简体中文汉化语言包,目前最全的汉化包。包含菜单汉化、右键菜单汉化以及设置汉化。</p>
@@ -393,6 +297,102 @@ search | web前段开发工程师 | 码农
       </categories>
       <tags>
         <tag>Atom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Atom中Markdown语法</title>
+    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>无序1</li>
+<li>无序2</li>
+<li>无序3</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+</blockquote>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<strong>加粗的内容</strong></p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<em>斜体的内容</em></p>
+<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
+<p>我是需要___粗斜体的内容___</p>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果：<del>删除线</del></p>
+<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
+<p>我是需要***<del>粗斜体删除的内容</del>***</p>
+<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
+<hr>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<u>这是需要下划线的内容</u></p>
+<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<center>这是要居中的文本内容</center></p>
+<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Java</li>
+<li><input disabled="" type="checkbox"> C</li>
+<li><input disabled="" type="checkbox"> C++</li>
+</ul>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
+<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
+<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
+<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
+<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
+<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
+
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<center>行1 |<center>行2 |<center>行3
+:----: | :----: | :----:
+小程序 | vue | 菜鸟
+search | web前段开发工程师 | 码农
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
+<p>语法示例：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Atom</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -654,77 +654,6 @@ search | web前段开发工程师 | 码农
         <tag>Camera</tag>
         <tag>Chart</tag>
         <tag>FOV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
-    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
-<ul>
-<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
-<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
-<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
-<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
-<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
-<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
-<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
-<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
-<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
-<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
-<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
-<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
-</ul>
-<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
-<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
-<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
-<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
-<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
-<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
-</ul>
-<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
-<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
-<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
-<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
-<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
-<li>Datums are perfect; they are the origin for measurements.</li>
-<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
-<li>Position tolerance is usually cylindrical (use ⌀).</li>
-<li>Profile can control form, orientation, and location in one callout.</li>
-<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
-</ol>
-<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
-<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
-<li>Straightness: Shafts, edges.</li>
-<li>Circularity: Bearing races, rings.</li>
-<li>Cylindricity: Pistons, hydraulic bores.</li>
-<li>Profile: Complex 3D shapes, molds.</li>
-<li>Parallelism: Guide rails, mounting surfaces.</li>
-<li>Perpendicularity: Holes normal to a plate.</li>
-<li>Angularity: 45° brackets, bevels.</li>
-<li>Position: Hole patterns, bolt circles (#1).</li>
-<li>Concentricity: Rotating shafts, pulleys.</li>
-<li>Symmetry: Slots, tabs, symmetrical parts.</li>
-<li>Runout: Wheels, gears, rotating components.</li>
-</ol>
-<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
-  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
-  width="100%"
-  height="1000px">
-</iframe>
-
-
-<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GD&amp;T</tag>
       </tags>
   </entry>
   <entry>
@@ -1133,6 +1062,145 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
+    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
+<ul>
+<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
+<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
+<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
+<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
+<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
+<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
+<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
+<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
+<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
+<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
+<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
+<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
+</ul>
+<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
+<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
+<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
+<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
+<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
+<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
+</ul>
+<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
+<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
+<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
+<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
+<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
+<li>Datums are perfect; they are the origin for measurements.</li>
+<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
+<li>Position tolerance is usually cylindrical (use ⌀).</li>
+<li>Profile can control form, orientation, and location in one callout.</li>
+<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
+</ol>
+<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
+<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
+<li>Straightness: Shafts, edges.</li>
+<li>Circularity: Bearing races, rings.</li>
+<li>Cylindricity: Pistons, hydraulic bores.</li>
+<li>Profile: Complex 3D shapes, molds.</li>
+<li>Parallelism: Guide rails, mounting surfaces.</li>
+<li>Perpendicularity: Holes normal to a plate.</li>
+<li>Angularity: 45° brackets, bevels.</li>
+<li>Position: Hole patterns, bolt circles (#1).</li>
+<li>Concentricity: Rotating shafts, pulleys.</li>
+<li>Symmetry: Slots, tabs, symmetrical parts.</li>
+<li>Runout: Wheels, gears, rotating components.</li>
+</ol>
+<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
+  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
+  width="100%"
+  height="1000px">
+</iframe>
+
+
+<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GRR</title>
+    <url>/2026/05/17/GRR/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
+<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
+</blockquote>
+<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
+<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
+</li>
+<li><p>R：Repeatability（重复性，设备变异 EV）</p>
+<blockquote>
+<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
+</blockquote>
+</li>
+<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
+<blockquote>
+<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
+<li><p>**&lt;10%**：合格，测量系统良好</p>
+</li>
+<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
+</li>
+<li><p>**&gt;30%**：不合格，必须改善</p>
+</li>
+</ol>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
+</ol>
+<ul>
+<li>适用：10 零件、3 人、每人测 2~3 次</li>
+<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
+<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
+</ul>
+<ol start="2">
+<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
+</ol>
+<ul>
+<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
+<li>缺点：计算复杂，现场很少手工算</li>
+<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
+</ul>
+<ol start="3">
+<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
+</ol>
+<ul>
+<li>2 人各测 1 遍，最快出结果</li>
+<li>只粗判，不能用来正式交报告</li>
+<li>用途：现场快速点检量具准不准</li>
+</ul>
+<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
+<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
+<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
+<li>NDC：可区分类别数，≥5可接受。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GRR</tag>
+        <tag>均值——极差法</tag>
+        <tag>方差分析法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Github图床删除图片</title>
     <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
@@ -1206,74 +1274,6 @@ th {
         <tag>Maintenace</tag>
         <tag>PCX160</tag>
         <tag>Honda WH150T-2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GRR</title>
-    <url>/2026/05/17/GRR/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
-<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
-</blockquote>
-<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
-<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
-</li>
-<li><p>R：Repeatability（重复性，设备变异 EV）</p>
-<blockquote>
-<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
-</blockquote>
-</li>
-<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
-<blockquote>
-<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
-<li><p>**&lt;10%**：合格，测量系统良好</p>
-</li>
-<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
-</li>
-<li><p>**&gt;30%**：不合格，必须改善</p>
-</li>
-</ol>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
-<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
-</ol>
-<ul>
-<li>适用：10 零件、3 人、每人测 2~3 次</li>
-<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
-<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
-</ul>
-<ol start="2">
-<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
-</ol>
-<ul>
-<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
-<li>缺点：计算复杂，现场很少手工算</li>
-<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
-</ul>
-<ol start="3">
-<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
-</ol>
-<ul>
-<li>2 人各测 1 遍，最快出结果</li>
-<li>只粗判，不能用来正式交报告</li>
-<li>用途：现场快速点检量具准不准</li>
-</ul>
-<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
-<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
-<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
-<li>NDC：可区分类别数，≥5可接受。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GRR</tag>
-        <tag>均值——极差法</tag>
-        <tag>方差分析法</tag>
       </tags>
   </entry>
   <entry>
@@ -1447,62 +1447,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Solidworks高效机械设计插件</title>
-    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
-<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
-<li>ICAN工具箱版本</li>
-<li>版本：V9.5.3</li>
-<li>发布日期：2026-05-07</li>
-<li>大小：69 Mb</li>
-<li>版本要求：Sw2016含以上</li>
-<li>支持系统：win7、win10、win11 64位</li>
-</ul>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
-<p>提供5种打孔功能,打孔效率提升10倍!</p>
-</blockquote>
-<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
-<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
-</blockquote>
-<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
-<p>快速装配常见紧固件,自动识别规格!</p>
-</blockquote>
-<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
-<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
-</blockquote>
-<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
-<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
-</blockquote>
-<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
-<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
-</blockquote>
-<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
-<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
-</blockquote>
-<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
-<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
-</blockquote>
-<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
-<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
-</blockquote>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
-<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
-  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
-  您的浏览器不支持HTML5视频播放，请升级浏览器。
-</video>
-
-<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MacBook效率工具</title>
     <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
@@ -1557,6 +1501,62 @@ th {
         <tag>MacBook</tag>
         <tag>效率</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks高效机械设计插件</title>
+    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
+<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
+<li>ICAN工具箱版本</li>
+<li>版本：V9.5.3</li>
+<li>发布日期：2026-05-07</li>
+<li>大小：69 Mb</li>
+<li>版本要求：Sw2016含以上</li>
+<li>支持系统：win7、win10、win11 64位</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
+<p>提供5种打孔功能,打孔效率提升10倍!</p>
+</blockquote>
+<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
+<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
+</blockquote>
+<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
+<p>快速装配常见紧固件,自动识别规格!</p>
+</blockquote>
+<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
+<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
+</blockquote>
+<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
+<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
+</blockquote>
+<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
+<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
+</blockquote>
+<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
+<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
+</blockquote>
+<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
+<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
+</blockquote>
+<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
+<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
+  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
+  您的浏览器不支持HTML5视频播放，请升级浏览器。
+</video>
+
+<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -2403,274 +2403,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
-</ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
-</ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
-</blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
-</blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
-</blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
-</blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
-</blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑</title>
-    <url>/2019/09/20/%E4%BB%8E%E2%80%9C%E8%B0%83%E9%80%9A%E8%AE%BE%E5%A4%87%E2%80%9D%E5%88%B0%E2%80%9C%E7%A8%B3%E5%AE%9A%E4%BA%A4%E4%BB%98%E2%80%9D%EF%BC%9AFCT%20%E6%B2%BB%E5%85%B7%E8%B0%83%E8%AF%95%E4%B8%AD%E7%9A%84%E6%9C%BA%E6%A2%B0%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="FCT-调试先看产品状态"><a href="#FCT-调试先看产品状态" class="headerlink" title="FCT 调试先看产品状态"></a>FCT 调试先看产品状态</h1><p>&emsp;&emsp;FCT 治具与产品强相关。产品状态不稳定，设备调试就很容易失去判断基准。<br>调试前通常需要确认：</p>
-<ul>
-<li>产品是否为design lock版本；</li>
-<li>PCB、连接器装配状态是否一致；</li>
-<li>测试点位置是否存在批次偏差；</li>
-<li>产品进入 FCT 前的制程状态是否稳定；</li>
-<li>是否存在翘曲、毛刺、残胶、污染；</li>
-<li>产品图纸状态与现场实物状态是否一致。</li>
-</ul>
-<p>&emsp;&emsp;很多 FCT 异常表面是测试 fail，实际根因在产品输入端。产品未design lock、测试点偏移，都会导致治具调试方向被误导。所以调试早期必须先区分：是产品不稳定，还是治具不稳定；是单件问题，还是批量问题；是结构偏差，还是接触问题。</p>
-<h1 id="治具架设的核心是建立稳定基准"><a href="#治具架设的核心是建立稳定基准" class="headerlink" title="治具架设的核心是建立稳定基准"></a>治具架设的核心是建立稳定基准</h1><p>&emsp;&emsp;FCT 治具的第一目标不是夹紧产品，而是让产品每次以相同姿态进入测试位置。<br>定位设计和架设时，我通常重点看：</p>
-<ul>
-<li>主定位基准是否选在产品稳定特征上；</li>
-<li>定位基准与测试点之间的尺寸链是否清楚；</li>
-<li>是否存在过定位；</li>
-<li>产品放入治具是否自然顺畅；</li>
-<li>不同人员取放后落位是否一致；</li>
-<li>定位块、导向边、限位面是否有调整余量；</li>
-<li>产品落位后是否存在翘起、晃动或局部受力。</li>
-</ul>
-<p>&emsp;&emsp;FCT 治具中，定位过紧和定位不足都会带来问题。过紧会导致产品放置困难、卡滞、局部变形；过松会导致测试点位置漂移、探针接触不稳定。比较稳定的做法是：关键方向明确定位，非关键方向合理释放。治具要控制产品姿态，但不能把产品制造误差强行锁死。</p>
-<h1 id="压合调试重点看受力路径"><a href="#压合调试重点看受力路径" class="headerlink" title="压合调试重点看受力路径"></a>压合调试重点看受力路径</h1><p>&emsp;&emsp;FCT 压合机构不能只看“是否压到位”。压合动作真正要确认的是：力从哪里进来，经过哪里传递，最后由哪里承受。<br>调试中重点检查：</p>
-<ul>
-<li>压头是否压在结构支撑附近；</li>
-<li>压合后产品是否产生翘曲；</li>
-<li>PCB 是否存在局部下沉；</li>
-<li>压头与产品接触面是否平行；</li>
-<li>是否存在侧向推力；</li>
-<li>气缸动作是否平稳；</li>
-<li>机械限位是否可靠；</li>
-<li>压合终点是否依赖气缸行程，而不是硬限位；</li>
-<li>压合后探针压缩量是否一致。</li>
-</ul>
-<p>&emsp;&emsp;压得住不代表压得对。有些治具测试不稳定，不是压力不够，而是压力路径不合理。产品局部被压弯后，探针虽然接触了测试点，但接触力分布已经不一致。FCT 压合的目标不是“大力压紧”，而是“受控压合”。压合位置、支撑位置、限位高度和产品变形必须一起看。</p>
-<h1 id="探针接触看重复性，不看单次导通"><a href="#探针接触看重复性，不看单次导通" class="headerlink" title="探针接触看重复性，不看单次导通"></a>探针接触看重复性，不看单次导通</h1><p>&emsp;&emsp;FCT 调试中，探针接触是高频问题源。单次导通没有太大价值，关键是多次取放、多次压合、多件产品测试后，接触状态是否一致。<br>探针调试重点包括：</p>
-<ul>
-<li>探针压缩量是否在推荐范围内；</li>
-<li>探针是否垂直接触测试点；</li>
-<li>压痕位置是否居中或2&#x2F;3；</li>
-<li>压痕大小是否一致；</li>
-<li>探针板与产品定位基准是否匹配；</li>
-<li>测试点表面是否有污染、氧化、Flux或残胶；</li>
-<li>探针是否存在卡滞、弯曲、磨损；</li>
-<li>长时间测试后接触状态是否变化。</li>
-</ul>
-<p>&emsp;&emsp;偶发 fail 通常要优先看压痕。压痕偏、浅、不一致，往往说明机械定位或压合存在问题。此时如果只从程序、电气或测试阈值上调整，容易掩盖根因。<br>&emsp;&emsp;探针问题不能只靠导通结果判断，必须结合压痕、压缩量、重复测试和产品落位状态一起判断。</p>
-<h1 id="误判问题要先分层"><a href="#误判问题要先分层" class="headerlink" title="误判问题要先分层"></a>误判问题要先分层</h1><p>&emsp;&emsp;FCT 调试现场最容易出现的问题，是看到 fail 就直接改。实际项目中，改得越快，不一定收敛越快。FCT 异常需要先分层。<br>通常按以下顺序拆：</p>
-<ul>
-<li><p>产品层<br>产品是否合格？测试点是否干净？装配是否到位？是否有批次差异？</p>
-</li>
-<li><p>治具层<br>产品是否稳定落位？定位是否重复？压合是否一致？探针是否接触可靠？</p>
-</li>
-<li><p>电气层<br>线束、转接板、探针板、连接器、接地、屏蔽是否稳定？</p>
-</li>
-<li><p>软件层<br>测试程序、判定阈值、时序、通讯是否合理？</p>
-</li>
-<li><p>操作层<br>放置手法、压合节奏、扫码流程、取放动作是否影响结果？</p>
-</li>
-</ul>
-<p>&emsp;&emsp;FCT fail 是结果，不是原因。如果没有分层，很容易把机械问题当成电气问题，把产品问题当成治具问题，把偶发问题当成程序问题。调试效率高低，很多时候取决于问题是否被正确分层。</p>
-<h1 id="调试验证要覆盖重复性"><a href="#调试验证要覆盖重复性" class="headerlink" title="调试验证要覆盖重复性"></a>调试验证要覆盖重复性</h1><p>&emsp;&emsp;FCT 设备最终服务于连续生产，所以调试验证不能只看一次 pass。<br>常用验证方式包括：</p>
-<ul>
-<li>同一产品重复取放测试；</li>
-<li>同一产品连续压合测试；</li>
-<li>多件产品交叉测试；</li>
-<li>不同操作人员测试；</li>
-<li>异常点复测；</li>
-<li>连续节拍测试；</li>
-<li>探针压痕复查；</li>
-<li>长时间运行后复检定位、压头、限位和探针状态。</li>
-</ul>
-<p>一次通过只能说明设备“能测”。重复通过，才说明设备趋于稳定。</p>
-<p>对于 FCT 治具，我更关注以下数据：  </p>
-<ul>
-<li>首次通过率；</li>
-<li>重测通过率；</li>
-<li>偶发 fail 点位；</li>
-<li>fail 是否集中在某几个测试点；</li>
-<li>fail 是否与产品批次相关；</li>
-<li>fail 是否与操作人员相关；</li>
-<li>fail 是否随运行时间增加。</li>
-</ul>
-<p>这些信息比单纯的 pass&#x2F;fail 更有价值。</p>
-<h1 id="治具要为调整留空间"><a href="#治具要为调整留空间" class="headerlink" title="治具要为调整留空间"></a>治具要为调整留空间</h1><p>&emsp;&emsp;FCT 治具调试一定会遇到现场调整。问题不在于是否需要调整，而在于调整成本有多高。<br>以下位置通常需要保留调整或更换能力：</p>
-<ul>
-<li>产品定位块；</li>
-<li>导向件；</li>
-<li>限位块；</li>
-<li>压头；</li>
-<li>探针板；</li>
-<li>产品接触保护件；</li>
-<li>局部支撑块。</li>
-</ul>
-<p>不确定结构尽量不要直接做进主结构。与产品强相关的区域，应尽量模块化、可拆换、可微调。<br>常见做法包括：</p>
-<ul>
-<li>长孔调节；</li>
-<li>垫片调整；</li>
-<li>可更换压头；</li>
-<li>可调探针板；</li>
-<li>分体式仿形件；</li>
-<li>预留安装孔；</li>
-</ul>
-<p>&emsp;&emsp;FCT 治具不能只按理想产品设计。产品制程波动、客户设计变更、测试点偏移、现场操作差异，都需要治具有一定吸收能力。</p>
-<h1 id="调试记录决定问题能否闭环"><a href="#调试记录决定问题能否闭环" class="headerlink" title="调试记录决定问题能否闭环"></a>调试记录决定问题能否闭环</h1><p>&emsp;&emsp;FCT 调试变量多，机械、电气、软件经常同步调整。如果没有记录，很容易出现问题看似解决，但根因不清。<br>调试记录至少包括：</p>
-<ul>
-<li>问题现象；</li>
-<li>产品编号；</li>
-<li>fail 点位；</li>
-<li>当前治具状态；</li>
-<li>调整内容；</li>
-<li>调整前后测试数据；</li>
-<li>是否复现；</li>
-<li>是否关闭；</li>
-<li>剩余风险；</li>
-<li>后续责任人。</li>
-</ul>
-<p>&emsp;&emsp;调试中尽量一次只改一个关键变量。如果多个变量同时改，后续很难判断真正起作用的是哪一个。记录不是为了留痕，而是为了减少重复排查。尤其是偶发问题，没有过程记录，后面基本无法追溯。</p>
-<h1 id="FCT-调试中常见机械问题"><a href="#FCT-调试中常见机械问题" class="headerlink" title="FCT 调试中常见机械问题"></a>FCT 调试中常见机械问题</h1><p>结合多个项目，FCT 治具中较常见的机械问题主要集中在以下几类：</p>
-<ol>
-<li>产品定位不一致<br>表现为测试点偏移、压痕位置变化、偶发 fail。<br>常见原因是定位间隙过大、导向不足、基准选择不合理、产品装配浮动。</li>
-<li>压合后产品变形<br>表现为部分点位接触不稳定，重复测试结果波动。<br>常见原因是压头位置不合理、支撑不足、限位高度不一致、压合力过大。</li>
-<li>探针压缩量不稳定<br>表现为同一点位偶发导通异常。<br>常见原因是产品浮动、探针板位置偏差、限位不稳定、探针磨损。</li>
-<li>治具局部刚性不足<br>表现为初期可用，运行一段时间后结果漂移。<br>常见原因是探针板支撑不足、压合结构变形、安装面刚性不够。</li>
-<li>操作窗口不足<br>表现为产品放置不顺、误放、偏放、节拍不稳定。<br>常见原因是导向设计不足、避让空间不够、防呆不清晰。</li>
-<li>调整成本过高<br>表现为一个小偏差需要大改结构。<br>常见原因是产品相关特征直接集成到主结构，缺少可调件和替换件。</li>
-</ol>
-<h1 id="调试后的工程沉淀"><a href="#调试后的工程沉淀" class="headerlink" title="调试后的工程沉淀"></a>调试后的工程沉淀</h1><p>FCT 调试完成后，我通常会复盘如下内容：</p>
-<ul>
-<li>产品定位基准是否合理；</li>
-<li>探针接触问题是否闭环；</li>
-<li>压合受力路径是否验证；</li>
-<li>哪些结构后续需要优化；</li>
-<li>哪些位置必须保留可调；</li>
-<li>哪些问题应进入设计check list；</li>
-<li>哪些供应商加工或装配问题需要反馈；</li>
-<li>哪些测试点在后续项目中要重点关注。</li>
-</ul>
-<p>&emsp;&emsp;调试的价值不只是解决当前设备问题，也要反哺下一套治具设计。如果同类问题在不同项目中反复出现，说明它不再是单点问题，而是设计规范或评审清单中缺失了一项。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;FCT 设备治具调试的核心，是把影响测试结果的机械变量逐步收敛。<br>&emsp;&emsp;产品要稳定落位，压合要受控，探针要可靠接触，结构要有刚性，关键位置要可调，问题要可复现、可验证、可关闭。<br>&emsp;&emsp;FCT 测试结果虽然表现为电气数据，但机械端决定了测试条件是否一致。定位偏一点、压合歪一点、探针浅一点、产品浮一点，都可能变成偶发 fail。<br>&emsp;&emsp;FCT 治具从“能测”到“稳定测”，靠的不是某一次调试，而是前期设计留余量，现场调试分层排查，验证阶段看重复性，项目结束后把问题复盘回标准和check list。<br>&emsp;&emsp;这也是 FCT 调试最有价值的部分：不只是把一台设备调通，而是让下一台设备少走同样的弯路。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2959,6 +2691,153 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑</title>
+    <url>/2019/09/20/%E4%BB%8E%E2%80%9C%E8%B0%83%E9%80%9A%E8%AE%BE%E5%A4%87%E2%80%9D%E5%88%B0%E2%80%9C%E7%A8%B3%E5%AE%9A%E4%BA%A4%E4%BB%98%E2%80%9D%EF%BC%9AFCT%20%E6%B2%BB%E5%85%B7%E8%B0%83%E8%AF%95%E4%B8%AD%E7%9A%84%E6%9C%BA%E6%A2%B0%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="FCT-调试先看产品状态"><a href="#FCT-调试先看产品状态" class="headerlink" title="FCT 调试先看产品状态"></a>FCT 调试先看产品状态</h1><p>&emsp;&emsp;FCT 治具与产品强相关。产品状态不稳定，设备调试就很容易失去判断基准。<br>调试前通常需要确认：</p>
+<ul>
+<li>产品是否为design lock版本；</li>
+<li>PCB、连接器装配状态是否一致；</li>
+<li>测试点位置是否存在批次偏差；</li>
+<li>产品进入 FCT 前的制程状态是否稳定；</li>
+<li>是否存在翘曲、毛刺、残胶、污染；</li>
+<li>产品图纸状态与现场实物状态是否一致。</li>
+</ul>
+<p>&emsp;&emsp;很多 FCT 异常表面是测试 fail，实际根因在产品输入端。产品未design lock、测试点偏移，都会导致治具调试方向被误导。所以调试早期必须先区分：是产品不稳定，还是治具不稳定；是单件问题，还是批量问题；是结构偏差，还是接触问题。</p>
+<h1 id="治具架设的核心是建立稳定基准"><a href="#治具架设的核心是建立稳定基准" class="headerlink" title="治具架设的核心是建立稳定基准"></a>治具架设的核心是建立稳定基准</h1><p>&emsp;&emsp;FCT 治具的第一目标不是夹紧产品，而是让产品每次以相同姿态进入测试位置。<br>定位设计和架设时，我通常重点看：</p>
+<ul>
+<li>主定位基准是否选在产品稳定特征上；</li>
+<li>定位基准与测试点之间的尺寸链是否清楚；</li>
+<li>是否存在过定位；</li>
+<li>产品放入治具是否自然顺畅；</li>
+<li>不同人员取放后落位是否一致；</li>
+<li>定位块、导向边、限位面是否有调整余量；</li>
+<li>产品落位后是否存在翘起、晃动或局部受力。</li>
+</ul>
+<p>&emsp;&emsp;FCT 治具中，定位过紧和定位不足都会带来问题。过紧会导致产品放置困难、卡滞、局部变形；过松会导致测试点位置漂移、探针接触不稳定。比较稳定的做法是：关键方向明确定位，非关键方向合理释放。治具要控制产品姿态，但不能把产品制造误差强行锁死。</p>
+<h1 id="压合调试重点看受力路径"><a href="#压合调试重点看受力路径" class="headerlink" title="压合调试重点看受力路径"></a>压合调试重点看受力路径</h1><p>&emsp;&emsp;FCT 压合机构不能只看“是否压到位”。压合动作真正要确认的是：力从哪里进来，经过哪里传递，最后由哪里承受。<br>调试中重点检查：</p>
+<ul>
+<li>压头是否压在结构支撑附近；</li>
+<li>压合后产品是否产生翘曲；</li>
+<li>PCB 是否存在局部下沉；</li>
+<li>压头与产品接触面是否平行；</li>
+<li>是否存在侧向推力；</li>
+<li>气缸动作是否平稳；</li>
+<li>机械限位是否可靠；</li>
+<li>压合终点是否依赖气缸行程，而不是硬限位；</li>
+<li>压合后探针压缩量是否一致。</li>
+</ul>
+<p>&emsp;&emsp;压得住不代表压得对。有些治具测试不稳定，不是压力不够，而是压力路径不合理。产品局部被压弯后，探针虽然接触了测试点，但接触力分布已经不一致。FCT 压合的目标不是“大力压紧”，而是“受控压合”。压合位置、支撑位置、限位高度和产品变形必须一起看。</p>
+<h1 id="探针接触看重复性，不看单次导通"><a href="#探针接触看重复性，不看单次导通" class="headerlink" title="探针接触看重复性，不看单次导通"></a>探针接触看重复性，不看单次导通</h1><p>&emsp;&emsp;FCT 调试中，探针接触是高频问题源。单次导通没有太大价值，关键是多次取放、多次压合、多件产品测试后，接触状态是否一致。<br>探针调试重点包括：</p>
+<ul>
+<li>探针压缩量是否在推荐范围内；</li>
+<li>探针是否垂直接触测试点；</li>
+<li>压痕位置是否居中或2&#x2F;3；</li>
+<li>压痕大小是否一致；</li>
+<li>探针板与产品定位基准是否匹配；</li>
+<li>测试点表面是否有污染、氧化、Flux或残胶；</li>
+<li>探针是否存在卡滞、弯曲、磨损；</li>
+<li>长时间测试后接触状态是否变化。</li>
+</ul>
+<p>&emsp;&emsp;偶发 fail 通常要优先看压痕。压痕偏、浅、不一致，往往说明机械定位或压合存在问题。此时如果只从程序、电气或测试阈值上调整，容易掩盖根因。<br>&emsp;&emsp;探针问题不能只靠导通结果判断，必须结合压痕、压缩量、重复测试和产品落位状态一起判断。</p>
+<h1 id="误判问题要先分层"><a href="#误判问题要先分层" class="headerlink" title="误判问题要先分层"></a>误判问题要先分层</h1><p>&emsp;&emsp;FCT 调试现场最容易出现的问题，是看到 fail 就直接改。实际项目中，改得越快，不一定收敛越快。FCT 异常需要先分层。<br>通常按以下顺序拆：</p>
+<ul>
+<li><p>产品层<br>产品是否合格？测试点是否干净？装配是否到位？是否有批次差异？</p>
+</li>
+<li><p>治具层<br>产品是否稳定落位？定位是否重复？压合是否一致？探针是否接触可靠？</p>
+</li>
+<li><p>电气层<br>线束、转接板、探针板、连接器、接地、屏蔽是否稳定？</p>
+</li>
+<li><p>软件层<br>测试程序、判定阈值、时序、通讯是否合理？</p>
+</li>
+<li><p>操作层<br>放置手法、压合节奏、扫码流程、取放动作是否影响结果？</p>
+</li>
+</ul>
+<p>&emsp;&emsp;FCT fail 是结果，不是原因。如果没有分层，很容易把机械问题当成电气问题，把产品问题当成治具问题，把偶发问题当成程序问题。调试效率高低，很多时候取决于问题是否被正确分层。</p>
+<h1 id="调试验证要覆盖重复性"><a href="#调试验证要覆盖重复性" class="headerlink" title="调试验证要覆盖重复性"></a>调试验证要覆盖重复性</h1><p>&emsp;&emsp;FCT 设备最终服务于连续生产，所以调试验证不能只看一次 pass。<br>常用验证方式包括：</p>
+<ul>
+<li>同一产品重复取放测试；</li>
+<li>同一产品连续压合测试；</li>
+<li>多件产品交叉测试；</li>
+<li>不同操作人员测试；</li>
+<li>异常点复测；</li>
+<li>连续节拍测试；</li>
+<li>探针压痕复查；</li>
+<li>长时间运行后复检定位、压头、限位和探针状态。</li>
+</ul>
+<p>一次通过只能说明设备“能测”。重复通过，才说明设备趋于稳定。</p>
+<p>对于 FCT 治具，我更关注以下数据：  </p>
+<ul>
+<li>首次通过率；</li>
+<li>重测通过率；</li>
+<li>偶发 fail 点位；</li>
+<li>fail 是否集中在某几个测试点；</li>
+<li>fail 是否与产品批次相关；</li>
+<li>fail 是否与操作人员相关；</li>
+<li>fail 是否随运行时间增加。</li>
+</ul>
+<p>这些信息比单纯的 pass&#x2F;fail 更有价值。</p>
+<h1 id="治具要为调整留空间"><a href="#治具要为调整留空间" class="headerlink" title="治具要为调整留空间"></a>治具要为调整留空间</h1><p>&emsp;&emsp;FCT 治具调试一定会遇到现场调整。问题不在于是否需要调整，而在于调整成本有多高。<br>以下位置通常需要保留调整或更换能力：</p>
+<ul>
+<li>产品定位块；</li>
+<li>导向件；</li>
+<li>限位块；</li>
+<li>压头；</li>
+<li>探针板；</li>
+<li>产品接触保护件；</li>
+<li>局部支撑块。</li>
+</ul>
+<p>不确定结构尽量不要直接做进主结构。与产品强相关的区域，应尽量模块化、可拆换、可微调。<br>常见做法包括：</p>
+<ul>
+<li>长孔调节；</li>
+<li>垫片调整；</li>
+<li>可更换压头；</li>
+<li>可调探针板；</li>
+<li>分体式仿形件；</li>
+<li>预留安装孔；</li>
+</ul>
+<p>&emsp;&emsp;FCT 治具不能只按理想产品设计。产品制程波动、客户设计变更、测试点偏移、现场操作差异，都需要治具有一定吸收能力。</p>
+<h1 id="调试记录决定问题能否闭环"><a href="#调试记录决定问题能否闭环" class="headerlink" title="调试记录决定问题能否闭环"></a>调试记录决定问题能否闭环</h1><p>&emsp;&emsp;FCT 调试变量多，机械、电气、软件经常同步调整。如果没有记录，很容易出现问题看似解决，但根因不清。<br>调试记录至少包括：</p>
+<ul>
+<li>问题现象；</li>
+<li>产品编号；</li>
+<li>fail 点位；</li>
+<li>当前治具状态；</li>
+<li>调整内容；</li>
+<li>调整前后测试数据；</li>
+<li>是否复现；</li>
+<li>是否关闭；</li>
+<li>剩余风险；</li>
+<li>后续责任人。</li>
+</ul>
+<p>&emsp;&emsp;调试中尽量一次只改一个关键变量。如果多个变量同时改，后续很难判断真正起作用的是哪一个。记录不是为了留痕，而是为了减少重复排查。尤其是偶发问题，没有过程记录，后面基本无法追溯。</p>
+<h1 id="FCT-调试中常见机械问题"><a href="#FCT-调试中常见机械问题" class="headerlink" title="FCT 调试中常见机械问题"></a>FCT 调试中常见机械问题</h1><p>结合多个项目，FCT 治具中较常见的机械问题主要集中在以下几类：</p>
+<ol>
+<li>产品定位不一致<br>表现为测试点偏移、压痕位置变化、偶发 fail。<br>常见原因是定位间隙过大、导向不足、基准选择不合理、产品装配浮动。</li>
+<li>压合后产品变形<br>表现为部分点位接触不稳定，重复测试结果波动。<br>常见原因是压头位置不合理、支撑不足、限位高度不一致、压合力过大。</li>
+<li>探针压缩量不稳定<br>表现为同一点位偶发导通异常。<br>常见原因是产品浮动、探针板位置偏差、限位不稳定、探针磨损。</li>
+<li>治具局部刚性不足<br>表现为初期可用，运行一段时间后结果漂移。<br>常见原因是探针板支撑不足、压合结构变形、安装面刚性不够。</li>
+<li>操作窗口不足<br>表现为产品放置不顺、误放、偏放、节拍不稳定。<br>常见原因是导向设计不足、避让空间不够、防呆不清晰。</li>
+<li>调整成本过高<br>表现为一个小偏差需要大改结构。<br>常见原因是产品相关特征直接集成到主结构，缺少可调件和替换件。</li>
+</ol>
+<h1 id="调试后的工程沉淀"><a href="#调试后的工程沉淀" class="headerlink" title="调试后的工程沉淀"></a>调试后的工程沉淀</h1><p>FCT 调试完成后，我通常会复盘如下内容：</p>
+<ul>
+<li>产品定位基准是否合理；</li>
+<li>探针接触问题是否闭环；</li>
+<li>压合受力路径是否验证；</li>
+<li>哪些结构后续需要优化；</li>
+<li>哪些位置必须保留可调；</li>
+<li>哪些问题应进入设计check list；</li>
+<li>哪些供应商加工或装配问题需要反馈；</li>
+<li>哪些测试点在后续项目中要重点关注。</li>
+</ul>
+<p>&emsp;&emsp;调试的价值不只是解决当前设备问题，也要反哺下一套治具设计。如果同类问题在不同项目中反复出现，说明它不再是单点问题，而是设计规范或评审清单中缺失了一项。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;FCT 设备治具调试的核心，是把影响测试结果的机械变量逐步收敛。<br>&emsp;&emsp;产品要稳定落位，压合要受控，探针要可靠接触，结构要有刚性，关键位置要可调，问题要可复现、可验证、可关闭。<br>&emsp;&emsp;FCT 测试结果虽然表现为电气数据，但机械端决定了测试条件是否一致。定位偏一点、压合歪一点、探针浅一点、产品浮一点，都可能变成偶发 fail。<br>&emsp;&emsp;FCT 治具从“能测”到“稳定测”，靠的不是某一次调试，而是前期设计留余量，现场调试分层排查，验证阶段看重复性，项目结束后把问题复盘回标准和check list。<br>&emsp;&emsp;这也是 FCT 调试最有价值的部分：不只是把一台设备调通，而是让下一台设备少走同样的弯路。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Mac环境下使用GitHub和Hexo搭建博客</title>
     <url>/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<strong>欢迎参与讨论，转载请注明出处。</strong></p>
@@ -3178,6 +3057,127 @@ th {
         <tag>Hexo</tag>
         <tag>Node.js</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
+<blockquote>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
+</blockquote>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
+<ol>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
+</blockquote>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
+<ul>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
+</ul>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
+<ul>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
+</ul>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
+<p>例如：</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
       </tags>
   </entry>
   <entry>
@@ -3587,94 +3587,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微针连接技术选型与应用综述</title>
     <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
@@ -3982,21 +3894,81 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>换空气滤芯篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
-<li>十字螺丝刀</li>
-<li>新空气滤芯，17210-K1Z-CA0</li>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
 </ol>
-<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BBpng.png"></p>
-<h2 id="拆开外壳"><a href="#拆开外壳" class="headerlink" title="拆开外壳"></a>拆开外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
-<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
-<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
-<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
 ]]></content>
       <categories>
         <category>Tech</category>
@@ -4004,7 +3976,9 @@ th {
       <tags>
         <tag>PCX160</tag>
         <tag>Honda WH150T-2</tag>
-        <tag>空气滤芯</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
       </tags>
   </entry>
   <entry>
@@ -4214,6 +4188,32 @@ th {
       </categories>
       <tags>
         <tag>EVUS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换空气滤芯篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>十字螺丝刀</li>
+<li>新空气滤芯，17210-K1Z-CA0</li>
+</ol>
+<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BBpng.png"></p>
+<h2 id="拆开外壳"><a href="#拆开外壳" class="headerlink" title="拆开外壳"></a>拆开外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
+<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
+<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>空气滤芯</tag>
       </tags>
   </entry>
   <entry>
