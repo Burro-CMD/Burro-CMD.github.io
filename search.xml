@@ -2378,31 +2378,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2427,124 +2402,28 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
 </ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
-</ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
-</blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
-</blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
-</blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
-</blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
-</blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
+        <tag>Blog</tag>
+        <tag>deploy</tag>
       </tags>
   </entry>
   <entry>
@@ -2693,6 +2572,127 @@ th {
       <categories>
         <category>Tech</category>
       </categories>
+  </entry>
+  <entry>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
+<blockquote>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
+</blockquote>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
+<ol>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
+</blockquote>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
+<ul>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
+</ul>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
+<ul>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
+</ul>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
+<p>例如：</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
