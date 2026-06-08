@@ -657,6 +657,77 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
+    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
+<ul>
+<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
+<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
+<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
+<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
+<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
+<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
+<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
+<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
+<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
+<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
+<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
+<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
+</ul>
+<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
+<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
+<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
+<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
+<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
+<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
+</ul>
+<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
+<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
+<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
+<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
+<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
+<li>Datums are perfect; they are the origin for measurements.</li>
+<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
+<li>Position tolerance is usually cylindrical (use ⌀).</li>
+<li>Profile can control form, orientation, and location in one callout.</li>
+<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
+</ol>
+<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
+<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
+<li>Straightness: Shafts, edges.</li>
+<li>Circularity: Bearing races, rings.</li>
+<li>Cylindricity: Pistons, hydraulic bores.</li>
+<li>Profile: Complex 3D shapes, molds.</li>
+<li>Parallelism: Guide rails, mounting surfaces.</li>
+<li>Perpendicularity: Holes normal to a plate.</li>
+<li>Angularity: 45° brackets, bevels.</li>
+<li>Position: Hole patterns, bolt circles (#1).</li>
+<li>Concentricity: Rotating shafts, pulleys.</li>
+<li>Symmetry: Slots, tabs, symmetrical parts.</li>
+<li>Runout: Wheels, gears, rotating components.</li>
+</ol>
+<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
+  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
+  width="100%"
+  height="1000px">
+</iframe>
+
+
+<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>FCT治具机械结构与设计规范</title>
     <url>/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="FCT概述"><a href="#FCT概述" class="headerlink" title="FCT概述"></a>FCT概述</h2><p>&emsp;&emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。</p>
@@ -1057,149 +1128,8 @@ th {
       </categories>
       <tags>
         <tag>FCT</tag>
-        <tag>Strain Gauge</tag>
-        <tag>探针</tag>
         <tag>结构设计</tag>
         <tag>设计规范</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
-    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
-<ul>
-<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
-<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
-<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
-<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
-<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
-<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
-<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
-<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
-<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
-<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
-<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
-<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
-</ul>
-<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
-<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
-<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
-<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
-<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
-<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
-</ul>
-<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
-<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
-<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
-<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
-<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
-<li>Datums are perfect; they are the origin for measurements.</li>
-<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
-<li>Position tolerance is usually cylindrical (use ⌀).</li>
-<li>Profile can control form, orientation, and location in one callout.</li>
-<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
-</ol>
-<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
-<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
-<li>Straightness: Shafts, edges.</li>
-<li>Circularity: Bearing races, rings.</li>
-<li>Cylindricity: Pistons, hydraulic bores.</li>
-<li>Profile: Complex 3D shapes, molds.</li>
-<li>Parallelism: Guide rails, mounting surfaces.</li>
-<li>Perpendicularity: Holes normal to a plate.</li>
-<li>Angularity: 45° brackets, bevels.</li>
-<li>Position: Hole patterns, bolt circles (#1).</li>
-<li>Concentricity: Rotating shafts, pulleys.</li>
-<li>Symmetry: Slots, tabs, symmetrical parts.</li>
-<li>Runout: Wheels, gears, rotating components.</li>
-</ol>
-<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
-  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
-  width="100%"
-  height="1000px">
-</iframe>
-
-
-<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GD&amp;T</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GRR</title>
-    <url>/2026/05/17/GRR/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
-<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
-</blockquote>
-<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
-<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
-</li>
-<li><p>R：Repeatability（重复性，设备变异 EV）</p>
-<blockquote>
-<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
-</blockquote>
-</li>
-<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
-<blockquote>
-<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
-<li><p>**&lt;10%**：合格，测量系统良好</p>
-</li>
-<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
-</li>
-<li><p>**&gt;30%**：不合格，必须改善</p>
-</li>
-</ol>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
-<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
-</ol>
-<ul>
-<li>适用：10 零件、3 人、每人测 2~3 次</li>
-<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
-<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
-</ul>
-<ol start="2">
-<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
-</ol>
-<ul>
-<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
-<li>缺点：计算复杂，现场很少手工算</li>
-<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
-</ul>
-<ol start="3">
-<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
-</ol>
-<ul>
-<li>2 人各测 1 遍，最快出结果</li>
-<li>只粗判，不能用来正式交报告</li>
-<li>用途：现场快速点检量具准不准</li>
-</ul>
-<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
-<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
-<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
-<li>NDC：可区分类别数，≥5可接受。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GRR</tag>
-        <tag>均值——极差法</tag>
-        <tag>方差分析法</tag>
       </tags>
   </entry>
   <entry>
@@ -1276,6 +1206,74 @@ th {
         <tag>Maintenace</tag>
         <tag>PCX160</tag>
         <tag>Honda WH150T-2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GRR</title>
+    <url>/2026/05/17/GRR/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
+<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
+</blockquote>
+<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
+<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
+</li>
+<li><p>R：Repeatability（重复性，设备变异 EV）</p>
+<blockquote>
+<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
+</blockquote>
+</li>
+<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
+<blockquote>
+<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
+<li><p>**&lt;10%**：合格，测量系统良好</p>
+</li>
+<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
+</li>
+<li><p>**&gt;30%**：不合格，必须改善</p>
+</li>
+</ol>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
+</ol>
+<ul>
+<li>适用：10 零件、3 人、每人测 2~3 次</li>
+<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
+<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
+</ul>
+<ol start="2">
+<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
+</ol>
+<ul>
+<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
+<li>缺点：计算复杂，现场很少手工算</li>
+<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
+</ul>
+<ol start="3">
+<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
+</ol>
+<ul>
+<li>2 人各测 1 遍，最快出结果</li>
+<li>只粗判，不能用来正式交报告</li>
+<li>用途：现场快速点检量具准不准</li>
+</ul>
+<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
+<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
+<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
+<li>NDC：可区分类别数，≥5可接受。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GRR</tag>
+        <tag>均值——极差法</tag>
+        <tag>方差分析法</tag>
       </tags>
   </entry>
   <entry>
@@ -1449,6 +1447,62 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Solidworks高效机械设计插件</title>
+    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
+<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
+<li>ICAN工具箱版本</li>
+<li>版本：V9.5.3</li>
+<li>发布日期：2026-05-07</li>
+<li>大小：69 Mb</li>
+<li>版本要求：Sw2016含以上</li>
+<li>支持系统：win7、win10、win11 64位</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
+<p>提供5种打孔功能,打孔效率提升10倍!</p>
+</blockquote>
+<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
+<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
+</blockquote>
+<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
+<p>快速装配常见紧固件,自动识别规格!</p>
+</blockquote>
+<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
+<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
+</blockquote>
+<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
+<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
+</blockquote>
+<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
+<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
+</blockquote>
+<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
+<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
+</blockquote>
+<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
+<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
+</blockquote>
+<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
+<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
+  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
+  您的浏览器不支持HTML5视频播放，请升级浏览器。
+</video>
+
+<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MacBook效率工具</title>
     <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
@@ -1506,62 +1560,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Solidworks高效机械设计插件</title>
-    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
-<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
-<li>ICAN工具箱版本</li>
-<li>版本：V9.5.3</li>
-<li>发布日期：2026-05-07</li>
-<li>大小：69 Mb</li>
-<li>版本要求：Sw2016含以上</li>
-<li>支持系统：win7、win10、win11 64位</li>
-</ul>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
-<p>提供5种打孔功能,打孔效率提升10倍!</p>
-</blockquote>
-<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
-<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
-</blockquote>
-<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
-<p>快速装配常见紧固件,自动识别规格!</p>
-</blockquote>
-<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
-<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
-</blockquote>
-<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
-<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
-</blockquote>
-<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
-<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
-</blockquote>
-<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
-<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
-</blockquote>
-<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
-<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
-</blockquote>
-<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
-<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
-</blockquote>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
-<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
-  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
-  您的浏览器不支持HTML5视频播放，请升级浏览器。
-</video>
-
-<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>StrainGauge</title>
     <url>/2020/02/07/Strain%20Gauge/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
@@ -1599,10 +1597,9 @@ th {
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>Strain Gauge</tag>
         <tag>Sensor</tag>
+        <tag>Gauge</tag>
         <tag>μstrain</tag>
-        <tag>应力分析</tag>
       </tags>
   </entry>
   <entry>
@@ -2406,30 +2403,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/08/12/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一个高质量机械设计评审应该看什么？</title>
     <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
@@ -2696,6 +2669,30 @@ th {
       <categories>
         <category>Tech</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/08/12/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
@@ -3590,24 +3587,112 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微针连接技术选型与应用综述</title>
     <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试solution可以大致分为三类：  </p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
 <ul>
 <li>ACS&#x2F; 硅胶探针  </li>
 <li>Blade Pin&#x2F; 片针&#x2F; 叶片针  </li>
 <li>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</li>
 </ul>
-<p>这三类方案覆盖的pitch区间不同，适合的测试对象也不同。下面主要从工程实际使用角度来分享这三类微针的不同。</p>
+<p>这三类方案覆盖的 pitch 区间不同，适合的测试对象也不同。下面主要从工程实际使用角度来分享这三类微针的不同。</p>
 <h2 id="分类和技术原理"><a href="#分类和技术原理" class="headerlink" title="分类和技术原理"></a>分类和技术原理</h2><h3 id="ACS-硅胶探针"><a href="#ACS-硅胶探针" class="headerlink" title="ACS&#x2F; 硅胶探针"></a>ACS&#x2F; 硅胶探针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png"></p>
 <p>&emsp;&emsp;ACS (Anisotropic Conductive Sheet) 可以理解为一种基于弹性体的异向导电接触方案。常见形式是在硅胶或类似弹性材料中布置导电介质，通过压缩后实现Z向导通，同时尽量保持平面方向的绝缘。  </p>
-<p>比较典型的pitch区间：<strong>0.08 ~ 0.30mm</strong>。</p>
-<p>&emsp;&emsp;从使用场景来看，ACS更适合处理超细pitch、较脆弱pad、大面积阵列接触这类问题。<br><strong>面向超细间距和柔性接触的测试方案</strong>  </p>
+<p>比较典型的pitch区间：0.08 ~ 0.30mm。</p>
+<p>&emsp;&emsp;从使用场景来看，ACS更适合处理超细pitch、较脆弱pad、大面积阵列接触这类问题。———<strong>面向超细间距和柔性接触的测试方案</strong>  </p>
 <h4 id="ACS的优势主要在于："><a href="#ACS的优势主要在于：" class="headerlink" title="ACS的优势主要在于："></a>ACS的优势主要在于：</h4><ul>
 <li>能够支持较小pitch；  </li>
 <li>对被测件表面高度差有一定适应能力；  </li>
 <li>接触应力相对分散；  </li>
-<li>对glass、MEMS、细小pad阵列相对友好。</li>
+<li>对glass、MEMS、细小 pad 阵列相对友好。</li>
 </ul>
 <h4 id="ACS的局限："><a href="#ACS的局限：" class="headerlink" title="ACS的局限："></a>ACS的局限：</h4><ul>
 <li><strong>电流能力有限；</strong>  </li>
@@ -3616,25 +3701,25 @@ th {
 <li><strong>治具结构需要保证比较均匀的压合状态。</strong></li>
 </ul>
 <p>因此，ACS 更适合解决<strong>“接触点很密、被测件较脆弱、测试电流不大”</strong>的问题。</p>
-<h3 id="Blade-Pin-片针-叶片针"><a href="#Blade-Pin-片针-叶片针" class="headerlink" title="Blade Pin&#x2F; 片针&#x2F; 叶片针"></a>Blade Pin&#x2F; 片针&#x2F; 叶片针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blogBlade%20Pin.png"></p>
-<p>&emsp;&emsp;Blade Pin是一种金属片式接触结构。它不像传统弹簧针那样依靠针管和内部弹簧提供行程，而是通过金属片本身的结构形变、刃口或接触边缘与pad形成导通。<br>&emsp;&emsp;在工程应用中，Blade Pin的定位比较明确：<br><strong>它主要解决 ACS 和传统弹簧针之间的中间 pitch 精密测试问题。</strong></p>
-<p>比较典型的 Blade Pin pitch区间是：<strong>0.175 ~ 0.350mm</strong>。</p>
+<h3 id="Blade-Pin-片针-叶片针"><a href="#Blade-Pin-片针-叶片针" class="headerlink" title="Blade Pin&#x2F; 片针&#x2F; 叶片针"></a>Blade Pin&#x2F; 片针&#x2F; 叶片针</h3><p><img src="https://components.omron.com/us-en/sites/components.omron.com.us/files/2023-05/efc-top_05_01_en.jpg"></p>
+<p>&emsp;&emsp;Blade Pin 是一种金属片式接触结构。它不像传统弹簧针那样依靠针管和内部弹簧提供行程，而是通过金属片本身的结构形变、刃口或接触边缘与 pad 形成导通。<br>&emsp;&emsp;在工程应用中，Blade Pin 的定位比较明确：<br><strong>它主要解决 ACS 和传统弹簧针之间的中间 pitch 精密测试问题。</strong></p>
+<p>比较典型的 Blade Pin pitch区间是：0.175 ~ 0.350 mm</p>
 <h4 id="Blade-Pin的优势主要在于："><a href="#Blade-Pin的优势主要在于：" class="headerlink" title="Blade Pin的优势主要在于："></a>Blade Pin的优势主要在于：</h4><ul>
 <li>能支持较高密度的金属接触；</li>
-<li>接触路径比ACS更明确；</li>
+<li>接触路径比 ACS 更明确；</li>
 <li>接触电阻相对容易控制；</li>
-<li>对camera module、display module、B-to-B connector区域测试比较适用。</li>
+<li>对 camera module、display module、B-to-B connector 区域测试比较适用。</li>
 </ul>
-<h4 id="Blade-Pin对结构设计要求也比较高："><a href="#Blade-Pin对结构设计要求也比较高：" class="headerlink" title="Blade Pin对结构设计要求也比较高："></a>Blade Pin对结构设计要求也比较高：</h4><ul>
+<h4 id="Blade-Pin-对结构设计要求也比较高："><a href="#Blade-Pin-对结构设计要求也比较高：" class="headerlink" title="Blade Pin 对结构设计要求也比较高："></a>Blade Pin 对结构设计要求也比较高：</h4><ul>
 <li>对位精度要求高；</li>
 <li>对被测pad的平面度和位置公差敏感；</li>
 <li>不适合直接压在过于脆弱的材料上；</li>
-<li>接触力、刮擦量和pad表面处理需要提前验证。</li>
+<li>接触力、刮擦量和 pad 表面处理需要提前验证。</li>
 </ul>
 <p>所以一般不会把Blade Pin视为通用探针，而是把它看作一种针对<strong>fine pitch connector或精密模组接口的专用测试方案</strong>。</p>
 <h3 id="Spring-Pin-弹簧针-Pogo-Pin"><a href="#Spring-Pin-弹簧针-Pogo-Pin" class="headerlink" title="Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin"></a>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</h3><p><img src="https://www.qatech.com/images/home/2020/5_probes_banner.png"></p>
 <p>&emsp;&emsp;弹簧针是测试治具中最常见的方案之一。它依靠内部弹簧提供行程补偿，通过针头与pad接触实现导通。</p>
-<p>弹簧针的优点不在于支持最小pitch，而在于：</p>
+<p>弹簧针的优点不在于支持最小 pitch，而在于：</p>
 <ul>
 <li>技术成熟；</li>
 <li>规格丰富；</li>
@@ -3648,13 +3733,13 @@ th {
 <p>在fine pitch场景下，弹簧针会遇到限制：</p>
 <ul>
 <li>结构尺寸较大；</li>
-<li>pitch缩小后成本和制造难度上升；</li>
+<li>pitch 缩小后成本和制造难度上升；</li>
 <li>高密度排布下维护难度增加；</li>
-<li>过小pitch下容易受到对位、偏摆和针头尺寸限制。</li>
+<li>过小 pitch 下容易受到对位、偏摆和针头尺寸限制。</li>
 </ul>
-<p>因此，当<strong>pitch小于0.4mm</strong>时，通常会谨慎评估弹簧针方案的可行性。</p>
+<p>因此，当pitch 小于0.4 mm时，通常会谨慎评估弹簧针方案的可行性。</p>
 <h2 id="Pitch选型"><a href="#Pitch选型" class="headerlink" title="Pitch选型"></a>Pitch选型</h2><p>&emsp;&emsp;在实际项目中，通常是优先看pitch。pitch决定了接触单元能不能放得下，也决定了后续加工、装配、对位和维护的难度。</p>
-<p>下面是在方案评估中常用的pitch分界。</p>
+<p>下面是在方案评估中常用的 pitch 分界。</p>
 <h3 id="Pitch-0-10-mm"><a href="#Pitch-0-10-mm" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h3><p>&emsp;&emsp;当 pitch小于0.10mm 时，基本进入超细间距范围。<br>&emsp;&emsp;这个区间内，传统金属针类方案很难稳定实现。接触单元尺寸、加工精度、装配公差和对位能力都会成为问题。</p>
 <p>这种情况下，通常会优先考虑：</p>
 <ul>
@@ -3676,7 +3761,7 @@ th {
 <li>如果被测件比较脆弱，例如 glass、MEMS、薄型 sensor或细小pad阵列，倾向 ACS。  </li>
 <li>如果项目更关注接触电阻、金属导通路径、信号稳定性和重复测试寿命，倾向Blade Pin。</li>
 </ul>
-<p>这个区间可以理解为：ACS和 Blade Pin的竞争区间。</p>
+<p>这个区间可以理解为：ACS 和 Blade Pin 的竞争区间。</p>
 <p>在实际评估时，重点看以下几个问题：</p>
 <ul>
 <li>被测pad是否能承受金属接触；</li>
@@ -3700,14 +3785,14 @@ th {
 <li>电流能力；</li>
 <li>治具适配性。</li>
 </ul>
-<p>&emsp;&emsp;所以在ICT、FCT、板级测试、模组接口、电池连接和电源类测试中，如果pitch允许，一般会优先考虑弹簧针。</p>
+<p>&emsp;&emsp;所以在 ICT、FCT、板级测试、模组接口、电池连接和电源类测试中，如果 pitch 允许，一般会优先考虑弹簧针。</p>
 <h4 id="Pitch选型总结"><a href="#Pitch选型总结" class="headerlink" title="Pitch选型总结"></a>Pitch选型总结</h4><p>下面是在工程评估中比较常用的简化判断逻辑：</p>
-<h5 id="Pitch-0-10-mm-1"><a href="#Pitch-0-10-mm-1" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h5><p>→ 主要考虑ACS&#x2F; 硅胶探针</p>
-<h5 id="Pitch-0-10-0-175-mm-1"><a href="#Pitch-0-10-0-175-mm-1" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h5><p>→ ACS&#x2F; 硅胶探针为主</p>
-<h5 id="Pitch-0-175-0-30-mm-1"><a href="#Pitch-0-175-0-30-mm-1" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h5><p>→ ACS与Blade Pin竞争区间</p>
-<h5 id="Pitch-0-30-0-40-mm-1"><a href="#Pitch-0-30-0-40-mm-1" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h5><p>→ Blade Pin&#x2F; 片针为主</p>
-<h5 id="Pitch-0-40-mm-1"><a href="#Pitch-0-40-mm-1" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h5><p>→ 弹簧针&#x2F; Pogo Pin 为主</p>
-<p>进一步简化，可以概括为：<br><strong>小pitch看ACS，中间pitch看Blade Pin，大pitch看弹簧针。</strong></p>
+<h5 id="Pitch-0-10-mm-1"><a href="#Pitch-0-10-mm-1" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h5><p>→ 主要考虑 ACS &#x2F; 硅胶探针</p>
+<h5 id="Pitch-0-10-0-175-mm-1"><a href="#Pitch-0-10-0-175-mm-1" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h5><p>→ ACS &#x2F; 硅胶探针为主</p>
+<h5 id="Pitch-0-175-0-30-mm-1"><a href="#Pitch-0-175-0-30-mm-1" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h5><p>→ ACS 与 Blade Pin 竞争区间</p>
+<h5 id="Pitch-0-30-0-40-mm-1"><a href="#Pitch-0-30-0-40-mm-1" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h5><p>→ Blade Pin &#x2F; 片针为主</p>
+<h5 id="Pitch-0-40-mm-1"><a href="#Pitch-0-40-mm-1" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h5><p>→ 弹簧针 &#x2F; Pogo Pin 为主</p>
+<p>进一步简化，可以概括为：<br><strong>小pitch 看 ACS，中间 pitch 看 Blade Pin，大 pitch 看弹簧针。</strong></p>
 <h2 id="pitch范围"><a href="#pitch范围" class="headerlink" title="pitch范围"></a>pitch范围</h2><table>
 <thead>
 <tr>
@@ -3842,8 +3927,8 @@ th {
 <td>ICT、FCT、电源、模组接口</td>
 </tr>
 </tbody></table>
-<h2 id="选型注意事项"><a href="#选型注意事项" class="headerlink" title="选型注意事项"></a>选型注意事项</h2><h3 id="Pitch只是基本条件，不是最终答案"><a href="#Pitch只是基本条件，不是最终答案" class="headerlink" title="Pitch只是基本条件，不是最终答案"></a>Pitch只是基本条件，不是最终答案</h3><p>&emsp;&emsp;Pitch能帮助快速排除不合适的方案，但不能单独决定最终方案。<br>在pitch满足的前提下，还要看电性能、机械结构和量产维护。</p>
-<p>&emsp;&emsp;例如，0.25mm pitch的场景，ACS和Blade Pin都可能可行。<br>如果被测件是glass，会更倾向 ACS。</p>
+<h2 id="选型注意事项"><a href="#选型注意事项" class="headerlink" title="选型注意事项"></a>选型注意事项</h2><h3 id="Pitch只是基本条件，不是最终答案"><a href="#Pitch只是基本条件，不是最终答案" class="headerlink" title="Pitch只是基本条件，不是最终答案"></a>Pitch只是基本条件，不是最终答案</h3><p>&emsp;&emsp;Pitch 能帮助快速排除不合适的方案，但不能单独决定最终方案。<br>在pitch满足的前提下，还要看电性能、机械结构和量产维护。</p>
+<p>&emsp;&emsp;例如，0.25 mmpitch的场景，ACS和Blade Pin都可能可行。<br>如果被测件是glass，会更倾向 ACS。</p>
 <p>&emsp;&emsp;如果被测对象是B-to-B connector，并且需要更稳定的金属接触，我会更倾向 Blade Pin。</p>
 <h3 id="被测件能不能承受接触力"><a href="#被测件能不能承受接触力" class="headerlink" title="被测件能不能承受接触力"></a>被测件能不能承受接触力</h3><p>&emsp;&emsp;这是早期评估中很容易被低估的问题。</p>
 <p>不同方案的接触方式不同：</p>
@@ -3877,119 +3962,23 @@ th {
 <li>载具加工公差；</li>
 <li>探针阵列位置公差；</li>
 <li>压合机构偏差；</li>
-<li>DUT翘曲；</li>
-<li>pad实际位置偏差。</li>
+<li>DUT 翘曲；</li>
+<li>pad 实际位置偏差。</li>
 </ul>
 <p>这些因素如果前期没有评估，后期容易出现间歇性接触不良。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;ACS、Blade Pin和弹簧针不是简单的优劣关系，而是分别对应不同的pitch区间和工程约束。</p>
 <p>对三类方案的理解可以总结为：<br>ACS解决超细pitch和柔性接触问题；Blade Pin解决中等fine pitch下的精密金属接触问题；弹簧针解决较大pitch下的通用测试和可靠连接问题。</p>
 <p>在实际选型中，通常按照下面的顺序判断：<br>1.	先看pitch，确认技术边界；<br>2.	再看被测件材质和pad结构；<br>3.	接着看电流、信号和接触电阻要求；<br>4.	最后结合治具结构、寿命和维护成本确定方案。</p>
 <p>一句话总结：<br><strong>Pitch决定可选范围，接触方式决定稳定性，治具结构决定最终效果。</strong></p>
-<h2 id="Referance"><a href="#Referance" class="headerlink" title="Referance"></a>Referance</h2><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9jb21wb25lbnRzLm9tcm9uLmNvbS5jbi9zb2x1dGlvbnMvZWZjLXNvY2tldHMtYW5kLXByb2JlLXBpbnMtZm9yLWljLXRlc3Rpbmc=">EFC IC检查测试座和探针<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucWF0ZWNoLmNvbS9jbi9wcm9kdWN0cy9wcm9kdWN0cy5odG1s">QA探针<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly96aC5pcGFhY3MuY29tLw==">ACS垂直导电胶<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
 ]]></content>
       <categories>
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>FCT</tag>
-        <tag>探针</tag>
-        <tag>ICT</tag>
         <tag>ACS</tag>
         <tag>Blade Pin</tag>
         <tag>Pogo Pin</tag>
         <tag>Pitch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
       </tags>
   </entry>
   <entry>
@@ -4000,7 +3989,7 @@ th {
 <li>新空气滤芯，17210-K1Z-CA0</li>
 </ol>
 <h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BBpng.png"></p>
 <h2 id="拆开外壳"><a href="#拆开外壳" class="headerlink" title="拆开外壳"></a>拆开外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
 <p>操作2：逆时针拧开3颗螺丝（空滤）</p>
