@@ -396,6 +396,151 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>B2B Connector测试探针优化复盘</title>
+    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
+<ul>
+<li>同一类产品测试结果不够稳定  </li>
+<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
+<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
+<li>现场维护频率偏高，影响测试效率</li>
+</ul>
+<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
+<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
+<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
+<ul>
+<li>分析接触不稳定的可能根因</li>
+<li>评估不同探针方案的适配性</li>
+<li>设计刀片针（Blade Pin）接触模组</li>
+<li>设计验证思路，对比弹簧探针与刀片针表现</li>
+<li>优化治具压合、定位和接触机构</li>
+<li>支持测试端导入更稳定的量产方案</li>
+</ul>
+<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
+<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
+<ul>
+<li>Conntact Pitch: 0.35mm</li>
+<li>Width of Conntact: 0.24mm</li>
+<li>Number of Signal Contacts: 40</li>
+<li>connector Type: Receptacle</li>
+</ul>
+<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
+<p>结合现场的现象，重点从以下方面排查验证：</p>
+<ul>
+<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
+<li>B2B connector 与转接板的接触是否对正稳定</li>
+<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
+<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
+<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
+</ul>
+<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
+<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
+<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
+<ul>
+<li>应用成熟  </li>
+<li>通用性强  </li>
+<li>维护和更换方便</li>
+</ul>
+<p>不足：  </p>
+<ul>
+<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
+<li>对位置偏差更敏感  </li>
+<li>在某些接触表面条件下，接触电阻波动更明显  </li>
+<li>长时间测试后，现场会出现更多偶发性接触异常</li>
+</ul>
+<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
+<ul>
+<li>接触更“明确”，接触位置更可控</li>
+<li>对表面膜层&#x2F;微弱污染更不敏感</li>
+<li>在该项目中表现出更高的重复稳定性</li>
+<li>对于特定connector结构，能够形成更有效的接触过程</li>
+</ul>
+<p>需要关注的点：</p>
+<ul>
+<li>对对位精度要求更高</li>
+<li>压力控制和行程设计要更合理</li>
+<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
+</ul>
+<p>在两种探针使用验证过程中，发现如下现象：  </p>
+<ul>
+<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
+<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
+</ul>
+<p>针对以上问题，定义了以下清洁步骤：</p>
+<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
+<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
+</ul>
+<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
+<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
+<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
+<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
+</ul>
+<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
+<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
+<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
+<ul>
+<li>保证转接板上的Pad平整且边线平直</li>
+<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
+<li>保证被测件X&#x2F; Y方向基准是明确的</li>
+<li>Z方向的压合高度是稳定的</li>
+<li>Connector 与探针相对位置重复性可控</li>
+</ul>
+<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
+<ul>
+<li>治具针膜上压板的平面度</li>
+<li>压板与被测件的接触顺序</li>
+<li>被测件的受力均匀性</li>
+</ul>
+<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
+<ul>
+<li>定义治具B2B模组的清洁周期</li>
+<li>定义刀片针的更换标准</li>
+<li>定义刀片针的失效判断方法</li>
+</ul>
+<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
+<ul>
+<li>多次重复测试的一致性</li>
+<li>接触电阻波动范围</li>
+<li>fail &#x2F; retest &#x2F; false fail 比例</li>
+<li>一定循环次数后的稳定性</li>
+<li>现场维护频率和更换频率</li>
+</ul>
+<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
+<ol>
+<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
+</ol>
+<ul>
+<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
+<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
+</ul>
+<ol start="2">
+<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
+</ol>
+<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
+<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
+<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
+<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
+<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
+<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
+<blockquote>
+<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
+</blockquote>
+<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>刀片针</tag>
+        <tag>弹簧针</tag>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>FCT</tag>
+        <tag>Pitch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Camera测试</title>
     <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
@@ -1247,6 +1392,36 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Honda WH150T Maintenace (Official)</title>
+    <url>/2026/06/03/Honda%20WH150T%20Maintenace%20(Official)/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="技术参数"><a href="#技术参数" class="headerlink" title="技术参数"></a>技术参数</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B01.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B02.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B03.png"></p>
+<h2 id="保养周期表"><a href="#保养周期表" class="headerlink" title="保养周期表"></a>保养周期表</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A81.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A82.png"></p>
+<h2 id="发动机机油检查与更换"><a href="#发动机机油检查与更换" class="headerlink" title="发动机机油检查与更换"></a>发动机机油检查与更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="机油滤网"><a href="#机油滤网" class="headerlink" title="机油滤网"></a>机油滤网</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9C%BA%E6%B2%B9%E6%BB%A4%E7%BD%91.png"></p>
+<h2 id="更换减速器齿轮油"><a href="#更换减速器齿轮油" class="headerlink" title="更换减速器齿轮油"></a>更换减速器齿轮油</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%87%8F%E9%80%9F%E5%99%A8%E9%BD%BF%E8%BD%AE%E6%B2%B9.png"></p>
+<h2 id="更换冷却液"><a href="#更换冷却液" class="headerlink" title="更换冷却液"></a>更换冷却液</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%86%B7%E5%8D%B4%E6%B6%B2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B21.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B22.png"></p>
+<h2 id="蓄电池的更换"><a href="#蓄电池的更换" class="headerlink" title="蓄电池的更换"></a>蓄电池的更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E8%93%84%E7%94%B5%E6%B1%A0%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="紧急情况解锁点火开关"><a href="#紧急情况解锁点火开关" class="headerlink" title="紧急情况解锁点火开关"></a>紧急情况解锁点火开关</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B31.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B32.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B33.png"></p>
+<h2 id="紧急情况解锁鞍座"><a href="#紧急情况解锁鞍座" class="headerlink" title="紧急情况解锁鞍座"></a>紧急情况解锁鞍座</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E9%9E%8D%E5%BA%A7.png"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>Motorcycle</tag>
+        <tag>Maintenace</tag>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ICT与FCT的区别</title>
     <url>/2020/01/15/ICT%E4%B8%8EFCT%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -1471,36 +1646,6 @@ th {
         <tag>MacBook</tag>
         <tag>效率</tag>
         <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Honda WH150T Maintenace (Official)</title>
-    <url>/2026/06/03/Honda%20WH150T%20Maintenace%20(Official)/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="技术参数"><a href="#技术参数" class="headerlink" title="技术参数"></a>技术参数</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B01.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B02.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B03.png"></p>
-<h2 id="保养周期表"><a href="#保养周期表" class="headerlink" title="保养周期表"></a>保养周期表</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A81.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A82.png"></p>
-<h2 id="发动机机油检查与更换"><a href="#发动机机油检查与更换" class="headerlink" title="发动机机油检查与更换"></a>发动机机油检查与更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="机油滤网"><a href="#机油滤网" class="headerlink" title="机油滤网"></a>机油滤网</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9C%BA%E6%B2%B9%E6%BB%A4%E7%BD%91.png"></p>
-<h2 id="更换减速器齿轮油"><a href="#更换减速器齿轮油" class="headerlink" title="更换减速器齿轮油"></a>更换减速器齿轮油</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%87%8F%E9%80%9F%E5%99%A8%E9%BD%BF%E8%BD%AE%E6%B2%B9.png"></p>
-<h2 id="更换冷却液"><a href="#更换冷却液" class="headerlink" title="更换冷却液"></a>更换冷却液</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%86%B7%E5%8D%B4%E6%B6%B2.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B21.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B22.png"></p>
-<h2 id="蓄电池的更换"><a href="#蓄电池的更换" class="headerlink" title="蓄电池的更换"></a>蓄电池的更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E8%93%84%E7%94%B5%E6%B1%A0%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="紧急情况解锁点火开关"><a href="#紧急情况解锁点火开关" class="headerlink" title="紧急情况解锁点火开关"></a>紧急情况解锁点火开关</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B31.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B32.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B33.png"></p>
-<h2 id="紧急情况解锁鞍座"><a href="#紧急情况解锁鞍座" class="headerlink" title="紧急情况解锁鞍座"></a>紧急情况解锁鞍座</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E9%9E%8D%E5%BA%A7.png"></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>Motorcycle</tag>
-        <tag>Maintenace</tag>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
       </tags>
   </entry>
   <entry>
@@ -3093,57 +3238,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在Win平台上部署Hexo</title>
     <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -3229,6 +3323,57 @@ th {
         <tag>Hexo</tag>
         <tag>Node.js</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
+</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Github</tag>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3887,10 +4032,10 @@ th {
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>ACS</tag>
         <tag>Blade Pin</tag>
         <tag>Pogo Pin</tag>
         <tag>Pitch</tag>
+        <tag>ACS</tag>
       </tags>
   </entry>
   <entry>
@@ -4005,6 +4150,41 @@ th {
         <tag>PCX160</tag>
         <tag>Honda WH150T-2</tag>
         <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
       </tags>
   </entry>
   <entry>
@@ -4145,41 +4325,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
-</ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
-</ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>精度</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>申请美国EVUS（签证更新电子系统）</title>
     <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
@@ -4214,6 +4359,71 @@ th {
       </categories>
       <tags>
         <tag>EVUS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>过程能力指数Cpk</title>
+    <url>/2020/05/16/%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0Cpk/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
+<li><strong>Cp（Process Capability Index，过程能力指数）</strong>：衡量的是过程在没有考虑均值偏移的情况下，其分布范围相对于规格限的宽窄程度。它反映了过程的潜在能力或“理想”状态下的能力。<span id="more"></span></li>
+<li><strong>CpkProcess Capability Index with K, 带有偏移量的过程能力指数</strong>。它衡量的是你的工艺输出相对于规格限的稳定程度。</li>
+</ol>
+<h2 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h2><ol>
+<li><p>Cp &#x3D; (USL-LSL)&#x2F;6σ&#x3D; T&#x2F;6σ<br>T&#x3D;允许最大值（USL）-允许最小值（LSL）</p>
+</li>
+<li><p>Cpk &#x3D; min[(USL – μ) &#x2F; (3σ), (μ – LSL) &#x2F; (3σ)]</p>
+<blockquote>
+<p>其中：<br>USL &#x3D; 规格上限（Upper Specification Limit）<br>LSL &#x3D; 规格下限（Lower Specification Limit）<br>μ &#x3D; 过程均值<br>σ &#x3D; 过程标准差</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h2><ol>
+<li>Cp的意义：</li>
+</ol>
+<ul>
+<li><p>主要用于评估过程的潜在能力，即如果过程均值恰好位于规格中心时，过程能够满足规格要求的能力。</p>
+</li>
+<li><p>对于新设计的过程或经过重大改进后的过程，Cp是一个有用的指标，因为它不考虑历史数据中的均值偏移。</p>
+</li>
+</ul>
+<ol start="2">
+<li>Cpk的意义:</li>
+</ol>
+<ul>
+<li><p>更贴近实际情况，因为大多数过程都会存在一定的均值偏移。</p>
+</li>
+<li><p>用于评估当前过程在满足规格要求方面的实际能力。</p>
+</li>
+<li><p>在持续改进过程中，Cpk是衡量过程性能改善的重要指标。</p>
+</li>
+</ul>
+<ol>
+<li>CPK＜1.0  制程不良多，必须整改</li>
+<li>1.0≤CPK＜1.33  一般水准，需改善</li>
+<li>1.33≤CPK＜1.67  良好，稳定可控</li>
+<li>1.67≤CPK＜2.0  优秀，高精量产</li>
+<li>CPK≥2.0  极高精度，冗余充足</li>
+</ol>
+<p><strong>简单说：Cpk 越大，说明你的工艺越稳定，产品越不容易超出规格。</strong></p>
+<h2 id="比较与选择"><a href="#比较与选择" class="headerlink" title="比较与选择"></a>比较与选择</h2><ul>
+<li><p>当过程处于稳定状态且均值接近目标值时，Cp和Cpk的值会相近。然而，在实际应用中，由于各种因素的影响（如原材料变化、设备磨损等），过程均值往往会发生偏移，此时Cpk更能准确反映过程的实际能力。</p>
+</li>
+<li><p>选择使用哪个指标取决于具体的应用场景和目标。对于新项目或过程的初步设计阶段，可能更关注Cp以了解潜在能力；而对于现有过程的监控和改进，则更倾向于使用Cpk来评估实际性能和进行决策。</p>
+</li>
+</ul>
+<h2 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h2><p>Ppk（过程性能指数）和 Cpk 的计算公式相同，区别在于标准差的计算方式：</p>
+<ul>
+<li>Cpk 使用的是组内标准差（within-group），反映短期能力</li>
+<li>Ppk 使用的是总体标准差（overall），反映长期性能</li>
+</ul>
+<p>一般来说 Ppk ≤ Cpk。如果两者差距很大，说明过程中存在特殊原因变异（比如设备漂移）。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Cpk</tag>
+        <tag>Cp</tag>
       </tags>
   </entry>
   <entry>
@@ -4516,71 +4726,6 @@ th {
         <tag>USB-C</tag>
         <tag>Receptacle</tag>
         <tag>Plug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>过程能力指数Cpk</title>
-    <url>/2020/05/16/%E8%BF%87%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0Cpk/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
-<li><strong>Cp（Process Capability Index，过程能力指数）</strong>：衡量的是过程在没有考虑均值偏移的情况下，其分布范围相对于规格限的宽窄程度。它反映了过程的潜在能力或“理想”状态下的能力。<span id="more"></span></li>
-<li><strong>CpkProcess Capability Index with K, 带有偏移量的过程能力指数</strong>。它衡量的是你的工艺输出相对于规格限的稳定程度。</li>
-</ol>
-<h2 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h2><ol>
-<li><p>Cp &#x3D; (USL-LSL)&#x2F;6σ&#x3D; T&#x2F;6σ<br>T&#x3D;允许最大值（USL）-允许最小值（LSL）</p>
-</li>
-<li><p>Cpk &#x3D; min[(USL – μ) &#x2F; (3σ), (μ – LSL) &#x2F; (3σ)]</p>
-<blockquote>
-<p>其中：<br>USL &#x3D; 规格上限（Upper Specification Limit）<br>LSL &#x3D; 规格下限（Lower Specification Limit）<br>μ &#x3D; 过程均值<br>σ &#x3D; 过程标准差</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h2><ol>
-<li>Cp的意义：</li>
-</ol>
-<ul>
-<li><p>主要用于评估过程的潜在能力，即如果过程均值恰好位于规格中心时，过程能够满足规格要求的能力。</p>
-</li>
-<li><p>对于新设计的过程或经过重大改进后的过程，Cp是一个有用的指标，因为它不考虑历史数据中的均值偏移。</p>
-</li>
-</ul>
-<ol start="2">
-<li>Cpk的意义:</li>
-</ol>
-<ul>
-<li><p>更贴近实际情况，因为大多数过程都会存在一定的均值偏移。</p>
-</li>
-<li><p>用于评估当前过程在满足规格要求方面的实际能力。</p>
-</li>
-<li><p>在持续改进过程中，Cpk是衡量过程性能改善的重要指标。</p>
-</li>
-</ul>
-<ol>
-<li>CPK＜1.0  制程不良多，必须整改</li>
-<li>1.0≤CPK＜1.33  一般水准，需改善</li>
-<li>1.33≤CPK＜1.67  良好，稳定可控</li>
-<li>1.67≤CPK＜2.0  优秀，高精量产</li>
-<li>CPK≥2.0  极高精度，冗余充足</li>
-</ol>
-<p><strong>简单说：Cpk 越大，说明你的工艺越稳定，产品越不容易超出规格。</strong></p>
-<h2 id="比较与选择"><a href="#比较与选择" class="headerlink" title="比较与选择"></a>比较与选择</h2><ul>
-<li><p>当过程处于稳定状态且均值接近目标值时，Cp和Cpk的值会相近。然而，在实际应用中，由于各种因素的影响（如原材料变化、设备磨损等），过程均值往往会发生偏移，此时Cpk更能准确反映过程的实际能力。</p>
-</li>
-<li><p>选择使用哪个指标取决于具体的应用场景和目标。对于新项目或过程的初步设计阶段，可能更关注Cp以了解潜在能力；而对于现有过程的监控和改进，则更倾向于使用Cpk来评估实际性能和进行决策。</p>
-</li>
-</ul>
-<h2 id="延申"><a href="#延申" class="headerlink" title="延申"></a>延申</h2><p>Ppk（过程性能指数）和 Cpk 的计算公式相同，区别在于标准差的计算方式：</p>
-<ul>
-<li>Cpk 使用的是组内标准差（within-group），反映短期能力</li>
-<li>Ppk 使用的是总体标准差（overall），反映长期性能</li>
-</ul>
-<p>一般来说 Ppk ≤ Cpk。如果两者差距很大，说明过程中存在特殊原因变异（比如设备漂移）。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Cpk</tag>
-        <tag>Cp</tag>
       </tags>
   </entry>
 </search>
