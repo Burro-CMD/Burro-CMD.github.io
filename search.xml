@@ -802,191 +802,6 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
-    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
-    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
-<ul>
-<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
-<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
-<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
-<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
-<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
-<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
-<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
-<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
-<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
-<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
-<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
-<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
-</ul>
-<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
-<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
-<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
-<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
-<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
-<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
-</ul>
-<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
-<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
-<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
-<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
-<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
-<li>Datums are perfect; they are the origin for measurements.</li>
-<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
-<li>Position tolerance is usually cylindrical (use ⌀).</li>
-<li>Profile can control form, orientation, and location in one callout.</li>
-<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
-</ol>
-<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
-<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
-<li>Straightness: Shafts, edges.</li>
-<li>Circularity: Bearing races, rings.</li>
-<li>Cylindricity: Pistons, hydraulic bores.</li>
-<li>Profile: Complex 3D shapes, molds.</li>
-<li>Parallelism: Guide rails, mounting surfaces.</li>
-<li>Perpendicularity: Holes normal to a plate.</li>
-<li>Angularity: 45° brackets, bevels.</li>
-<li>Position: Hole patterns, bolt circles (#1).</li>
-<li>Concentricity: Rotating shafts, pulleys.</li>
-<li>Symmetry: Slots, tabs, symmetrical parts.</li>
-<li>Runout: Wheels, gears, rotating components.</li>
-</ol>
-<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
-  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
-  width="100%"
-  height="1000px">
-</iframe>
-
-
-<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GD&amp;T</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GRR</title>
-    <url>/2026/05/17/GRR/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
-<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
-</blockquote>
-<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
-<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
-</li>
-<li><p>R：Repeatability（重复性，设备变异 EV）</p>
-<blockquote>
-<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
-</blockquote>
-</li>
-<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
-<blockquote>
-<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
-<li><p>**&lt;10%**：合格，测量系统良好</p>
-</li>
-<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
-</li>
-<li><p>**&gt;30%**：不合格，必须改善</p>
-</li>
-</ol>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
-<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
-</ol>
-<ul>
-<li>适用：10 零件、3 人、每人测 2~3 次</li>
-<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
-<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
-</ul>
-<ol start="2">
-<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
-</ol>
-<ul>
-<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
-<li>缺点：计算复杂，现场很少手工算</li>
-<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
-</ul>
-<ol start="3">
-<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
-</ol>
-<ul>
-<li>2 人各测 1 遍，最快出结果</li>
-<li>只粗判，不能用来正式交报告</li>
-<li>用途：现场快速点检量具准不准</li>
-</ul>
-<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
-<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
-<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
-<li>NDC：可区分类别数，≥5可接受。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GRR</tag>
-        <tag>均值——极差法</tag>
-        <tag>方差分析法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github图床删除图片</title>
-    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
-<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
-</blockquote>
-<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
-<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
-<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
-<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
-<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
-<hr>
-<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
-<hr>
-<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
-<p>❌ PicGo 本身不支持删除远端图片</p>
-</blockquote>
-<p>原因很简单：</p>
-<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
-<p>👉 删除一定要回到 GitHub 仓库</p>
-<hr>
-<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>可能：</p>
-<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
-<p>这是 CDN 缓存，不是你删错。</p>
-<hr>
-<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>PicGo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FCT治具机械结构与设计规范</title>
     <url>/2020/01/20/FCT%E6%B2%BB%E5%85%B7%E6%9C%BA%E6%A2%B0%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="FCT概述"><a href="#FCT概述" class="headerlink" title="FCT概述"></a>FCT概述</h2><p>&emsp;&emsp;功能测试 (FCT) 夹具是一种专用测试系统，旨在模拟实际工况，验证印刷电路板组件 (PCBA) 或成品电子产品的运行性能。与结构或元件级测试不同，FCT 评估产品是否按照预期设计运行。</p>
@@ -1389,6 +1204,191 @@ th {
         <tag>FCT</tag>
         <tag>结构设计</tag>
         <tag>设计规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
+    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
+<ul>
+<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
+<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
+<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
+<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
+<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
+<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
+<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
+<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
+<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
+<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
+<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
+<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
+</ul>
+<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
+<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
+<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
+<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
+<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
+<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
+</ul>
+<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
+<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
+<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
+<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
+<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
+<li>Datums are perfect; they are the origin for measurements.</li>
+<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
+<li>Position tolerance is usually cylindrical (use ⌀).</li>
+<li>Profile can control form, orientation, and location in one callout.</li>
+<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
+</ol>
+<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
+<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
+<li>Straightness: Shafts, edges.</li>
+<li>Circularity: Bearing races, rings.</li>
+<li>Cylindricity: Pistons, hydraulic bores.</li>
+<li>Profile: Complex 3D shapes, molds.</li>
+<li>Parallelism: Guide rails, mounting surfaces.</li>
+<li>Perpendicularity: Holes normal to a plate.</li>
+<li>Angularity: 45° brackets, bevels.</li>
+<li>Position: Hole patterns, bolt circles (#1).</li>
+<li>Concentricity: Rotating shafts, pulleys.</li>
+<li>Symmetry: Slots, tabs, symmetrical parts.</li>
+<li>Runout: Wheels, gears, rotating components.</li>
+</ol>
+<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
+  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
+  width="100%"
+  height="1000px">
+</iframe>
+
+
+<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GRR</title>
+    <url>/2026/05/17/GRR/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
+<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
+</blockquote>
+<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
+<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
+</li>
+<li><p>R：Repeatability（重复性，设备变异 EV）</p>
+<blockquote>
+<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
+</blockquote>
+</li>
+<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
+<blockquote>
+<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
+<li><p>**&lt;10%**：合格，测量系统良好</p>
+</li>
+<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
+</li>
+<li><p>**&gt;30%**：不合格，必须改善</p>
+</li>
+</ol>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
+</ol>
+<ul>
+<li>适用：10 零件、3 人、每人测 2~3 次</li>
+<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
+<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
+</ul>
+<ol start="2">
+<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
+</ol>
+<ul>
+<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
+<li>缺点：计算复杂，现场很少手工算</li>
+<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
+</ul>
+<ol start="3">
+<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
+</ol>
+<ul>
+<li>2 人各测 1 遍，最快出结果</li>
+<li>只粗判，不能用来正式交报告</li>
+<li>用途：现场快速点检量具准不准</li>
+</ul>
+<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
+<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
+<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
+<li>NDC：可区分类别数，≥5可接受。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GRR</tag>
+        <tag>均值——极差法</tag>
+        <tag>方差分析法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github图床删除图片</title>
+    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
+</blockquote>
+<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
+<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
+<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
+<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
+<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
+<hr>
+<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
+<hr>
+<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
+<p>❌ PicGo 本身不支持删除远端图片</p>
+</blockquote>
+<p>原因很简单：</p>
+<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
+<p>👉 删除一定要回到 GitHub 仓库</p>
+<hr>
+<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>可能：</p>
+<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
+<p>这是 CDN 缓存，不是你删错。</p>
+<hr>
+<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>PicGo</tag>
       </tags>
   </entry>
   <entry>
@@ -2767,121 +2767,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
-    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
-<ul>
-<li>图片越来越多，博客仓库体积膨胀  </li>
-<li>国内访问不稳定  </li>
-<li>免费图床存在跑路风险  </li>
-<li>后期迁移成本极高</li>
-</ul>
-<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
-<blockquote>
-<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
-</blockquote>
-<hr>
-<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
-<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
-<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
-<p>图片通过 jsDelivr CDN 访问：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
-</blockquote>
-<hr>
-<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
-<ul>
-<li>仓库名：<code>burro-imgbed</code></li>
-<li>可见性：<strong>Public（必须）</strong></li>
-<li>不需要 README &#x2F; License</li>
-</ul>
-<blockquote>
-<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
-</blockquote>
-<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
-<hr>
-<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
-<li>进入图床仓库</li>
-<li>点击 <strong>Add file → Create new file</strong></li>
-<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
-</ol>
-<p>文件内容保持为空即可。</p>
-<hr>
-<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
-<ol>
-<li>点击右上角 <strong>Commit changes…</strong></li>
-<li>填写提交信息：</li>
-</ol>
-<p><strong>Commit message</strong><br><code>Create .keep</code></p>
-<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
-<p>然后提交。</p>
-<blockquote>
-<p>提交说明仅用于记录操作，不影响功能。</p>
-</blockquote>
-<hr>
-<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
-<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
-<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
-<hr>
-<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
-<ol>
-<li>点击 <strong>Add file → Upload files</strong></li>
-<li>上传一张测试图片，例如：test.png</li>
-</ol>
-<p>提交即可。</p>
-<hr>
-<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
-<ul>
-<li>GitHub 用户名：<code>Burro-CMD</code></li>
-<li>图床仓库：<code>burro-imgbed</code></li>
-<li>图片路径：<code>images/blog/test.png</code></li>
-</ul>
-<p>访问地址为：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>将该链接直接粘贴到浏览器地址栏打开。</p>
-<p>如果浏览器中可以直接看到图片，说明：</p>
-<ul>
-<li>GitHub 图床 ✅  </li>
-<li>jsDelivr CDN ✅  </li>
-<li>国内访问 ✅</li>
-</ul>
-<p>图床已经完全可用。</p>
-<hr>
-<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
-<p>例如：</p>
-<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
-<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
-<p>对应的 jsDelivr 链接示例：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
-
-<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
-<hr>
-<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
-
-<p>无需任何插件，NexT 主题可直接渲染。</p>
-<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
-<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
-<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
-<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
-<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>Hexo</tag>
-        <tag>jsDelivr</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑</title>
     <url>/2019/09/20/%E4%BB%8E%E2%80%9C%E8%B0%83%E9%80%9A%E8%AE%BE%E5%A4%87%E2%80%9D%E5%88%B0%E2%80%9C%E7%A8%B3%E5%AE%9A%E4%BA%A4%E4%BB%98%E2%80%9D%EF%BC%9AFCT%20%E6%B2%BB%E5%85%B7%E8%B0%83%E8%AF%95%E4%B8%AD%E7%9A%84%E6%9C%BA%E6%A2%B0%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="FCT-调试先看产品状态"><a href="#FCT-调试先看产品状态" class="headerlink" title="FCT 调试先看产品状态"></a>FCT 调试先看产品状态</h1><p>&emsp;&emsp;FCT 治具与产品强相关。产品状态不稳定，设备调试就很容易失去判断基准。<br>调试前通常需要确认：</p>
@@ -3027,6 +2912,121 @@ th {
       <categories>
         <category>Tech</category>
       </categories>
+  </entry>
+  <entry>
+    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
+    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
+<ul>
+<li>图片越来越多，博客仓库体积膨胀  </li>
+<li>国内访问不稳定  </li>
+<li>免费图床存在跑路风险  </li>
+<li>后期迁移成本极高</li>
+</ul>
+<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
+<blockquote>
+<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
+</blockquote>
+<hr>
+<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
+<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
+<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
+<p>图片通过 jsDelivr CDN 访问：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
+</blockquote>
+<hr>
+<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
+<ul>
+<li>仓库名：<code>burro-imgbed</code></li>
+<li>可见性：<strong>Public（必须）</strong></li>
+<li>不需要 README &#x2F; License</li>
+</ul>
+<blockquote>
+<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
+</blockquote>
+<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
+<hr>
+<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
+<li>进入图床仓库</li>
+<li>点击 <strong>Add file → Create new file</strong></li>
+<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
+</ol>
+<p>文件内容保持为空即可。</p>
+<hr>
+<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
+<ol>
+<li>点击右上角 <strong>Commit changes…</strong></li>
+<li>填写提交信息：</li>
+</ol>
+<p><strong>Commit message</strong><br><code>Create .keep</code></p>
+<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
+<p>然后提交。</p>
+<blockquote>
+<p>提交说明仅用于记录操作，不影响功能。</p>
+</blockquote>
+<hr>
+<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
+<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
+<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
+<hr>
+<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
+<ol>
+<li>点击 <strong>Add file → Upload files</strong></li>
+<li>上传一张测试图片，例如：test.png</li>
+</ol>
+<p>提交即可。</p>
+<hr>
+<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
+<ul>
+<li>GitHub 用户名：<code>Burro-CMD</code></li>
+<li>图床仓库：<code>burro-imgbed</code></li>
+<li>图片路径：<code>images/blog/test.png</code></li>
+</ul>
+<p>访问地址为：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>将该链接直接粘贴到浏览器地址栏打开。</p>
+<p>如果浏览器中可以直接看到图片，说明：</p>
+<ul>
+<li>GitHub 图床 ✅  </li>
+<li>jsDelivr CDN ✅  </li>
+<li>国内访问 ✅</li>
+</ul>
+<p>图床已经完全可用。</p>
+<hr>
+<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
+<p>例如：</p>
+<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
+<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
+<p>对应的 jsDelivr 链接示例：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
+
+<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
+<hr>
+<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
+
+<p>无需任何插件，NexT 主题可直接渲染。</p>
+<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
+<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
+<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
+<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
+<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>jsDelivr</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）</title>
@@ -4114,7 +4114,7 @@ th {
   </entry>
   <entry>
     <title>抽吸传感器低成本测试方案</title>
-    <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
 <h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
 <h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
@@ -4137,6 +4137,67 @@ th {
         <tag>3D打印</tag>
         <tag>气动回路图</tag>
         <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
       </tags>
   </entry>
   <entry>
@@ -4163,6 +4224,41 @@ th {
         <tag>PCX160</tag>
         <tag>Honda WH150T-2</tag>
         <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
       </tags>
   </entry>
   <entry>
@@ -4300,102 +4396,6 @@ th {
       <tags>
         <tag>E-cigarette</tag>
         <tag>标准</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
-</ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
-</ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>精度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
       </tags>
   </entry>
   <entry>
