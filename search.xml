@@ -182,6 +182,102 @@
       </categories>
   </entry>
   <entry>
+    <title>Atom中Markdown语法</title>
+    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>无序1</li>
+<li>无序2</li>
+<li>无序3</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+</blockquote>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<strong>加粗的内容</strong></p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<em>斜体的内容</em></p>
+<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
+<p>我是需要___粗斜体的内容___</p>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果：<del>删除线</del></p>
+<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
+<p>我是需要***<del>粗斜体删除的内容</del>***</p>
+<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
+<hr>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<u>这是需要下划线的内容</u></p>
+<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<center>这是要居中的文本内容</center></p>
+<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Java</li>
+<li><input disabled="" type="checkbox"> C</li>
+<li><input disabled="" type="checkbox"> C++</li>
+</ul>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
+<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
+<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
+<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
+<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
+<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
+
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<center>行1 |<center>行2 |<center>行3
+:----: | :----: | :----:
+小程序 | vue | 菜鸟
+search | web前段开发工程师 | 码农
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
+<p>语法示例：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Atom</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Atom使用</title>
     <url>/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h3><p><strong>1. Simplified-chinese-menu</strong><br>Atom 的简体中文汉化语言包,目前最全的汉化包。包含菜单汉化、右键菜单汉化以及设置汉化。</p>
@@ -300,99 +396,148 @@
       </tags>
   </entry>
   <entry>
-    <title>Atom中Markdown语法</title>
-    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
+    <title>B2B Connector测试探针优化复盘</title>
+    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
 <ul>
-<li>无序1</li>
-<li>无序2</li>
-<li>无序3</li>
+<li>同一类产品测试结果不够稳定  </li>
+<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
+<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
+<li>现场维护频率偏高，影响测试效率</li>
 </ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
+<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
+<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
+<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
+<ul>
+<li>分析接触不稳定的可能根因</li>
+<li>评估不同探针方案的适配性</li>
+<li>设计刀片针（Blade Pin）接触模组</li>
+<li>设计验证思路，对比弹簧探针与刀片针表现</li>
+<li>优化治具压合、定位和接触机构</li>
+<li>支持测试端导入更稳定的量产方案</li>
+</ul>
+<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
+<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
+<ul>
+<li>Conntact Pitch: 0.35mm</li>
+<li>Width of Conntact: 0.24mm</li>
+<li>Number of Signal Contacts: 40</li>
+<li>connector Type: Receptacle</li>
+</ul>
+<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
+<p>结合现场的现象，重点从以下方面排查验证：</p>
+<ul>
+<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
+<li>B2B connector 与转接板的接触是否对正稳定</li>
+<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
+<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
+<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
+</ul>
+<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
+<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
+<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
+<ul>
+<li>应用成熟  </li>
+<li>通用性强  </li>
+<li>维护和更换方便</li>
+</ul>
+<p>不足：  </p>
+<ul>
+<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
+<li>对位置偏差更敏感  </li>
+<li>在某些接触表面条件下，接触电阻波动更明显  </li>
+<li>长时间测试后，现场会出现更多偶发性接触异常</li>
+</ul>
+<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
+<ul>
+<li>接触更“明确”，接触位置更可控</li>
+<li>对表面膜层&#x2F;微弱污染更不敏感</li>
+<li>在该项目中表现出更高的重复稳定性</li>
+<li>对于特定connector结构，能够形成更有效的接触过程</li>
+</ul>
+<p>需要关注的点：</p>
+<ul>
+<li>对对位精度要求更高</li>
+<li>压力控制和行程设计要更合理</li>
+<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
+</ul>
+<p>在两种探针使用验证过程中，发现如下现象：  </p>
+<ul>
+<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
+<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
+</ul>
+<p>针对以上问题，定义了以下清洁步骤：</p>
+<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
+<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
+</ul>
+<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
+<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
+<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
+<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
+</ul>
+<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
+<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
+<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
+<ul>
+<li>保证转接板上的Pad平整且边线平直</li>
+<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
+<li>保证被测件X&#x2F; Y方向基准是明确的</li>
+<li>Z方向的压合高度是稳定的</li>
+<li>Connector 与探针相对位置重复性可控</li>
+</ul>
+<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
+<ul>
+<li>治具针膜上压板的平面度</li>
+<li>压板与被测件的接触顺序</li>
+<li>被测件的受力均匀性</li>
+</ul>
+<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
+<ul>
+<li>定义治具B2B模组的清洁周期</li>
+<li>定义刀片针的更换标准</li>
+<li>定义刀片针的失效判断方法</li>
+</ul>
+<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
+<ul>
+<li>多次重复测试的一致性</li>
+<li>接触电阻波动范围</li>
+<li>fail &#x2F; retest &#x2F; false fail 比例</li>
+<li>一定循环次数后的稳定性</li>
+<li>现场维护频率和更换频率</li>
+</ul>
+<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
 <ol>
-<li>有序1</li>
-<li>有序2</li>
-<li>有序3</li>
+<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
 </ol>
-<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
-
+<ul>
+<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
+<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
+</ul>
+<ol start="2">
+<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
+</ol>
+<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
+<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
+<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
+<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
+<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
+<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
 <blockquote>
-<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
 </blockquote>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<strong>加粗的内容</strong></p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<em>斜体的内容</em></p>
-<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
-<p>我是需要___粗斜体的内容___</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：<del>删除线</del></p>
-<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
-<p>我是需要***<del>粗斜体删除的内容</del>***</p>
-<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
-<hr>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<u>这是需要下划线的内容</u></p>
-<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<center>这是要居中的文本内容</center></p>
-<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Java</li>
-<li><input disabled="" type="checkbox"> C</li>
-<li><input disabled="" type="checkbox"> C++</li>
-</ul>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
-<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
-<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
-<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
-<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
-<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
-
-
-<p>效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<center>行1 |<center>行2 |<center>行3
-:----: | :----: | :----:
-小程序 | vue | 菜鸟
-search | web前段开发工程师 | 码农
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
-<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
-<p>语法示例：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
-<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
+]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Tech</category>
       </categories>
       <tags>
-        <tag>Atom</tag>
-        <tag>Markdown</tag>
+        <tag>刀片针</tag>
+        <tag>弹簧针</tag>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>FCT</tag>
+        <tag>Pitch</tag>
       </tags>
   </entry>
   <entry>
@@ -654,151 +799,6 @@ search | web前段开发工程师 | 码农
         <tag>Camera</tag>
         <tag>Chart</tag>
         <tag>FOV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>B2B Connector测试探针优化复盘</title>
-    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
-<ul>
-<li>同一类产品测试结果不够稳定  </li>
-<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
-<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
-<li>现场维护频率偏高，影响测试效率</li>
-</ul>
-<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
-<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
-<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
-<ul>
-<li>分析接触不稳定的可能根因</li>
-<li>评估不同探针方案的适配性</li>
-<li>设计刀片针（Blade Pin）接触模组</li>
-<li>设计验证思路，对比弹簧探针与刀片针表现</li>
-<li>优化治具压合、定位和接触机构</li>
-<li>支持测试端导入更稳定的量产方案</li>
-</ul>
-<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
-<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
-<ul>
-<li>Conntact Pitch: 0.35mm</li>
-<li>Width of Conntact: 0.24mm</li>
-<li>Number of Signal Contacts: 40</li>
-<li>connector Type: Receptacle</li>
-</ul>
-<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
-<p>结合现场的现象，重点从以下方面排查验证：</p>
-<ul>
-<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
-<li>B2B connector 与转接板的接触是否对正稳定</li>
-<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
-<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
-<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
-</ul>
-<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
-<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
-<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
-<ul>
-<li>应用成熟  </li>
-<li>通用性强  </li>
-<li>维护和更换方便</li>
-</ul>
-<p>不足：  </p>
-<ul>
-<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
-<li>对位置偏差更敏感  </li>
-<li>在某些接触表面条件下，接触电阻波动更明显  </li>
-<li>长时间测试后，现场会出现更多偶发性接触异常</li>
-</ul>
-<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
-<ul>
-<li>接触更“明确”，接触位置更可控</li>
-<li>对表面膜层&#x2F;微弱污染更不敏感</li>
-<li>在该项目中表现出更高的重复稳定性</li>
-<li>对于特定connector结构，能够形成更有效的接触过程</li>
-</ul>
-<p>需要关注的点：</p>
-<ul>
-<li>对对位精度要求更高</li>
-<li>压力控制和行程设计要更合理</li>
-<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
-</ul>
-<p>在两种探针使用验证过程中，发现如下现象：  </p>
-<ul>
-<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
-<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
-</ul>
-<p>针对以上问题，定义了以下清洁步骤：</p>
-<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
-<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
-</ul>
-<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
-<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
-<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
-<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
-</ul>
-<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
-<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
-<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
-<ul>
-<li>保证转接板上的Pad平整且边线平直</li>
-<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
-<li>保证被测件X&#x2F; Y方向基准是明确的</li>
-<li>Z方向的压合高度是稳定的</li>
-<li>Connector 与探针相对位置重复性可控</li>
-</ul>
-<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
-<ul>
-<li>治具针膜上压板的平面度</li>
-<li>压板与被测件的接触顺序</li>
-<li>被测件的受力均匀性</li>
-</ul>
-<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
-<ul>
-<li>定义治具B2B模组的清洁周期</li>
-<li>定义刀片针的更换标准</li>
-<li>定义刀片针的失效判断方法</li>
-</ul>
-<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
-<ul>
-<li>多次重复测试的一致性</li>
-<li>接触电阻波动范围</li>
-<li>fail &#x2F; retest &#x2F; false fail 比例</li>
-<li>一定循环次数后的稳定性</li>
-<li>现场维护频率和更换频率</li>
-</ul>
-<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
-<ol>
-<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
-</ol>
-<ul>
-<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
-<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
-</ul>
-<ol start="2">
-<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
-</ol>
-<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
-<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
-<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
-<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
-<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
-<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
-<blockquote>
-<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
-</blockquote>
-<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>刀片针</tag>
-        <tag>弹簧针</tag>
-        <tag>Blade Pin</tag>
-        <tag>Pogo Pin</tag>
-        <tag>FCT</tag>
-        <tag>Pitch</tag>
       </tags>
   </entry>
   <entry>
@@ -1720,6 +1720,27 @@ th {
         <tag>仿真</tag>
         <tag>动画</tag>
         <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -3148,36 +3169,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Mac环境下安装Python3</title>
-    <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  MacOS Mojave:10.14.5</p>
-<h2 id="检查Mac自带Python版本"><a href="#检查Mac自带Python版本" class="headerlink" title="检查Mac自带Python版本"></a>检查Mac自带Python版本</h2><ul>
-<li>在Launchpad找到终端，输入Python；</li>
-<li>终端显示Python2.7.10，按住Control+D来退出Python运行环境。</li>
-</ul>
-<h2 id="安装X-code"><a href="#安装X-code" class="headerlink" title="安装X-code"></a>安装X-code</h2><ul>
-<li>在终端输入X-code-select –install, 按Enter；</li>
-<li>安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。</li>
-</ul>
-<h2 id="安装Brew"><a href="#安装Brew" class="headerlink" title="安装Brew"></a>安装Brew</h2><ul>
-<li>打开Brew官网：<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">https://brew.sh<i class="fa fa-external-link-alt"></i></span>, <code>在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code>，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful</li>
-</ul>
-<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><ul>
-<li>在终端输入brew install python3，等待安装完成。</li>
-<li>在终端输入Python3，会显示输Python3的版本。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>X-code</tag>
-        <tag>Brew</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mac环境下使用GitHub和Hexo搭建博客</title>
     <url>/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<strong>欢迎参与讨论，转载请注明出处。</strong></p>
@@ -3309,6 +3300,36 @@ th {
         <tag>Hexo</tag>
         <tag>NPM</tag>
         <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac环境下安装Python3</title>
+    <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  MacOS Mojave:10.14.5</p>
+<h2 id="检查Mac自带Python版本"><a href="#检查Mac自带Python版本" class="headerlink" title="检查Mac自带Python版本"></a>检查Mac自带Python版本</h2><ul>
+<li>在Launchpad找到终端，输入Python；</li>
+<li>终端显示Python2.7.10，按住Control+D来退出Python运行环境。</li>
+</ul>
+<h2 id="安装X-code"><a href="#安装X-code" class="headerlink" title="安装X-code"></a>安装X-code</h2><ul>
+<li>在终端输入X-code-select –install, 按Enter；</li>
+<li>安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。</li>
+</ul>
+<h2 id="安装Brew"><a href="#安装Brew" class="headerlink" title="安装Brew"></a>安装Brew</h2><ul>
+<li>打开Brew官网：<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">https://brew.sh<i class="fa fa-external-link-alt"></i></span>, <code>在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code>，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful</li>
+</ul>
+<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><ul>
+<li>在终端输入brew install python3，等待安装完成。</li>
+<li>在终端输入Python3，会显示输Python3的版本。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>X-code</tag>
+        <tag>Brew</tag>
       </tags>
   </entry>
   <entry>
@@ -3806,33 +3827,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微针连接技术选型与应用综述</title>
     <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
@@ -4140,6 +4134,59 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换空气滤芯篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>十字螺丝刀</li>
+<li>新空气滤芯，17210-K1Z-CA0</li>
+</ol>
+<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
+<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
+<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
+<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>换机油篇（实操）</title>
     <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
@@ -4198,32 +4245,6 @@ th {
         <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
         <tag>机油螺丝</tag>
         <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换空气滤芯篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
-<li>十字螺丝刀</li>
-<li>新空气滤芯，17210-K1Z-CA0</li>
-</ol>
-<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
-<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
-<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
-<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
-<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>空气滤芯</tag>
       </tags>
   </entry>
   <entry>
