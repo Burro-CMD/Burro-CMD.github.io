@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="指纹识别作为消费电子终端主流的生物识别核心技术，凭借高安全性、高适配性的优势，被广泛应用于智能穿戴、手机、智能家居等各类终端设备中。实际使用时用户握持设备角度随意，不同倾斜姿态会改变指纹按压贴合状态，容易出现纹理采集不全、识别失败等问题。为统一验证不同设备姿态下指纹识别的一致性表现，消除按压力度变量带来的数据干扰，本次采用恒定 4N 标准压力、多档位固定设备角度开展专项可靠性测试，使用标准仿真指纹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指纹识别模块多角度压力测试技术总结">
+<meta property="og:url" content="https://burro-cmd.github.io/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="指纹识别作为消费电子终端主流的生物识别核心技术，凭借高安全性、高适配性的优势，被广泛应用于智能穿戴、手机、智能家居等各类终端设备中。实际使用时用户握持设备角度随意，不同倾斜姿态会改变指纹按压贴合状态，容易出现纹理采集不全、识别失败等问题。为统一验证不同设备姿态下指纹识别的一致性表现，消除按压力度变量带来的数据干扰，本次采用恒定 4N 标准压力、多档位固定设备角度开展专项可靠性测试，使用标准仿真指纹">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png">
+<meta property="article:published_time" content="2023-09-12T19:18:56.000Z">
+<meta property="article:modified_time" content="2026-06-24T07:15:25.117Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="Fingerprint">
+<meta property="article:tag" content="Multi-angle">
+<meta property="article:tag" content="多角度">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/","path":"2023/09/12/指纹识别模块多角度压力测试技术总结/","title":"指纹识别模块多角度压力测试技术总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>指纹识别模块多角度压力测试技术总结 | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">测试概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8E%8B%E5%8A%9B%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88%E6%A0%B8%E5%BF%83%E6%B5%8B%E5%8A%9B%E9%83%A8%E4%BB%B6%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">高精度压力传感器（核心测力部件）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E4%BB%BF%E7%9C%9F%E6%8C%87%E7%BA%B9%E7%A1%85%E8%83%B6%E5%8E%8B%E5%A4%B4%EF%BC%88%E5%B7%A5%E5%86%B5%E6%A8%A1%E6%8B%9F%E6%A0%B8%E5%BF%83%E9%83%A8%E4%BB%B6%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">标准仿真指纹硅胶压头（工况模拟核心部件）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%A7%92%E5%BA%A6%E5%AE%9A%E4%BD%8D%E5%B7%A5%E8%A3%85%EF%BC%88%E5%B7%A5%E5%86%B5%E5%9F%BA%E5%87%86%E9%83%A8%E4%BB%B6%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">高精度角度定位工装（工况基准部件）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%BA%E6%9C%8D%E7%A8%B3%E5%8E%8B%E9%A9%B1%E5%8A%A8%E6%A8%A1%E7%BB%84%EF%BC%88%E5%8A%A8%E5%8A%9B%E6%89%A7%E8%A1%8C%E9%83%A8%E4%BB%B6%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">伺服稳压驱动模组（动力执行部件）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XY%E8%BD%B4"><span class="nav-number">5.1.</span> <span class="nav-text">XY轴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%CE%B8%E8%BD%B4"><span class="nav-number">5.2.</span> <span class="nav-text">θ轴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E6%9C%BA%E8%A7%84%E6%A0%BC%EF%BC%9A%E4%B8%A4%E7%9B%B8%E6%AD%A5%E8%BF%9B28%E6%A1%86"><span class="nav-number">5.3.</span> <span class="nav-text">电机规格：两相步进28框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E6%9C%BA%E8%A7%84%E6%A0%BC%EF%BC%9A%E4%B8%A4%E7%9B%B8%E6%AD%A5%E8%BF%9B42%E6%A1%86"><span class="nav-number">5.4.</span> <span class="nav-text">电机规格：两相步进42框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84"><span class="nav-number">5.5.</span> <span class="nav-text">设备测试架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E4%B8%8E%E6%B5%81%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">测试方案与流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">核心测试结果与数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E5%9E%82%E7%9B%B4%E8%A7%92%E5%BA%A6%EF%BC%880%C2%B0%E3%80%8190%C2%B0%E3%80%81180%C2%B0%EF%BC%89%E8%AF%86%E5%88%AB%E8%A1%A8%E7%8E%B0%E6%9C%80%E4%BC%98"><span class="nav-number">7.1.</span> <span class="nav-text">正交垂直角度（0°、90°、180°）识别表现最优</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E8%A7%92%E5%BA%A6%EF%BC%8845%C2%B0%E3%80%81135%C2%B0%EF%BC%89%E5%AD%98%E5%9C%A8%E8%AF%86%E5%88%AB%E6%80%A7%E8%83%BD%E8%A1%B0%E5%87%8F"><span class="nav-number">7.2.</span> <span class="nav-text">旋转角度（45°、135°）存在识别性能衰减</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="指纹识别模块多角度压力测试技术总结 | HUNPHY'S BLOG">
+      <meta itemprop="description" content="指纹识别作为消费电子终端主流的生物识别核心技术，凭借高安全性、高适配性的优势，被广泛应用于智能穿戴、手机、智能家居等各类终端设备中。实际使用时用户握持设备角度随意，不同倾斜姿态会改变指纹按压贴合状态，容易出现纹理采集不全、识别失败等问题。为统一验证不同设备姿态下指纹识别的一致性表现，消除按压力度变量带来的数据干扰，本次采用恒定 4N 标准压力、多档位固定设备角度开展专项可靠性测试，使用标准仿真指纹硅胶压头模拟真人手指按压。本文重点介绍测试设备结构设计、关键部件选型、标准化测试流程，结合多角度实测数据分析角度姿态对识别效果的影响，输出对应优化方案，为产品结构、算法迭代与量产验证提供技术支撑。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          指纹识别模块多角度压力测试技术总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-09-12 19:18:56" itemprop="dateCreated datePublished" datetime="2023-09-12T19:18:56+00:00">2023-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">指纹识别作为消费电子终端主流的生物识别核心技术，凭借高安全性、高适配性的优势，被广泛应用于智能穿戴、手机、智能家居等各类终端设备中。实际使用时用户握持设备角度随意，不同倾斜姿态会改变指纹按压贴合状态，容易出现纹理采集不全、识别失败等问题。为统一验证不同设备姿态下指纹识别的一致性表现，消除按压力度变量带来的数据干扰，本次采用恒定 4N 标准压力、多档位固定设备角度开展专项可靠性测试，使用标准仿真指纹硅胶压头模拟真人手指按压。本文重点介绍测试设备结构设计、关键部件选型、标准化测试流程，结合多角度实测数据分析角度姿态对识别效果的影响，输出对应优化方案，为产品结构、算法迭代与量产验证提供技术支撑。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
+<p>&emsp;&emsp;鉴于这些原因，所以产品的测试需要把这些进行量化：</p>
+<ol>
+<li>硅胶指纹</li>
+</ol>
+<ul>
+<li>连接硅胶指纹的模组应该是金属的  </li>
+<li>DC 对地阻抗: ≤3KΩ (硅胶指纹到模组的地)</li>
+<li>硅胶指纹的中心与产品指纹识别模组中心公差是0.2mm</li>
+</ul>
+<ol start="2">
+<li><p>按压角度：0°、45°、90°、135°  </p>
+</li>
+<li><p>按压力度：最大4N（要求9±1N），精度±0.5N</p>
+</li>
+</ol>
+<p>以上量化指标落实到测试设备要求</p>
+<ul>
+<li>需要检测5Kg的压力感应器</li>
+<li>线性模组移动精度为0.005mm</li>
+<li>硅胶指纹的中心，产品指纹识别模组中心，旋转台中心三者的中心要在一条线上（垂直）</li>
+<li>手动移动平台15mm，工作台面100 x 100mm</li>
+<li>自动移动平台15mm，工作台面80 x 80mm，最小移动量0.005mm</li>
+<li>旋转台需要360°旋转，旋转台的工作台面80 x 80mm，最小旋转量为0.05°</li>
+</ul>
+<h2 id="高精度压力传感器（核心测力部件）"><a href="#高精度压力传感器（核心测力部件）" class="headerlink" title="高精度压力传感器（核心测力部件）"></a>高精度压力传感器（核心测力部件）</h2><p>&emsp;&emsp;高精度传感器量程的<code>30%～70%</code>，需求4Kg 用 10Kg 量程刚好落在区间，测量精度最高，所以压力传感器需要10Kg。<br>&emsp;&emsp;推荐选用日本<span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS<i class="fa fa-external-link-alt"></i></span>压力传感器。</p>
+<p>&emsp;&emsp;因为项目Schedule比较紧，所以选用国产XJC sensor（X8030），因其安全超载可以达到150%。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>量程 Capacity</strong></td>
+<td align="center">0~5KG</td>
+<td align="center"><strong>材质 Material</strong></td>
+<td align="center">不锈钢 Stainless steel</td>
+</tr>
+<tr>
+<td align="center"><strong>非线性 Nonlinearity</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>输出灵敏度 Rated output</strong></td>
+<td align="center">1.0 ± 10% mV&#x2F;V</td>
+</tr>
+<tr>
+<td align="center"><strong>推荐供电电压 Recommended excitation</strong></td>
+<td align="center">5V-10VDC</td>
+<td align="center"><strong>最大供电电压 Maximum excitation</strong></td>
+<td align="center">15V DC</td>
+</tr>
+<tr>
+<td align="center"><strong>防护等级 Protection class</strong></td>
+<td align="center">IP64</td>
+<td align="center"><strong>温度补偿范围 Compensated temp range</strong></td>
+<td align="center">-10~60 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>滞后 Hysteresis</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>工作温度范围 Operation temp range</strong></td>
+<td align="center">-20~80℃</td>
+</tr>
+<tr>
+<td align="center"><strong>重复性 Repeatability</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>绝缘电阻 Insulation resistance</strong></td>
+<td align="center">≥5000MΩ&#x2F;100VDC</td>
+</tr>
+<tr>
+<td align="center"><strong>输入阻抗 Input impedance</strong></td>
+<td align="center">350Ω±10Ω</td>
+<td align="center"><strong>输出阻抗 Output impedance</strong></td>
+<td align="center">350Ω ± 5Ω</td>
+</tr>
+<tr>
+<td align="center"><strong>30分钟蠕变 Creep(30min)</strong></td>
+<td align="center">0.1%F.S.</td>
+<td align="center"><strong>温度灵敏度漂移 Temp effect on output</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>零点输出 Zero balance</strong></td>
+<td align="center">± 2%F.S</td>
+<td align="center"><strong>零点温度漂移 Temp effect on zero</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>安全超载 Safe load limit</strong></td>
+<td align="center">150%F.S.</td>
+<td align="center"><strong>极限超载 Ultimate load limit</strong></td>
+<td align="center">200%F.S.</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆规格 Cable size</strong></td>
+<td align="center">Φ2×4m</td>
+<td align="center"><strong>使用寿命 Service Life</strong></td>
+<td align="center">满量程100万次以上 Full scale more than 1 million times</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆接线定义 Cable connection</strong></td>
+<td align="center">Ex+：红Red；Ex-：黑Black</td>
+<td align="center">Sig+：绿Green；Sig-：白White</td>
+<td align="center">—</td>
+</tr>
+</tbody></table>
+<h2 id="标准仿真指纹硅胶压头（工况模拟核心部件）"><a href="#标准仿真指纹硅胶压头（工况模拟核心部件）" class="headerlink" title="标准仿真指纹硅胶压头（工况模拟核心部件）"></a>标准仿真指纹硅胶压头（工况模拟核心部件）</h2><p>&emsp;&emsp;硅胶指纹准备3种尺寸（大、中、小）。</p>
+<h2 id="高精度角度定位工装（工况基准部件）"><a href="#高精度角度定位工装（工况基准部件）" class="headerlink" title="高精度角度定位工装（工况基准部件）"></a>高精度角度定位工装（工况基准部件）</h2><p>&emsp;&emsp;手动移动平台15mm，工作台面100 x 100mm。</p>
+<h2 id="伺服稳压驱动模组（动力执行部件）"><a href="#伺服稳压驱动模组（动力执行部件）" class="headerlink" title="伺服稳压驱动模组（动力执行部件）"></a>伺服稳压驱动模组（动力执行部件）</h2><p>&emsp;&emsp;按照要求是需要一款XYR的滑台平台来装载产品，水平负载8Kg</p>
+<h3 id="XY轴"><a href="#XY轴" class="headerlink" title="XY轴"></a>XY轴</h3><ul>
+<li>定位精度：0.01mm</li>
+<li>反复定位精度：±0.005mm</li>
+<li>电机规格：两相步进28框</li>
+<li>行程：±15mm</li>
+<li>X-Y最大速度：10mm&#x2F;sec</li>
+</ul>
+<h3 id="θ轴"><a href="#θ轴" class="headerlink" title="θ轴"></a>θ轴</h3><ul>
+<li>传动比：1：90</li>
+<li>定位精度：0.02°</li>
+<li>反复定位精度：0.01°</li>
+<li>空回：0.02°</li>
+<li>电机规格：两相步进42框</li>
+<li>θ最大速度：18°&#x2F;sec</li>
+</ul>
+<h3 id="电机规格：两相步进28框"><a href="#电机规格：两相步进28框" class="headerlink" title="电机规格：两相步进28框"></a>电机规格：两相步进28框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲</li>
+<li>出线：4 线双极居多，少量 6&#x2F;8 线；</li>
+<li>驱动器必须搭配两相微型步进驱动（如 DM420、A4988、TMC2208），不能用三相驱动</li>
+<li>28 框基础性能区间<ul>
+<li>保持转矩：0.06～0.17 N・m（60～170 mNm）</li>
+<li>额定电流：0.6～1.0A</li>
+<li>供电常用 DC12V&#x2F;24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="电机规格：两相步进42框"><a href="#电机规格：两相步进42框" class="headerlink" title="电机规格：两相步进42框"></a>电机规格：两相步进42框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲；</li>
+<li>出线常见 4 线（双极性驱动）、6 线、8 线；</li>
+<li>配套驱动器只能用两相步进驱动器，不能接三相驱动。</li>
+<li>42 框基础性能区间<ul>
+<li>保持转矩：0.2～0.5 N・m</li>
+<li>额定电流：0.8～2.0 A</li>
+<li>供电常用：DC24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="设备测试架构"><a href="#设备测试架构" class="headerlink" title="设备测试架构"></a>设备测试架构</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png" alt="测试架构"></p>
+<h2 id="测试方案与流程"><a href="#测试方案与流程" class="headerlink" title="测试方案与流程"></a>测试方案与流程</h2><ul>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>X</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的左边离开指纹识别模块感应区的右边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>Y</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>顶</code>边离开指纹识别模块感应区的底边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+</ul>
+<h2 id="核心测试结果与数据分析"><a href="#核心测试结果与数据分析" class="headerlink" title="核心测试结果与数据分析"></a>核心测试结果与数据分析</h2><p>&emsp;&emsp;所有工况统一采用恒定 4N 标准压力按压，仅变量为设备摆放角度，对比各角度指纹识别表现，总结如下：</p>
+<h3 id="正交垂直角度（0°、90°、180°）识别表现最优"><a href="#正交垂直角度（0°、90°、180°）识别表现最优" class="headerlink" title="正交垂直角度（0°、90°、180°）识别表现最优"></a>正交垂直角度（0°、90°、180°）识别表现最优</h3><p>&emsp;&emsp;在 0°、90°、180° 三个垂直正向角度，恒定 4N 压力下压头与传感器贴合均匀完整，指纹纹理成像清晰，识别成功率≥99.2%，平均识别响应时间 0.2~0.3s，无拒真、误识、卡顿等问题。正向姿态下按压受力均匀，角度偏移对信号采集几乎无负面影响，完全满足日常使用标准。</p>
+<h3 id="旋转角度（45°、135°）存在识别性能衰减"><a href="#旋转角度（45°、135°）存在识别性能衰减" class="headerlink" title="旋转角度（45°、135°）存在识别性能衰减"></a>旋转角度（45°、135°）存在识别性能衰减</h3><p>&emsp;&emsp;被测物水平旋转至 45°、135° 档位时，统一采用恒定 4N 压力按压，识别成功率下降至 92.1%~94.5%。核心原因：被测产品水平旋转偏移后，硅胶压头与指纹区域受力分布不均，单侧贴合间隙偏大，局部指纹纹理接触不充分，传感器采集的指纹图像存在轻微畸变，特征点匹配精度下降，是本次测试暴露的薄弱工况。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;本次测试以恒定 4N 标准按压力作为统一控制条件，依托 XYR 旋转滑台实现被测物 0°、45°、90°、135°、180° 五档水平旋转定位，全程仅将产品水平旋转角度作为单一变量，标准化验证不同摆放姿态下指纹识别模组的识别一致性与运行稳定性。</p>
+<p>&emsp;&emsp;整套测试设备采用自上而下分层堆叠架构：伺服下压模组搭配标准硅胶指纹压头提供稳定恒定 4N 载荷，产品专用 Holder 保证被测件夹持无位移，XY 手动滑台完成压头与指纹区域居中校准，底层 XYR 滑台精准实现多档位水平旋转锁止。设备闭环压力控制系统稳压精度高，重复按压无压力漂移，各角度测试工况可复现、数据具备横向对比价值，硬件整套循环测试后无形变、无功能失效，设备工装与驱动机构可靠性满足批量验证需求。</p>
+<p>&emsp;&emsp;实测数据显示，当被测物水平旋转至 0°、90°、180° 正向档位时，恒定 4N 压力下压头与指纹区域贴合均匀，指纹成像完整清晰，识别成功率稳定≥99.2%，识别响应速度平稳，无拒真、卡顿、识别失败等异常，完全符合产品设计指标与用户常规使用要求。</p>
+<p>&emsp;&emsp;当被测物水平旋转至 45°、135° 斜向档位时，同等 4N 标准压力下识别成功率降至92.1%~94.5%；根本原因为产品水平旋转后，硅胶压头受力分布失衡，指纹识别区域单侧贴合间隙增大，局部纹理接触不充分，采集图像出现轻微形变，指纹特征点匹配准确度下降，是产品当前性能短板工况。<br>全角度循环按压测试完成后，指纹传感器、模组结构未出现硬件损伤、永久性能衰减，撤除压力后识别性能可即时恢复，证明产品硬件本体耐压、耐磨基础可靠性达标，性能差异仅来源于水平旋转带来的按压贴合形变问题。</p>
+<p>&emsp;&emsp;本次多角度恒定压力专项测试精准定位了产品旋转工况下的识别缺陷，为指纹识别算法迭代优化、模组缓冲结构改良、出厂品质检验标准制定提供了客观、可复现的实测数据支撑。通过针对性优化形变指纹匹配算法、改善传感器缓冲贴合结构，可有效提升 45°、135° 水平旋转工况下的识别容错率，规避终端用户握持旋转解锁失败的使用问题，进一步提升产品全场景使用稳定性。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>NTS力学传感器<span class="exturl" data-url="aHR0cHM6Ly9udHMtbWVhc3VyZS5jby5qcC8=">日本本土官网<i class="fa fa-external-link-alt"></i></span>: 原厂主站，日文，完整产品规格&#x2F; 手册，NTS传感器长期稳定，适合疲劳循环测试。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS英文国际站<i class="fa fa-external-link-alt"></i></span>: 海外产品介绍，适合查阅英文参数。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bGl2ZS5jb20vemgvdS8lRTglQkQlQUMlRTYlOEQlQTIvJUU3JTg5JTlCJUU5JUExJUJGLyVFOCU4NyVBQS8lRTUlOEQlODMlRTUlODUlOEIlRTUlOEElOUIjOQ==">单位转换<i class="fa fa-external-link-alt"></i></span>: 千克转化为牛顿或者千克力。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueGpjc2Vuc29yLmNvbS8=">鑫精诚力学传感器<i class="fa fa-external-link-alt"></i></span>: XJC sensor交期短，价格是NTS的1&#x2F;3，疲劳稳定性略逊原装。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udWFlcy5uZXQvUHJvZHVjdEN1c3QvMTQ2MTc1MS00MDk2MDIuaHRtbA==">天翰精密<i class="fa fa-external-link-alt"></i></span>：XYR滑台。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Fingerprint/" rel="tag"><i class="fa fa-tag"></i> Fingerprint</a>
+              <a href="/tags/Multi-angle/" rel="tag"><i class="fa fa-tag"></i> Multi-angle</a>
+              <a href="/tags/%E5%A4%9A%E8%A7%92%E5%BA%A6/" rel="tag"><i class="fa fa-tag"></i> 多角度</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/16/GD&T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/" rel="prev" title="GD&amp;T Symbols and Guidelines Cheat Sheet">
+                  <i class="fa fa-angle-left"></i> GD&T Symbols and Guidelines Cheat Sheet
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/" rel="next" title="抽吸传感器低成本测试方案">
+                  抽吸传感器低成本测试方案 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">102k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:33</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
