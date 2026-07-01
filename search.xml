@@ -1592,6 +1592,42 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Siemens NX 视图方位快捷键</title>
+    <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt="NX坐标系"></p>
+<ul>
+<li><code>Home</code>：正三侧视图</li>
+<li><code>End</code>：正等侧视图</li>
+</ul>
+<hr>
+<ul>
+<li><code>Ctrl+Alt+F</code>：正前方（Front）</li>
+<li><code>Ctrl+Alt+T</code>：正上方（Top）</li>
+<li><code>Ctrl+Alt+R</code>：右（Right）</li>
+<li><code>Ctrl+Alt+L</code>：左（Left）</li>
+</ul>
+<hr>
+<ul>
+<li><code>F6</code>：缩放。启用后，按鼠标左键画一个矩形，会放大这个矩形区域。  </li>
+<li><code>F7</code>：旋转。启用后按住鼠标左键进行旋转，效果和直接使用鼠标中键一样。</li>
+<li><code>F8</code>：选择一个面，按此键可以正视于选择的面。无选择面，则正视于前、后、左、右、仰、俯里 6 个视图中最接近的一个</li>
+<li><code>Ctrl+F</code>：适合窗口（Fit Window）。将视图大小缩放到适合的窗口。</li>
+<li><code>Ctrl+R</code>：旋转视图（Rotate View）。可以沿指定轴旋转。</li>
+<li><code>Ctrl+Shift+Z</code>：缩放视图（Zoom View）。指定倍率缩放。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX 2506</tag>
+        <tag>视图方位快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MacBook效率工具</title>
     <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
@@ -1646,6 +1682,27 @@ th {
         <tag>MacBook</tag>
         <tag>效率</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -1720,27 +1777,6 @@ th {
         <tag>仿真</tag>
         <tag>动画</tag>
         <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks参数优化</title>
-    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
-<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
-<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
-<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
-<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -2535,6 +2571,55 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/08/12/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -2615,55 +2700,6 @@ th {
         <tag>效率</tag>
         <tag>工具</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/08/12/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3199,6 +3235,94 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>在Win平台上部署Hexo</title>
+    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
+</blockquote>
+<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+<p>2)安装配置</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>3）生成，部署</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
+</blockquote>
+<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
+</blockquote>
+</li>
+</ul>
+<p>2). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>连续按 3 次回车，什么都不用输。</p>
+</blockquote>
+</li>
+</ul>
+<p>Step2: 复制密钥</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
+</blockquote>
+<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
+<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
+<p>就改 repo 这一行！保存文件。</p>
+<p>Step5: 测试</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>输入 yes 回车。看到 successfully 就是成功！</p>
+<p>3). 报错信息</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>国内网络把 GitHub 的 22 端口也墙了</li>
+</ul>
+<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
+</ul>
+<p>Step2: 再测试连接，输入如下命令</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
+<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
+<p>2）为博客添加标签</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
+<p>3）添加分类功能</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
+
+<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Hexo</tag>
+        <tag>Github</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mac环境下使用GitHub和Hexo搭建博客</title>
     <url>/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<strong>欢迎参与讨论，转载请注明出处。</strong></p>
@@ -3328,96 +3452,8 @@ th {
         <tag>GitHub</tag>
         <tag>Blog</tag>
         <tag>Hexo</tag>
+        <tag>Node.js</tag>
         <tag>NPM</tag>
-        <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Win平台上部署Hexo</title>
-    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
-</blockquote>
-<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-
-<p>2)安装配置</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>3）生成，部署</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
-</blockquote>
-<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
-</blockquote>
-</li>
-</ul>
-<p>2). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>连续按 3 次回车，什么都不用输。</p>
-</blockquote>
-</li>
-</ul>
-<p>Step2: 复制密钥</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
-</blockquote>
-<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
-<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
-<p>就改 repo 这一行！保存文件。</p>
-<p>Step5: 测试</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>输入 yes 回车。看到 successfully 就是成功！</p>
-<p>3). 报错信息</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>国内网络把 GitHub 的 22 端口也墙了</li>
-</ul>
-<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
-</ul>
-<p>Step2: 再测试连接，输入如下命令</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
-<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
-<p>2）为博客添加标签</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
-<p>3）添加分类功能</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
-
-<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Hexo</tag>
-        <tag>Node.js</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -3469,148 +3505,6 @@ th {
         <tag>Github</tag>
         <tag>SSH Key</tag>
         <tag>Permission denied (publickey)</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工程判断力，是在一个个项目里练出来的</title>
-    <url>/2019/09/13/%E5%B7%A5%E7%A8%8B%E5%88%A4%E6%96%AD%E5%8A%9B%EF%BC%8C%E6%98%AF%E5%9C%A8%E4%B8%80%E4%B8%AA%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%87%8C%E7%BB%83%E5%87%BA%E6%9D%A5%E7%9A%84/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="从“还有哪些方案”到“当前更适合哪个方案”"><a href="#从“还有哪些方案”到“当前更适合哪个方案”" class="headerlink" title="从“还有哪些方案”到“当前更适合哪个方案”"></a>从“还有哪些方案”到“当前更适合哪个方案”</h1><p>&emsp;&emsp;以前参与方案讨论时，我会习惯性地把能想到的可能性都列出来。这样做的好处是视野比较打开，不容易一开始就被某个思路限制住。但后来我也发现，如果讨论一直停留在“还可以怎么做”，项目其实很难往前走。工程项目最终需要的是收敛。<br>&emsp;&emsp;比如一个支架刚度不足，可能的方案有很多：增加板厚、增加加强筋、改变材料、调整支撑点、缩短悬臂长度，甚至改变整体布局。每个方案都能改善问题，但它们带来的影响不一样。</p>
-<ul>
-<li>增加板厚可能最直接，但重量和成本会上升；</li>
-<li>加筋可能效果好，但焊接或加工复杂度增加；</li>
-<li>换材料可能解决强度问题，但采购周期和成本不确定；</li>
-<li>调整支撑点可能从根本上改善受力，但会影响周边结构；</li>
-<li>改变布局可能是最优解，但项目阶段未必允许。<br>&emsp;&emsp;这时，单纯提出方案已经不够了。更重要的是判断：在当前项目阶段、当前风险水平、当前资源条件下，哪个方案更合适。<br>&emsp;&emsp;这个过程让我意识到，工程判断不是为了找到“理论上最完美”的方案，而是找到“<strong>在当前条件下最可执行、风险最可控</strong>”的方案。</li>
-</ul>
-<h1 id="判断力来自对约束条件的理解"><a href="#判断力来自对约束条件的理解" class="headerlink" title="判断力来自对约束条件的理解"></a>判断力来自对约束条件的理解</h1><p>&emsp;&emsp;后来我逐渐养成一个习惯：在讨论方案之前，先把约束条件看清楚。<br>&emsp;&emsp;机械设计不是在真空里发生的。任何一个方案，都同时受到功能、空间、成本、交期、加工能力、装配方式、供应商水平、验证条件等因素影响。</p>
-<ul>
-<li>有些项目，最重要的是可靠性，成本可以适当让步；</li>
-<li>有些项目，交期已经非常紧，方案必须尽量减少变更；</li>
-<li>有些项目，供应商加工能力有限，设计不能只看理论可行；</li>
-<li>有些项目，客户产品还在验证阶段，设备结构就必须留有调整空间。</li>
-</ul>
-<p>&emsp;&emsp;如果不理解这些约束，方案讨论很容易变成纯技术比较。看起来每个人都说得有道理，但很难形成结论。<br>&emsp;&emsp;我现在越来越觉得，判断一个方案好不好，不能只看它本身是否漂亮，而要看它是否适合当下的项目条件。一个技术上很理想的方案，如果验证周期太长、加工风险太高、或者会牵动太多下游变更，可能并不是当前最好的选择。  </p>
-<p>&emsp;&emsp;这种认识不是一开始就有的，更多是在项目里一次次被现实提醒出来的。</p>
-<h1 id="不是所有问题都要用同样力度解决"><a href="#不是所有问题都要用同样力度解决" class="headerlink" title="不是所有问题都要用同样力度解决"></a>不是所有问题都要用同样力度解决</h1><p>&emsp;&emsp;项目推进过程中，会不断冒出各种问题。刚开始时，我容易把问题都看得很重，总觉得只要发现了，就应该尽量优化到最好。后来发现，这样做不一定有效。因为项目资源是有限的，时间也是有限的。如果所有问题都按最高优先级处理，团队很容易陷入不断修改。一个地方刚优化完，另一个地方又觉得还可以更好，最后项目迟迟不能收敛。<br>&emsp;&emsp;慢慢地，我开始更关注问题的层级。  </p>
-<ul>
-<li>有些问题是必须解决的，比如影响安全、核心功能、装配稳定性、客户验收、量产可靠性的问题。这类问题即使会影响进度，也不能轻易放过。</li>
-<li>有些问题是需要重点关注的，比如成本偏高、维护不方便、加工难度大、操作体验一般。这类问题要结合项目阶段和资源情况判断是否现在处理。</li>
-<li>还有一些问题属于后续优化项。它们值得记录，但不一定要在当前阶段全部解决。</li>
-</ul>
-<p>&emsp;&emsp;我后来常常会问自己一个问题：<br>这个问题如果现在不处理，后面会带来什么代价？</p>
-<ul>
-<li>如果后果只是局部不够优雅，可以接受；</li>
-<li>如果会导致后续修改成本变高，就要谨慎；</li>
-<li>如果可能导致测试失败、客户现场问题或批量风险，就必须提前处理。</li>
-</ul>
-<p>这种问题分层的过程，其实就是工程判断力的一部分。</p>
-<h1 id="很多判断是在信息不完整时做出的"><a href="#很多判断是在信息不完整时做出的" class="headerlink" title="很多判断是在信息不完整时做出的"></a>很多判断是在信息不完整时做出的</h1><p>&emsp;&emsp;项目中最常见的状态，不是所有信息都准备好了再开始，而是一边做、一边确认、一边调整。</p>
-<p>&emsp;&emsp;客户需求可能还在变化，产品图纸可能还没有完全冻结，供应商能力还需要验证，测试数据也可能暂时不完整。如果一定等到所有信息完全清楚再做决定，项目往往已经被拖住了。</p>
-<p>&emsp;&emsp;以前遇到不确定信息时，我更倾向于等待确认。后来项目经历多了，我发现更现实的做法是把不确定性拆开。  </p>
-<ul>
-<li>哪些信息已经确认，可以作为设计依据；</li>
-<li>哪些信息还不确定，需要继续追踪；</li>
-<li>哪些不确定会影响关键结构，必须提前验证；</li>
-<li>哪些不确定可以通过可调结构或模块化设计来应对；</li>
-<li>哪些地方需要准备备选方案。</li>
-</ul>
-<p>&emsp;&emsp;比如客户产品还在验证阶段时，与产品直接相关的定位、夹持、检测机构，就不适合设计得过于刚性。与其假设产品永远不变，不如在关键位置预留调节空间，把高不确定性的部分做成可替换、可调整的小模块。</p>
-<p>&emsp;&emsp;这样做并不是保守，而是为了降低后续试错成本。</p>
-<p>我越来越觉得，工程项目里的判断，不是等不确定性消失，而是在不确定中找到可控的推进方式。</p>
-<p>#判断之后，更重要的是让事情闭环</p>
-<p>&emsp;&emsp;很多项目问题不是没有讨论过，而是讨论之后没有真正闭环。</p>
-<ul>
-<li>会议上大家觉得方向已经明确了，但会后没有责任人；</li>
-<li>问题说要验证，但没有定义验证方式；</li>
-<li>方案说可以接受，但剩余风险没有记录；</li>
-<li>供应商说可以加工，但没有进一步确认关键尺寸和工艺能力；</li>
-<li>样机问题说已经修改，但没有确认修改后的结果是否有效。</li>
-</ul>
-<p>&emsp;&emsp;这些情况我都遇到过。后来我慢慢意识到，判断本身只是开始，真正影响项目结果的是后续闭环。所以在一些关键问题上，我会尽量把结论说清楚：</p>
-<ul>
-<li>当前先采用哪个方案；</li>
-<li>选择这个方案的主要原因是什么；</li>
-<li>还有哪些风险没有完全关闭；</li>
-<li>后续由谁去确认；</li>
-<li>什么时候给出结果；</li>
-<li>通过什么方式验证；</li>
-<li>如果验证不通过，下一步怎么调整。</li>
-</ul>
-<p>&emsp;&emsp;这些动作听起来很普通，但在项目里非常重要。因为很多工程风险不是一下子爆发的，而是在一次次“先这样吧”“后面再看”中累积起来的。</p>
-<p>当判断能够形成行动、验证和结果，项目才真正往前走了一步。</p>
-<p>#判断力是在复盘里慢慢长出来的</p>
-<p>&emsp;&emsp;工程判断力很难靠一次培训或一套方法马上建立。对我来说，它更多来自项目后的复盘。</p>
-<ul>
-<li>有些判断当时看起来合理，后来发现低估了某个风险；</li>
-<li>有些方案当时觉得保守，后来证明它减少了很多返工；</li>
-<li>有些问题当时没有优先处理，后面变成了更大的修改；</li>
-<li>有些细节当时觉得无关紧要，到了装配或客户现场才发现影响很大。</li>
-</ul>
-<p>&emsp;&emsp;这些经历如果只是过去了，就只是经历；如果能复盘下来，才会变成经验。我现在比较重视把项目中的问题沉淀下来。比如某个结构为什么后期大改，某个供应商反馈为什么前期没有识别，某个公差问题为什么到装配才暴露，某个测试失败背后的真实原因是什么。</p>
-<p>&emsp;&emsp;复盘不只是为了找原因，更是为了下次判断时多一个参考。做项目越多，我越能感受到，很多判断力不是来自某个单点知识，而是来自对类似场景的积累。见过问题如何发生，才更容易提前识别问题可能在哪里发生。</p>
-<p>#从关注单个结构，到关注整个项目影响</p>
-<p>&emsp;&emsp;一开始做机械设计时，我更关注自己负责的结构是否合理。后来参与项目多了，慢慢会看到一个机械设计选择对其他环节的影响。</p>
-<ul>
-<li>一个零件做成一体式，结构更紧凑，但加工周期可能变长；</li>
-<li>一个支架加强后刚度提高了，但重量增加会影响运动机构负载；</li>
-<li>一个机构调整后机械动作更稳定，但可能影响传感器布置；</li>
-<li>一个定位方式更可靠，但装配节拍可能变慢；</li>
-<li>一个设计变更对机械来说很小，但对采购、质量、调试来说可能是连锁影响。</li>
-</ul>
-<p>&emsp;&emsp;这些问题让我逐渐意识到，机械设计不能只看局部最优。很多时候，局部最优不等于项目最优。现在看方案时，我会更习惯把它放到整个项目链条里去看：设计、采购、加工、装配、调试、验证、维护，都会不会被影响。这样做未必每次都能得到最完美的方案，但更容易得到一个整体上更稳的方案。</p>
-<p>这种视角的变化，也是项目经历带来的。</p>
-<p>#不同意见往往能帮助判断更稳</p>
-<p>&emsp;&emsp;我以前也会觉得，方案讨论最好越快收敛越好。但后来发现，适当听到不同意见是有价值的。<br>机械工程师会看到结构风险，装配人员会看到操作空间，供应商会看到加工难点，质量人员会看到检测和判定问题，现场调试人员会看到实际使用中的不确定因素。</p>
-<p>&emsp;&emsp;有些意见一开始听起来像是在增加麻烦，但仔细看，可能正是项目后期容易出问题的地方。<br>当然，听取意见不等于无限讨论。关键是把不同信息收集进来，再结合项目目标和约束条件做取舍。</p>
-<p>&emsp;&emsp;哪些意见必须马上处理，哪些需要验证，哪些记录为后续优化，都要有判断。<br>我现在更愿意把方案讨论看成一个逐步收敛的过程：先把问题看全，再把风险分层，最后形成当前阶段最合适的选择。</p>
-<h1 id="干中学不是口号，而是一种实践中的学习方式"><a href="#干中学不是口号，而是一种实践中的学习方式" class="headerlink" title="干中学不是口号，而是一种实践中的学习方式"></a>干中学不是口号，而是一种实践中的学习方式</h1><p>&emsp;&emsp;我后来才慢慢意识到，所谓“干中学”，并不是一句简单的经验主义口号。它背后其实有很明确的理论依据：人在真实任务中遇到问题，通过行动、反馈、反思和再次尝试，逐渐形成新的判断框架和工作方法。</p>
-<p>&emsp;&emsp;在工程项目里，这种学习方式非常典型。很多机械问题并不是坐在办公室里就能完全想清楚的，只有当结构真正进入加工、装配、调试、测试和客户现场之后，隐藏的问题才会暴露出来。也正是在这些真实反馈中，工程师才会不断修正自己对设计、制造、装配和风险的理解。</p>
-<p>&emsp;&emsp;经济学家 Kenneth Arrow 在 1962 年提出过 “Learning by Doing” 的概念，他认为知识的获得和能力的提升，很大程度上来自实际活动本身；学习不是脱离工作单独发生的，而是在解决问题、参与生产和反复实践中发生的。</p>
-<p>&emsp;&emsp;这个观点放在机械工程里很容易理解：一个人看再多加工工艺资料，也不如亲自经历几次供应商反馈；学再多公差理论，也不如在装配现场看到一次公差链失控带来的问题；听再多设计规范，也不如经历一次因设计输入不稳定导致的返工。</p>
-<p>&emsp;&emsp;David Kolb 的经验学习理论也解释了类似过程。他把学习看成一个循环：具体经验、反思观察、抽象概念化、主动实验。也就是说，真正的学习不是只有“做”，还包括做完之后的复盘、总结，并把总结出的规律再次用到新的实践中。</p>
-<p>&emsp;&emsp;这和我在项目中的感受很接近。一次试产问题如果只是解决掉，那它只是一个项目事件；但如果能复盘它为什么发生、前期哪里没有识别、下次 checklist 应该增加什么内容，它才真正变成经验。</p>
-<p>&emsp;&emsp;Donald Schön 在《反思性实践者》中提出过 “reflection-in-action” 和 “reflection-on-action” 的概念。他关注的是专业人员如何在复杂、不确定的实践场景中，一边行动一边思考，并在行动之后进行反思。</p>
-<p>&emsp;&emsp;这对工程工作尤其有启发。很多时候，项目现场并不会给我们完整的信息和充足的时间，我们必须在推进中判断，在判断中验证，在验证后修正。工程判断力并不是一次性形成的，而是在这种持续的反思和修正中逐渐长出来的。</p>
-<p>&emsp;&emsp;Lave 和 Wenger 的情境学习理论也强调，学习不是孤立地发生在个人脑子里，而是在具体实践场景和共同体中发生的。新人通过参与真实工作，从边缘参与逐渐走向更完整的实践参与，能力也在这个过程中成长。<br>这也解释了为什么机械工程师不能只靠培训成长。真正有效的成长，往往来自参与真实项目、跟着有经验的人做评审、和供应商沟通、去现场看装配、参与问题复盘，并逐渐理解一个成熟工程师是如何判断问题的。</p>
-<p>&emsp;&emsp;所以我现在理解的“干中学”，不是简单地边做边摸索，而是一个更完整的循环：</p>
-<blockquote>
-<p>在真实项目中暴露问题，在问题处理中形成经验，在复盘中提炼规律，再把规律带回到下一次项目实践中。</p>
-</blockquote>
-<ul>
-<li>如果只是干，没有复盘，很容易变成重复试错；</li>
-<li>如果只是学，不进入真实项目，又很难形成工程判断。<br>-真正有价值的是边干边学、边学边总结、边总结边沉淀。</li>
-</ul>
-<p>&emsp;&emsp;对机械团队来说，这种沉淀最终应该变成图纸规范、设计 check list、评审清单、计算模板、DFM 指南、典型问题案例库。这样，个人在项目中学到的经验，才不会只停留在个人身上，而是能逐渐变成团队下一次可以复用的能力。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>现在再看机械设计，我会觉得方案能力很重要，但工程判断力更难得。</p>
-<ul>
-<li>提出方案，是把可能性打开；</li>
-<li>做出判断，是在约束中选择方向；</li>
-<li>推动闭环，是让判断真正变成结果；</li>
-<li>项目复盘，是让一次经历变成下一次的经验。</li>
-</ul>
-<p>&emsp;&emsp;这些能力不是靠说出来的，而是在项目里一点点练出来的。</p>
-<p>&emsp;&emsp;每一次设计评审、每一次供应商沟通、每一次试产问题、每一次客户反馈，都会提醒我：机械设计不是只把结构做出来，而是要在功能、风险、成本、周期、制造和验证之间不断做取舍。</p>
-<p>&emsp;&emsp;我也还在这个过程中继续学习。只是相比过去，我会更有意识地把项目中的判断记录下来，把踩过的坑变成清单，把解决过的问题变成规范，把一次次经验变成团队下一次可以复用的东西。</p>
-<p>&emsp;&emsp;工程判断力，最终不是某个人单独拥有的经验，而是通过项目实践不断沉淀出来的工作方式。它让团队少一些重复试错，也让后面的项目走得更稳。</p>
-<p>Referance:</p>
-<ol>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaGF2ZXJmb3JkLmVkdS9zaXRlcy9kZWZhdWx0L2ZpbGVzL0Fycm93MTk2Mi5wZGY=">Kenneth J. Arrow：Learning by Doing<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Kenneth Arrow 在 1962 年发表的《The Economic Implications of Learning by Doing》 中提出，知识增长和能力提升与实际生产活动密切相关，学习是在“做”的过程中发生的。<br>&emsp;&emsp;Arrow 的 “Learning by Doing” 提醒我，能力提升并不只是来自培训或理论输入，很多工程知识是在真实项目、真实问题和真实反馈中积累起来的。</p>
-</li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2ltcGx5cHN5Y2hvbG9neS5vcmcvbGVhcm5pbmcta29sYi5odG1s">David Kolb：经验学习循环<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;David Kolb 的经验学习理论认为，学习是一个由 具体经验、反思观察、抽象概念化、主动实验 构成的循环，知识是在经验被转化的过程中形成的。<br>&emsp;&emsp;Kolb 的经验学习循环很适合解释工程项目中的成长过程：经历问题、复盘问题、提炼规律，再把新的理解用于下一次设计实践。</p>
-</li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly9ib29rcy5nb29nbGUuY29tLmhrL2Jvb2tzL2Fib3V0L1JlZmxlY3RpdmVfUHJhY3RpdGlvbmVyLmh0bWw/aWQ9b1lOSEFBQUFNQUFKJnJlZGlyX2VzYz15">Donald Schön：反思性实践者<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Donald Schön 在《The Reflective Practitioner》 中研究了工程、建筑、管理等专业人员如何在复杂实践中解决问题，并提出了 “reflection-in-action” 和 “reflection-on-action” 的概念。<br>&emsp;&emsp;Schön 的反思性实践观点让我意识到，工程判断力不是脱离现场形成的，而是在行动中思考、在行动后复盘的过程中慢慢形成的。</p>
-</li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93c3UucHJlc3Nib29rcy5wdWIvdGhlb3JldGljYWxtb2RlbHNmb3J0ZWFjaGluZ2FuZHJlc2VhcmNoL2NoYXB0ZXIvc2l0dWF0ZWQtbGVhcm5pbmctdGhlb3J5Lw==">Lave &amp; Wenger：情境学习与实践共同体<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Lave 和 Wenger 在《Situated Learning: Legitimate Peripheral Participation》 中提出，学习是发生在具体情境和实践共同体中的社会过程，学习者通过参与真实实践逐步获得能力。<br>&emsp;&emsp;情境学习理论解释了为什么机械工程师的成长离不开真实项目环境。设计评审、供应商沟通、现场装配和问题复盘，都是工程能力形成的重要场景。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>判断力</tag>
-        <tag>风险</tag>
-        <tag>干中学</tag>
       </tags>
   </entry>
   <entry>
@@ -3824,6 +3718,148 @@ th {
         <tag>电机</tag>
         <tag>O-ring</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工程判断力，是在一个个项目里练出来的</title>
+    <url>/2019/09/13/%E5%B7%A5%E7%A8%8B%E5%88%A4%E6%96%AD%E5%8A%9B%EF%BC%8C%E6%98%AF%E5%9C%A8%E4%B8%80%E4%B8%AA%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%87%8C%E7%BB%83%E5%87%BA%E6%9D%A5%E7%9A%84/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="从“还有哪些方案”到“当前更适合哪个方案”"><a href="#从“还有哪些方案”到“当前更适合哪个方案”" class="headerlink" title="从“还有哪些方案”到“当前更适合哪个方案”"></a>从“还有哪些方案”到“当前更适合哪个方案”</h1><p>&emsp;&emsp;以前参与方案讨论时，我会习惯性地把能想到的可能性都列出来。这样做的好处是视野比较打开，不容易一开始就被某个思路限制住。但后来我也发现，如果讨论一直停留在“还可以怎么做”，项目其实很难往前走。工程项目最终需要的是收敛。<br>&emsp;&emsp;比如一个支架刚度不足，可能的方案有很多：增加板厚、增加加强筋、改变材料、调整支撑点、缩短悬臂长度，甚至改变整体布局。每个方案都能改善问题，但它们带来的影响不一样。</p>
+<ul>
+<li>增加板厚可能最直接，但重量和成本会上升；</li>
+<li>加筋可能效果好，但焊接或加工复杂度增加；</li>
+<li>换材料可能解决强度问题，但采购周期和成本不确定；</li>
+<li>调整支撑点可能从根本上改善受力，但会影响周边结构；</li>
+<li>改变布局可能是最优解，但项目阶段未必允许。<br>&emsp;&emsp;这时，单纯提出方案已经不够了。更重要的是判断：在当前项目阶段、当前风险水平、当前资源条件下，哪个方案更合适。<br>&emsp;&emsp;这个过程让我意识到，工程判断不是为了找到“理论上最完美”的方案，而是找到“<strong>在当前条件下最可执行、风险最可控</strong>”的方案。</li>
+</ul>
+<h1 id="判断力来自对约束条件的理解"><a href="#判断力来自对约束条件的理解" class="headerlink" title="判断力来自对约束条件的理解"></a>判断力来自对约束条件的理解</h1><p>&emsp;&emsp;后来我逐渐养成一个习惯：在讨论方案之前，先把约束条件看清楚。<br>&emsp;&emsp;机械设计不是在真空里发生的。任何一个方案，都同时受到功能、空间、成本、交期、加工能力、装配方式、供应商水平、验证条件等因素影响。</p>
+<ul>
+<li>有些项目，最重要的是可靠性，成本可以适当让步；</li>
+<li>有些项目，交期已经非常紧，方案必须尽量减少变更；</li>
+<li>有些项目，供应商加工能力有限，设计不能只看理论可行；</li>
+<li>有些项目，客户产品还在验证阶段，设备结构就必须留有调整空间。</li>
+</ul>
+<p>&emsp;&emsp;如果不理解这些约束，方案讨论很容易变成纯技术比较。看起来每个人都说得有道理，但很难形成结论。<br>&emsp;&emsp;我现在越来越觉得，判断一个方案好不好，不能只看它本身是否漂亮，而要看它是否适合当下的项目条件。一个技术上很理想的方案，如果验证周期太长、加工风险太高、或者会牵动太多下游变更，可能并不是当前最好的选择。  </p>
+<p>&emsp;&emsp;这种认识不是一开始就有的，更多是在项目里一次次被现实提醒出来的。</p>
+<h1 id="不是所有问题都要用同样力度解决"><a href="#不是所有问题都要用同样力度解决" class="headerlink" title="不是所有问题都要用同样力度解决"></a>不是所有问题都要用同样力度解决</h1><p>&emsp;&emsp;项目推进过程中，会不断冒出各种问题。刚开始时，我容易把问题都看得很重，总觉得只要发现了，就应该尽量优化到最好。后来发现，这样做不一定有效。因为项目资源是有限的，时间也是有限的。如果所有问题都按最高优先级处理，团队很容易陷入不断修改。一个地方刚优化完，另一个地方又觉得还可以更好，最后项目迟迟不能收敛。<br>&emsp;&emsp;慢慢地，我开始更关注问题的层级。  </p>
+<ul>
+<li>有些问题是必须解决的，比如影响安全、核心功能、装配稳定性、客户验收、量产可靠性的问题。这类问题即使会影响进度，也不能轻易放过。</li>
+<li>有些问题是需要重点关注的，比如成本偏高、维护不方便、加工难度大、操作体验一般。这类问题要结合项目阶段和资源情况判断是否现在处理。</li>
+<li>还有一些问题属于后续优化项。它们值得记录，但不一定要在当前阶段全部解决。</li>
+</ul>
+<p>&emsp;&emsp;我后来常常会问自己一个问题：<br>这个问题如果现在不处理，后面会带来什么代价？</p>
+<ul>
+<li>如果后果只是局部不够优雅，可以接受；</li>
+<li>如果会导致后续修改成本变高，就要谨慎；</li>
+<li>如果可能导致测试失败、客户现场问题或批量风险，就必须提前处理。</li>
+</ul>
+<p>这种问题分层的过程，其实就是工程判断力的一部分。</p>
+<h1 id="很多判断是在信息不完整时做出的"><a href="#很多判断是在信息不完整时做出的" class="headerlink" title="很多判断是在信息不完整时做出的"></a>很多判断是在信息不完整时做出的</h1><p>&emsp;&emsp;项目中最常见的状态，不是所有信息都准备好了再开始，而是一边做、一边确认、一边调整。</p>
+<p>&emsp;&emsp;客户需求可能还在变化，产品图纸可能还没有完全冻结，供应商能力还需要验证，测试数据也可能暂时不完整。如果一定等到所有信息完全清楚再做决定，项目往往已经被拖住了。</p>
+<p>&emsp;&emsp;以前遇到不确定信息时，我更倾向于等待确认。后来项目经历多了，我发现更现实的做法是把不确定性拆开。  </p>
+<ul>
+<li>哪些信息已经确认，可以作为设计依据；</li>
+<li>哪些信息还不确定，需要继续追踪；</li>
+<li>哪些不确定会影响关键结构，必须提前验证；</li>
+<li>哪些不确定可以通过可调结构或模块化设计来应对；</li>
+<li>哪些地方需要准备备选方案。</li>
+</ul>
+<p>&emsp;&emsp;比如客户产品还在验证阶段时，与产品直接相关的定位、夹持、检测机构，就不适合设计得过于刚性。与其假设产品永远不变，不如在关键位置预留调节空间，把高不确定性的部分做成可替换、可调整的小模块。</p>
+<p>&emsp;&emsp;这样做并不是保守，而是为了降低后续试错成本。</p>
+<p>我越来越觉得，工程项目里的判断，不是等不确定性消失，而是在不确定中找到可控的推进方式。</p>
+<p>#判断之后，更重要的是让事情闭环</p>
+<p>&emsp;&emsp;很多项目问题不是没有讨论过，而是讨论之后没有真正闭环。</p>
+<ul>
+<li>会议上大家觉得方向已经明确了，但会后没有责任人；</li>
+<li>问题说要验证，但没有定义验证方式；</li>
+<li>方案说可以接受，但剩余风险没有记录；</li>
+<li>供应商说可以加工，但没有进一步确认关键尺寸和工艺能力；</li>
+<li>样机问题说已经修改，但没有确认修改后的结果是否有效。</li>
+</ul>
+<p>&emsp;&emsp;这些情况我都遇到过。后来我慢慢意识到，判断本身只是开始，真正影响项目结果的是后续闭环。所以在一些关键问题上，我会尽量把结论说清楚：</p>
+<ul>
+<li>当前先采用哪个方案；</li>
+<li>选择这个方案的主要原因是什么；</li>
+<li>还有哪些风险没有完全关闭；</li>
+<li>后续由谁去确认；</li>
+<li>什么时候给出结果；</li>
+<li>通过什么方式验证；</li>
+<li>如果验证不通过，下一步怎么调整。</li>
+</ul>
+<p>&emsp;&emsp;这些动作听起来很普通，但在项目里非常重要。因为很多工程风险不是一下子爆发的，而是在一次次“先这样吧”“后面再看”中累积起来的。</p>
+<p>当判断能够形成行动、验证和结果，项目才真正往前走了一步。</p>
+<p>#判断力是在复盘里慢慢长出来的</p>
+<p>&emsp;&emsp;工程判断力很难靠一次培训或一套方法马上建立。对我来说，它更多来自项目后的复盘。</p>
+<ul>
+<li>有些判断当时看起来合理，后来发现低估了某个风险；</li>
+<li>有些方案当时觉得保守，后来证明它减少了很多返工；</li>
+<li>有些问题当时没有优先处理，后面变成了更大的修改；</li>
+<li>有些细节当时觉得无关紧要，到了装配或客户现场才发现影响很大。</li>
+</ul>
+<p>&emsp;&emsp;这些经历如果只是过去了，就只是经历；如果能复盘下来，才会变成经验。我现在比较重视把项目中的问题沉淀下来。比如某个结构为什么后期大改，某个供应商反馈为什么前期没有识别，某个公差问题为什么到装配才暴露，某个测试失败背后的真实原因是什么。</p>
+<p>&emsp;&emsp;复盘不只是为了找原因，更是为了下次判断时多一个参考。做项目越多，我越能感受到，很多判断力不是来自某个单点知识，而是来自对类似场景的积累。见过问题如何发生，才更容易提前识别问题可能在哪里发生。</p>
+<p>#从关注单个结构，到关注整个项目影响</p>
+<p>&emsp;&emsp;一开始做机械设计时，我更关注自己负责的结构是否合理。后来参与项目多了，慢慢会看到一个机械设计选择对其他环节的影响。</p>
+<ul>
+<li>一个零件做成一体式，结构更紧凑，但加工周期可能变长；</li>
+<li>一个支架加强后刚度提高了，但重量增加会影响运动机构负载；</li>
+<li>一个机构调整后机械动作更稳定，但可能影响传感器布置；</li>
+<li>一个定位方式更可靠，但装配节拍可能变慢；</li>
+<li>一个设计变更对机械来说很小，但对采购、质量、调试来说可能是连锁影响。</li>
+</ul>
+<p>&emsp;&emsp;这些问题让我逐渐意识到，机械设计不能只看局部最优。很多时候，局部最优不等于项目最优。现在看方案时，我会更习惯把它放到整个项目链条里去看：设计、采购、加工、装配、调试、验证、维护，都会不会被影响。这样做未必每次都能得到最完美的方案，但更容易得到一个整体上更稳的方案。</p>
+<p>这种视角的变化，也是项目经历带来的。</p>
+<p>#不同意见往往能帮助判断更稳</p>
+<p>&emsp;&emsp;我以前也会觉得，方案讨论最好越快收敛越好。但后来发现，适当听到不同意见是有价值的。<br>机械工程师会看到结构风险，装配人员会看到操作空间，供应商会看到加工难点，质量人员会看到检测和判定问题，现场调试人员会看到实际使用中的不确定因素。</p>
+<p>&emsp;&emsp;有些意见一开始听起来像是在增加麻烦，但仔细看，可能正是项目后期容易出问题的地方。<br>当然，听取意见不等于无限讨论。关键是把不同信息收集进来，再结合项目目标和约束条件做取舍。</p>
+<p>&emsp;&emsp;哪些意见必须马上处理，哪些需要验证，哪些记录为后续优化，都要有判断。<br>我现在更愿意把方案讨论看成一个逐步收敛的过程：先把问题看全，再把风险分层，最后形成当前阶段最合适的选择。</p>
+<h1 id="干中学不是口号，而是一种实践中的学习方式"><a href="#干中学不是口号，而是一种实践中的学习方式" class="headerlink" title="干中学不是口号，而是一种实践中的学习方式"></a>干中学不是口号，而是一种实践中的学习方式</h1><p>&emsp;&emsp;我后来才慢慢意识到，所谓“干中学”，并不是一句简单的经验主义口号。它背后其实有很明确的理论依据：人在真实任务中遇到问题，通过行动、反馈、反思和再次尝试，逐渐形成新的判断框架和工作方法。</p>
+<p>&emsp;&emsp;在工程项目里，这种学习方式非常典型。很多机械问题并不是坐在办公室里就能完全想清楚的，只有当结构真正进入加工、装配、调试、测试和客户现场之后，隐藏的问题才会暴露出来。也正是在这些真实反馈中，工程师才会不断修正自己对设计、制造、装配和风险的理解。</p>
+<p>&emsp;&emsp;经济学家 Kenneth Arrow 在 1962 年提出过 “Learning by Doing” 的概念，他认为知识的获得和能力的提升，很大程度上来自实际活动本身；学习不是脱离工作单独发生的，而是在解决问题、参与生产和反复实践中发生的。</p>
+<p>&emsp;&emsp;这个观点放在机械工程里很容易理解：一个人看再多加工工艺资料，也不如亲自经历几次供应商反馈；学再多公差理论，也不如在装配现场看到一次公差链失控带来的问题；听再多设计规范，也不如经历一次因设计输入不稳定导致的返工。</p>
+<p>&emsp;&emsp;David Kolb 的经验学习理论也解释了类似过程。他把学习看成一个循环：具体经验、反思观察、抽象概念化、主动实验。也就是说，真正的学习不是只有“做”，还包括做完之后的复盘、总结，并把总结出的规律再次用到新的实践中。</p>
+<p>&emsp;&emsp;这和我在项目中的感受很接近。一次试产问题如果只是解决掉，那它只是一个项目事件；但如果能复盘它为什么发生、前期哪里没有识别、下次 checklist 应该增加什么内容，它才真正变成经验。</p>
+<p>&emsp;&emsp;Donald Schön 在《反思性实践者》中提出过 “reflection-in-action” 和 “reflection-on-action” 的概念。他关注的是专业人员如何在复杂、不确定的实践场景中，一边行动一边思考，并在行动之后进行反思。</p>
+<p>&emsp;&emsp;这对工程工作尤其有启发。很多时候，项目现场并不会给我们完整的信息和充足的时间，我们必须在推进中判断，在判断中验证，在验证后修正。工程判断力并不是一次性形成的，而是在这种持续的反思和修正中逐渐长出来的。</p>
+<p>&emsp;&emsp;Lave 和 Wenger 的情境学习理论也强调，学习不是孤立地发生在个人脑子里，而是在具体实践场景和共同体中发生的。新人通过参与真实工作，从边缘参与逐渐走向更完整的实践参与，能力也在这个过程中成长。<br>这也解释了为什么机械工程师不能只靠培训成长。真正有效的成长，往往来自参与真实项目、跟着有经验的人做评审、和供应商沟通、去现场看装配、参与问题复盘，并逐渐理解一个成熟工程师是如何判断问题的。</p>
+<p>&emsp;&emsp;所以我现在理解的“干中学”，不是简单地边做边摸索，而是一个更完整的循环：</p>
+<blockquote>
+<p>在真实项目中暴露问题，在问题处理中形成经验，在复盘中提炼规律，再把规律带回到下一次项目实践中。</p>
+</blockquote>
+<ul>
+<li>如果只是干，没有复盘，很容易变成重复试错；</li>
+<li>如果只是学，不进入真实项目，又很难形成工程判断。<br>-真正有价值的是边干边学、边学边总结、边总结边沉淀。</li>
+</ul>
+<p>&emsp;&emsp;对机械团队来说，这种沉淀最终应该变成图纸规范、设计 check list、评审清单、计算模板、DFM 指南、典型问题案例库。这样，个人在项目中学到的经验，才不会只停留在个人身上，而是能逐渐变成团队下一次可以复用的能力。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>现在再看机械设计，我会觉得方案能力很重要，但工程判断力更难得。</p>
+<ul>
+<li>提出方案，是把可能性打开；</li>
+<li>做出判断，是在约束中选择方向；</li>
+<li>推动闭环，是让判断真正变成结果；</li>
+<li>项目复盘，是让一次经历变成下一次的经验。</li>
+</ul>
+<p>&emsp;&emsp;这些能力不是靠说出来的，而是在项目里一点点练出来的。</p>
+<p>&emsp;&emsp;每一次设计评审、每一次供应商沟通、每一次试产问题、每一次客户反馈，都会提醒我：机械设计不是只把结构做出来，而是要在功能、风险、成本、周期、制造和验证之间不断做取舍。</p>
+<p>&emsp;&emsp;我也还在这个过程中继续学习。只是相比过去，我会更有意识地把项目中的判断记录下来，把踩过的坑变成清单，把解决过的问题变成规范，把一次次经验变成团队下一次可以复用的东西。</p>
+<p>&emsp;&emsp;工程判断力，最终不是某个人单独拥有的经验，而是通过项目实践不断沉淀出来的工作方式。它让团队少一些重复试错，也让后面的项目走得更稳。</p>
+<p>Referance:</p>
+<ol>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaGF2ZXJmb3JkLmVkdS9zaXRlcy9kZWZhdWx0L2ZpbGVzL0Fycm93MTk2Mi5wZGY=">Kenneth J. Arrow：Learning by Doing<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Kenneth Arrow 在 1962 年发表的《The Economic Implications of Learning by Doing》 中提出，知识增长和能力提升与实际生产活动密切相关，学习是在“做”的过程中发生的。<br>&emsp;&emsp;Arrow 的 “Learning by Doing” 提醒我，能力提升并不只是来自培训或理论输入，很多工程知识是在真实项目、真实问题和真实反馈中积累起来的。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2ltcGx5cHN5Y2hvbG9neS5vcmcvbGVhcm5pbmcta29sYi5odG1s">David Kolb：经验学习循环<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;David Kolb 的经验学习理论认为，学习是一个由 具体经验、反思观察、抽象概念化、主动实验 构成的循环，知识是在经验被转化的过程中形成的。<br>&emsp;&emsp;Kolb 的经验学习循环很适合解释工程项目中的成长过程：经历问题、复盘问题、提炼规律，再把新的理解用于下一次设计实践。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9ib29rcy5nb29nbGUuY29tLmhrL2Jvb2tzL2Fib3V0L1JlZmxlY3RpdmVfUHJhY3RpdGlvbmVyLmh0bWw/aWQ9b1lOSEFBQUFNQUFKJnJlZGlyX2VzYz15">Donald Schön：反思性实践者<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Donald Schön 在《The Reflective Practitioner》 中研究了工程、建筑、管理等专业人员如何在复杂实践中解决问题，并提出了 “reflection-in-action” 和 “reflection-on-action” 的概念。<br>&emsp;&emsp;Schön 的反思性实践观点让我意识到，工程判断力不是脱离现场形成的，而是在行动中思考、在行动后复盘的过程中慢慢形成的。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93c3UucHJlc3Nib29rcy5wdWIvdGhlb3JldGljYWxtb2RlbHNmb3J0ZWFjaGluZ2FuZHJlc2VhcmNoL2NoYXB0ZXIvc2l0dWF0ZWQtbGVhcm5pbmctdGhlb3J5Lw==">Lave &amp; Wenger：情境学习与实践共同体<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Lave 和 Wenger 在《Situated Learning: Legitimate Peripheral Participation》 中提出，学习是发生在具体情境和实践共同体中的社会过程，学习者通过参与真实实践逐步获得能力。<br>&emsp;&emsp;情境学习理论解释了为什么机械工程师的成长离不开真实项目环境。设计评审、供应商沟通、现场装配和问题复盘，都是工程能力形成的重要场景。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>判断力</tag>
+        <tag>风险</tag>
+        <tag>干中学</tag>
       </tags>
   </entry>
   <entry>
@@ -4161,6 +4197,67 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>指纹识别模块多角度压力测试技术总结</title>
     <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
@@ -4344,67 +4441,6 @@ th {
         <tag>Fingerprint</tag>
         <tag>Multi-angle</tag>
         <tag>多角度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
       </tags>
   </entry>
   <entry>
