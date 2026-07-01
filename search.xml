@@ -396,151 +396,6 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
-    <title>B2B Connector测试探针优化复盘</title>
-    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
-<ul>
-<li>同一类产品测试结果不够稳定  </li>
-<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
-<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
-<li>现场维护频率偏高，影响测试效率</li>
-</ul>
-<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
-<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
-<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
-<ul>
-<li>分析接触不稳定的可能根因</li>
-<li>评估不同探针方案的适配性</li>
-<li>设计刀片针（Blade Pin）接触模组</li>
-<li>设计验证思路，对比弹簧探针与刀片针表现</li>
-<li>优化治具压合、定位和接触机构</li>
-<li>支持测试端导入更稳定的量产方案</li>
-</ul>
-<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
-<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
-<ul>
-<li>Conntact Pitch: 0.35mm</li>
-<li>Width of Conntact: 0.24mm</li>
-<li>Number of Signal Contacts: 40</li>
-<li>connector Type: Receptacle</li>
-</ul>
-<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
-<p>结合现场的现象，重点从以下方面排查验证：</p>
-<ul>
-<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
-<li>B2B connector 与转接板的接触是否对正稳定</li>
-<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
-<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
-<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
-</ul>
-<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
-<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
-<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
-<ul>
-<li>应用成熟  </li>
-<li>通用性强  </li>
-<li>维护和更换方便</li>
-</ul>
-<p>不足：  </p>
-<ul>
-<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
-<li>对位置偏差更敏感  </li>
-<li>在某些接触表面条件下，接触电阻波动更明显  </li>
-<li>长时间测试后，现场会出现更多偶发性接触异常</li>
-</ul>
-<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
-<ul>
-<li>接触更“明确”，接触位置更可控</li>
-<li>对表面膜层&#x2F;微弱污染更不敏感</li>
-<li>在该项目中表现出更高的重复稳定性</li>
-<li>对于特定connector结构，能够形成更有效的接触过程</li>
-</ul>
-<p>需要关注的点：</p>
-<ul>
-<li>对对位精度要求更高</li>
-<li>压力控制和行程设计要更合理</li>
-<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
-</ul>
-<p>在两种探针使用验证过程中，发现如下现象：  </p>
-<ul>
-<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
-<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
-</ul>
-<p>针对以上问题，定义了以下清洁步骤：</p>
-<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
-<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
-</ul>
-<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
-<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
-<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
-<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
-</ul>
-<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
-<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
-<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
-<ul>
-<li>保证转接板上的Pad平整且边线平直</li>
-<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
-<li>保证被测件X&#x2F; Y方向基准是明确的</li>
-<li>Z方向的压合高度是稳定的</li>
-<li>Connector 与探针相对位置重复性可控</li>
-</ul>
-<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
-<ul>
-<li>治具针膜上压板的平面度</li>
-<li>压板与被测件的接触顺序</li>
-<li>被测件的受力均匀性</li>
-</ul>
-<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
-<ul>
-<li>定义治具B2B模组的清洁周期</li>
-<li>定义刀片针的更换标准</li>
-<li>定义刀片针的失效判断方法</li>
-</ul>
-<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
-<ul>
-<li>多次重复测试的一致性</li>
-<li>接触电阻波动范围</li>
-<li>fail &#x2F; retest &#x2F; false fail 比例</li>
-<li>一定循环次数后的稳定性</li>
-<li>现场维护频率和更换频率</li>
-</ul>
-<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
-<ol>
-<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
-</ol>
-<ul>
-<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
-<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
-</ul>
-<ol start="2">
-<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
-</ol>
-<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
-<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
-<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
-<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
-<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
-<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
-<blockquote>
-<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
-</blockquote>
-<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>刀片针</tag>
-        <tag>弹簧针</tag>
-        <tag>Blade Pin</tag>
-        <tag>Pogo Pin</tag>
-        <tag>FCT</tag>
-        <tag>Pitch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Camera测试</title>
     <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
@@ -799,6 +654,336 @@ search | web前段开发工程师 | 码农
         <tag>Camera</tag>
         <tag>Chart</tag>
         <tag>FOV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>B2B Connector测试探针优化复盘</title>
+    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
+<ul>
+<li>同一类产品测试结果不够稳定  </li>
+<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
+<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
+<li>现场维护频率偏高，影响测试效率</li>
+</ul>
+<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
+<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
+<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
+<ul>
+<li>分析接触不稳定的可能根因</li>
+<li>评估不同探针方案的适配性</li>
+<li>设计刀片针（Blade Pin）接触模组</li>
+<li>设计验证思路，对比弹簧探针与刀片针表现</li>
+<li>优化治具压合、定位和接触机构</li>
+<li>支持测试端导入更稳定的量产方案</li>
+</ul>
+<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
+<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
+<ul>
+<li>Conntact Pitch: 0.35mm</li>
+<li>Width of Conntact: 0.24mm</li>
+<li>Number of Signal Contacts: 40</li>
+<li>connector Type: Receptacle</li>
+</ul>
+<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
+<p>结合现场的现象，重点从以下方面排查验证：</p>
+<ul>
+<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
+<li>B2B connector 与转接板的接触是否对正稳定</li>
+<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
+<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
+<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
+</ul>
+<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
+<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
+<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
+<ul>
+<li>应用成熟  </li>
+<li>通用性强  </li>
+<li>维护和更换方便</li>
+</ul>
+<p>不足：  </p>
+<ul>
+<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
+<li>对位置偏差更敏感  </li>
+<li>在某些接触表面条件下，接触电阻波动更明显  </li>
+<li>长时间测试后，现场会出现更多偶发性接触异常</li>
+</ul>
+<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
+<ul>
+<li>接触更“明确”，接触位置更可控</li>
+<li>对表面膜层&#x2F;微弱污染更不敏感</li>
+<li>在该项目中表现出更高的重复稳定性</li>
+<li>对于特定connector结构，能够形成更有效的接触过程</li>
+</ul>
+<p>需要关注的点：</p>
+<ul>
+<li>对对位精度要求更高</li>
+<li>压力控制和行程设计要更合理</li>
+<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
+</ul>
+<p>在两种探针使用验证过程中，发现如下现象：  </p>
+<ul>
+<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
+<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
+</ul>
+<p>针对以上问题，定义了以下清洁步骤：</p>
+<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
+<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
+</ul>
+<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
+<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
+<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
+<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
+</ul>
+<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
+<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
+<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
+<ul>
+<li>保证转接板上的Pad平整且边线平直</li>
+<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
+<li>保证被测件X&#x2F; Y方向基准是明确的</li>
+<li>Z方向的压合高度是稳定的</li>
+<li>Connector 与探针相对位置重复性可控</li>
+</ul>
+<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
+<ul>
+<li>治具针膜上压板的平面度</li>
+<li>压板与被测件的接触顺序</li>
+<li>被测件的受力均匀性</li>
+</ul>
+<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
+<ul>
+<li>定义治具B2B模组的清洁周期</li>
+<li>定义刀片针的更换标准</li>
+<li>定义刀片针的失效判断方法</li>
+</ul>
+<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
+<ul>
+<li>多次重复测试的一致性</li>
+<li>接触电阻波动范围</li>
+<li>fail &#x2F; retest &#x2F; false fail 比例</li>
+<li>一定循环次数后的稳定性</li>
+<li>现场维护频率和更换频率</li>
+</ul>
+<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
+<ol>
+<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
+</ol>
+<ul>
+<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
+<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
+</ul>
+<ol start="2">
+<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
+</ol>
+<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
+<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
+<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
+<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
+<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
+<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
+<blockquote>
+<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
+</blockquote>
+<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>刀片针</tag>
+        <tag>弹簧针</tag>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>FCT</tag>
+        <tag>Pitch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
+    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
+<ul>
+<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
+<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
+<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
+<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
+<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
+<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
+<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
+<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
+<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
+<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
+<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
+<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
+</ul>
+<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
+<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
+<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
+<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
+<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
+<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
+</ul>
+<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
+<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
+<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
+<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
+<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
+<li>Datums are perfect; they are the origin for measurements.</li>
+<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
+<li>Position tolerance is usually cylindrical (use ⌀).</li>
+<li>Profile can control form, orientation, and location in one callout.</li>
+<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
+</ol>
+<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
+<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
+<li>Straightness: Shafts, edges.</li>
+<li>Circularity: Bearing races, rings.</li>
+<li>Cylindricity: Pistons, hydraulic bores.</li>
+<li>Profile: Complex 3D shapes, molds.</li>
+<li>Parallelism: Guide rails, mounting surfaces.</li>
+<li>Perpendicularity: Holes normal to a plate.</li>
+<li>Angularity: 45° brackets, bevels.</li>
+<li>Position: Hole patterns, bolt circles (#1).</li>
+<li>Concentricity: Rotating shafts, pulleys.</li>
+<li>Symmetry: Slots, tabs, symmetrical parts.</li>
+<li>Runout: Wheels, gears, rotating components.</li>
+</ol>
+<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
+  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
+  width="100%"
+  height="1000px">
+</iframe>
+
+
+<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github图床删除图片</title>
+    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
+</blockquote>
+<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
+<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
+<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
+<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
+<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
+<hr>
+<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
+<hr>
+<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
+<p>❌ PicGo 本身不支持删除远端图片</p>
+</blockquote>
+<p>原因很简单：</p>
+<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
+<p>👉 删除一定要回到 GitHub 仓库</p>
+<hr>
+<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>可能：</p>
+<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
+<p>这是 CDN 缓存，不是你删错。</p>
+<hr>
+<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>PicGo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GRR</title>
+    <url>/2026/05/17/GRR/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
+<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
+</blockquote>
+<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
+<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
+</li>
+<li><p>R：Repeatability（重复性，设备变异 EV）</p>
+<blockquote>
+<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
+</blockquote>
+</li>
+<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
+<blockquote>
+<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
+<li><p>**&lt;10%**：合格，测量系统良好</p>
+</li>
+<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
+</li>
+<li><p>**&gt;30%**：不合格，必须改善</p>
+</li>
+</ol>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
+</ol>
+<ul>
+<li>适用：10 零件、3 人、每人测 2~3 次</li>
+<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
+<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
+</ul>
+<ol start="2">
+<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
+</ol>
+<ul>
+<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
+<li>缺点：计算复杂，现场很少手工算</li>
+<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
+</ul>
+<ol start="3">
+<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
+</ol>
+<ul>
+<li>2 人各测 1 遍，最快出结果</li>
+<li>只粗判，不能用来正式交报告</li>
+<li>用途：现场快速点检量具准不准</li>
+</ul>
+<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
+<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
+<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
+<li>NDC：可区分类别数，≥5可接受。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GRR</tag>
+        <tag>均值——极差法</tag>
+        <tag>方差分析法</tag>
       </tags>
   </entry>
   <entry>
@@ -1207,218 +1392,96 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
-    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
+    <title>MacBook效率工具</title>
+    <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
+<h3 id="IINA-免费开源视频播放器"><a href="#IINA-免费开源视频播放器" class="headerlink" title="IINA - 免费开源视频播放器"></a>IINA - 免费开源视频播放器</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9paW5hLmlvLw==">IINA<i class="fa fa-external-link-alt"></i></span> 是一款 macOS 下的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoYzcwMDAwL2lpbmE=">开源<i class="fa fa-external-link-alt"></i></span>视频播放器，基于 <span class="exturl" data-url="aHR0cHM6Ly9tcHYuaW8v">mpv<i class="fa fa-external-link-alt"></i></span>，为现代 macOS(10.10+) 而生，支持 Touch Bar、兼容 MPV 脚本、几乎支持所有格式、网络播放、拥有优雅外观的<code>免费开源</code>视频播放器。<span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjI3Mw==">少数派<i class="fa fa-external-link-alt"></i></span> 也出了相应的使用说明。</p>
+<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
+<h3 id="Hidden-Bar-免费隐藏工具栏"><a href="#Hidden-Bar-免费隐藏工具栏" class="headerlink" title="Hidden Bar - 免费隐藏工具栏"></a>Hidden Bar - 免费隐藏工具栏</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9jbi9hcHAvaGlkZGVuLWJhci9pZDE0NTI0NTMwNjY/bXQ9MTI=">Hidden Bar<i class="fa fa-external-link-alt"></i></span> 菜单栏图标太多，很碍眼？想要一款能够隐藏菜单栏图标的<code>免费</code>工具？Hidden Bar for mac分享给大家！Hidden Bar Mac版使用非常简单，运行 Hidden Bar 之后，会在菜单栏上出现一个分隔符 “｜”，左侧的是被隐藏图标，右侧是长期显示图标。只需要按住 command ⌘ 键，然后拖动一个应用图标到分隔符 “｜”左边，就代表隐藏了，是不是很方便呢？</p>
+<h3 id="Dukto-免费局域网传输工具"><a href="#Dukto-免费局域网传输工具" class="headerlink" title="Dukto - 免费局域网传输工具"></a>Dukto - 免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
+<h3 id="FDM-免费链接下载工具"><a href="#FDM-免费链接下载工具" class="headerlink" title="FDM - 免费链接下载工具"></a>FDM - 免费链接下载工具</h3><ul>
+<li>快速、安全且有效率地下載</li>
+<li>從熱門網站下載影片</li>
+<li>伺服器支援</li>
+<li>HTTP&#x2F;HTTPS&#x2F;FTP&#x2F;BT 支援</li>
+<li>現代化設計的友善介面</li>
+<li>支援 Windows 及macOS作業系統<br>&emsp;&emsp;<strong>此外</strong>, 在 macOS及 Windows作業系統下的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZG93bmxvYWQuaHRt">Free Download Manager<i class="fa fa-external-link-alt"></i></span>還能讓您調整使用頻寬，組織下載，控制種子優先順序，以有效地下載大型及斷點續傳檔案。FDM能夠啟動您的所有下載高達10倍速，處理各種熱門格式的影片，從網路瀏覽器拖放網址，同時下載多個檔案。我們的網路下載管理器也相容於 Google Chrome、Mozilla Firefox、Microsoft Edge、nternet Explorer 及Safari瀏覽器。有關更多資訊，請點擊<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZmVhdHVyZXMuaHRt">这里<i class="fa fa-external-link-alt"></i></span>。</li>
+</ul>
+<h3 id="Beyong-compare-文件对比工具"><a href="#Beyong-compare-文件对比工具" class="headerlink" title="Beyong compare - 文件对比工具"></a>Beyong compare - 文件对比工具</h3><ul>
+<li>Beyond Compare 是一款功能非常强大的文件对比工具，不仅仅可以对比文件、Word 、Excal、mp3、文件夹等等，还可以对比图片，而且还可以填写新的文件格式。我们先看看 Beyond Compare 目前支持哪些文件格式的对比。</li>
+<li>Mac 版本：</li>
+</ul>
+<ol>
+<li>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Nvb3RlcnNvZnR3YXJlLmNvbS9kb3dubG9hZC5waHA=">官网<i class="fa fa-external-link-alt"></i></span>下载BeyondCompare并安装成功后，执行如下操作:</li>
+<li>进入Beyond Compare应用程序MacOS目录下(&#x2F;Applications&#x2F;BeyondCompare.app&#x2F;Contents&#x2F;MacOS)</li>
+<li>选中Beyond Compare, 右击选中“显示包内容”-&gt;Contents-&gt;MacOS-&gt;</li>
+<li>将主启动程序文件BCompare重命名为BCompare.real</li>
+</ol>
 <ul>
-<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
-<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
-<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
-<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
-<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
-<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
-<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
-<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
-<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
-<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
-<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
-<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
+<li>在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看</li>
+<li>打开终端cd到BCompare文件目录，使用命令：touch BCompare创建文件</li>
+<li>打开BCompare文件输入一下代码：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> <span class="string">&quot;/Users/<span class="subst">$(whoami)</span>/Library/Application Support/BeyondCompare/registry.dat&quot;</span></span><br><span class="line"><span class="string">&quot;`dirname &quot;</span><span class="variable">$0</span><span class="string">&quot;`&quot;</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</li>
 </ul>
-<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
-<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
-<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
-<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
-<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
-<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
+<ol start="5">
+<li>给新建的文件BCompare，授权文件执行权限</li>
+</ol>
+<ul>
+<li>授权文件执行权限<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod a+x <span class="regexp">/Applications/</span>Beyond\Compare.app<span class="regexp">/Contents/</span>MacOS/BCompare</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
-<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
-<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
-<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
-<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
-<li>Datums are perfect; they are the origin for measurements.</li>
-<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
-<li>Position tolerance is usually cylindrical (use ⌀).</li>
-<li>Profile can control form, orientation, and location in one callout.</li>
-<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
-</ol>
-<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
-<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
-<li>Straightness: Shafts, edges.</li>
-<li>Circularity: Bearing races, rings.</li>
-<li>Cylindricity: Pistons, hydraulic bores.</li>
-<li>Profile: Complex 3D shapes, molds.</li>
-<li>Parallelism: Guide rails, mounting surfaces.</li>
-<li>Perpendicularity: Holes normal to a plate.</li>
-<li>Angularity: 45° brackets, bevels.</li>
-<li>Position: Hole patterns, bolt circles (#1).</li>
-<li>Concentricity: Rotating shafts, pulleys.</li>
-<li>Symmetry: Slots, tabs, symmetrical parts.</li>
-<li>Runout: Wheels, gears, rotating components.</li>
-</ol>
-<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
-  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
-  width="100%"
-  height="1000px">
-</iframe>
-
-
-<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
+<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
+<h3 id="Xmind-Zen-思维导图工具"><a href="#Xmind-Zen-思维导图工具" class="headerlink" title="Xmind Zen - 思维导图工具"></a>Xmind Zen - 思维导图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnNlZ21lbnRmYXVsdC5jb20vP2VuYz11YlJZNVBCMlNaT3VSYWc4UUxDRStRPT0udDVqcnp1NTlvT09ya2hkYlk0a1h3aExWTlhZUFNZV0VnbEZFNHF5Skd0T3BubTJkbFZtZjg0MGYyOWZMdTdWNQ==">XMind ZEN<i class="fa fa-external-link-alt"></i></span>  是一款功能强大、颜值超高的全新[思维导图]工具，100% 重写了思维导图的引擎，着眼在未来的黑科技上，提升了思维导图的展示效果，丰富了绘图的元素。所有内置主题的字体都能让你的导图在各平台上拥有一致的视觉呈现效果。当导图中的中、日、韩字符不能够被正确呈现时，CJK字体列表可以作为备选方案解决这种窘境。</p>
+<h3 id="Chrome-免费谷歌浏览器"><a href="#Chrome-免费谷歌浏览器" class="headerlink" title="Chrome - 免费谷歌浏览器"></a>Chrome - 免费谷歌浏览器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNuL2Nocm9tZS8=">官网<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li>MAC下，插件的安装位置：所有的chrome插件都是安装在资源管理库(library)里面的,如果你的记性够好，请记住MAC下插件的安装位置：<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/Library/</span>Application Support<span class="regexp">/Google/</span>Chrome<span class="regexp">/Default/</span>Extensions</span><br></pre></td></tr></table></figure></li>
+<li>谷歌访问助手</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJpbnRmcmllbmRseS5jb20v">Print Friendly&amp;PDF<i class="fa fa-external-link-alt"></i></span>, 网页打印成PDF。</li>
+</ul>
+<h3 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h3><p>&emsp;&emsp;自1989年第一版JMP软件问世以来，<span class="exturl" data-url="aHR0cHM6Ly93d3cuam1wLmNvbS96aF9jbi9zb2Z0d2FyZS5odG1s">JMP<i class="fa fa-external-link-alt"></i></span>. 统计发现软件一直是各个行业和政府部门的科学家、工程师及其他数据探索人员的首选工具。 [1]   JMP系列产品包括JMP，JMP Pro，JMP Clinical，JMP Genomics等产品线。通过帮助全球客户发现数据背后的价值，JMP被广泛应用于业务可视化、探索性数据分析(EDA)、数据挖掘、建模预测、实验设计、产品研发、生物统计、医学统计、可靠性分析、市场调研、<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlODUlQUQlRTglQTUlQkYlRTYlQTAlQkMlRTclOEUlOUIlRTglQjQlQTglRTklODclOEYvNTMzMDUwNjE=">六西格玛质量<i class="fa fa-external-link-alt"></i></span>管理等领域，裨益半导体和电子、医药、化工、食品、金融和服务、政府和教育等各行各业，并逐渐成为全球领先的数据分析方法及咨询供应商，致力于帮助客户从数据中获取价值，优化决策，驱动创新，成就未来。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>MacBook</tag>
+        <tag>效率</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Siemens NX 视图方位快捷键</title>
+    <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt="NX坐标系"></p>
+<ul>
+<li><code>Home</code>：正三侧视图</li>
+<li><code>End</code>：正等侧视图</li>
+</ul>
+<hr>
+<ul>
+<li><code>Ctrl+Alt+F</code>：正前方（Front）</li>
+<li><code>Ctrl+Alt+T</code>：正上方（Top）</li>
+<li><code>Ctrl+Alt+R</code>：右（Right）</li>
+<li><code>Ctrl+Alt+L</code>：左（Left）</li>
+</ul>
+<hr>
+<ul>
+<li><code>F6</code>：缩放。启用后，按鼠标左键画一个矩形，会放大这个矩形区域。  </li>
+<li><code>F7</code>：旋转。启用后按住鼠标左键进行旋转，效果和直接使用鼠标中键一样。</li>
+<li><code>F8</code>：选择一个面，按此键可以正视于选择的面。无选择面，则正视于前、后、左、右、仰、俯里 6 个视图中最接近的一个</li>
+<li><code>Ctrl+F</code>：适合窗口（Fit Window）。将视图大小缩放到适合的窗口。</li>
+<li><code>Ctrl+R</code>：旋转视图（Rotate View）。可以沿指定轴旋转。</li>
+<li><code>Ctrl+Shift+Z</code>：缩放视图（Zoom View）。指定倍率缩放。</li>
+</ul>
 ]]></content>
       <categories>
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>GD&amp;T</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GRR</title>
-    <url>/2026/05/17/GRR/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
-<p>中文：量具重复性与再现性分析，属于 <strong>MSA（测量系统分析）</strong> 核心工具，用于评估测量系统本身的波动是否可接受。</p>
-</blockquote>
-<h3 id="核心含义"><a href="#核心含义" class="headerlink" title="核心含义"></a>核心含义</h3><ul>
-<li><p>G：Gauge（量具 &#x2F; 测量系统）</p>
-</li>
-<li><p>R：Repeatability（重复性，设备变异 EV）</p>
-<blockquote>
-<p>同一人、同一量具、同一零件，多次测量的一致性；反映<strong>设备本身稳定性</strong>。</p>
-</blockquote>
-</li>
-<li><p>R：Reproducibility（再现性，人员变异 AV）</p>
-<blockquote>
-<p>不同人、同一量具、同一零件，测量结果的一致性；反映<strong>人员操作差异</strong>。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="判定标准（GRR-，测量系统波动占总波动）"><a href="#判定标准（GRR-，测量系统波动占总波动）" class="headerlink" title="判定标准（GRR%，测量系统波动占总波动）"></a>判定标准（GRR%，测量系统波动占总波动）</h3><ol>
-<li><p>**&lt;10%**：合格，测量系统良好</p>
-</li>
-<li><p>**10%~30%**：条件接受（非关键特性可用）</p>
-</li>
-<li><p>**&gt;30%**：不合格，必须改善</p>
-</li>
-</ol>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
-<li><strong>均值极差法（Xbar-R）</strong>：10 零件 ×3 人 ×2–3 次，可拆分 EV&#x2F;AV，最常用。</li>
-</ol>
-<ul>
-<li>适用：10 零件、3 人、每人测 2~3 次</li>
-<li>优点：计算简单、客户 &#x2F; 审核最认可、Minitab 直接出结果</li>
-<li>用途：量产尺寸、关键尺寸、送检 MSA、客户审核、8D、制程验证</li>
-</ul>
-<ol start="2">
-<li><strong>方差分析法（ANOVA）</strong>：最精确，可分析交互作用，计算复杂。</li>
-</ol>
-<ul>
-<li>优点：精度最高，能算人员 &amp; 零件交互误差</li>
-<li>缺点：计算复杂，现场很少手工算</li>
-<li>适用：研发、实验室、高精度精密件、汽车主机厂严格项目</li>
-</ul>
-<ol start="3">
-<li><strong>极差法（快速 GRR）</strong>：2 人各测 1 次，快速粗评，不能拆分 EV&#x2F;AV。</li>
-</ol>
-<ul>
-<li>2 人各测 1 遍，最快出结果</li>
-<li>只粗判，不能用来正式交报告</li>
-<li>用途：现场快速点检量具准不准</li>
-</ul>
-<h3 id="关键指标"><a href="#关键指标" class="headerlink" title="关键指标"></a>关键指标</h3><ul>
-<li>GRR%（P&#x2F;TV）：测量系统波动 &#x2F; 总波动（越小越好）。</li>
-<li>P&#x2F;T：测量系统波动 &#x2F; 公差（越小越好）。</li>
-<li>NDC：可区分类别数，≥5可接受。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>GRR 就是验证 “量具准不准、人测的一致不一致”，确保数据可信，再做 SPC &#x2F; 过程能力才有意义。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GRR</tag>
-        <tag>均值——极差法</tag>
-        <tag>方差分析法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github图床删除图片</title>
-    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
-<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
-</blockquote>
-<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
-<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
-<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
-<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
-<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
-<hr>
-<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
-<hr>
-<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
-<p>❌ PicGo 本身不支持删除远端图片</p>
-</blockquote>
-<p>原因很简单：</p>
-<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
-<p>👉 删除一定要回到 GitHub 仓库</p>
-<hr>
-<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>可能：</p>
-<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
-<p>这是 CDN 缓存，不是你删错。</p>
-<hr>
-<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>PicGo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Honda WH150T Maintenace (Official)</title>
-    <url>/2026/06/03/Honda%20WH150T%20Maintenace%20(Official)/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="技术参数"><a href="#技术参数" class="headerlink" title="技术参数"></a>技术参数</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B01.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B02.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B03.png"></p>
-<h2 id="保养周期表"><a href="#保养周期表" class="headerlink" title="保养周期表"></a>保养周期表</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A81.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A82.png"></p>
-<h2 id="发动机机油检查与更换"><a href="#发动机机油检查与更换" class="headerlink" title="发动机机油检查与更换"></a>发动机机油检查与更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="机油滤网"><a href="#机油滤网" class="headerlink" title="机油滤网"></a>机油滤网</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9C%BA%E6%B2%B9%E6%BB%A4%E7%BD%91.png"></p>
-<h2 id="更换减速器齿轮油"><a href="#更换减速器齿轮油" class="headerlink" title="更换减速器齿轮油"></a>更换减速器齿轮油</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%87%8F%E9%80%9F%E5%99%A8%E9%BD%BF%E8%BD%AE%E6%B2%B9.png"></p>
-<h2 id="更换冷却液"><a href="#更换冷却液" class="headerlink" title="更换冷却液"></a>更换冷却液</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%86%B7%E5%8D%B4%E6%B6%B2.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B21.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B22.png"></p>
-<h2 id="蓄电池的更换"><a href="#蓄电池的更换" class="headerlink" title="蓄电池的更换"></a>蓄电池的更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E8%93%84%E7%94%B5%E6%B1%A0%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="紧急情况解锁点火开关"><a href="#紧急情况解锁点火开关" class="headerlink" title="紧急情况解锁点火开关"></a>紧急情况解锁点火开关</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B31.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B32.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B33.png"></p>
-<h2 id="紧急情况解锁鞍座"><a href="#紧急情况解锁鞍座" class="headerlink" title="紧急情况解锁鞍座"></a>紧急情况解锁鞍座</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E9%9E%8D%E5%BA%A7.png"></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>Motorcycle</tag>
-        <tag>Maintenace</tag>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX 2506</tag>
+        <tag>视图方位快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -1592,120 +1655,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Siemens NX 视图方位快捷键</title>
-    <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt="NX坐标系"></p>
-<ul>
-<li><code>Home</code>：正三侧视图</li>
-<li><code>End</code>：正等侧视图</li>
-</ul>
-<hr>
-<ul>
-<li><code>Ctrl+Alt+F</code>：正前方（Front）</li>
-<li><code>Ctrl+Alt+T</code>：正上方（Top）</li>
-<li><code>Ctrl+Alt+R</code>：右（Right）</li>
-<li><code>Ctrl+Alt+L</code>：左（Left）</li>
-</ul>
-<hr>
-<ul>
-<li><code>F6</code>：缩放。启用后，按鼠标左键画一个矩形，会放大这个矩形区域。  </li>
-<li><code>F7</code>：旋转。启用后按住鼠标左键进行旋转，效果和直接使用鼠标中键一样。</li>
-<li><code>F8</code>：选择一个面，按此键可以正视于选择的面。无选择面，则正视于前、后、左、右、仰、俯里 6 个视图中最接近的一个</li>
-<li><code>Ctrl+F</code>：适合窗口（Fit Window）。将视图大小缩放到适合的窗口。</li>
-<li><code>Ctrl+R</code>：旋转视图（Rotate View）。可以沿指定轴旋转。</li>
-<li><code>Ctrl+Shift+Z</code>：缩放视图（Zoom View）。指定倍率缩放。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Siemens</tag>
-        <tag>NX</tag>
-        <tag>NX 2506</tag>
-        <tag>视图方位快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MacBook效率工具</title>
-    <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
-<h3 id="IINA-免费开源视频播放器"><a href="#IINA-免费开源视频播放器" class="headerlink" title="IINA - 免费开源视频播放器"></a>IINA - 免费开源视频播放器</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9paW5hLmlvLw==">IINA<i class="fa fa-external-link-alt"></i></span> 是一款 macOS 下的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoYzcwMDAwL2lpbmE=">开源<i class="fa fa-external-link-alt"></i></span>视频播放器，基于 <span class="exturl" data-url="aHR0cHM6Ly9tcHYuaW8v">mpv<i class="fa fa-external-link-alt"></i></span>，为现代 macOS(10.10+) 而生，支持 Touch Bar、兼容 MPV 脚本、几乎支持所有格式、网络播放、拥有优雅外观的<code>免费开源</code>视频播放器。<span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjI3Mw==">少数派<i class="fa fa-external-link-alt"></i></span> 也出了相应的使用说明。</p>
-<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
-<h3 id="Hidden-Bar-免费隐藏工具栏"><a href="#Hidden-Bar-免费隐藏工具栏" class="headerlink" title="Hidden Bar - 免费隐藏工具栏"></a>Hidden Bar - 免费隐藏工具栏</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9jbi9hcHAvaGlkZGVuLWJhci9pZDE0NTI0NTMwNjY/bXQ9MTI=">Hidden Bar<i class="fa fa-external-link-alt"></i></span> 菜单栏图标太多，很碍眼？想要一款能够隐藏菜单栏图标的<code>免费</code>工具？Hidden Bar for mac分享给大家！Hidden Bar Mac版使用非常简单，运行 Hidden Bar 之后，会在菜单栏上出现一个分隔符 “｜”，左侧的是被隐藏图标，右侧是长期显示图标。只需要按住 command ⌘ 键，然后拖动一个应用图标到分隔符 “｜”左边，就代表隐藏了，是不是很方便呢？</p>
-<h3 id="Dukto-免费局域网传输工具"><a href="#Dukto-免费局域网传输工具" class="headerlink" title="Dukto - 免费局域网传输工具"></a>Dukto - 免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
-<h3 id="FDM-免费链接下载工具"><a href="#FDM-免费链接下载工具" class="headerlink" title="FDM - 免费链接下载工具"></a>FDM - 免费链接下载工具</h3><ul>
-<li>快速、安全且有效率地下載</li>
-<li>從熱門網站下載影片</li>
-<li>伺服器支援</li>
-<li>HTTP&#x2F;HTTPS&#x2F;FTP&#x2F;BT 支援</li>
-<li>現代化設計的友善介面</li>
-<li>支援 Windows 及macOS作業系統<br>&emsp;&emsp;<strong>此外</strong>, 在 macOS及 Windows作業系統下的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZG93bmxvYWQuaHRt">Free Download Manager<i class="fa fa-external-link-alt"></i></span>還能讓您調整使用頻寬，組織下載，控制種子優先順序，以有效地下載大型及斷點續傳檔案。FDM能夠啟動您的所有下載高達10倍速，處理各種熱門格式的影片，從網路瀏覽器拖放網址，同時下載多個檔案。我們的網路下載管理器也相容於 Google Chrome、Mozilla Firefox、Microsoft Edge、nternet Explorer 及Safari瀏覽器。有關更多資訊，請點擊<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZmVhdHVyZXMuaHRt">这里<i class="fa fa-external-link-alt"></i></span>。</li>
-</ul>
-<h3 id="Beyong-compare-文件对比工具"><a href="#Beyong-compare-文件对比工具" class="headerlink" title="Beyong compare - 文件对比工具"></a>Beyong compare - 文件对比工具</h3><ul>
-<li>Beyond Compare 是一款功能非常强大的文件对比工具，不仅仅可以对比文件、Word 、Excal、mp3、文件夹等等，还可以对比图片，而且还可以填写新的文件格式。我们先看看 Beyond Compare 目前支持哪些文件格式的对比。</li>
-<li>Mac 版本：</li>
-</ul>
-<ol>
-<li>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Nvb3RlcnNvZnR3YXJlLmNvbS9kb3dubG9hZC5waHA=">官网<i class="fa fa-external-link-alt"></i></span>下载BeyondCompare并安装成功后，执行如下操作:</li>
-<li>进入Beyond Compare应用程序MacOS目录下(&#x2F;Applications&#x2F;BeyondCompare.app&#x2F;Contents&#x2F;MacOS)</li>
-<li>选中Beyond Compare, 右击选中“显示包内容”-&gt;Contents-&gt;MacOS-&gt;</li>
-<li>将主启动程序文件BCompare重命名为BCompare.real</li>
-</ol>
-<ul>
-<li>在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看</li>
-<li>打开终端cd到BCompare文件目录，使用命令：touch BCompare创建文件</li>
-<li>打开BCompare文件输入一下代码：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> <span class="string">&quot;/Users/<span class="subst">$(whoami)</span>/Library/Application Support/BeyondCompare/registry.dat&quot;</span></span><br><span class="line"><span class="string">&quot;`dirname &quot;</span><span class="variable">$0</span><span class="string">&quot;`&quot;</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
-第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</li>
-</ul>
-<ol start="5">
-<li>给新建的文件BCompare，授权文件执行权限</li>
-</ol>
-<ul>
-<li>授权文件执行权限<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod a+x <span class="regexp">/Applications/</span>Beyond\Compare.app<span class="regexp">/Contents/</span>MacOS/BCompare</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
-<h3 id="Xmind-Zen-思维导图工具"><a href="#Xmind-Zen-思维导图工具" class="headerlink" title="Xmind Zen - 思维导图工具"></a>Xmind Zen - 思维导图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnNlZ21lbnRmYXVsdC5jb20vP2VuYz11YlJZNVBCMlNaT3VSYWc4UUxDRStRPT0udDVqcnp1NTlvT09ya2hkYlk0a1h3aExWTlhZUFNZV0VnbEZFNHF5Skd0T3BubTJkbFZtZjg0MGYyOWZMdTdWNQ==">XMind ZEN<i class="fa fa-external-link-alt"></i></span>  是一款功能强大、颜值超高的全新[思维导图]工具，100% 重写了思维导图的引擎，着眼在未来的黑科技上，提升了思维导图的展示效果，丰富了绘图的元素。所有内置主题的字体都能让你的导图在各平台上拥有一致的视觉呈现效果。当导图中的中、日、韩字符不能够被正确呈现时，CJK字体列表可以作为备选方案解决这种窘境。</p>
-<h3 id="Chrome-免费谷歌浏览器"><a href="#Chrome-免费谷歌浏览器" class="headerlink" title="Chrome - 免费谷歌浏览器"></a>Chrome - 免费谷歌浏览器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNuL2Nocm9tZS8=">官网<i class="fa fa-external-link-alt"></i></span></p>
-<ul>
-<li>MAC下，插件的安装位置：所有的chrome插件都是安装在资源管理库(library)里面的,如果你的记性够好，请记住MAC下插件的安装位置：<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/Library/</span>Application Support<span class="regexp">/Google/</span>Chrome<span class="regexp">/Default/</span>Extensions</span><br></pre></td></tr></table></figure></li>
-<li>谷歌访问助手</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJpbnRmcmllbmRseS5jb20v">Print Friendly&amp;PDF<i class="fa fa-external-link-alt"></i></span>, 网页打印成PDF。</li>
-</ul>
-<h3 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h3><p>&emsp;&emsp;自1989年第一版JMP软件问世以来，<span class="exturl" data-url="aHR0cHM6Ly93d3cuam1wLmNvbS96aF9jbi9zb2Z0d2FyZS5odG1s">JMP<i class="fa fa-external-link-alt"></i></span>. 统计发现软件一直是各个行业和政府部门的科学家、工程师及其他数据探索人员的首选工具。 [1]   JMP系列产品包括JMP，JMP Pro，JMP Clinical，JMP Genomics等产品线。通过帮助全球客户发现数据背后的价值，JMP被广泛应用于业务可视化、探索性数据分析(EDA)、数据挖掘、建模预测、实验设计、产品研发、生物统计、医学统计、可靠性分析、市场调研、<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlODUlQUQlRTglQTUlQkYlRTYlQTAlQkMlRTclOEUlOUIlRTglQjQlQTglRTklODclOEYvNTMzMDUwNjE=">六西格玛质量<i class="fa fa-external-link-alt"></i></span>管理等领域，裨益半导体和电子、医药、化工、食品、金融和服务、政府和教育等各行各业，并逐渐成为全球领先的数据分析方法及咨询供应商，致力于帮助客户从数据中获取价值，优化决策，驱动创新，成就未来。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>MacBook</tag>
-        <tag>效率</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks参数优化</title>
-    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
-<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
-<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
-<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
-<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>参数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SolidWorks在设备设计中的运动动画应用实践</title>
     <url>/2024/02/27/SolidWorks%E5%9C%A8%E8%AE%BE%E5%A4%87%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="模型处理"><a href="#模型处理" class="headerlink" title="模型处理"></a>模型处理</h2><p>&emsp;&emsp;主要对整个模型进行一些基本的处理，以便后期模型运动提供便利。</p>
@@ -1777,6 +1726,57 @@ th {
         <tag>仿真</tag>
         <tag>动画</tag>
         <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Honda WH150T Maintenace (Official)</title>
+    <url>/2026/06/03/Honda%20WH150T%20Maintenace%20(Official)/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="技术参数"><a href="#技术参数" class="headerlink" title="技术参数"></a>技术参数</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B01.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B02.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B03.png"></p>
+<h2 id="保养周期表"><a href="#保养周期表" class="headerlink" title="保养周期表"></a>保养周期表</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A81.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E4%BF%9D%E5%85%BB%E5%91%A8%E6%9C%9F%E8%A1%A82.png"></p>
+<h2 id="发动机机油检查与更换"><a href="#发动机机油检查与更换" class="headerlink" title="发动机机油检查与更换"></a>发动机机油检查与更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="机油滤网"><a href="#机油滤网" class="headerlink" title="机油滤网"></a>机油滤网</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9C%BA%E6%B2%B9%E6%BB%A4%E7%BD%91.png"></p>
+<h2 id="更换减速器齿轮油"><a href="#更换减速器齿轮油" class="headerlink" title="更换减速器齿轮油"></a>更换减速器齿轮油</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%87%8F%E9%80%9F%E5%99%A8%E9%BD%BF%E8%BD%AE%E6%B2%B9.png"></p>
+<h2 id="更换冷却液"><a href="#更换冷却液" class="headerlink" title="更换冷却液"></a>更换冷却液</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%9B%B4%E6%8D%A2%E5%86%B7%E5%8D%B4%E6%B6%B2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B21.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%94%BE%E6%B0%94%20%E5%8A%A0%E5%85%A5%E5%86%B7%E5%8D%B4%E6%B6%B22.png"></p>
+<h2 id="蓄电池的更换"><a href="#蓄电池的更换" class="headerlink" title="蓄电池的更换"></a>蓄电池的更换</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E8%93%84%E7%94%B5%E6%B1%A0%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="紧急情况解锁点火开关"><a href="#紧急情况解锁点火开关" class="headerlink" title="紧急情况解锁点火开关"></a>紧急情况解锁点火开关</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B31.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B32.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E7%82%B9%E7%81%AB%E5%BC%80%E5%85%B33.png"></p>
+<h2 id="紧急情况解锁鞍座"><a href="#紧急情况解锁鞍座" class="headerlink" title="紧急情况解锁鞍座"></a>紧急情况解锁鞍座</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%E4%B8%8B%E8%A7%A3%E9%94%81%E9%9E%8D%E5%BA%A7.png"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>Motorcycle</tag>
+        <tag>Maintenace</tag>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -2571,55 +2571,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/08/12/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -2824,6 +2775,31 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>从“调通设备”到“稳定交付”：FCT 治具调试中的机械控制逻辑</title>
     <url>/2019/09/20/%E4%BB%8E%E2%80%9C%E8%B0%83%E9%80%9A%E8%AE%BE%E5%A4%87%E2%80%9D%E5%88%B0%E2%80%9C%E7%A8%B3%E5%AE%9A%E4%BA%A4%E4%BB%98%E2%80%9D%EF%BC%9AFCT%20%E6%B2%BB%E5%85%B7%E8%B0%83%E8%AF%95%E4%B8%AD%E7%9A%84%E6%9C%BA%E6%A2%B0%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="FCT-调试先看产品状态"><a href="#FCT-调试先看产品状态" class="headerlink" title="FCT 调试先看产品状态"></a>FCT 调试先看产品状态</h1><p>&emsp;&emsp;FCT 治具与产品强相关。产品状态不稳定，设备调试就很容易失去判断基准。<br>调试前通常需要确认：</p>
@@ -2969,6 +2945,30 @@ th {
       <categories>
         <category>Tech</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/08/12/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s">Writing<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=">Server<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s">Generating<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZGVwbG95bWVudC5odG1s">Deployment<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
@@ -3235,94 +3235,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>在Win平台上部署Hexo</title>
-    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
-</blockquote>
-<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-
-<p>2)安装配置</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>3）生成，部署</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
-</blockquote>
-<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
-</blockquote>
-</li>
-</ul>
-<p>2). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>连续按 3 次回车，什么都不用输。</p>
-</blockquote>
-</li>
-</ul>
-<p>Step2: 复制密钥</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
-</blockquote>
-<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
-<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
-<p>就改 repo 这一行！保存文件。</p>
-<p>Step5: 测试</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>输入 yes 回车。看到 successfully 就是成功！</p>
-<p>3). 报错信息</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>国内网络把 GitHub 的 22 端口也墙了</li>
-</ul>
-<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
-</ul>
-<p>Step2: 再测试连接，输入如下命令</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
-<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
-<p>2）为博客添加标签</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
-<p>3）添加分类功能</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
-
-<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
-        <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mac环境下使用GitHub和Hexo搭建博客</title>
     <url>/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<strong>欢迎参与讨论，转载请注明出处。</strong></p>
@@ -3452,8 +3364,96 @@ th {
         <tag>GitHub</tag>
         <tag>Blog</tag>
         <tag>Hexo</tag>
-        <tag>Node.js</tag>
         <tag>NPM</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Win平台上部署Hexo</title>
+    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
+</blockquote>
+<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+<p>2)安装配置</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>3）生成，部署</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
+</blockquote>
+<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
+</blockquote>
+</li>
+</ul>
+<p>2). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>连续按 3 次回车，什么都不用输。</p>
+</blockquote>
+</li>
+</ul>
+<p>Step2: 复制密钥</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
+</blockquote>
+<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
+<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
+<p>就改 repo 这一行！保存文件。</p>
+<p>Step5: 测试</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>输入 yes 回车。看到 successfully 就是成功！</p>
+<p>3). 报错信息</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>国内网络把 GitHub 的 22 端口也墙了</li>
+</ul>
+<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
+</ul>
+<p>Step2: 再测试连接，输入如下命令</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
+<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
+<p>2）为博客添加标签</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
+<p>3）添加分类功能</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
+
+<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -3505,6 +3505,148 @@ th {
         <tag>Github</tag>
         <tag>SSH Key</tag>
         <tag>Permission denied (publickey)</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工程判断力，是在一个个项目里练出来的</title>
+    <url>/2019/09/13/%E5%B7%A5%E7%A8%8B%E5%88%A4%E6%96%AD%E5%8A%9B%EF%BC%8C%E6%98%AF%E5%9C%A8%E4%B8%80%E4%B8%AA%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%87%8C%E7%BB%83%E5%87%BA%E6%9D%A5%E7%9A%84/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="从“还有哪些方案”到“当前更适合哪个方案”"><a href="#从“还有哪些方案”到“当前更适合哪个方案”" class="headerlink" title="从“还有哪些方案”到“当前更适合哪个方案”"></a>从“还有哪些方案”到“当前更适合哪个方案”</h1><p>&emsp;&emsp;以前参与方案讨论时，我会习惯性地把能想到的可能性都列出来。这样做的好处是视野比较打开，不容易一开始就被某个思路限制住。但后来我也发现，如果讨论一直停留在“还可以怎么做”，项目其实很难往前走。工程项目最终需要的是收敛。<br>&emsp;&emsp;比如一个支架刚度不足，可能的方案有很多：增加板厚、增加加强筋、改变材料、调整支撑点、缩短悬臂长度，甚至改变整体布局。每个方案都能改善问题，但它们带来的影响不一样。</p>
+<ul>
+<li>增加板厚可能最直接，但重量和成本会上升；</li>
+<li>加筋可能效果好，但焊接或加工复杂度增加；</li>
+<li>换材料可能解决强度问题，但采购周期和成本不确定；</li>
+<li>调整支撑点可能从根本上改善受力，但会影响周边结构；</li>
+<li>改变布局可能是最优解，但项目阶段未必允许。<br>&emsp;&emsp;这时，单纯提出方案已经不够了。更重要的是判断：在当前项目阶段、当前风险水平、当前资源条件下，哪个方案更合适。<br>&emsp;&emsp;这个过程让我意识到，工程判断不是为了找到“理论上最完美”的方案，而是找到“<strong>在当前条件下最可执行、风险最可控</strong>”的方案。</li>
+</ul>
+<h1 id="判断力来自对约束条件的理解"><a href="#判断力来自对约束条件的理解" class="headerlink" title="判断力来自对约束条件的理解"></a>判断力来自对约束条件的理解</h1><p>&emsp;&emsp;后来我逐渐养成一个习惯：在讨论方案之前，先把约束条件看清楚。<br>&emsp;&emsp;机械设计不是在真空里发生的。任何一个方案，都同时受到功能、空间、成本、交期、加工能力、装配方式、供应商水平、验证条件等因素影响。</p>
+<ul>
+<li>有些项目，最重要的是可靠性，成本可以适当让步；</li>
+<li>有些项目，交期已经非常紧，方案必须尽量减少变更；</li>
+<li>有些项目，供应商加工能力有限，设计不能只看理论可行；</li>
+<li>有些项目，客户产品还在验证阶段，设备结构就必须留有调整空间。</li>
+</ul>
+<p>&emsp;&emsp;如果不理解这些约束，方案讨论很容易变成纯技术比较。看起来每个人都说得有道理，但很难形成结论。<br>&emsp;&emsp;我现在越来越觉得，判断一个方案好不好，不能只看它本身是否漂亮，而要看它是否适合当下的项目条件。一个技术上很理想的方案，如果验证周期太长、加工风险太高、或者会牵动太多下游变更，可能并不是当前最好的选择。  </p>
+<p>&emsp;&emsp;这种认识不是一开始就有的，更多是在项目里一次次被现实提醒出来的。</p>
+<h1 id="不是所有问题都要用同样力度解决"><a href="#不是所有问题都要用同样力度解决" class="headerlink" title="不是所有问题都要用同样力度解决"></a>不是所有问题都要用同样力度解决</h1><p>&emsp;&emsp;项目推进过程中，会不断冒出各种问题。刚开始时，我容易把问题都看得很重，总觉得只要发现了，就应该尽量优化到最好。后来发现，这样做不一定有效。因为项目资源是有限的，时间也是有限的。如果所有问题都按最高优先级处理，团队很容易陷入不断修改。一个地方刚优化完，另一个地方又觉得还可以更好，最后项目迟迟不能收敛。<br>&emsp;&emsp;慢慢地，我开始更关注问题的层级。  </p>
+<ul>
+<li>有些问题是必须解决的，比如影响安全、核心功能、装配稳定性、客户验收、量产可靠性的问题。这类问题即使会影响进度，也不能轻易放过。</li>
+<li>有些问题是需要重点关注的，比如成本偏高、维护不方便、加工难度大、操作体验一般。这类问题要结合项目阶段和资源情况判断是否现在处理。</li>
+<li>还有一些问题属于后续优化项。它们值得记录，但不一定要在当前阶段全部解决。</li>
+</ul>
+<p>&emsp;&emsp;我后来常常会问自己一个问题：<br>这个问题如果现在不处理，后面会带来什么代价？</p>
+<ul>
+<li>如果后果只是局部不够优雅，可以接受；</li>
+<li>如果会导致后续修改成本变高，就要谨慎；</li>
+<li>如果可能导致测试失败、客户现场问题或批量风险，就必须提前处理。</li>
+</ul>
+<p>这种问题分层的过程，其实就是工程判断力的一部分。</p>
+<h1 id="很多判断是在信息不完整时做出的"><a href="#很多判断是在信息不完整时做出的" class="headerlink" title="很多判断是在信息不完整时做出的"></a>很多判断是在信息不完整时做出的</h1><p>&emsp;&emsp;项目中最常见的状态，不是所有信息都准备好了再开始，而是一边做、一边确认、一边调整。</p>
+<p>&emsp;&emsp;客户需求可能还在变化，产品图纸可能还没有完全冻结，供应商能力还需要验证，测试数据也可能暂时不完整。如果一定等到所有信息完全清楚再做决定，项目往往已经被拖住了。</p>
+<p>&emsp;&emsp;以前遇到不确定信息时，我更倾向于等待确认。后来项目经历多了，我发现更现实的做法是把不确定性拆开。  </p>
+<ul>
+<li>哪些信息已经确认，可以作为设计依据；</li>
+<li>哪些信息还不确定，需要继续追踪；</li>
+<li>哪些不确定会影响关键结构，必须提前验证；</li>
+<li>哪些不确定可以通过可调结构或模块化设计来应对；</li>
+<li>哪些地方需要准备备选方案。</li>
+</ul>
+<p>&emsp;&emsp;比如客户产品还在验证阶段时，与产品直接相关的定位、夹持、检测机构，就不适合设计得过于刚性。与其假设产品永远不变，不如在关键位置预留调节空间，把高不确定性的部分做成可替换、可调整的小模块。</p>
+<p>&emsp;&emsp;这样做并不是保守，而是为了降低后续试错成本。</p>
+<p>我越来越觉得，工程项目里的判断，不是等不确定性消失，而是在不确定中找到可控的推进方式。</p>
+<p>#判断之后，更重要的是让事情闭环</p>
+<p>&emsp;&emsp;很多项目问题不是没有讨论过，而是讨论之后没有真正闭环。</p>
+<ul>
+<li>会议上大家觉得方向已经明确了，但会后没有责任人；</li>
+<li>问题说要验证，但没有定义验证方式；</li>
+<li>方案说可以接受，但剩余风险没有记录；</li>
+<li>供应商说可以加工，但没有进一步确认关键尺寸和工艺能力；</li>
+<li>样机问题说已经修改，但没有确认修改后的结果是否有效。</li>
+</ul>
+<p>&emsp;&emsp;这些情况我都遇到过。后来我慢慢意识到，判断本身只是开始，真正影响项目结果的是后续闭环。所以在一些关键问题上，我会尽量把结论说清楚：</p>
+<ul>
+<li>当前先采用哪个方案；</li>
+<li>选择这个方案的主要原因是什么；</li>
+<li>还有哪些风险没有完全关闭；</li>
+<li>后续由谁去确认；</li>
+<li>什么时候给出结果；</li>
+<li>通过什么方式验证；</li>
+<li>如果验证不通过，下一步怎么调整。</li>
+</ul>
+<p>&emsp;&emsp;这些动作听起来很普通，但在项目里非常重要。因为很多工程风险不是一下子爆发的，而是在一次次“先这样吧”“后面再看”中累积起来的。</p>
+<p>当判断能够形成行动、验证和结果，项目才真正往前走了一步。</p>
+<p>#判断力是在复盘里慢慢长出来的</p>
+<p>&emsp;&emsp;工程判断力很难靠一次培训或一套方法马上建立。对我来说，它更多来自项目后的复盘。</p>
+<ul>
+<li>有些判断当时看起来合理，后来发现低估了某个风险；</li>
+<li>有些方案当时觉得保守，后来证明它减少了很多返工；</li>
+<li>有些问题当时没有优先处理，后面变成了更大的修改；</li>
+<li>有些细节当时觉得无关紧要，到了装配或客户现场才发现影响很大。</li>
+</ul>
+<p>&emsp;&emsp;这些经历如果只是过去了，就只是经历；如果能复盘下来，才会变成经验。我现在比较重视把项目中的问题沉淀下来。比如某个结构为什么后期大改，某个供应商反馈为什么前期没有识别，某个公差问题为什么到装配才暴露，某个测试失败背后的真实原因是什么。</p>
+<p>&emsp;&emsp;复盘不只是为了找原因，更是为了下次判断时多一个参考。做项目越多，我越能感受到，很多判断力不是来自某个单点知识，而是来自对类似场景的积累。见过问题如何发生，才更容易提前识别问题可能在哪里发生。</p>
+<p>#从关注单个结构，到关注整个项目影响</p>
+<p>&emsp;&emsp;一开始做机械设计时，我更关注自己负责的结构是否合理。后来参与项目多了，慢慢会看到一个机械设计选择对其他环节的影响。</p>
+<ul>
+<li>一个零件做成一体式，结构更紧凑，但加工周期可能变长；</li>
+<li>一个支架加强后刚度提高了，但重量增加会影响运动机构负载；</li>
+<li>一个机构调整后机械动作更稳定，但可能影响传感器布置；</li>
+<li>一个定位方式更可靠，但装配节拍可能变慢；</li>
+<li>一个设计变更对机械来说很小，但对采购、质量、调试来说可能是连锁影响。</li>
+</ul>
+<p>&emsp;&emsp;这些问题让我逐渐意识到，机械设计不能只看局部最优。很多时候，局部最优不等于项目最优。现在看方案时，我会更习惯把它放到整个项目链条里去看：设计、采购、加工、装配、调试、验证、维护，都会不会被影响。这样做未必每次都能得到最完美的方案，但更容易得到一个整体上更稳的方案。</p>
+<p>这种视角的变化，也是项目经历带来的。</p>
+<p>#不同意见往往能帮助判断更稳</p>
+<p>&emsp;&emsp;我以前也会觉得，方案讨论最好越快收敛越好。但后来发现，适当听到不同意见是有价值的。<br>机械工程师会看到结构风险，装配人员会看到操作空间，供应商会看到加工难点，质量人员会看到检测和判定问题，现场调试人员会看到实际使用中的不确定因素。</p>
+<p>&emsp;&emsp;有些意见一开始听起来像是在增加麻烦，但仔细看，可能正是项目后期容易出问题的地方。<br>当然，听取意见不等于无限讨论。关键是把不同信息收集进来，再结合项目目标和约束条件做取舍。</p>
+<p>&emsp;&emsp;哪些意见必须马上处理，哪些需要验证，哪些记录为后续优化，都要有判断。<br>我现在更愿意把方案讨论看成一个逐步收敛的过程：先把问题看全，再把风险分层，最后形成当前阶段最合适的选择。</p>
+<h1 id="干中学不是口号，而是一种实践中的学习方式"><a href="#干中学不是口号，而是一种实践中的学习方式" class="headerlink" title="干中学不是口号，而是一种实践中的学习方式"></a>干中学不是口号，而是一种实践中的学习方式</h1><p>&emsp;&emsp;我后来才慢慢意识到，所谓“干中学”，并不是一句简单的经验主义口号。它背后其实有很明确的理论依据：人在真实任务中遇到问题，通过行动、反馈、反思和再次尝试，逐渐形成新的判断框架和工作方法。</p>
+<p>&emsp;&emsp;在工程项目里，这种学习方式非常典型。很多机械问题并不是坐在办公室里就能完全想清楚的，只有当结构真正进入加工、装配、调试、测试和客户现场之后，隐藏的问题才会暴露出来。也正是在这些真实反馈中，工程师才会不断修正自己对设计、制造、装配和风险的理解。</p>
+<p>&emsp;&emsp;经济学家 Kenneth Arrow 在 1962 年提出过 “Learning by Doing” 的概念，他认为知识的获得和能力的提升，很大程度上来自实际活动本身；学习不是脱离工作单独发生的，而是在解决问题、参与生产和反复实践中发生的。</p>
+<p>&emsp;&emsp;这个观点放在机械工程里很容易理解：一个人看再多加工工艺资料，也不如亲自经历几次供应商反馈；学再多公差理论，也不如在装配现场看到一次公差链失控带来的问题；听再多设计规范，也不如经历一次因设计输入不稳定导致的返工。</p>
+<p>&emsp;&emsp;David Kolb 的经验学习理论也解释了类似过程。他把学习看成一个循环：具体经验、反思观察、抽象概念化、主动实验。也就是说，真正的学习不是只有“做”，还包括做完之后的复盘、总结，并把总结出的规律再次用到新的实践中。</p>
+<p>&emsp;&emsp;这和我在项目中的感受很接近。一次试产问题如果只是解决掉，那它只是一个项目事件；但如果能复盘它为什么发生、前期哪里没有识别、下次 checklist 应该增加什么内容，它才真正变成经验。</p>
+<p>&emsp;&emsp;Donald Schön 在《反思性实践者》中提出过 “reflection-in-action” 和 “reflection-on-action” 的概念。他关注的是专业人员如何在复杂、不确定的实践场景中，一边行动一边思考，并在行动之后进行反思。</p>
+<p>&emsp;&emsp;这对工程工作尤其有启发。很多时候，项目现场并不会给我们完整的信息和充足的时间，我们必须在推进中判断，在判断中验证，在验证后修正。工程判断力并不是一次性形成的，而是在这种持续的反思和修正中逐渐长出来的。</p>
+<p>&emsp;&emsp;Lave 和 Wenger 的情境学习理论也强调，学习不是孤立地发生在个人脑子里，而是在具体实践场景和共同体中发生的。新人通过参与真实工作，从边缘参与逐渐走向更完整的实践参与，能力也在这个过程中成长。<br>这也解释了为什么机械工程师不能只靠培训成长。真正有效的成长，往往来自参与真实项目、跟着有经验的人做评审、和供应商沟通、去现场看装配、参与问题复盘，并逐渐理解一个成熟工程师是如何判断问题的。</p>
+<p>&emsp;&emsp;所以我现在理解的“干中学”，不是简单地边做边摸索，而是一个更完整的循环：</p>
+<blockquote>
+<p>在真实项目中暴露问题，在问题处理中形成经验，在复盘中提炼规律，再把规律带回到下一次项目实践中。</p>
+</blockquote>
+<ul>
+<li>如果只是干，没有复盘，很容易变成重复试错；</li>
+<li>如果只是学，不进入真实项目，又很难形成工程判断。<br>-真正有价值的是边干边学、边学边总结、边总结边沉淀。</li>
+</ul>
+<p>&emsp;&emsp;对机械团队来说，这种沉淀最终应该变成图纸规范、设计 check list、评审清单、计算模板、DFM 指南、典型问题案例库。这样，个人在项目中学到的经验，才不会只停留在个人身上，而是能逐渐变成团队下一次可以复用的能力。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>现在再看机械设计，我会觉得方案能力很重要，但工程判断力更难得。</p>
+<ul>
+<li>提出方案，是把可能性打开；</li>
+<li>做出判断，是在约束中选择方向；</li>
+<li>推动闭环，是让判断真正变成结果；</li>
+<li>项目复盘，是让一次经历变成下一次的经验。</li>
+</ul>
+<p>&emsp;&emsp;这些能力不是靠说出来的，而是在项目里一点点练出来的。</p>
+<p>&emsp;&emsp;每一次设计评审、每一次供应商沟通、每一次试产问题、每一次客户反馈，都会提醒我：机械设计不是只把结构做出来，而是要在功能、风险、成本、周期、制造和验证之间不断做取舍。</p>
+<p>&emsp;&emsp;我也还在这个过程中继续学习。只是相比过去，我会更有意识地把项目中的判断记录下来，把踩过的坑变成清单，把解决过的问题变成规范，把一次次经验变成团队下一次可以复用的东西。</p>
+<p>&emsp;&emsp;工程判断力，最终不是某个人单独拥有的经验，而是通过项目实践不断沉淀出来的工作方式。它让团队少一些重复试错，也让后面的项目走得更稳。</p>
+<p>Referance:</p>
+<ol>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaGF2ZXJmb3JkLmVkdS9zaXRlcy9kZWZhdWx0L2ZpbGVzL0Fycm93MTk2Mi5wZGY=">Kenneth J. Arrow：Learning by Doing<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Kenneth Arrow 在 1962 年发表的《The Economic Implications of Learning by Doing》 中提出，知识增长和能力提升与实际生产活动密切相关，学习是在“做”的过程中发生的。<br>&emsp;&emsp;Arrow 的 “Learning by Doing” 提醒我，能力提升并不只是来自培训或理论输入，很多工程知识是在真实项目、真实问题和真实反馈中积累起来的。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2ltcGx5cHN5Y2hvbG9neS5vcmcvbGVhcm5pbmcta29sYi5odG1s">David Kolb：经验学习循环<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;David Kolb 的经验学习理论认为，学习是一个由 具体经验、反思观察、抽象概念化、主动实验 构成的循环，知识是在经验被转化的过程中形成的。<br>&emsp;&emsp;Kolb 的经验学习循环很适合解释工程项目中的成长过程：经历问题、复盘问题、提炼规律，再把新的理解用于下一次设计实践。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9ib29rcy5nb29nbGUuY29tLmhrL2Jvb2tzL2Fib3V0L1JlZmxlY3RpdmVfUHJhY3RpdGlvbmVyLmh0bWw/aWQ9b1lOSEFBQUFNQUFKJnJlZGlyX2VzYz15">Donald Schön：反思性实践者<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Donald Schön 在《The Reflective Practitioner》 中研究了工程、建筑、管理等专业人员如何在复杂实践中解决问题，并提出了 “reflection-in-action” 和 “reflection-on-action” 的概念。<br>&emsp;&emsp;Schön 的反思性实践观点让我意识到，工程判断力不是脱离现场形成的，而是在行动中思考、在行动后复盘的过程中慢慢形成的。</p>
+</li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly93c3UucHJlc3Nib29rcy5wdWIvdGhlb3JldGljYWxtb2RlbHNmb3J0ZWFjaGluZ2FuZHJlc2VhcmNoL2NoYXB0ZXIvc2l0dWF0ZWQtbGVhcm5pbmctdGhlb3J5Lw==">Lave &amp; Wenger：情境学习与实践共同体<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Lave 和 Wenger 在《Situated Learning: Legitimate Peripheral Participation》 中提出，学习是发生在具体情境和实践共同体中的社会过程，学习者通过参与真实实践逐步获得能力。<br>&emsp;&emsp;情境学习理论解释了为什么机械工程师的成长离不开真实项目环境。设计评审、供应商沟通、现场装配和问题复盘，都是工程能力形成的重要场景。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>判断力</tag>
+        <tag>风险</tag>
+        <tag>干中学</tag>
       </tags>
   </entry>
   <entry>
@@ -3721,145 +3863,537 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>工程判断力，是在一个个项目里练出来的</title>
-    <url>/2019/09/13/%E5%B7%A5%E7%A8%8B%E5%88%A4%E6%96%AD%E5%8A%9B%EF%BC%8C%E6%98%AF%E5%9C%A8%E4%B8%80%E4%B8%AA%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%87%8C%E7%BB%83%E5%87%BA%E6%9D%A5%E7%9A%84/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="从“还有哪些方案”到“当前更适合哪个方案”"><a href="#从“还有哪些方案”到“当前更适合哪个方案”" class="headerlink" title="从“还有哪些方案”到“当前更适合哪个方案”"></a>从“还有哪些方案”到“当前更适合哪个方案”</h1><p>&emsp;&emsp;以前参与方案讨论时，我会习惯性地把能想到的可能性都列出来。这样做的好处是视野比较打开，不容易一开始就被某个思路限制住。但后来我也发现，如果讨论一直停留在“还可以怎么做”，项目其实很难往前走。工程项目最终需要的是收敛。<br>&emsp;&emsp;比如一个支架刚度不足，可能的方案有很多：增加板厚、增加加强筋、改变材料、调整支撑点、缩短悬臂长度，甚至改变整体布局。每个方案都能改善问题，但它们带来的影响不一样。</p>
-<ul>
-<li>增加板厚可能最直接，但重量和成本会上升；</li>
-<li>加筋可能效果好，但焊接或加工复杂度增加；</li>
-<li>换材料可能解决强度问题，但采购周期和成本不确定；</li>
-<li>调整支撑点可能从根本上改善受力，但会影响周边结构；</li>
-<li>改变布局可能是最优解，但项目阶段未必允许。<br>&emsp;&emsp;这时，单纯提出方案已经不够了。更重要的是判断：在当前项目阶段、当前风险水平、当前资源条件下，哪个方案更合适。<br>&emsp;&emsp;这个过程让我意识到，工程判断不是为了找到“理论上最完美”的方案，而是找到“<strong>在当前条件下最可执行、风险最可控</strong>”的方案。</li>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
 </ul>
-<h1 id="判断力来自对约束条件的理解"><a href="#判断力来自对约束条件的理解" class="headerlink" title="判断力来自对约束条件的理解"></a>判断力来自对约束条件的理解</h1><p>&emsp;&emsp;后来我逐渐养成一个习惯：在讨论方案之前，先把约束条件看清楚。<br>&emsp;&emsp;机械设计不是在真空里发生的。任何一个方案，都同时受到功能、空间、成本、交期、加工能力、装配方式、供应商水平、验证条件等因素影响。</p>
-<ul>
-<li>有些项目，最重要的是可靠性，成本可以适当让步；</li>
-<li>有些项目，交期已经非常紧，方案必须尽量减少变更；</li>
-<li>有些项目，供应商加工能力有限，设计不能只看理论可行；</li>
-<li>有些项目，客户产品还在验证阶段，设备结构就必须留有调整空间。</li>
-</ul>
-<p>&emsp;&emsp;如果不理解这些约束，方案讨论很容易变成纯技术比较。看起来每个人都说得有道理，但很难形成结论。<br>&emsp;&emsp;我现在越来越觉得，判断一个方案好不好，不能只看它本身是否漂亮，而要看它是否适合当下的项目条件。一个技术上很理想的方案，如果验证周期太长、加工风险太高、或者会牵动太多下游变更，可能并不是当前最好的选择。  </p>
-<p>&emsp;&emsp;这种认识不是一开始就有的，更多是在项目里一次次被现实提醒出来的。</p>
-<h1 id="不是所有问题都要用同样力度解决"><a href="#不是所有问题都要用同样力度解决" class="headerlink" title="不是所有问题都要用同样力度解决"></a>不是所有问题都要用同样力度解决</h1><p>&emsp;&emsp;项目推进过程中，会不断冒出各种问题。刚开始时，我容易把问题都看得很重，总觉得只要发现了，就应该尽量优化到最好。后来发现，这样做不一定有效。因为项目资源是有限的，时间也是有限的。如果所有问题都按最高优先级处理，团队很容易陷入不断修改。一个地方刚优化完，另一个地方又觉得还可以更好，最后项目迟迟不能收敛。<br>&emsp;&emsp;慢慢地，我开始更关注问题的层级。  </p>
-<ul>
-<li>有些问题是必须解决的，比如影响安全、核心功能、装配稳定性、客户验收、量产可靠性的问题。这类问题即使会影响进度，也不能轻易放过。</li>
-<li>有些问题是需要重点关注的，比如成本偏高、维护不方便、加工难度大、操作体验一般。这类问题要结合项目阶段和资源情况判断是否现在处理。</li>
-<li>还有一些问题属于后续优化项。它们值得记录，但不一定要在当前阶段全部解决。</li>
-</ul>
-<p>&emsp;&emsp;我后来常常会问自己一个问题：<br>这个问题如果现在不处理，后面会带来什么代价？</p>
-<ul>
-<li>如果后果只是局部不够优雅，可以接受；</li>
-<li>如果会导致后续修改成本变高，就要谨慎；</li>
-<li>如果可能导致测试失败、客户现场问题或批量风险，就必须提前处理。</li>
-</ul>
-<p>这种问题分层的过程，其实就是工程判断力的一部分。</p>
-<h1 id="很多判断是在信息不完整时做出的"><a href="#很多判断是在信息不完整时做出的" class="headerlink" title="很多判断是在信息不完整时做出的"></a>很多判断是在信息不完整时做出的</h1><p>&emsp;&emsp;项目中最常见的状态，不是所有信息都准备好了再开始，而是一边做、一边确认、一边调整。</p>
-<p>&emsp;&emsp;客户需求可能还在变化，产品图纸可能还没有完全冻结，供应商能力还需要验证，测试数据也可能暂时不完整。如果一定等到所有信息完全清楚再做决定，项目往往已经被拖住了。</p>
-<p>&emsp;&emsp;以前遇到不确定信息时，我更倾向于等待确认。后来项目经历多了，我发现更现实的做法是把不确定性拆开。  </p>
-<ul>
-<li>哪些信息已经确认，可以作为设计依据；</li>
-<li>哪些信息还不确定，需要继续追踪；</li>
-<li>哪些不确定会影响关键结构，必须提前验证；</li>
-<li>哪些不确定可以通过可调结构或模块化设计来应对；</li>
-<li>哪些地方需要准备备选方案。</li>
-</ul>
-<p>&emsp;&emsp;比如客户产品还在验证阶段时，与产品直接相关的定位、夹持、检测机构，就不适合设计得过于刚性。与其假设产品永远不变，不如在关键位置预留调节空间，把高不确定性的部分做成可替换、可调整的小模块。</p>
-<p>&emsp;&emsp;这样做并不是保守，而是为了降低后续试错成本。</p>
-<p>我越来越觉得，工程项目里的判断，不是等不确定性消失，而是在不确定中找到可控的推进方式。</p>
-<p>#判断之后，更重要的是让事情闭环</p>
-<p>&emsp;&emsp;很多项目问题不是没有讨论过，而是讨论之后没有真正闭环。</p>
-<ul>
-<li>会议上大家觉得方向已经明确了，但会后没有责任人；</li>
-<li>问题说要验证，但没有定义验证方式；</li>
-<li>方案说可以接受，但剩余风险没有记录；</li>
-<li>供应商说可以加工，但没有进一步确认关键尺寸和工艺能力；</li>
-<li>样机问题说已经修改，但没有确认修改后的结果是否有效。</li>
-</ul>
-<p>&emsp;&emsp;这些情况我都遇到过。后来我慢慢意识到，判断本身只是开始，真正影响项目结果的是后续闭环。所以在一些关键问题上，我会尽量把结论说清楚：</p>
-<ul>
-<li>当前先采用哪个方案；</li>
-<li>选择这个方案的主要原因是什么；</li>
-<li>还有哪些风险没有完全关闭；</li>
-<li>后续由谁去确认；</li>
-<li>什么时候给出结果；</li>
-<li>通过什么方式验证；</li>
-<li>如果验证不通过，下一步怎么调整。</li>
-</ul>
-<p>&emsp;&emsp;这些动作听起来很普通，但在项目里非常重要。因为很多工程风险不是一下子爆发的，而是在一次次“先这样吧”“后面再看”中累积起来的。</p>
-<p>当判断能够形成行动、验证和结果，项目才真正往前走了一步。</p>
-<p>#判断力是在复盘里慢慢长出来的</p>
-<p>&emsp;&emsp;工程判断力很难靠一次培训或一套方法马上建立。对我来说，它更多来自项目后的复盘。</p>
-<ul>
-<li>有些判断当时看起来合理，后来发现低估了某个风险；</li>
-<li>有些方案当时觉得保守，后来证明它减少了很多返工；</li>
-<li>有些问题当时没有优先处理，后面变成了更大的修改；</li>
-<li>有些细节当时觉得无关紧要，到了装配或客户现场才发现影响很大。</li>
-</ul>
-<p>&emsp;&emsp;这些经历如果只是过去了，就只是经历；如果能复盘下来，才会变成经验。我现在比较重视把项目中的问题沉淀下来。比如某个结构为什么后期大改，某个供应商反馈为什么前期没有识别，某个公差问题为什么到装配才暴露，某个测试失败背后的真实原因是什么。</p>
-<p>&emsp;&emsp;复盘不只是为了找原因，更是为了下次判断时多一个参考。做项目越多，我越能感受到，很多判断力不是来自某个单点知识，而是来自对类似场景的积累。见过问题如何发生，才更容易提前识别问题可能在哪里发生。</p>
-<p>#从关注单个结构，到关注整个项目影响</p>
-<p>&emsp;&emsp;一开始做机械设计时，我更关注自己负责的结构是否合理。后来参与项目多了，慢慢会看到一个机械设计选择对其他环节的影响。</p>
-<ul>
-<li>一个零件做成一体式，结构更紧凑，但加工周期可能变长；</li>
-<li>一个支架加强后刚度提高了，但重量增加会影响运动机构负载；</li>
-<li>一个机构调整后机械动作更稳定，但可能影响传感器布置；</li>
-<li>一个定位方式更可靠，但装配节拍可能变慢；</li>
-<li>一个设计变更对机械来说很小，但对采购、质量、调试来说可能是连锁影响。</li>
-</ul>
-<p>&emsp;&emsp;这些问题让我逐渐意识到，机械设计不能只看局部最优。很多时候，局部最优不等于项目最优。现在看方案时，我会更习惯把它放到整个项目链条里去看：设计、采购、加工、装配、调试、验证、维护，都会不会被影响。这样做未必每次都能得到最完美的方案，但更容易得到一个整体上更稳的方案。</p>
-<p>这种视角的变化，也是项目经历带来的。</p>
-<p>#不同意见往往能帮助判断更稳</p>
-<p>&emsp;&emsp;我以前也会觉得，方案讨论最好越快收敛越好。但后来发现，适当听到不同意见是有价值的。<br>机械工程师会看到结构风险，装配人员会看到操作空间，供应商会看到加工难点，质量人员会看到检测和判定问题，现场调试人员会看到实际使用中的不确定因素。</p>
-<p>&emsp;&emsp;有些意见一开始听起来像是在增加麻烦，但仔细看，可能正是项目后期容易出问题的地方。<br>当然，听取意见不等于无限讨论。关键是把不同信息收集进来，再结合项目目标和约束条件做取舍。</p>
-<p>&emsp;&emsp;哪些意见必须马上处理，哪些需要验证，哪些记录为后续优化，都要有判断。<br>我现在更愿意把方案讨论看成一个逐步收敛的过程：先把问题看全，再把风险分层，最后形成当前阶段最合适的选择。</p>
-<h1 id="干中学不是口号，而是一种实践中的学习方式"><a href="#干中学不是口号，而是一种实践中的学习方式" class="headerlink" title="干中学不是口号，而是一种实践中的学习方式"></a>干中学不是口号，而是一种实践中的学习方式</h1><p>&emsp;&emsp;我后来才慢慢意识到，所谓“干中学”，并不是一句简单的经验主义口号。它背后其实有很明确的理论依据：人在真实任务中遇到问题，通过行动、反馈、反思和再次尝试，逐渐形成新的判断框架和工作方法。</p>
-<p>&emsp;&emsp;在工程项目里，这种学习方式非常典型。很多机械问题并不是坐在办公室里就能完全想清楚的，只有当结构真正进入加工、装配、调试、测试和客户现场之后，隐藏的问题才会暴露出来。也正是在这些真实反馈中，工程师才会不断修正自己对设计、制造、装配和风险的理解。</p>
-<p>&emsp;&emsp;经济学家 Kenneth Arrow 在 1962 年提出过 “Learning by Doing” 的概念，他认为知识的获得和能力的提升，很大程度上来自实际活动本身；学习不是脱离工作单独发生的，而是在解决问题、参与生产和反复实践中发生的。</p>
-<p>&emsp;&emsp;这个观点放在机械工程里很容易理解：一个人看再多加工工艺资料，也不如亲自经历几次供应商反馈；学再多公差理论，也不如在装配现场看到一次公差链失控带来的问题；听再多设计规范，也不如经历一次因设计输入不稳定导致的返工。</p>
-<p>&emsp;&emsp;David Kolb 的经验学习理论也解释了类似过程。他把学习看成一个循环：具体经验、反思观察、抽象概念化、主动实验。也就是说，真正的学习不是只有“做”，还包括做完之后的复盘、总结，并把总结出的规律再次用到新的实践中。</p>
-<p>&emsp;&emsp;这和我在项目中的感受很接近。一次试产问题如果只是解决掉，那它只是一个项目事件；但如果能复盘它为什么发生、前期哪里没有识别、下次 checklist 应该增加什么内容，它才真正变成经验。</p>
-<p>&emsp;&emsp;Donald Schön 在《反思性实践者》中提出过 “reflection-in-action” 和 “reflection-on-action” 的概念。他关注的是专业人员如何在复杂、不确定的实践场景中，一边行动一边思考，并在行动之后进行反思。</p>
-<p>&emsp;&emsp;这对工程工作尤其有启发。很多时候，项目现场并不会给我们完整的信息和充足的时间，我们必须在推进中判断，在判断中验证，在验证后修正。工程判断力并不是一次性形成的，而是在这种持续的反思和修正中逐渐长出来的。</p>
-<p>&emsp;&emsp;Lave 和 Wenger 的情境学习理论也强调，学习不是孤立地发生在个人脑子里，而是在具体实践场景和共同体中发生的。新人通过参与真实工作，从边缘参与逐渐走向更完整的实践参与，能力也在这个过程中成长。<br>这也解释了为什么机械工程师不能只靠培训成长。真正有效的成长，往往来自参与真实项目、跟着有经验的人做评审、和供应商沟通、去现场看装配、参与问题复盘，并逐渐理解一个成熟工程师是如何判断问题的。</p>
-<p>&emsp;&emsp;所以我现在理解的“干中学”，不是简单地边做边摸索，而是一个更完整的循环：</p>
-<blockquote>
-<p>在真实项目中暴露问题，在问题处理中形成经验，在复盘中提炼规律，再把规律带回到下一次项目实践中。</p>
-</blockquote>
-<ul>
-<li>如果只是干，没有复盘，很容易变成重复试错；</li>
-<li>如果只是学，不进入真实项目，又很难形成工程判断。<br>-真正有价值的是边干边学、边学边总结、边总结边沉淀。</li>
-</ul>
-<p>&emsp;&emsp;对机械团队来说，这种沉淀最终应该变成图纸规范、设计 check list、评审清单、计算模板、DFM 指南、典型问题案例库。这样，个人在项目中学到的经验，才不会只停留在个人身上，而是能逐渐变成团队下一次可以复用的能力。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>现在再看机械设计，我会觉得方案能力很重要，但工程判断力更难得。</p>
-<ul>
-<li>提出方案，是把可能性打开；</li>
-<li>做出判断，是在约束中选择方向；</li>
-<li>推动闭环，是让判断真正变成结果；</li>
-<li>项目复盘，是让一次经历变成下一次的经验。</li>
-</ul>
-<p>&emsp;&emsp;这些能力不是靠说出来的，而是在项目里一点点练出来的。</p>
-<p>&emsp;&emsp;每一次设计评审、每一次供应商沟通、每一次试产问题、每一次客户反馈，都会提醒我：机械设计不是只把结构做出来，而是要在功能、风险、成本、周期、制造和验证之间不断做取舍。</p>
-<p>&emsp;&emsp;我也还在这个过程中继续学习。只是相比过去，我会更有意识地把项目中的判断记录下来，把踩过的坑变成清单，把解决过的问题变成规范，把一次次经验变成团队下一次可以复用的东西。</p>
-<p>&emsp;&emsp;工程判断力，最终不是某个人单独拥有的经验，而是通过项目实践不断沉淀出来的工作方式。它让团队少一些重复试错，也让后面的项目走得更稳。</p>
-<p>Referance:</p>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
 <ol>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaGF2ZXJmb3JkLmVkdS9zaXRlcy9kZWZhdWx0L2ZpbGVzL0Fycm93MTk2Mi5wZGY=">Kenneth J. Arrow：Learning by Doing<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Kenneth Arrow 在 1962 年发表的《The Economic Implications of Learning by Doing》 中提出，知识增长和能力提升与实际生产活动密切相关，学习是在“做”的过程中发生的。<br>&emsp;&emsp;Arrow 的 “Learning by Doing” 提醒我，能力提升并不只是来自培训或理论输入，很多工程知识是在真实项目、真实问题和真实反馈中积累起来的。</p>
-</li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2ltcGx5cHN5Y2hvbG9neS5vcmcvbGVhcm5pbmcta29sYi5odG1s">David Kolb：经验学习循环<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;David Kolb 的经验学习理论认为，学习是一个由 具体经验、反思观察、抽象概念化、主动实验 构成的循环，知识是在经验被转化的过程中形成的。<br>&emsp;&emsp;Kolb 的经验学习循环很适合解释工程项目中的成长过程：经历问题、复盘问题、提炼规律，再把新的理解用于下一次设计实践。</p>
-</li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly9ib29rcy5nb29nbGUuY29tLmhrL2Jvb2tzL2Fib3V0L1JlZmxlY3RpdmVfUHJhY3RpdGlvbmVyLmh0bWw/aWQ9b1lOSEFBQUFNQUFKJnJlZGlyX2VzYz15">Donald Schön：反思性实践者<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Donald Schön 在《The Reflective Practitioner》 中研究了工程、建筑、管理等专业人员如何在复杂实践中解决问题，并提出了 “reflection-in-action” 和 “reflection-on-action” 的概念。<br>&emsp;&emsp;Schön 的反思性实践观点让我意识到，工程判断力不是脱离现场形成的，而是在行动中思考、在行动后复盘的过程中慢慢形成的。</p>
-</li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly93c3UucHJlc3Nib29rcy5wdWIvdGhlb3JldGljYWxtb2RlbHNmb3J0ZWFjaGluZ2FuZHJlc2VhcmNoL2NoYXB0ZXIvc2l0dWF0ZWQtbGVhcm5pbmctdGhlb3J5Lw==">Lave &amp; Wenger：情境学习与实践共同体<i class="fa fa-external-link-alt"></i></span><br>&emsp;&emsp;Lave 和 Wenger 在《Situated Learning: Legitimate Peripheral Participation》 中提出，学习是发生在具体情境和实践共同体中的社会过程，学习者通过参与真实实践逐步获得能力。<br>&emsp;&emsp;情境学习理论解释了为什么机械工程师的成长离不开真实项目环境。设计评审、供应商沟通、现场装配和问题复盘，都是工程能力形成的重要场景。</p>
-</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
 </ol>
 ]]></content>
       <categories>
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>判断力</tag>
-        <tag>风险</tag>
-        <tag>干中学</tag>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换空气滤芯篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>十字螺丝刀</li>
+<li>新空气滤芯，17210-K1Z-CA0</li>
+</ol>
+<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
+<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
+<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
+<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新建组件</title>
+    <url>/2026/07/01/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"><a href="#情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看" class="headerlink" title="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"></a>情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看</h2><ul>
+<li><p>步骤：</p>
+<ul>
+<li>选择“装配器导航”</li>
+<li>选择“装配”</li>
+<li>点击“新建组件”</li>
+<li>选择对象：选择需要生成的子装配体的部件</li>
+<li>保存为子装配体</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6.png" alt="新建组件"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电子烟测试标准</title>
+    <url>/2025/06/05/%E7%94%B5%E5%AD%90%E7%83%9F%E6%B5%8B%E8%AF%95%E6%A0%87%E5%87%86/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p><strong>说明</strong>：本文用于电子烟测试标准的技术科普与知识记录，不构成消费建议、健康建议或合规结论。具体检测和判定应以正式发布的标准文本、法规要求及具备资质的实验室报告为准。</p>
+</blockquote>
+<h2 id="引入：为什么电子烟也需要被“标准化测试”？"><a href="#引入：为什么电子烟也需要被“标准化测试”？" class="headerlink" title="引入：为什么电子烟也需要被“标准化测试”？"></a>引入：为什么电子烟也需要被“标准化测试”？</h2><p>提到电子烟，很多人第一反应是：它不像传统卷烟那样点燃烟草，而是通过电子装置产生“雾气”。从外观上看，电子烟更像一个小型电子产品；从使用方式看，它又和传统烟草制品有相似之处；从检测角度看，它其实同时涉及<strong>电子结构、雾化材料、气流控制和化学释放物</strong>。</p>
+<p>也就是说，电子烟并不是简单的“电池加热烟油”。一支电子烟在工作时，电池要稳定供电，控制板要准确启动，雾化芯要在合适温度下加热，雾化物要被均匀输送，最后产生的气溶胶还需要通过气道被吸出。这个过程中，任何一个环节发生变化，都可能影响最终释放物的结果。</p>
+<p>比如，同一款电子烟：</p>
+<ul>
+<li>抽吸时间长一点，释放量可能不同；</li>
+<li>抽吸力度大一点，气溶胶量可能不同；</li>
+<li>雾化温度高一点，某些分解产物可能增加；</li>
+<li>电池电量不足，雾化状态也可能发生变化；</li>
+<li>环境温湿度不同，捕集和分析结果也可能波动。</li>
+</ul>
+<p>这就是为什么电子烟需要标准化测试。标准化测试的目的，不是模拟每一个人的真实使用习惯，而是建立一个统一、可重复、可比较的测试条件。只有在相同的抽吸容量、抽吸时间、抽吸间隔、环境条件和分析方法下，不同实验室得到的数据才有可比性。</p>
+<p>因此，电子烟测试通常会使用<strong>常规分析抽气机或抽吸机</strong>，按照标准规定的条件模拟抽吸过程，再收集气溶胶并分析其中的目标成分。我国 <strong>GB 41700-2022《电子烟》</strong> 对电子烟的术语、设计与原材料、技术要求、试验方法、标志和说明书等作出了规定，是国内电子烟产品合规的重要依据。</p>
+<p>而 <strong>DIN EN ISO 20768:2022 &#x2F; ISO 20768</strong> 则从国际标准角度规定了蒸汽产品常规分析抽气机的定义、标准条件和设备要求，为电子烟释放物测试提供了抽吸设备和抽吸条件方面的基础。</p>
+<p>简单来说，电子烟测试要回答三个问题：</p>
+<ol>
+<li><strong>产品本身是否安全可靠？</strong> 例如是否漏液、是否防误启动、是否有过热风险。</li>
+<li><strong>雾化物成分是否符合要求？</strong> 例如烟碱、丙二醇、丙三醇、添加剂和污染物是否受控。</li>
+<li><strong>在标准抽吸条件下会释放什么？</strong> 例如烟碱释放量，以及甲醛、乙醛、丙烯醛等羰基化合物释放量。</li>
+</ol>
+<p>所以，电子烟检测并不是简单地“测一下烟油”或“看一下烟雾”，而是一套围绕<strong>产品结构、雾化物配方、抽吸条件和释放物分析</strong>建立起来的完整测试体系。</p>
+<hr>
+<h2 id="1-电子烟的基本原理"><a href="#1-电子烟的基本原理" class="headerlink" title="1. 电子烟的基本原理"></a>1. 电子烟的基本原理</h2><p>电子烟的工作过程可以简单理解为：</p>
+<blockquote>
+<p><strong>电池供电 → 控制板启动 → 发热元件升温 → 雾化物被加热 → 形成气溶胶 → 用户吸入</strong></p>
+</blockquote>
+<p>其中，雾化芯是核心部件。它通常由发热丝、陶瓷或导油材料组成，负责把雾化物加热到合适温度。温度过低，雾化不充分；温度过高，则可能带来异常分解产物，因此雾化区域温度是电子烟测试中的重要项目之一。GB 41700-2022 也设置了雾化区域温度、释放物和烟具安全等相关试验内容。</p>
+<hr>
+<h2 id="2-电子烟的主要结构"><a href="#2-电子烟的主要结构" class="headerlink" title="2. 电子烟的主要结构"></a>2. 电子烟的主要结构</h2><p>常见电子烟一般由以下部分组成：</p>
+<ul>
+<li><strong>电池</strong>：提供电能；</li>
+<li><strong>控制电路</strong>：控制启动、功率和保护功能；</li>
+<li><strong>雾化芯</strong>：负责加热雾化；</li>
+<li><strong>烟弹或储液仓</strong>：储存雾化物；</li>
+<li><strong>气道和吸嘴</strong>：输送气溶胶；</li>
+<li><strong>外壳结构</strong>：保护内部部件。</li>
+</ul>
+<p>从测试角度看，电子烟不是只测“烟雾成分”，还要测试烟具本身的安全性，例如防漏液、防填充、启动保护、防水、跌落强度和泄压安全等。</p>
+<hr>
+<h2 id="3-电子烟为什么要标准化测试？"><a href="#3-电子烟为什么要标准化测试？" class="headerlink" title="3. 电子烟为什么要标准化测试？"></a>3. 电子烟为什么要标准化测试？</h2><p>电子烟释放物会受到很多因素影响，例如：</p>
+<ul>
+<li>抽吸时间；</li>
+<li>抽吸容量；</li>
+<li>抽吸间隔；</li>
+<li>电池电量；</li>
+<li>雾化芯状态；</li>
+<li>雾化物配方；</li>
+<li>环境温湿度。</li>
+</ul>
+<p>如果没有统一测试条件，不同实验室、不同设备、不同人员得到的数据很难比较。因此，电子烟测试需要借助<strong>标准抽吸机或抽气机</strong>，按照规定条件模拟抽吸过程。</p>
+<p><strong>DIN EN ISO 20768:2022 &#x2F; ISO 20768</strong> 是蒸汽产品常规分析抽气机的重要标准，规定了蒸汽产品抽气机的定义、标准条件和设备要求，但不直接规定具体雾化液、捕集方式和后续化学分析方法。</p>
+<hr>
+<h2 id="4-相关标准的作用"><a href="#4-相关标准的作用" class="headerlink" title="4. 相关标准的作用"></a>4. 相关标准的作用</h2><h3 id="4-1-GB-41700-2022《电子烟》"><a href="#4-1-GB-41700-2022《电子烟》" class="headerlink" title="4.1 GB 41700-2022《电子烟》"></a>4.1 GB 41700-2022《电子烟》</h3><p>这是我国电子烟产品合规中的核心标准，规定了电子烟烟具、雾化物、释放物、试验方法、标志和说明书要求。其中附录涉及标准抽吸条件、烟碱释放量测定，以及甲醛、乙醛、丙烯醛和 2,3-丁二酮等释放物测定。</p>
+<h3 id="4-2-DIN-EN-ISO-20768-2022《蒸汽产品-常规分析抽气机-定义和标准条件》"><a href="#4-2-DIN-EN-ISO-20768-2022《蒸汽产品-常规分析抽气机-定义和标准条件》" class="headerlink" title="4.2 DIN EN ISO 20768:2022《蒸汽产品 常规分析抽气机 定义和标准条件》"></a>4.2 DIN EN ISO 20768:2022《蒸汽产品 常规分析抽气机 定义和标准条件》</h3><p>该标准主要用于电子烟或蒸汽产品的抽吸设备规范，重点是保证抽吸参数一致，使释放物测试具有重复性和可比性。</p>
+<h3 id="4-3-ISO-3308-2012《常规分析用卷烟吸烟机-—-定义和标准条件》"><a href="#4-3-ISO-3308-2012《常规分析用卷烟吸烟机-—-定义和标准条件》" class="headerlink" title="4.3 ISO 3308:2012《常规分析用卷烟吸烟机 — 定义和标准条件》"></a>4.3 ISO 3308:2012《常规分析用卷烟吸烟机 — 定义和标准条件》</h3><p>这是传统卷烟吸烟机的重要国际标准，规定了卷烟机械吸烟的参数和设备条件。虽然电子烟不是卷烟，但电子烟测试体系中的抽吸机思路，部分借鉴了卷烟吸烟机的标准化方法。</p>
+<h3 id="4-4-ISO-7210《常规分析用卷烟吸烟机-—-机器验证的附加测试方法》"><a href="#4-4-ISO-7210《常规分析用卷烟吸烟机-—-机器验证的附加测试方法》" class="headerlink" title="4.4 ISO 7210《常规分析用卷烟吸烟机 — 机器验证的附加测试方法》"></a>4.4 ISO 7210《常规分析用卷烟吸烟机 — 机器验证的附加测试方法》</h3><p>该标准用于验证吸烟机的关键性能，例如压降、抽吸曲线、抽吸容量等。它的价值在于提醒实验室：在测样品之前，必须先确认设备本身是准确和稳定的。</p>
+<h3 id="4-5-GB-T-16447-2004《烟草及烟草制品-调节和测试的大气环境》"><a href="#4-5-GB-T-16447-2004《烟草及烟草制品-调节和测试的大气环境》" class="headerlink" title="4.5 GB&#x2F;T 16447-2004《烟草及烟草制品 调节和测试的大气环境》"></a>4.5 GB&#x2F;T 16447-2004《烟草及烟草制品 调节和测试的大气环境》</h3><p>该标准规定了烟草及烟草制品调节和测试的大气环境。电子烟测试虽然不完全等同于卷烟测试，但温湿度等环境条件仍会影响测试结果，因此实验室环境控制非常重要。</p>
+<h3 id="4-6-GB-T-16450-2004《常规分析用吸烟机-定义和标准条件》"><a href="#4-6-GB-T-16450-2004《常规分析用吸烟机-定义和标准条件》" class="headerlink" title="4.6 GB&#x2F;T 16450-2004《常规分析用吸烟机 定义和标准条件》"></a>4.6 GB&#x2F;T 16450-2004《常规分析用吸烟机 定义和标准条件》</h3><p>这是我国常规分析用卷烟吸烟机标准，规定了吸烟机的标准条件、吸烟参数和技术要求，可作为理解抽吸机标准化方法的基础文件。</p>
+<hr>
+<h2 id="5-电子烟主要测试什么？"><a href="#5-电子烟主要测试什么？" class="headerlink" title="5. 电子烟主要测试什么？"></a>5. 电子烟主要测试什么？</h2><p>电子烟测试通常可以分为三类：</p>
+<h3 id="5-1-烟具安全测试"><a href="#5-1-烟具安全测试" class="headerlink" title="5.1 烟具安全测试"></a>5.1 烟具安全测试</h3><p>包括：</p>
+<ul>
+<li>防漏液；</li>
+<li>防填充；</li>
+<li>启动保护；</li>
+<li>雾化区域温度；</li>
+<li>防水；</li>
+<li>跌落强度；</li>
+<li>泄压安全；</li>
+<li>电池和电气安全。</li>
+</ul>
+<p>这类测试主要关注产品结构和使用安全。</p>
+<h3 id="5-2-雾化物测试"><a href="#5-2-雾化物测试" class="headerlink" title="5.2 雾化物测试"></a>5.2 雾化物测试</h3><p>包括：</p>
+<ul>
+<li>烟碱含量；</li>
+<li>丙二醇；</li>
+<li>丙三醇；</li>
+<li>添加剂；</li>
+<li>重金属；</li>
+<li>杂质和污染物；</li>
+<li>2,3-丁二酮等重点关注物质。</li>
+</ul>
+<p>这类测试主要关注雾化物本身是否符合标准要求。</p>
+<h3 id="5-3-释放物测试"><a href="#5-3-释放物测试" class="headerlink" title="5.3 释放物测试"></a>5.3 释放物测试</h3><p>这是电子烟测试中的重点。实验室会使用抽吸机，在标准抽吸条件下收集气溶胶，再分析其中的目标物质，例如：</p>
+<ul>
+<li>烟碱释放量；</li>
+<li>甲醛；</li>
+<li>乙醛；</li>
+<li>丙烯醛；</li>
+<li>2,3-丁二酮。</li>
+</ul>
+<p>这些项目用于评价电子烟在实际雾化过程中的释放特征。GB 41700-2022 对电子烟释放物的相关测定方法作出了规定。</p>
+<hr>
+<h2 id="6-简单理解电子烟测试流程"><a href="#6-简单理解电子烟测试流程" class="headerlink" title="6. 简单理解电子烟测试流程"></a>6. 简单理解电子烟测试流程</h2><p>一个典型的电子烟测试流程可以概括为：</p>
+<ol>
+<li><p><strong>确认标准</strong><br>国内合规重点看 GB 41700-2022；国际测试可参考 ISO 20768。</p>
+</li>
+<li><p><strong>样品登记</strong><br>记录型号、批次、烟碱标称值、电池状态和烟弹信息。</p>
+</li>
+<li><p><strong>环境调节</strong><br>控制实验室温湿度，保证测试条件稳定。</p>
+</li>
+<li><p><strong>设备验证</strong><br>检查抽吸机的抽吸容量、抽吸时间、抽吸曲线和气路密封性。</p>
+</li>
+<li><p><strong>标准抽吸</strong><br>按规定抽吸参数运行电子烟。</p>
+</li>
+<li><p><strong>气溶胶捕集</strong><br>使用滤片、吸收液或其他捕集装置收集释放物。</p>
+</li>
+<li><p><strong>化学分析</strong><br>对烟碱、羰基化合物等目标物质进行分析。</p>
+</li>
+<li><p><strong>结果判定</strong><br>根据标准要求判断产品是否符合规定。</p>
+</li>
+</ol>
+<hr>
+<h2 id="7-小结"><a href="#7-小结" class="headerlink" title="7. 小结"></a>7. 小结</h2><p>电子烟测试的核心不是简单地“测烟雾”，而是建立一套<strong>可重复、可比较、可追溯</strong>的检测体系。</p>
+<p>可以这样理解：</p>
+<ul>
+<li><strong>GB 41700-2022</strong> 解决“电子烟产品要符合什么要求”；</li>
+<li><strong>ISO 20768 &#x2F; DIN EN ISO 20768:2022</strong> 解决“电子烟如何标准化抽吸”；</li>
+<li><strong>ISO 3308 和 GB&#x2F;T 16450</strong> 提供传统吸烟机标准化基础；</li>
+<li><strong>ISO 7210</strong> 关注机器验证；</li>
+<li><strong>GB&#x2F;T 16447</strong> 关注测试环境。</li>
+</ul>
+<p>因此，电子烟合规测试不仅要看产品结构和配方，更要看在标准抽吸条件下产生了什么释放物。对于实验室和企业来说，只有标准清楚、设备可靠、过程可追溯，测试结果才真正有意义。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>E-cigarette</tag>
+        <tag>标准</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指纹识别模块多角度压力测试技术总结</title>
+    <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
+<p>&emsp;&emsp;鉴于这些原因，所以产品的测试需要把这些进行量化：</p>
+<ol>
+<li>硅胶指纹</li>
+</ol>
+<ul>
+<li>连接硅胶指纹的模组应该是金属的  </li>
+<li>DC 对地阻抗: ≤3KΩ (硅胶指纹到模组的地)</li>
+<li>硅胶指纹的中心与产品指纹识别模组中心公差是0.2mm</li>
+</ul>
+<ol start="2">
+<li><p>按压角度：0°、45°、90°、135°  </p>
+</li>
+<li><p>按压力度：最大4N（要求9±1N），精度±0.5N</p>
+</li>
+</ol>
+<p>以上量化指标落实到测试设备要求</p>
+<ul>
+<li>需要检测5Kg的压力感应器</li>
+<li>线性模组移动精度为0.005mm</li>
+<li>硅胶指纹的中心，产品指纹识别模组中心，旋转台中心三者的中心要在一条线上（垂直）</li>
+<li>手动移动平台15mm，工作台面100 x 100mm</li>
+<li>自动移动平台15mm，工作台面80 x 80mm，最小移动量0.005mm</li>
+<li>旋转台需要360°旋转，旋转台的工作台面80 x 80mm，最小旋转量为0.05°</li>
+</ul>
+<h2 id="高精度压力传感器（核心测力部件）"><a href="#高精度压力传感器（核心测力部件）" class="headerlink" title="高精度压力传感器（核心测力部件）"></a>高精度压力传感器（核心测力部件）</h2><p>&emsp;&emsp;高精度传感器量程的<code>30%～70%</code>，需求4Kg 用 10Kg 量程刚好落在区间，测量精度最高，所以压力传感器需要10Kg。<br>&emsp;&emsp;推荐选用日本<span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS<i class="fa fa-external-link-alt"></i></span>压力传感器。</p>
+<p>&emsp;&emsp;因为项目Schedule比较紧，所以选用国产XJC sensor（X8030），因其安全超载可以达到150%。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>量程 Capacity</strong></td>
+<td align="center">0~5KG</td>
+<td align="center"><strong>材质 Material</strong></td>
+<td align="center">不锈钢 Stainless steel</td>
+</tr>
+<tr>
+<td align="center"><strong>非线性 Nonlinearity</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>输出灵敏度 Rated output</strong></td>
+<td align="center">1.0 ± 10% mV&#x2F;V</td>
+</tr>
+<tr>
+<td align="center"><strong>推荐供电电压 Recommended excitation</strong></td>
+<td align="center">5V-10VDC</td>
+<td align="center"><strong>最大供电电压 Maximum excitation</strong></td>
+<td align="center">15V DC</td>
+</tr>
+<tr>
+<td align="center"><strong>防护等级 Protection class</strong></td>
+<td align="center">IP64</td>
+<td align="center"><strong>温度补偿范围 Compensated temp range</strong></td>
+<td align="center">-10~60 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>滞后 Hysteresis</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>工作温度范围 Operation temp range</strong></td>
+<td align="center">-20~80℃</td>
+</tr>
+<tr>
+<td align="center"><strong>重复性 Repeatability</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>绝缘电阻 Insulation resistance</strong></td>
+<td align="center">≥5000MΩ&#x2F;100VDC</td>
+</tr>
+<tr>
+<td align="center"><strong>输入阻抗 Input impedance</strong></td>
+<td align="center">350Ω±10Ω</td>
+<td align="center"><strong>输出阻抗 Output impedance</strong></td>
+<td align="center">350Ω ± 5Ω</td>
+</tr>
+<tr>
+<td align="center"><strong>30分钟蠕变 Creep(30min)</strong></td>
+<td align="center">0.1%F.S.</td>
+<td align="center"><strong>温度灵敏度漂移 Temp effect on output</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>零点输出 Zero balance</strong></td>
+<td align="center">± 2%F.S</td>
+<td align="center"><strong>零点温度漂移 Temp effect on zero</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>安全超载 Safe load limit</strong></td>
+<td align="center">150%F.S.</td>
+<td align="center"><strong>极限超载 Ultimate load limit</strong></td>
+<td align="center">200%F.S.</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆规格 Cable size</strong></td>
+<td align="center">Φ2×4m</td>
+<td align="center"><strong>使用寿命 Service Life</strong></td>
+<td align="center">满量程100万次以上 Full scale more than 1 million times</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆接线定义 Cable connection</strong></td>
+<td align="center">Ex+：红Red；Ex-：黑Black</td>
+<td align="center">Sig+：绿Green；Sig-：白White</td>
+<td align="center">—</td>
+</tr>
+</tbody></table>
+<h2 id="标准仿真指纹硅胶压头（工况模拟核心部件）"><a href="#标准仿真指纹硅胶压头（工况模拟核心部件）" class="headerlink" title="标准仿真指纹硅胶压头（工况模拟核心部件）"></a>标准仿真指纹硅胶压头（工况模拟核心部件）</h2><p>&emsp;&emsp;硅胶指纹准备3种尺寸（大、中、小）。</p>
+<h2 id="高精度角度定位工装（工况基准部件）"><a href="#高精度角度定位工装（工况基准部件）" class="headerlink" title="高精度角度定位工装（工况基准部件）"></a>高精度角度定位工装（工况基准部件）</h2><p>&emsp;&emsp;手动移动平台15mm，工作台面100 x 100mm。</p>
+<h2 id="伺服稳压驱动模组（动力执行部件）"><a href="#伺服稳压驱动模组（动力执行部件）" class="headerlink" title="伺服稳压驱动模组（动力执行部件）"></a>伺服稳压驱动模组（动力执行部件）</h2><p>&emsp;&emsp;按照要求是需要一款XYR的滑台平台来装载产品，水平负载8Kg</p>
+<h3 id="XY轴"><a href="#XY轴" class="headerlink" title="XY轴"></a>XY轴</h3><ul>
+<li>定位精度：0.01mm</li>
+<li>反复定位精度：±0.005mm</li>
+<li>电机规格：两相步进28框</li>
+<li>行程：±15mm</li>
+<li>X-Y最大速度：10mm&#x2F;sec</li>
+</ul>
+<h3 id="θ轴"><a href="#θ轴" class="headerlink" title="θ轴"></a>θ轴</h3><ul>
+<li>传动比：1：90</li>
+<li>定位精度：0.02°</li>
+<li>反复定位精度：0.01°</li>
+<li>空回：0.02°</li>
+<li>电机规格：两相步进42框</li>
+<li>θ最大速度：18°&#x2F;sec</li>
+</ul>
+<h3 id="电机规格：两相步进28框"><a href="#电机规格：两相步进28框" class="headerlink" title="电机规格：两相步进28框"></a>电机规格：两相步进28框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲</li>
+<li>出线：4 线双极居多，少量 6&#x2F;8 线；</li>
+<li>驱动器必须搭配两相微型步进驱动（如 DM420、A4988、TMC2208），不能用三相驱动</li>
+<li>28 框基础性能区间<ul>
+<li>保持转矩：0.06～0.17 N・m（60～170 mNm）</li>
+<li>额定电流：0.6～1.0A</li>
+<li>供电常用 DC12V&#x2F;24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="电机规格：两相步进42框"><a href="#电机规格：两相步进42框" class="headerlink" title="电机规格：两相步进42框"></a>电机规格：两相步进42框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲；</li>
+<li>出线常见 4 线（双极性驱动）、6 线、8 线；</li>
+<li>配套驱动器只能用两相步进驱动器，不能接三相驱动。</li>
+<li>42 框基础性能区间<ul>
+<li>保持转矩：0.2～0.5 N・m</li>
+<li>额定电流：0.8～2.0 A</li>
+<li>供电常用：DC24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="设备测试架构"><a href="#设备测试架构" class="headerlink" title="设备测试架构"></a>设备测试架构</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png" alt="测试架构"></p>
+<h2 id="测试方案与流程"><a href="#测试方案与流程" class="headerlink" title="测试方案与流程"></a>测试方案与流程</h2><ul>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>X</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>左</code>边离开指纹识别模块感应区的<code>右</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>Y</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>顶</code>边离开指纹识别模块感应区的<code>底</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+</ul>
+<h2 id="核心测试结果与数据分析"><a href="#核心测试结果与数据分析" class="headerlink" title="核心测试结果与数据分析"></a>核心测试结果与数据分析</h2><p>&emsp;&emsp;所有工况统一采用恒定 4N 标准压力按压，仅变量为设备摆放角度，对比各角度指纹识别表现，总结如下：</p>
+<h3 id="正交垂直角度（0°、90°、180°）识别表现最优"><a href="#正交垂直角度（0°、90°、180°）识别表现最优" class="headerlink" title="正交垂直角度（0°、90°、180°）识别表现最优"></a>正交垂直角度（0°、90°、180°）识别表现最优</h3><p>&emsp;&emsp;在 0°、90°、180° 三个垂直正向角度，恒定 4N 压力下压头与传感器贴合均匀完整，指纹纹理成像清晰，识别成功率≥99.2%，平均识别响应时间 0.2~0.3s，无拒真、误识、卡顿等问题。正向姿态下按压受力均匀，角度偏移对信号采集几乎无负面影响，完全满足日常使用标准。</p>
+<h3 id="旋转角度（45°、135°）存在识别性能衰减"><a href="#旋转角度（45°、135°）存在识别性能衰减" class="headerlink" title="旋转角度（45°、135°）存在识别性能衰减"></a>旋转角度（45°、135°）存在识别性能衰减</h3><p>&emsp;&emsp;被测物水平旋转至 45°、135° 档位时，统一采用恒定 4N 压力按压，识别成功率下降至 92.1%~94.5%。核心原因：被测产品水平旋转偏移后，硅胶压头与指纹区域受力分布不均，单侧贴合间隙偏大，局部指纹纹理接触不充分，传感器采集的指纹图像存在轻微畸变，特征点匹配精度下降，是本次测试暴露的薄弱工况。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;本次测试以恒定 4N 标准按压力作为统一控制条件，依托 XYR 旋转滑台实现被测物 0°、45°、90°、135°、180° 五档水平旋转定位，全程仅将产品水平旋转角度作为单一变量，标准化验证不同摆放姿态下指纹识别模组的识别一致性与运行稳定性。</p>
+<p>&emsp;&emsp;整套测试设备采用自上而下分层堆叠架构：伺服下压模组搭配标准硅胶指纹压头提供稳定恒定 4N 载荷，产品专用 Holder 保证被测件夹持无位移，XY 手动滑台完成压头与指纹区域居中校准，底层 XYR 滑台精准实现多档位水平旋转锁止。设备闭环压力控制系统稳压精度高，重复按压无压力漂移，各角度测试工况可复现、数据具备横向对比价值，硬件整套循环测试后无形变、无功能失效，设备工装与驱动机构可靠性满足批量验证需求。</p>
+<p>&emsp;&emsp;实测数据显示，当被测物水平旋转至 0°、90°、180° 正向档位时，恒定 4N 压力下压头与指纹区域贴合均匀，指纹成像完整清晰，识别成功率稳定≥99.2%，识别响应速度平稳，无拒真、卡顿、识别失败等异常，完全符合产品设计指标与用户常规使用要求。</p>
+<p>&emsp;&emsp;当被测物水平旋转至 45°、135° 斜向档位时，同等 4N 标准压力下识别成功率降至92.1%~94.5%；根本原因为产品水平旋转后，硅胶压头受力分布失衡，指纹识别区域单侧贴合间隙增大，局部纹理接触不充分，采集图像出现轻微形变，指纹特征点匹配准确度下降，是产品当前性能短板工况。<br>全角度循环按压测试完成后，指纹传感器、模组结构未出现硬件损伤、永久性能衰减，撤除压力后识别性能可即时恢复，证明产品硬件本体耐压、耐磨基础可靠性达标，性能差异仅来源于水平旋转带来的按压贴合形变问题。</p>
+<p>&emsp;&emsp;本次多角度恒定压力专项测试精准定位了产品旋转工况下的识别缺陷，为指纹识别算法迭代优化、模组缓冲结构改良、出厂品质检验标准制定提供了客观、可复现的实测数据支撑。通过针对性优化形变指纹匹配算法、改善传感器缓冲贴合结构，可有效提升 45°、135° 水平旋转工况下的识别容错率，规避终端用户握持旋转解锁失败的使用问题，进一步提升产品全场景使用稳定性。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>NTS力学传感器<span class="exturl" data-url="aHR0cHM6Ly9udHMtbWVhc3VyZS5jby5qcC8=">日本本土官网<i class="fa fa-external-link-alt"></i></span>: 原厂主站，日文，完整产品规格&#x2F; 手册，NTS传感器长期稳定，适合疲劳循环测试。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS英文国际站<i class="fa fa-external-link-alt"></i></span>: 海外产品介绍，适合查阅英文参数。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bGl2ZS5jb20vemgvdS8lRTglQkQlQUMlRTYlOEQlQTIvJUU3JTg5JTlCJUU5JUExJUJGLyVFOCU4NyVBQS8lRTUlOEQlODMlRTUlODUlOEIlRTUlOEElOUIjOQ==">单位转换<i class="fa fa-external-link-alt"></i></span>: 千克转化为牛顿或者千克力。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueGpjc2Vuc29yLmNvbS8=">鑫精诚力学传感器<i class="fa fa-external-link-alt"></i></span>: XJC sensor交期短，价格是NTS的1&#x2F;3，疲劳稳定性略逊原装。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udWFlcy5uZXQvUHJvZHVjdEN1c3QvMTQ2MTc1MS00MDk2MDIuaHRtbA==">天翰精密<i class="fa fa-external-link-alt"></i></span>：XYR滑台。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Fingerprint</tag>
+        <tag>Multi-angle</tag>
+        <tag>多角度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>申请美国EVUS（签证更新电子系统）</title>
+    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
+<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
+<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
+<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
+<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
+<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
+<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
+<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
+<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
+<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
+<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
+<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
+<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
+<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
+<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
+<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
+<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
+<hr>
+<p><strong>参考网站：</strong></p>
+<ol>
+<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
+<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
+<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>EVUS</tag>
       </tags>
   </entry>
   <entry>
@@ -4167,515 +4701,6 @@ th {
         <tag>Pogo Pin</tag>
         <tag>Pitch</tag>
         <tag>ACS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>指纹识别模块多角度压力测试技术总结</title>
-    <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
-<p>&emsp;&emsp;鉴于这些原因，所以产品的测试需要把这些进行量化：</p>
-<ol>
-<li>硅胶指纹</li>
-</ol>
-<ul>
-<li>连接硅胶指纹的模组应该是金属的  </li>
-<li>DC 对地阻抗: ≤3KΩ (硅胶指纹到模组的地)</li>
-<li>硅胶指纹的中心与产品指纹识别模组中心公差是0.2mm</li>
-</ul>
-<ol start="2">
-<li><p>按压角度：0°、45°、90°、135°  </p>
-</li>
-<li><p>按压力度：最大4N（要求9±1N），精度±0.5N</p>
-</li>
-</ol>
-<p>以上量化指标落实到测试设备要求</p>
-<ul>
-<li>需要检测5Kg的压力感应器</li>
-<li>线性模组移动精度为0.005mm</li>
-<li>硅胶指纹的中心，产品指纹识别模组中心，旋转台中心三者的中心要在一条线上（垂直）</li>
-<li>手动移动平台15mm，工作台面100 x 100mm</li>
-<li>自动移动平台15mm，工作台面80 x 80mm，最小移动量0.005mm</li>
-<li>旋转台需要360°旋转，旋转台的工作台面80 x 80mm，最小旋转量为0.05°</li>
-</ul>
-<h2 id="高精度压力传感器（核心测力部件）"><a href="#高精度压力传感器（核心测力部件）" class="headerlink" title="高精度压力传感器（核心测力部件）"></a>高精度压力传感器（核心测力部件）</h2><p>&emsp;&emsp;高精度传感器量程的<code>30%～70%</code>，需求4Kg 用 10Kg 量程刚好落在区间，测量精度最高，所以压力传感器需要10Kg。<br>&emsp;&emsp;推荐选用日本<span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS<i class="fa fa-external-link-alt"></i></span>压力传感器。</p>
-<p>&emsp;&emsp;因为项目Schedule比较紧，所以选用国产XJC sensor（X8030），因其安全超载可以达到150%。</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数 Parameter</th>
-<th align="center">规格 Spec</th>
-<th align="center">参数 Parameter</th>
-<th align="center">规格 Spec</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><strong>量程 Capacity</strong></td>
-<td align="center">0~5KG</td>
-<td align="center"><strong>材质 Material</strong></td>
-<td align="center">不锈钢 Stainless steel</td>
-</tr>
-<tr>
-<td align="center"><strong>非线性 Nonlinearity</strong></td>
-<td align="center">0.05%F.S.</td>
-<td align="center"><strong>输出灵敏度 Rated output</strong></td>
-<td align="center">1.0 ± 10% mV&#x2F;V</td>
-</tr>
-<tr>
-<td align="center"><strong>推荐供电电压 Recommended excitation</strong></td>
-<td align="center">5V-10VDC</td>
-<td align="center"><strong>最大供电电压 Maximum excitation</strong></td>
-<td align="center">15V DC</td>
-</tr>
-<tr>
-<td align="center"><strong>防护等级 Protection class</strong></td>
-<td align="center">IP64</td>
-<td align="center"><strong>温度补偿范围 Compensated temp range</strong></td>
-<td align="center">-10~60 ℃</td>
-</tr>
-<tr>
-<td align="center"><strong>滞后 Hysteresis</strong></td>
-<td align="center">0.05%F.S.</td>
-<td align="center"><strong>工作温度范围 Operation temp range</strong></td>
-<td align="center">-20~80℃</td>
-</tr>
-<tr>
-<td align="center"><strong>重复性 Repeatability</strong></td>
-<td align="center">0.05%F.S.</td>
-<td align="center"><strong>绝缘电阻 Insulation resistance</strong></td>
-<td align="center">≥5000MΩ&#x2F;100VDC</td>
-</tr>
-<tr>
-<td align="center"><strong>输入阻抗 Input impedance</strong></td>
-<td align="center">350Ω±10Ω</td>
-<td align="center"><strong>输出阻抗 Output impedance</strong></td>
-<td align="center">350Ω ± 5Ω</td>
-</tr>
-<tr>
-<td align="center"><strong>30分钟蠕变 Creep(30min)</strong></td>
-<td align="center">0.1%F.S.</td>
-<td align="center"><strong>温度灵敏度漂移 Temp effect on output</strong></td>
-<td align="center">0.1%F.S.&#x2F;10 ℃</td>
-</tr>
-<tr>
-<td align="center"><strong>零点输出 Zero balance</strong></td>
-<td align="center">± 2%F.S</td>
-<td align="center"><strong>零点温度漂移 Temp effect on zero</strong></td>
-<td align="center">0.1%F.S.&#x2F;10 ℃</td>
-</tr>
-<tr>
-<td align="center"><strong>安全超载 Safe load limit</strong></td>
-<td align="center">150%F.S.</td>
-<td align="center"><strong>极限超载 Ultimate load limit</strong></td>
-<td align="center">200%F.S.</td>
-</tr>
-<tr>
-<td align="center"><strong>线缆规格 Cable size</strong></td>
-<td align="center">Φ2×4m</td>
-<td align="center"><strong>使用寿命 Service Life</strong></td>
-<td align="center">满量程100万次以上 Full scale more than 1 million times</td>
-</tr>
-<tr>
-<td align="center"><strong>线缆接线定义 Cable connection</strong></td>
-<td align="center">Ex+：红Red；Ex-：黑Black</td>
-<td align="center">Sig+：绿Green；Sig-：白White</td>
-<td align="center">—</td>
-</tr>
-</tbody></table>
-<h2 id="标准仿真指纹硅胶压头（工况模拟核心部件）"><a href="#标准仿真指纹硅胶压头（工况模拟核心部件）" class="headerlink" title="标准仿真指纹硅胶压头（工况模拟核心部件）"></a>标准仿真指纹硅胶压头（工况模拟核心部件）</h2><p>&emsp;&emsp;硅胶指纹准备3种尺寸（大、中、小）。</p>
-<h2 id="高精度角度定位工装（工况基准部件）"><a href="#高精度角度定位工装（工况基准部件）" class="headerlink" title="高精度角度定位工装（工况基准部件）"></a>高精度角度定位工装（工况基准部件）</h2><p>&emsp;&emsp;手动移动平台15mm，工作台面100 x 100mm。</p>
-<h2 id="伺服稳压驱动模组（动力执行部件）"><a href="#伺服稳压驱动模组（动力执行部件）" class="headerlink" title="伺服稳压驱动模组（动力执行部件）"></a>伺服稳压驱动模组（动力执行部件）</h2><p>&emsp;&emsp;按照要求是需要一款XYR的滑台平台来装载产品，水平负载8Kg</p>
-<h3 id="XY轴"><a href="#XY轴" class="headerlink" title="XY轴"></a>XY轴</h3><ul>
-<li>定位精度：0.01mm</li>
-<li>反复定位精度：±0.005mm</li>
-<li>电机规格：两相步进28框</li>
-<li>行程：±15mm</li>
-<li>X-Y最大速度：10mm&#x2F;sec</li>
-</ul>
-<h3 id="θ轴"><a href="#θ轴" class="headerlink" title="θ轴"></a>θ轴</h3><ul>
-<li>传动比：1：90</li>
-<li>定位精度：0.02°</li>
-<li>反复定位精度：0.01°</li>
-<li>空回：0.02°</li>
-<li>电机规格：两相步进42框</li>
-<li>θ最大速度：18°&#x2F;sec</li>
-</ul>
-<h3 id="电机规格：两相步进28框"><a href="#电机规格：两相步进28框" class="headerlink" title="电机规格：两相步进28框"></a>电机规格：两相步进28框</h3><ul>
-<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
-<li>标准步距角 1.8°，完整一圈需要 200 个脉冲</li>
-<li>出线：4 线双极居多，少量 6&#x2F;8 线；</li>
-<li>驱动器必须搭配两相微型步进驱动（如 DM420、A4988、TMC2208），不能用三相驱动</li>
-<li>28 框基础性能区间<ul>
-<li>保持转矩：0.06～0.17 N・m（60～170 mNm）</li>
-<li>额定电流：0.6～1.0A</li>
-<li>供电常用 DC12V&#x2F;24V</li>
-</ul>
-</li>
-</ul>
-<h3 id="电机规格：两相步进42框"><a href="#电机规格：两相步进42框" class="headerlink" title="电机规格：两相步进42框"></a>电机规格：两相步进42框</h3><ul>
-<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
-<li>标准步距角 1.8°，完整一圈需要 200 个脉冲；</li>
-<li>出线常见 4 线（双极性驱动）、6 线、8 线；</li>
-<li>配套驱动器只能用两相步进驱动器，不能接三相驱动。</li>
-<li>42 框基础性能区间<ul>
-<li>保持转矩：0.2～0.5 N・m</li>
-<li>额定电流：0.8～2.0 A</li>
-<li>供电常用：DC24V</li>
-</ul>
-</li>
-</ul>
-<h3 id="设备测试架构"><a href="#设备测试架构" class="headerlink" title="设备测试架构"></a>设备测试架构</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png" alt="测试架构"></p>
-<h2 id="测试方案与流程"><a href="#测试方案与流程" class="headerlink" title="测试方案与流程"></a>测试方案与流程</h2><ul>
-<li><p>在0°、45°、90°、135°、180每个角度，<code>X</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>左</code>边离开指纹识别模块感应区的<code>右</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
-</li>
-<li><p>在0°、45°、90°、135°、180每个角度，<code>Y</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>顶</code>边离开指纹识别模块感应区的<code>底</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
-</li>
-</ul>
-<h2 id="核心测试结果与数据分析"><a href="#核心测试结果与数据分析" class="headerlink" title="核心测试结果与数据分析"></a>核心测试结果与数据分析</h2><p>&emsp;&emsp;所有工况统一采用恒定 4N 标准压力按压，仅变量为设备摆放角度，对比各角度指纹识别表现，总结如下：</p>
-<h3 id="正交垂直角度（0°、90°、180°）识别表现最优"><a href="#正交垂直角度（0°、90°、180°）识别表现最优" class="headerlink" title="正交垂直角度（0°、90°、180°）识别表现最优"></a>正交垂直角度（0°、90°、180°）识别表现最优</h3><p>&emsp;&emsp;在 0°、90°、180° 三个垂直正向角度，恒定 4N 压力下压头与传感器贴合均匀完整，指纹纹理成像清晰，识别成功率≥99.2%，平均识别响应时间 0.2~0.3s，无拒真、误识、卡顿等问题。正向姿态下按压受力均匀，角度偏移对信号采集几乎无负面影响，完全满足日常使用标准。</p>
-<h3 id="旋转角度（45°、135°）存在识别性能衰减"><a href="#旋转角度（45°、135°）存在识别性能衰减" class="headerlink" title="旋转角度（45°、135°）存在识别性能衰减"></a>旋转角度（45°、135°）存在识别性能衰减</h3><p>&emsp;&emsp;被测物水平旋转至 45°、135° 档位时，统一采用恒定 4N 压力按压，识别成功率下降至 92.1%~94.5%。核心原因：被测产品水平旋转偏移后，硅胶压头与指纹区域受力分布不均，单侧贴合间隙偏大，局部指纹纹理接触不充分，传感器采集的指纹图像存在轻微畸变，特征点匹配精度下降，是本次测试暴露的薄弱工况。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;本次测试以恒定 4N 标准按压力作为统一控制条件，依托 XYR 旋转滑台实现被测物 0°、45°、90°、135°、180° 五档水平旋转定位，全程仅将产品水平旋转角度作为单一变量，标准化验证不同摆放姿态下指纹识别模组的识别一致性与运行稳定性。</p>
-<p>&emsp;&emsp;整套测试设备采用自上而下分层堆叠架构：伺服下压模组搭配标准硅胶指纹压头提供稳定恒定 4N 载荷，产品专用 Holder 保证被测件夹持无位移，XY 手动滑台完成压头与指纹区域居中校准，底层 XYR 滑台精准实现多档位水平旋转锁止。设备闭环压力控制系统稳压精度高，重复按压无压力漂移，各角度测试工况可复现、数据具备横向对比价值，硬件整套循环测试后无形变、无功能失效，设备工装与驱动机构可靠性满足批量验证需求。</p>
-<p>&emsp;&emsp;实测数据显示，当被测物水平旋转至 0°、90°、180° 正向档位时，恒定 4N 压力下压头与指纹区域贴合均匀，指纹成像完整清晰，识别成功率稳定≥99.2%，识别响应速度平稳，无拒真、卡顿、识别失败等异常，完全符合产品设计指标与用户常规使用要求。</p>
-<p>&emsp;&emsp;当被测物水平旋转至 45°、135° 斜向档位时，同等 4N 标准压力下识别成功率降至92.1%~94.5%；根本原因为产品水平旋转后，硅胶压头受力分布失衡，指纹识别区域单侧贴合间隙增大，局部纹理接触不充分，采集图像出现轻微形变，指纹特征点匹配准确度下降，是产品当前性能短板工况。<br>全角度循环按压测试完成后，指纹传感器、模组结构未出现硬件损伤、永久性能衰减，撤除压力后识别性能可即时恢复，证明产品硬件本体耐压、耐磨基础可靠性达标，性能差异仅来源于水平旋转带来的按压贴合形变问题。</p>
-<p>&emsp;&emsp;本次多角度恒定压力专项测试精准定位了产品旋转工况下的识别缺陷，为指纹识别算法迭代优化、模组缓冲结构改良、出厂品质检验标准制定提供了客观、可复现的实测数据支撑。通过针对性优化形变指纹匹配算法、改善传感器缓冲贴合结构，可有效提升 45°、135° 水平旋转工况下的识别容错率，规避终端用户握持旋转解锁失败的使用问题，进一步提升产品全场景使用稳定性。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>NTS力学传感器<span class="exturl" data-url="aHR0cHM6Ly9udHMtbWVhc3VyZS5jby5qcC8=">日本本土官网<i class="fa fa-external-link-alt"></i></span>: 原厂主站，日文，完整产品规格&#x2F; 手册，NTS传感器长期稳定，适合疲劳循环测试。</li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS英文国际站<i class="fa fa-external-link-alt"></i></span>: 海外产品介绍，适合查阅英文参数。</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bGl2ZS5jb20vemgvdS8lRTglQkQlQUMlRTYlOEQlQTIvJUU3JTg5JTlCJUU5JUExJUJGLyVFOCU4NyVBQS8lRTUlOEQlODMlRTUlODUlOEIlRTUlOEElOUIjOQ==">单位转换<i class="fa fa-external-link-alt"></i></span>: 千克转化为牛顿或者千克力。</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueGpjc2Vuc29yLmNvbS8=">鑫精诚力学传感器<i class="fa fa-external-link-alt"></i></span>: XJC sensor交期短，价格是NTS的1&#x2F;3，疲劳稳定性略逊原装。</li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5udWFlcy5uZXQvUHJvZHVjdEN1c3QvMTQ2MTc1MS00MDk2MDIuaHRtbA==">天翰精密<i class="fa fa-external-link-alt"></i></span>：XYR滑台。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Fingerprint</tag>
-        <tag>Multi-angle</tag>
-        <tag>多角度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换空气滤芯篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
-<li>十字螺丝刀</li>
-<li>新空气滤芯，17210-K1Z-CA0</li>
-</ol>
-<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
-<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
-<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
-<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
-<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>空气滤芯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
-</ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
-</ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>精度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电子烟测试标准</title>
-    <url>/2025/06/05/%E7%94%B5%E5%AD%90%E7%83%9F%E6%B5%8B%E8%AF%95%E6%A0%87%E5%87%86/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p><strong>说明</strong>：本文用于电子烟测试标准的技术科普与知识记录，不构成消费建议、健康建议或合规结论。具体检测和判定应以正式发布的标准文本、法规要求及具备资质的实验室报告为准。</p>
-</blockquote>
-<h2 id="引入：为什么电子烟也需要被“标准化测试”？"><a href="#引入：为什么电子烟也需要被“标准化测试”？" class="headerlink" title="引入：为什么电子烟也需要被“标准化测试”？"></a>引入：为什么电子烟也需要被“标准化测试”？</h2><p>提到电子烟，很多人第一反应是：它不像传统卷烟那样点燃烟草，而是通过电子装置产生“雾气”。从外观上看，电子烟更像一个小型电子产品；从使用方式看，它又和传统烟草制品有相似之处；从检测角度看，它其实同时涉及<strong>电子结构、雾化材料、气流控制和化学释放物</strong>。</p>
-<p>也就是说，电子烟并不是简单的“电池加热烟油”。一支电子烟在工作时，电池要稳定供电，控制板要准确启动，雾化芯要在合适温度下加热，雾化物要被均匀输送，最后产生的气溶胶还需要通过气道被吸出。这个过程中，任何一个环节发生变化，都可能影响最终释放物的结果。</p>
-<p>比如，同一款电子烟：</p>
-<ul>
-<li>抽吸时间长一点，释放量可能不同；</li>
-<li>抽吸力度大一点，气溶胶量可能不同；</li>
-<li>雾化温度高一点，某些分解产物可能增加；</li>
-<li>电池电量不足，雾化状态也可能发生变化；</li>
-<li>环境温湿度不同，捕集和分析结果也可能波动。</li>
-</ul>
-<p>这就是为什么电子烟需要标准化测试。标准化测试的目的，不是模拟每一个人的真实使用习惯，而是建立一个统一、可重复、可比较的测试条件。只有在相同的抽吸容量、抽吸时间、抽吸间隔、环境条件和分析方法下，不同实验室得到的数据才有可比性。</p>
-<p>因此，电子烟测试通常会使用<strong>常规分析抽气机或抽吸机</strong>，按照标准规定的条件模拟抽吸过程，再收集气溶胶并分析其中的目标成分。我国 <strong>GB 41700-2022《电子烟》</strong> 对电子烟的术语、设计与原材料、技术要求、试验方法、标志和说明书等作出了规定，是国内电子烟产品合规的重要依据。</p>
-<p>而 <strong>DIN EN ISO 20768:2022 &#x2F; ISO 20768</strong> 则从国际标准角度规定了蒸汽产品常规分析抽气机的定义、标准条件和设备要求，为电子烟释放物测试提供了抽吸设备和抽吸条件方面的基础。</p>
-<p>简单来说，电子烟测试要回答三个问题：</p>
-<ol>
-<li><strong>产品本身是否安全可靠？</strong> 例如是否漏液、是否防误启动、是否有过热风险。</li>
-<li><strong>雾化物成分是否符合要求？</strong> 例如烟碱、丙二醇、丙三醇、添加剂和污染物是否受控。</li>
-<li><strong>在标准抽吸条件下会释放什么？</strong> 例如烟碱释放量，以及甲醛、乙醛、丙烯醛等羰基化合物释放量。</li>
-</ol>
-<p>所以，电子烟检测并不是简单地“测一下烟油”或“看一下烟雾”，而是一套围绕<strong>产品结构、雾化物配方、抽吸条件和释放物分析</strong>建立起来的完整测试体系。</p>
-<hr>
-<h2 id="1-电子烟的基本原理"><a href="#1-电子烟的基本原理" class="headerlink" title="1. 电子烟的基本原理"></a>1. 电子烟的基本原理</h2><p>电子烟的工作过程可以简单理解为：</p>
-<blockquote>
-<p><strong>电池供电 → 控制板启动 → 发热元件升温 → 雾化物被加热 → 形成气溶胶 → 用户吸入</strong></p>
-</blockquote>
-<p>其中，雾化芯是核心部件。它通常由发热丝、陶瓷或导油材料组成，负责把雾化物加热到合适温度。温度过低，雾化不充分；温度过高，则可能带来异常分解产物，因此雾化区域温度是电子烟测试中的重要项目之一。GB 41700-2022 也设置了雾化区域温度、释放物和烟具安全等相关试验内容。</p>
-<hr>
-<h2 id="2-电子烟的主要结构"><a href="#2-电子烟的主要结构" class="headerlink" title="2. 电子烟的主要结构"></a>2. 电子烟的主要结构</h2><p>常见电子烟一般由以下部分组成：</p>
-<ul>
-<li><strong>电池</strong>：提供电能；</li>
-<li><strong>控制电路</strong>：控制启动、功率和保护功能；</li>
-<li><strong>雾化芯</strong>：负责加热雾化；</li>
-<li><strong>烟弹或储液仓</strong>：储存雾化物；</li>
-<li><strong>气道和吸嘴</strong>：输送气溶胶；</li>
-<li><strong>外壳结构</strong>：保护内部部件。</li>
-</ul>
-<p>从测试角度看，电子烟不是只测“烟雾成分”，还要测试烟具本身的安全性，例如防漏液、防填充、启动保护、防水、跌落强度和泄压安全等。</p>
-<hr>
-<h2 id="3-电子烟为什么要标准化测试？"><a href="#3-电子烟为什么要标准化测试？" class="headerlink" title="3. 电子烟为什么要标准化测试？"></a>3. 电子烟为什么要标准化测试？</h2><p>电子烟释放物会受到很多因素影响，例如：</p>
-<ul>
-<li>抽吸时间；</li>
-<li>抽吸容量；</li>
-<li>抽吸间隔；</li>
-<li>电池电量；</li>
-<li>雾化芯状态；</li>
-<li>雾化物配方；</li>
-<li>环境温湿度。</li>
-</ul>
-<p>如果没有统一测试条件，不同实验室、不同设备、不同人员得到的数据很难比较。因此，电子烟测试需要借助<strong>标准抽吸机或抽气机</strong>，按照规定条件模拟抽吸过程。</p>
-<p><strong>DIN EN ISO 20768:2022 &#x2F; ISO 20768</strong> 是蒸汽产品常规分析抽气机的重要标准，规定了蒸汽产品抽气机的定义、标准条件和设备要求，但不直接规定具体雾化液、捕集方式和后续化学分析方法。</p>
-<hr>
-<h2 id="4-相关标准的作用"><a href="#4-相关标准的作用" class="headerlink" title="4. 相关标准的作用"></a>4. 相关标准的作用</h2><h3 id="4-1-GB-41700-2022《电子烟》"><a href="#4-1-GB-41700-2022《电子烟》" class="headerlink" title="4.1 GB 41700-2022《电子烟》"></a>4.1 GB 41700-2022《电子烟》</h3><p>这是我国电子烟产品合规中的核心标准，规定了电子烟烟具、雾化物、释放物、试验方法、标志和说明书要求。其中附录涉及标准抽吸条件、烟碱释放量测定，以及甲醛、乙醛、丙烯醛和 2,3-丁二酮等释放物测定。</p>
-<h3 id="4-2-DIN-EN-ISO-20768-2022《蒸汽产品-常规分析抽气机-定义和标准条件》"><a href="#4-2-DIN-EN-ISO-20768-2022《蒸汽产品-常规分析抽气机-定义和标准条件》" class="headerlink" title="4.2 DIN EN ISO 20768:2022《蒸汽产品 常规分析抽气机 定义和标准条件》"></a>4.2 DIN EN ISO 20768:2022《蒸汽产品 常规分析抽气机 定义和标准条件》</h3><p>该标准主要用于电子烟或蒸汽产品的抽吸设备规范，重点是保证抽吸参数一致，使释放物测试具有重复性和可比性。</p>
-<h3 id="4-3-ISO-3308-2012《常规分析用卷烟吸烟机-—-定义和标准条件》"><a href="#4-3-ISO-3308-2012《常规分析用卷烟吸烟机-—-定义和标准条件》" class="headerlink" title="4.3 ISO 3308:2012《常规分析用卷烟吸烟机 — 定义和标准条件》"></a>4.3 ISO 3308:2012《常规分析用卷烟吸烟机 — 定义和标准条件》</h3><p>这是传统卷烟吸烟机的重要国际标准，规定了卷烟机械吸烟的参数和设备条件。虽然电子烟不是卷烟，但电子烟测试体系中的抽吸机思路，部分借鉴了卷烟吸烟机的标准化方法。</p>
-<h3 id="4-4-ISO-7210《常规分析用卷烟吸烟机-—-机器验证的附加测试方法》"><a href="#4-4-ISO-7210《常规分析用卷烟吸烟机-—-机器验证的附加测试方法》" class="headerlink" title="4.4 ISO 7210《常规分析用卷烟吸烟机 — 机器验证的附加测试方法》"></a>4.4 ISO 7210《常规分析用卷烟吸烟机 — 机器验证的附加测试方法》</h3><p>该标准用于验证吸烟机的关键性能，例如压降、抽吸曲线、抽吸容量等。它的价值在于提醒实验室：在测样品之前，必须先确认设备本身是准确和稳定的。</p>
-<h3 id="4-5-GB-T-16447-2004《烟草及烟草制品-调节和测试的大气环境》"><a href="#4-5-GB-T-16447-2004《烟草及烟草制品-调节和测试的大气环境》" class="headerlink" title="4.5 GB&#x2F;T 16447-2004《烟草及烟草制品 调节和测试的大气环境》"></a>4.5 GB&#x2F;T 16447-2004《烟草及烟草制品 调节和测试的大气环境》</h3><p>该标准规定了烟草及烟草制品调节和测试的大气环境。电子烟测试虽然不完全等同于卷烟测试，但温湿度等环境条件仍会影响测试结果，因此实验室环境控制非常重要。</p>
-<h3 id="4-6-GB-T-16450-2004《常规分析用吸烟机-定义和标准条件》"><a href="#4-6-GB-T-16450-2004《常规分析用吸烟机-定义和标准条件》" class="headerlink" title="4.6 GB&#x2F;T 16450-2004《常规分析用吸烟机 定义和标准条件》"></a>4.6 GB&#x2F;T 16450-2004《常规分析用吸烟机 定义和标准条件》</h3><p>这是我国常规分析用卷烟吸烟机标准，规定了吸烟机的标准条件、吸烟参数和技术要求，可作为理解抽吸机标准化方法的基础文件。</p>
-<hr>
-<h2 id="5-电子烟主要测试什么？"><a href="#5-电子烟主要测试什么？" class="headerlink" title="5. 电子烟主要测试什么？"></a>5. 电子烟主要测试什么？</h2><p>电子烟测试通常可以分为三类：</p>
-<h3 id="5-1-烟具安全测试"><a href="#5-1-烟具安全测试" class="headerlink" title="5.1 烟具安全测试"></a>5.1 烟具安全测试</h3><p>包括：</p>
-<ul>
-<li>防漏液；</li>
-<li>防填充；</li>
-<li>启动保护；</li>
-<li>雾化区域温度；</li>
-<li>防水；</li>
-<li>跌落强度；</li>
-<li>泄压安全；</li>
-<li>电池和电气安全。</li>
-</ul>
-<p>这类测试主要关注产品结构和使用安全。</p>
-<h3 id="5-2-雾化物测试"><a href="#5-2-雾化物测试" class="headerlink" title="5.2 雾化物测试"></a>5.2 雾化物测试</h3><p>包括：</p>
-<ul>
-<li>烟碱含量；</li>
-<li>丙二醇；</li>
-<li>丙三醇；</li>
-<li>添加剂；</li>
-<li>重金属；</li>
-<li>杂质和污染物；</li>
-<li>2,3-丁二酮等重点关注物质。</li>
-</ul>
-<p>这类测试主要关注雾化物本身是否符合标准要求。</p>
-<h3 id="5-3-释放物测试"><a href="#5-3-释放物测试" class="headerlink" title="5.3 释放物测试"></a>5.3 释放物测试</h3><p>这是电子烟测试中的重点。实验室会使用抽吸机，在标准抽吸条件下收集气溶胶，再分析其中的目标物质，例如：</p>
-<ul>
-<li>烟碱释放量；</li>
-<li>甲醛；</li>
-<li>乙醛；</li>
-<li>丙烯醛；</li>
-<li>2,3-丁二酮。</li>
-</ul>
-<p>这些项目用于评价电子烟在实际雾化过程中的释放特征。GB 41700-2022 对电子烟释放物的相关测定方法作出了规定。</p>
-<hr>
-<h2 id="6-简单理解电子烟测试流程"><a href="#6-简单理解电子烟测试流程" class="headerlink" title="6. 简单理解电子烟测试流程"></a>6. 简单理解电子烟测试流程</h2><p>一个典型的电子烟测试流程可以概括为：</p>
-<ol>
-<li><p><strong>确认标准</strong><br>国内合规重点看 GB 41700-2022；国际测试可参考 ISO 20768。</p>
-</li>
-<li><p><strong>样品登记</strong><br>记录型号、批次、烟碱标称值、电池状态和烟弹信息。</p>
-</li>
-<li><p><strong>环境调节</strong><br>控制实验室温湿度，保证测试条件稳定。</p>
-</li>
-<li><p><strong>设备验证</strong><br>检查抽吸机的抽吸容量、抽吸时间、抽吸曲线和气路密封性。</p>
-</li>
-<li><p><strong>标准抽吸</strong><br>按规定抽吸参数运行电子烟。</p>
-</li>
-<li><p><strong>气溶胶捕集</strong><br>使用滤片、吸收液或其他捕集装置收集释放物。</p>
-</li>
-<li><p><strong>化学分析</strong><br>对烟碱、羰基化合物等目标物质进行分析。</p>
-</li>
-<li><p><strong>结果判定</strong><br>根据标准要求判断产品是否符合规定。</p>
-</li>
-</ol>
-<hr>
-<h2 id="7-小结"><a href="#7-小结" class="headerlink" title="7. 小结"></a>7. 小结</h2><p>电子烟测试的核心不是简单地“测烟雾”，而是建立一套<strong>可重复、可比较、可追溯</strong>的检测体系。</p>
-<p>可以这样理解：</p>
-<ul>
-<li><strong>GB 41700-2022</strong> 解决“电子烟产品要符合什么要求”；</li>
-<li><strong>ISO 20768 &#x2F; DIN EN ISO 20768:2022</strong> 解决“电子烟如何标准化抽吸”；</li>
-<li><strong>ISO 3308 和 GB&#x2F;T 16450</strong> 提供传统吸烟机标准化基础；</li>
-<li><strong>ISO 7210</strong> 关注机器验证；</li>
-<li><strong>GB&#x2F;T 16447</strong> 关注测试环境。</li>
-</ul>
-<p>因此，电子烟合规测试不仅要看产品结构和配方，更要看在标准抽吸条件下产生了什么释放物。对于实验室和企业来说，只有标准清楚、设备可靠、过程可追溯，测试结果才真正有意义。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>E-cigarette</tag>
-        <tag>标准</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>申请美国EVUS（签证更新电子系统）</title>
-    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
-<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
-<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
-<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
-<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
-<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
-<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
-<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
-<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
-<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
-<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
-<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
-<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
-<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
-<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
-<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
-<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
-<hr>
-<p><strong>参考网站：</strong></p>
-<ol>
-<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
-<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
-<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>EVUS</tag>
       </tags>
   </entry>
   <entry>
