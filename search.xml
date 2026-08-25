@@ -1,102 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Atom中Markdown语法</title>
-    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li>无序1</li>
-<li>无序2</li>
-<li>无序3</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>有序1</li>
-<li>有序2</li>
-<li>有序3</li>
-</ol>
-<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>静夜思<br>窗前看月光<br>抬头望山月</p>
-</blockquote>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<strong>加粗的内容</strong></p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<em>斜体的内容</em></p>
-<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
-<p>我是需要___粗斜体的内容___</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：<del>删除线</del></p>
-<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
-<p>我是需要***<del>粗斜体删除的内容</del>***</p>
-<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
-<hr>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<u>这是需要下划线的内容</u></p>
-<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<center>这是要居中的文本内容</center></p>
-<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Java</li>
-<li><input disabled="" type="checkbox"> C</li>
-<li><input disabled="" type="checkbox"> C++</li>
-</ul>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
-<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
-<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
-<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
-<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
-<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
-
-
-<p>效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<center>行1 |<center>行2 |<center>行3
-:----: | :----: | :----:
-小程序 | vue | 菜鸟
-search | web前段开发工程师 | 码农
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
-<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
-<p>语法示例：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
-<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Atom</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Atom Command</title>
     <url>/2026/01/15/Atom-command/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Atom-MacOs-快捷键"><a href="#Atom-MacOs-快捷键" class="headerlink" title="Atom MacOs 快捷键"></a>Atom MacOs 快捷键</h1><h2 id="文件切换"><a href="#文件切换" class="headerlink" title="文件切换"></a>文件切换</h2><ul>
@@ -276,6 +180,102 @@ search | web前段开发工程师 | 码农
       <categories>
         <category>Blog</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Atom中Markdown语法</title>
+    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>无序1</li>
+<li>无序2</li>
+<li>无序3</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+</blockquote>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<strong>加粗的内容</strong></p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<em>斜体的内容</em></p>
+<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
+<p>我是需要___粗斜体的内容___</p>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果：<del>删除线</del></p>
+<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
+<p>我是需要***<del>粗斜体删除的内容</del>***</p>
+<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
+<hr>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<u>这是需要下划线的内容</u></p>
+<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<center>这是要居中的文本内容</center></p>
+<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Java</li>
+<li><input disabled="" type="checkbox"> C</li>
+<li><input disabled="" type="checkbox"> C++</li>
+</ul>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
+<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
+<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
+<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
+<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
+<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
+
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<center>行1 |<center>行2 |<center>行3
+:----: | :----: | :----:
+小程序 | vue | 菜鸟
+search | web前段开发工程师 | 码农
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
+<p>语法示例：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Atom</tag>
+        <tag>Markdown</tag>
+      </tags>
   </entry>
   <entry>
     <title>Atom使用</title>
@@ -1592,6 +1592,63 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>MacBook效率工具</title>
+    <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
+<h3 id="IINA-免费开源视频播放器"><a href="#IINA-免费开源视频播放器" class="headerlink" title="IINA - 免费开源视频播放器"></a>IINA - 免费开源视频播放器</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9paW5hLmlvLw==">IINA<i class="fa fa-external-link-alt"></i></span> 是一款 macOS 下的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoYzcwMDAwL2lpbmE=">开源<i class="fa fa-external-link-alt"></i></span>视频播放器，基于 <span class="exturl" data-url="aHR0cHM6Ly9tcHYuaW8v">mpv<i class="fa fa-external-link-alt"></i></span>，为现代 macOS(10.10+) 而生，支持 Touch Bar、兼容 MPV 脚本、几乎支持所有格式、网络播放、拥有优雅外观的<code>免费开源</code>视频播放器。<span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjI3Mw==">少数派<i class="fa fa-external-link-alt"></i></span> 也出了相应的使用说明。</p>
+<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
+<h3 id="Hidden-Bar-免费隐藏工具栏"><a href="#Hidden-Bar-免费隐藏工具栏" class="headerlink" title="Hidden Bar - 免费隐藏工具栏"></a>Hidden Bar - 免费隐藏工具栏</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9jbi9hcHAvaGlkZGVuLWJhci9pZDE0NTI0NTMwNjY/bXQ9MTI=">Hidden Bar<i class="fa fa-external-link-alt"></i></span> 菜单栏图标太多，很碍眼？想要一款能够隐藏菜单栏图标的<code>免费</code>工具？Hidden Bar for mac分享给大家！Hidden Bar Mac版使用非常简单，运行 Hidden Bar 之后，会在菜单栏上出现一个分隔符 “｜”，左侧的是被隐藏图标，右侧是长期显示图标。只需要按住 command ⌘ 键，然后拖动一个应用图标到分隔符 “｜”左边，就代表隐藏了，是不是很方便呢？</p>
+<h3 id="Dukto-免费局域网传输工具"><a href="#Dukto-免费局域网传输工具" class="headerlink" title="Dukto - 免费局域网传输工具"></a>Dukto - 免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
+<h3 id="FDM-免费链接下载工具"><a href="#FDM-免费链接下载工具" class="headerlink" title="FDM - 免费链接下载工具"></a>FDM - 免费链接下载工具</h3><ul>
+<li>快速、安全且有效率地下載</li>
+<li>從熱門網站下載影片</li>
+<li>伺服器支援</li>
+<li>HTTP&#x2F;HTTPS&#x2F;FTP&#x2F;BT 支援</li>
+<li>現代化設計的友善介面</li>
+<li>支援 Windows 及macOS作業系統<br>&emsp;&emsp;<strong>此外</strong>, 在 macOS及 Windows作業系統下的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZG93bmxvYWQuaHRt">Free Download Manager<i class="fa fa-external-link-alt"></i></span>還能讓您調整使用頻寬，組織下載，控制種子優先順序，以有效地下載大型及斷點續傳檔案。FDM能夠啟動您的所有下載高達10倍速，處理各種熱門格式的影片，從網路瀏覽器拖放網址，同時下載多個檔案。我們的網路下載管理器也相容於 Google Chrome、Mozilla Firefox、Microsoft Edge、nternet Explorer 及Safari瀏覽器。有關更多資訊，請點擊<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZmVhdHVyZXMuaHRt">这里<i class="fa fa-external-link-alt"></i></span>。</li>
+</ul>
+<h3 id="Beyong-compare-文件对比工具"><a href="#Beyong-compare-文件对比工具" class="headerlink" title="Beyong compare - 文件对比工具"></a>Beyong compare - 文件对比工具</h3><ul>
+<li>Beyond Compare 是一款功能非常强大的文件对比工具，不仅仅可以对比文件、Word 、Excal、mp3、文件夹等等，还可以对比图片，而且还可以填写新的文件格式。我们先看看 Beyond Compare 目前支持哪些文件格式的对比。</li>
+<li>Mac 版本：</li>
+</ul>
+<ol>
+<li>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Nvb3RlcnNvZnR3YXJlLmNvbS9kb3dubG9hZC5waHA=">官网<i class="fa fa-external-link-alt"></i></span>下载BeyondCompare并安装成功后，执行如下操作:</li>
+<li>进入Beyond Compare应用程序MacOS目录下(&#x2F;Applications&#x2F;BeyondCompare.app&#x2F;Contents&#x2F;MacOS)</li>
+<li>选中Beyond Compare, 右击选中“显示包内容”-&gt;Contents-&gt;MacOS-&gt;</li>
+<li>将主启动程序文件BCompare重命名为BCompare.real</li>
+</ol>
+<ul>
+<li>在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看</li>
+<li>打开终端cd到BCompare文件目录，使用命令：touch BCompare创建文件</li>
+<li>打开BCompare文件输入一下代码：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> <span class="string">&quot;/Users/<span class="subst">$(whoami)</span>/Library/Application Support/BeyondCompare/registry.dat&quot;</span></span><br><span class="line"><span class="string">&quot;`dirname &quot;</span><span class="variable">$0</span><span class="string">&quot;`&quot;</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</li>
+</ul>
+<ol start="5">
+<li>给新建的文件BCompare，授权文件执行权限</li>
+</ol>
+<ul>
+<li>授权文件执行权限<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod a+x <span class="regexp">/Applications/</span>Beyond\Compare.app<span class="regexp">/Contents/</span>MacOS/BCompare</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
+<h3 id="Xmind-Zen-思维导图工具"><a href="#Xmind-Zen-思维导图工具" class="headerlink" title="Xmind Zen - 思维导图工具"></a>Xmind Zen - 思维导图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnNlZ21lbnRmYXVsdC5jb20vP2VuYz11YlJZNVBCMlNaT3VSYWc4UUxDRStRPT0udDVqcnp1NTlvT09ya2hkYlk0a1h3aExWTlhZUFNZV0VnbEZFNHF5Skd0T3BubTJkbFZtZjg0MGYyOWZMdTdWNQ==">XMind ZEN<i class="fa fa-external-link-alt"></i></span>  是一款功能强大、颜值超高的全新[思维导图]工具，100% 重写了思维导图的引擎，着眼在未来的黑科技上，提升了思维导图的展示效果，丰富了绘图的元素。所有内置主题的字体都能让你的导图在各平台上拥有一致的视觉呈现效果。当导图中的中、日、韩字符不能够被正确呈现时，CJK字体列表可以作为备选方案解决这种窘境。</p>
+<h3 id="Chrome-免费谷歌浏览器"><a href="#Chrome-免费谷歌浏览器" class="headerlink" title="Chrome - 免费谷歌浏览器"></a>Chrome - 免费谷歌浏览器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNuL2Nocm9tZS8=">官网<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li>MAC下，插件的安装位置：所有的chrome插件都是安装在资源管理库(library)里面的,如果你的记性够好，请记住MAC下插件的安装位置：<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/Library/</span>Application Support<span class="regexp">/Google/</span>Chrome<span class="regexp">/Default/</span>Extensions</span><br></pre></td></tr></table></figure></li>
+<li>谷歌访问助手</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJpbnRmcmllbmRseS5jb20v">Print Friendly&amp;PDF<i class="fa fa-external-link-alt"></i></span>, 网页打印成PDF。</li>
+</ul>
+<h3 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h3><p>&emsp;&emsp;自1989年第一版JMP软件问世以来，<span class="exturl" data-url="aHR0cHM6Ly93d3cuam1wLmNvbS96aF9jbi9zb2Z0d2FyZS5odG1s">JMP<i class="fa fa-external-link-alt"></i></span>. 统计发现软件一直是各个行业和政府部门的科学家、工程师及其他数据探索人员的首选工具。 [1]   JMP系列产品包括JMP，JMP Pro，JMP Clinical，JMP Genomics等产品线。通过帮助全球客户发现数据背后的价值，JMP被广泛应用于业务可视化、探索性数据分析(EDA)、数据挖掘、建模预测、实验设计、产品研发、生物统计、医学统计、可靠性分析、市场调研、<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlODUlQUQlRTglQTUlQkYlRTYlQTAlQkMlRTclOEUlOUIlRTglQjQlQTglRTklODclOEYvNTMzMDUwNjE=">六西格玛质量<i class="fa fa-external-link-alt"></i></span>管理等领域，裨益半导体和电子、医药、化工、食品、金融和服务、政府和教育等各行各业，并逐渐成为全球领先的数据分析方法及咨询供应商，致力于帮助客户从数据中获取价值，优化决策，驱动创新，成就未来。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>MacBook</tag>
+        <tag>效率</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Siemens NX 视图方位快捷键</title>
     <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
@@ -1633,6 +1690,83 @@ th {
         <tag>NX</tag>
         <tag>NX 2506</tag>
         <tag>视图方位快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks高效机械设计插件</title>
+    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
+<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
+<li>ICAN工具箱版本</li>
+<li>版本：V9.5.3</li>
+<li>发布日期：2026-05-07</li>
+<li>大小：69 Mb</li>
+<li>版本要求：Sw2016含以上</li>
+<li>支持系统：win7、win10、win11 64位</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
+<p>提供5种打孔功能,打孔效率提升10倍!</p>
+</blockquote>
+<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
+<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
+</blockquote>
+<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
+<p>快速装配常见紧固件,自动识别规格!</p>
+</blockquote>
+<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
+<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
+</blockquote>
+<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
+<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
+</blockquote>
+<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
+<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
+</blockquote>
+<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
+<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
+</blockquote>
+<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
+<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
+</blockquote>
+<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
+<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
+  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
+  您的浏览器不支持HTML5视频播放，请升级浏览器。
+</video>
+
+<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -1704,211 +1838,9 @@ th {
       </categories>
       <tags>
         <tag>Solidworks</tag>
+        <tag>插件</tag>
         <tag>仿真</tag>
         <tag>动画</tag>
-        <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks参数优化</title>
-    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
-<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
-<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
-<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
-<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>参数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MacBook效率工具</title>
-    <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
-<h3 id="IINA-免费开源视频播放器"><a href="#IINA-免费开源视频播放器" class="headerlink" title="IINA - 免费开源视频播放器"></a>IINA - 免费开源视频播放器</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9paW5hLmlvLw==">IINA<i class="fa fa-external-link-alt"></i></span> 是一款 macOS 下的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoYzcwMDAwL2lpbmE=">开源<i class="fa fa-external-link-alt"></i></span>视频播放器，基于 <span class="exturl" data-url="aHR0cHM6Ly9tcHYuaW8v">mpv<i class="fa fa-external-link-alt"></i></span>，为现代 macOS(10.10+) 而生，支持 Touch Bar、兼容 MPV 脚本、几乎支持所有格式、网络播放、拥有优雅外观的<code>免费开源</code>视频播放器。<span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjI3Mw==">少数派<i class="fa fa-external-link-alt"></i></span> 也出了相应的使用说明。</p>
-<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
-<h3 id="Hidden-Bar-免费隐藏工具栏"><a href="#Hidden-Bar-免费隐藏工具栏" class="headerlink" title="Hidden Bar - 免费隐藏工具栏"></a>Hidden Bar - 免费隐藏工具栏</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9jbi9hcHAvaGlkZGVuLWJhci9pZDE0NTI0NTMwNjY/bXQ9MTI=">Hidden Bar<i class="fa fa-external-link-alt"></i></span> 菜单栏图标太多，很碍眼？想要一款能够隐藏菜单栏图标的<code>免费</code>工具？Hidden Bar for mac分享给大家！Hidden Bar Mac版使用非常简单，运行 Hidden Bar 之后，会在菜单栏上出现一个分隔符 “｜”，左侧的是被隐藏图标，右侧是长期显示图标。只需要按住 command ⌘ 键，然后拖动一个应用图标到分隔符 “｜”左边，就代表隐藏了，是不是很方便呢？</p>
-<h3 id="Dukto-免费局域网传输工具"><a href="#Dukto-免费局域网传输工具" class="headerlink" title="Dukto - 免费局域网传输工具"></a>Dukto - 免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
-<h3 id="FDM-免费链接下载工具"><a href="#FDM-免费链接下载工具" class="headerlink" title="FDM - 免费链接下载工具"></a>FDM - 免费链接下载工具</h3><ul>
-<li>快速、安全且有效率地下載</li>
-<li>從熱門網站下載影片</li>
-<li>伺服器支援</li>
-<li>HTTP&#x2F;HTTPS&#x2F;FTP&#x2F;BT 支援</li>
-<li>現代化設計的友善介面</li>
-<li>支援 Windows 及macOS作業系統<br>&emsp;&emsp;<strong>此外</strong>, 在 macOS及 Windows作業系統下的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZG93bmxvYWQuaHRt">Free Download Manager<i class="fa fa-external-link-alt"></i></span>還能讓您調整使用頻寬，組織下載，控制種子優先順序，以有效地下載大型及斷點續傳檔案。FDM能夠啟動您的所有下載高達10倍速，處理各種熱門格式的影片，從網路瀏覽器拖放網址，同時下載多個檔案。我們的網路下載管理器也相容於 Google Chrome、Mozilla Firefox、Microsoft Edge、nternet Explorer 及Safari瀏覽器。有關更多資訊，請點擊<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZmVhdHVyZXMuaHRt">这里<i class="fa fa-external-link-alt"></i></span>。</li>
-</ul>
-<h3 id="Beyong-compare-文件对比工具"><a href="#Beyong-compare-文件对比工具" class="headerlink" title="Beyong compare - 文件对比工具"></a>Beyong compare - 文件对比工具</h3><ul>
-<li>Beyond Compare 是一款功能非常强大的文件对比工具，不仅仅可以对比文件、Word 、Excal、mp3、文件夹等等，还可以对比图片，而且还可以填写新的文件格式。我们先看看 Beyond Compare 目前支持哪些文件格式的对比。</li>
-<li>Mac 版本：</li>
-</ul>
-<ol>
-<li>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Nvb3RlcnNvZnR3YXJlLmNvbS9kb3dubG9hZC5waHA=">官网<i class="fa fa-external-link-alt"></i></span>下载BeyondCompare并安装成功后，执行如下操作:</li>
-<li>进入Beyond Compare应用程序MacOS目录下(&#x2F;Applications&#x2F;BeyondCompare.app&#x2F;Contents&#x2F;MacOS)</li>
-<li>选中Beyond Compare, 右击选中“显示包内容”-&gt;Contents-&gt;MacOS-&gt;</li>
-<li>将主启动程序文件BCompare重命名为BCompare.real</li>
-</ol>
-<ul>
-<li>在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看</li>
-<li>打开终端cd到BCompare文件目录，使用命令：touch BCompare创建文件</li>
-<li>打开BCompare文件输入一下代码：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> <span class="string">&quot;/Users/<span class="subst">$(whoami)</span>/Library/Application Support/BeyondCompare/registry.dat&quot;</span></span><br><span class="line"><span class="string">&quot;`dirname &quot;</span><span class="variable">$0</span><span class="string">&quot;`&quot;</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
-第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</li>
-</ul>
-<ol start="5">
-<li>给新建的文件BCompare，授权文件执行权限</li>
-</ol>
-<ul>
-<li>授权文件执行权限<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod a+x <span class="regexp">/Applications/</span>Beyond\Compare.app<span class="regexp">/Contents/</span>MacOS/BCompare</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
-<h3 id="Xmind-Zen-思维导图工具"><a href="#Xmind-Zen-思维导图工具" class="headerlink" title="Xmind Zen - 思维导图工具"></a>Xmind Zen - 思维导图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnNlZ21lbnRmYXVsdC5jb20vP2VuYz11YlJZNVBCMlNaT3VSYWc4UUxDRStRPT0udDVqcnp1NTlvT09ya2hkYlk0a1h3aExWTlhZUFNZV0VnbEZFNHF5Skd0T3BubTJkbFZtZjg0MGYyOWZMdTdWNQ==">XMind ZEN<i class="fa fa-external-link-alt"></i></span>  是一款功能强大、颜值超高的全新[思维导图]工具，100% 重写了思维导图的引擎，着眼在未来的黑科技上，提升了思维导图的展示效果，丰富了绘图的元素。所有内置主题的字体都能让你的导图在各平台上拥有一致的视觉呈现效果。当导图中的中、日、韩字符不能够被正确呈现时，CJK字体列表可以作为备选方案解决这种窘境。</p>
-<h3 id="Chrome-免费谷歌浏览器"><a href="#Chrome-免费谷歌浏览器" class="headerlink" title="Chrome - 免费谷歌浏览器"></a>Chrome - 免费谷歌浏览器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNuL2Nocm9tZS8=">官网<i class="fa fa-external-link-alt"></i></span></p>
-<ul>
-<li>MAC下，插件的安装位置：所有的chrome插件都是安装在资源管理库(library)里面的,如果你的记性够好，请记住MAC下插件的安装位置：<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/Library/</span>Application Support<span class="regexp">/Google/</span>Chrome<span class="regexp">/Default/</span>Extensions</span><br></pre></td></tr></table></figure></li>
-<li>谷歌访问助手</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJpbnRmcmllbmRseS5jb20v">Print Friendly&amp;PDF<i class="fa fa-external-link-alt"></i></span>, 网页打印成PDF。</li>
-</ul>
-<h3 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h3><p>&emsp;&emsp;自1989年第一版JMP软件问世以来，<span class="exturl" data-url="aHR0cHM6Ly93d3cuam1wLmNvbS96aF9jbi9zb2Z0d2FyZS5odG1s">JMP<i class="fa fa-external-link-alt"></i></span>. 统计发现软件一直是各个行业和政府部门的科学家、工程师及其他数据探索人员的首选工具。 [1]   JMP系列产品包括JMP，JMP Pro，JMP Clinical，JMP Genomics等产品线。通过帮助全球客户发现数据背后的价值，JMP被广泛应用于业务可视化、探索性数据分析(EDA)、数据挖掘、建模预测、实验设计、产品研发、生物统计、医学统计、可靠性分析、市场调研、<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlODUlQUQlRTglQTUlQkYlRTYlQTAlQkMlRTclOEUlOUIlRTglQjQlQTglRTklODclOEYvNTMzMDUwNjE=">六西格玛质量<i class="fa fa-external-link-alt"></i></span>管理等领域，裨益半导体和电子、医药、化工、食品、金融和服务、政府和教育等各行各业，并逐渐成为全球领先的数据分析方法及咨询供应商，致力于帮助客户从数据中获取价值，优化决策，驱动创新，成就未来。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>MacBook</tag>
-        <tag>效率</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks高效机械设计插件</title>
-    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
-<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
-<li>ICAN工具箱版本</li>
-<li>版本：V9.5.3</li>
-<li>发布日期：2026-05-07</li>
-<li>大小：69 Mb</li>
-<li>版本要求：Sw2016含以上</li>
-<li>支持系统：win7、win10、win11 64位</li>
-</ul>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
-<p>提供5种打孔功能,打孔效率提升10倍!</p>
-</blockquote>
-<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
-<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
-</blockquote>
-<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
-<p>快速装配常见紧固件,自动识别规格!</p>
-</blockquote>
-<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
-<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
-</blockquote>
-<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
-<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
-</blockquote>
-<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
-<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
-</blockquote>
-<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
-<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
-</blockquote>
-<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
-<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
-</blockquote>
-<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
-<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
-</blockquote>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
-<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
-  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
-  您的浏览器不支持HTML5视频播放，请升级浏览器。
-</video>
-
-<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>StrainGauge</title>
-    <url>/2020/02/07/Strain%20Gauge/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
-<p>&ensp;&ensp;Invented by Edward E. Simmons and Arthur C. Ruge in 1938, the most common type of strain gauge consists of an insulating flexible backing which supports a metallic foil pattern.<br>&ensp;&ensp;应变计由 Edward E. Simmons 和 Arthur C. Ruge 于 1938 年发明，最常见的类型是由绝缘柔性背衬支撑金属箔图案组成。</p>
-<p>&ensp;&ensp;The gauge is attached to the object by a <strong>suitable adhesive</strong>, such as cyanoacrylate (氰基丙烯酸酯). Proper adhesion is critical, as any air gaps or flexibility in the bonding layer will introduce measurement errors known as creep or hysteresis. As the object is deformed, the foil is deformed, causing its electrical resistance to change. This resistance change, usually measured using a Wheatstone bridge, is related to the strain by the quantity known as the gauge factor.<br>&ensp;&ensp;应变片通过合适的粘合剂（例如氰基丙烯酸酯）固定在被测物体上。良好的粘合至关重要，因为粘合层中的任何气隙或柔性都会引入测量误差，称为蠕变或滞后。当被测物体发生形变时，应变片也会发生形变，导致其电阻发生变化。这种电阻变化通常使用惠斯通电桥测量，它与应变之间的关系称为应变系数。</p>
-<h2 id="Physical-operation"><a href="#Physical-operation" class="headerlink" title="Physical operation"></a>Physical operation</h2><p>&ensp;&ensp;A strain gauge takes advantage of the physical property of electrical conductance and its dependence on the conductor’s geometry.<br>&ensp;&ensp;应变计利用了电导率的物理特性及其对导体几何形状的依赖性。</p>
-<p>&ensp;&ensp;When an electrical conductor is stretched within the limits of its elasticity such that it does not break or permanently deform, it will become narrower and longer, which increases its electrical resistance end-to-end.<br>&ensp;&ensp;当电导体在其弹性极限内被拉伸而不断裂或永久变形时，它会变得更窄更长，从而增加其端到端的电阻。</p>
-<p>&ensp;&ensp;Conversely, when a conductor is compressed such that it does not buckle, it will broaden and shorten, which decreases its electrical resistance end-to-end. From the measured electrical resistance of the strain gauge, the amount of induced stress may be inferred.<br>&ensp;&ensp;反之，当导体受到压缩而不发生屈曲时，它会变宽变短，从而降低其端到端的电阻。通过测量应变片的电阻值，可以推断出所施加的应力大小。</p>
-<p>&ensp;&ensp;A typical strain gauge arranges a long, thin conductive strip in a zig-zag pattern of parallel lines. This does not increase the sensitivity, since the percentage change in resistance for a given strain for the entire zig-zag is the same as for any single trace. A single linear trace would have to be extremely thin, hence liable to overheating (which would change its resistance and cause it to expand), or would need to be operated at a much lower voltage, making it difficult to measure resistance changes accurately.<br>&ensp;&ensp;典型的应变计将一条细长的导电条以锯齿状平行线排列。但这并不会提高灵敏度，因为对于给定的应变，整个锯齿状区域的电阻变化百分比与任何单条导线的电阻变化百分比相同。单条线性导线必须非常细，因此容易过热（过热会改变其电阻并导致其膨胀），或者需要使用低得多的电压，这使得精确测量电阻变化变得困难。</p>
-<h2 id="Gauge-factor"><a href="#Gauge-factor" class="headerlink" title="Gauge factor"></a>Gauge factor</h2><p>&ensp;&ensp;The gauge factor GF is defined as:<br>GF &#x3D; (ΔR &#x2F; RG) &#x2F; ε  <br> ΔR is the change in resistance caused by strain,<br> ΔR 是由应变引起的电阻变化，<br> RG is the resistance of the undeformed gauge, and ϵ is strain.<br> RG 是未变形应变片的电阻，ϵ 是应变。</p>
-<p>&ensp;&ensp;For common metallic foil gauges, the gauge factor is usually a little over 2. For a single active gauge and three dummy resistors of the same resistance about the active gauge in a balanced Wheatstone bridge configuration, the output sensor voltage<br>SV from the bridge is approximately:<br>&ensp;&ensp;对于常见的金属箔式电磁感应计，其灵敏度系数通常略大于 2。在平衡惠斯通电桥配置中，对于单个有效电磁感应计和围绕其的三个相同阻值的假电阻，电桥的输出传感器电压SV 约为：<br><br> SV &#x3D; EV × (GF·ε &#x2F; 4)<br><br> &ensp;&ensp;Foil gauges typically have active areas of about 2–10 mm2 in size. With careful installation, the correct gauge, and the correct adhesive, strains up to at least 10% can be measured.<br>&ensp;&ensp;箔式应变计的有效测量面积通常约为 2–10 mm²。只要安装得当，使用正确的应变计和粘合剂，就可以测量至少 10% 的应变。</p>
-<h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><p><a title="Izantux, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:StrainGaugeVisualization.svg"><img width="250" alt="StrainGaugeVisualization" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png"></a></p>
-<p>&ensp;&ensp;Strain gauges are attached to the <strong>substrate with a special glue</strong>. The type of glue depends on the required lifetime of the measurement system. For <strong>short term</strong> measurements (up to some weeks) <strong>cyanoacrylate</strong> glue is appropriate, for <strong>long lasting installation</strong> <strong>epoxy glue(环氧树脂胶)</strong> is required. Usually epoxy glue requires high temperature curing (at about 80-100 °C). The preparation of the surface where the strain gauge is to be glued is of the utmost importance. <strong>The surface must be smoothed</strong> (e.g. with very fine sand paper), <strong>deoiled with solvents</strong>, <u>the solvent traces must then be removed and the strain gauge must be glued immediately after this to avoid oxidation or pollution of the prepared area. <strong>If these steps are not followed the strain gauge binding to the surface may be unreliable and unpredictable measurement errors may be generated.</strong></u><br><br> &ensp;&ensp;应变片通过<strong>专用胶水</strong>粘贴到基材上。胶水的类型取决于测量系统的预期使用寿命。对于<strong>短期</strong>测量（数周以内），<strong>氰基丙烯酸酯胶</strong>适用；对于<strong>长期安装</strong>，则需要<strong>环氧树脂胶</strong>。环氧树脂胶通常需要在高温下固化（约 80-100 °C）。应变片粘贴表面的准备工作至关重要。<strong>必须将表面打磨光滑</strong>（例如使用极细的砂纸），<strong>用溶剂脱油</strong>，然后清除溶剂残留，并立即粘贴应变片，以避免氧化或污染处理过的区域。<strong>如果不遵循这些步骤，应变片与表面的粘合可能不可靠，并可能产生不可预测的测量误差。</strong></p>
-<p>&ensp;&ensp;Strain gauge based technology is used commonly in the manufacture of pressure sensors. The gauges used in pressure sensors themselves are commonly made from silicon, polysilicon, metal film, thick film, and bonded foil.<br><br> &ensp;&ensp;基于应变片的技术广泛应用于压力传感器的制造。压力传感器中使用的压力表通常由硅、多晶硅、金属薄膜、厚膜和粘合箔制成。</p>
-<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p><strong>PCBA testing</strong> PCBA测试<br><br> &ensp;&ensp;During automated or semi-automated testing of PCBA boards, the mechanical stress they experience is often difficult to quantify and assess. Excessive stress can lead to hidden defects such as microcracks and solder joint damage, directly impacting product reliability. Furthermore, the lack of stress data hinders process optimization, resulting in a bottleneck in yield improvement.<br><br> &ensp;&ensp;PCBA 在自动化或半自动化测试过程中，PCBA板承受的机械应力往往难以量化评估。应力过大可能导致微裂纹、焊点损伤等隐性缺陷，直接影响产品可靠性；应力数据缺失则使得工艺优化缺乏依据，良率提升陷入瓶颈。</p>
-<hr>
-<h2 id="应变片在BE段PCBA测试中的应用"><a href="#应变片在BE段PCBA测试中的应用" class="headerlink" title="应变片在BE段PCBA测试中的应用"></a><strong>应变片在BE段PCBA测试中的应用</strong></h2><ul>
-<li>Specfic: Strain guage is to qualify test fixtures, the values need to meet ±300μstrain (±500μstrain max)</li>
-<li>Deminisons: 1.5x1.5mm</li>
-<li>Mode: <span class="exturl" data-url="aHR0cHM6Ly9zdHJlc3NwaS5jb20vc2lwLTE3MDMtc2VyaWVz">Minebea SIP 1703<i class="fa fa-external-link-alt"></i></span> (1.5x1.5mm) YFR0512L50W3MS</li>
-</ul>
-<p><strong><span class="exturl" data-url="aHR0cHM6Ly9wcm9kdWN0Lm1pbmViZWFtaXRzdW1pLmNvbS9lbi90ZWNobm9sb2d5L3NlbnNpbmdfZGV2aWNlcy9zLWdhZ2VzX3RlY2hub3RlLmh0bWw=">Here is the basic technology introduction<i class="fa fa-external-link-alt"></i></span></strong></p>
-<hr>
-<p><strong>Structural health monitoring</strong> 结构健康监测<br><br> &ensp;&ensp;Structural health monitoring (SHM) is used to monitor structures after their completion. To prevent failures, strain gauges are used to detect and locate damages and creep. A specific example is the monitoring of bridge cables increasing safety by detecting possible damages. Also, the bridge’s behavior to unusual loads such as special heavy-duty transports can be analyzed.<br><br> &ensp;&ensp;结构健康监测（SHM）用于在结构完工后进行监测。为防止故障，应变计用于检测和定位损伤及蠕变。一个具体例子是监控桥梁电缆，通过检测可能的损坏来提高安全性。此外，还可以分析桥梁对特殊重型运输等特殊载荷的行为。</p>
-<p><strong>Biological measurements</strong> 生物测量<br><br> &ensp;&ensp;Measuring the strain of skin can provide a multitude of biomechanic measurements such as posture, joint rotation, respiration and swelling both in humans and other animals. Resistive foil strain gauges are seldom used for these applications, however, due to their low strain limit. Instead, soft and deformable strain gauges are often attached to a host garment, to make it simple to apply the sensor to the correct part of the body, though sometimes they are attached directly to the skin. Typically in these applications, such soft strain gauges are known as stretch sensors. For medical use, the sensors must be accurate and repeatable which typically requires the use of capacitive stretch sensors.<br><br> &ensp;&ensp;测量皮肤应变可以提供多种生物力学测量，如姿势、关节旋转、呼吸以及人类及其他动物的肿胀。然而，由于应变极限较低，电阻箔应变计很少用于这些应用。相反，软质且可变形的应变计通常会安装在主体服装上，以便将传感器贴合到身体的正确部位，尽管有时传感器会直接连接到皮肤上。在这些应用中，通常这种软应变计被称为拉伸传感器。对于医疗用途，传感器必须准确且可重复，通常需要使用电容拉伸传感器。</p>
-<p><strong>Predictive maintenance</strong> 预防性维护<br><br> &ensp;&ensp;Many objects and materials in industrial applications have a finite life. To improve their lifetime and cost of ownership, predictive maintenance principles are used. Strain gauges can be used to monitor the strain as an indicator of fatigue in materials to enable software systems to predict when certain components need to be replaced or serviced. Resistive foil gauges can be used to instrument stiff materials like metals, ceramics, composites and similar, whereas highly elastic strain gauges are used to monitor softer materials such as rubber, plastics, textiles and the like.<br><br> &ensp;&ensp;工业应用中的许多物品和材料寿命有限。为了延长使用寿命和使用成本，采用了预测性维护原则。应变计可用于监测应变，作为材料疲劳的指示器，使软件系统能够预测何时需要更换或维护某些部件。电阻箔计可用于仪器化刚性材料，如金属、陶瓷、复合材料等，而高弹性应变计则用于监测橡胶、塑料、纺织等较软材料。</p>
-<p><strong>Aviation</strong> 航空<br><br> &ensp;&ensp;In aviation, strain gauges are the standard approach to measuring the structural load and calculating wing deflection. Strain gauges are fixed in several locations on the aircraft. However, deflection measurement systems have been shown to measure strains reliably remotely. This reduces instrumentation weight on the aircraft and thus is replacing (certain) strain gauges.<br><br> &ensp;&ensp;在航空领域，应变计是测量结构载荷和计算机翼挠度的标准方法。应变计固定在飞机的多个位置。然而，偏转测量系统已被证明能够可靠地远程测量应变。这减轻了飞机上的仪表重量，从而更换了（某些）应变计。</p>
-<p><strong>Repurposing</strong> 再利用<br><br> &ensp;&ensp;There are also applications where it isn’t first obvious that you would measure strain to get to the wanted result. So for example in the detection of intruders on certain structures, strain gauges can be used to detect the presence of such an intruder. This is done by measuring the slight change in strain of the said structure.<br><br> &ensp;&ensp;也有些应用中，测量应变以达到理想结果并不明显。例如，在某些结构上的入侵者检测时，应变计可以用来检测入侵者的存在。这是通过测量该结构应变的细微变化来完成的。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU3RyYWluX2dhdWdl">Strain Gauge<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5lZnVuZGEuY29tL2Rlc2lnbnN0YW5kYXJkcy9zZW5zb3JzL3N0cmFpbl9nYWdlcy9zdHJhaW5fZ2FnZV9zZWxlY3Rpb25fbWF0bC5jZm0=">Strain Gauge Material<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Sensor</tag>
-        <tag>Gauge</tag>
-        <tag>μstrain</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2687,6 +2619,31 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2708,6 +2665,127 @@ th {
       </categories>
       <tags>
         <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
+<blockquote>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
+</blockquote>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
+<ol>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
+</blockquote>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
+<ul>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
+</ul>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
+<ul>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
+</ul>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
+<p>例如：</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
       </tags>
   </entry>
   <entry>
@@ -2858,124 +2936,161 @@ th {
       </categories>
   </entry>
   <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
+    <title>StrainGauge</title>
+    <url>/2020/02/07/Strain%20Gauge/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
+<p>&ensp;&ensp;Invented by Edward E. Simmons and Arthur C. Ruge in 1938, the most common type of strain gauge consists of an insulating flexible backing which supports a metallic foil pattern.<br>&ensp;&ensp;应变计由 Edward E. Simmons 和 Arthur C. Ruge 于 1938 年发明，最常见的类型是由绝缘柔性背衬支撑金属箔图案组成。</p>
+<p>&ensp;&ensp;The gauge is attached to the object by a <strong>suitable adhesive</strong>, such as cyanoacrylate (氰基丙烯酸酯). Proper adhesion is critical, as any air gaps or flexibility in the bonding layer will introduce measurement errors known as creep or hysteresis. As the object is deformed, the foil is deformed, causing its electrical resistance to change. This resistance change, usually measured using a Wheatstone bridge, is related to the strain by the quantity known as the gauge factor.<br>&ensp;&ensp;应变片通过合适的粘合剂（例如氰基丙烯酸酯）固定在被测物体上。良好的粘合至关重要，因为粘合层中的任何气隙或柔性都会引入测量误差，称为蠕变或滞后。当被测物体发生形变时，应变片也会发生形变，导致其电阻发生变化。这种电阻变化通常使用惠斯通电桥测量，它与应变之间的关系称为应变系数。</p>
+<h2 id="Physical-operation"><a href="#Physical-operation" class="headerlink" title="Physical operation"></a>Physical operation</h2><p>&ensp;&ensp;A strain gauge takes advantage of the physical property of electrical conductance and its dependence on the conductor’s geometry.<br>&ensp;&ensp;应变计利用了电导率的物理特性及其对导体几何形状的依赖性。</p>
+<p>&ensp;&ensp;When an electrical conductor is stretched within the limits of its elasticity such that it does not break or permanently deform, it will become narrower and longer, which increases its electrical resistance end-to-end.<br>&ensp;&ensp;当电导体在其弹性极限内被拉伸而不断裂或永久变形时，它会变得更窄更长，从而增加其端到端的电阻。</p>
+<p>&ensp;&ensp;Conversely, when a conductor is compressed such that it does not buckle, it will broaden and shorten, which decreases its electrical resistance end-to-end. From the measured electrical resistance of the strain gauge, the amount of induced stress may be inferred.<br>&ensp;&ensp;反之，当导体受到压缩而不发生屈曲时，它会变宽变短，从而降低其端到端的电阻。通过测量应变片的电阻值，可以推断出所施加的应力大小。</p>
+<p>&ensp;&ensp;A typical strain gauge arranges a long, thin conductive strip in a zig-zag pattern of parallel lines. This does not increase the sensitivity, since the percentage change in resistance for a given strain for the entire zig-zag is the same as for any single trace. A single linear trace would have to be extremely thin, hence liable to overheating (which would change its resistance and cause it to expand), or would need to be operated at a much lower voltage, making it difficult to measure resistance changes accurately.<br>&ensp;&ensp;典型的应变计将一条细长的导电条以锯齿状平行线排列。但这并不会提高灵敏度，因为对于给定的应变，整个锯齿状区域的电阻变化百分比与任何单条导线的电阻变化百分比相同。单条线性导线必须非常细，因此容易过热（过热会改变其电阻并导致其膨胀），或者需要使用低得多的电压，这使得精确测量电阻变化变得困难。</p>
+<h2 id="Gauge-factor"><a href="#Gauge-factor" class="headerlink" title="Gauge factor"></a>Gauge factor</h2><p>&ensp;&ensp;The gauge factor GF is defined as:<br>GF &#x3D; (ΔR &#x2F; RG) &#x2F; ε  <br> ΔR is the change in resistance caused by strain,<br> ΔR 是由应变引起的电阻变化，<br> RG is the resistance of the undeformed gauge, and ϵ is strain.<br> RG 是未变形应变片的电阻，ϵ 是应变。</p>
+<p>&ensp;&ensp;For common metallic foil gauges, the gauge factor is usually a little over 2. For a single active gauge and three dummy resistors of the same resistance about the active gauge in a balanced Wheatstone bridge configuration, the output sensor voltage<br>SV from the bridge is approximately:<br>&ensp;&ensp;对于常见的金属箔式电磁感应计，其灵敏度系数通常略大于 2。在平衡惠斯通电桥配置中，对于单个有效电磁感应计和围绕其的三个相同阻值的假电阻，电桥的输出传感器电压SV 约为：<br><br> SV &#x3D; EV × (GF·ε &#x2F; 4)<br><br> &ensp;&ensp;Foil gauges typically have active areas of about 2–10 mm2 in size. With careful installation, the correct gauge, and the correct adhesive, strains up to at least 10% can be measured.<br>&ensp;&ensp;箔式应变计的有效测量面积通常约为 2–10 mm²。只要安装得当，使用正确的应变计和粘合剂，就可以测量至少 10% 的应变。</p>
+<h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><p><a title="Izantux, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:StrainGaugeVisualization.svg"><img width="250" alt="StrainGaugeVisualization" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png"></a></p>
+<p>&ensp;&ensp;Strain gauges are attached to the <strong>substrate with a special glue</strong>. The type of glue depends on the required lifetime of the measurement system. For <strong>short term</strong> measurements (up to some weeks) <strong>cyanoacrylate</strong> glue is appropriate, for <strong>long lasting installation</strong> <strong>epoxy glue(环氧树脂胶)</strong> is required. Usually epoxy glue requires high temperature curing (at about 80-100 °C). The preparation of the surface where the strain gauge is to be glued is of the utmost importance. <strong>The surface must be smoothed</strong> (e.g. with very fine sand paper), <strong>deoiled with solvents</strong>, <u>the solvent traces must then be removed and the strain gauge must be glued immediately after this to avoid oxidation or pollution of the prepared area. <strong>If these steps are not followed the strain gauge binding to the surface may be unreliable and unpredictable measurement errors may be generated.</strong></u><br><br> &ensp;&ensp;应变片通过<strong>专用胶水</strong>粘贴到基材上。胶水的类型取决于测量系统的预期使用寿命。对于<strong>短期</strong>测量（数周以内），<strong>氰基丙烯酸酯胶</strong>适用；对于<strong>长期安装</strong>，则需要<strong>环氧树脂胶</strong>。环氧树脂胶通常需要在高温下固化（约 80-100 °C）。应变片粘贴表面的准备工作至关重要。<strong>必须将表面打磨光滑</strong>（例如使用极细的砂纸），<strong>用溶剂脱油</strong>，然后清除溶剂残留，并立即粘贴应变片，以避免氧化或污染处理过的区域。<strong>如果不遵循这些步骤，应变片与表面的粘合可能不可靠，并可能产生不可预测的测量误差。</strong></p>
+<p>&ensp;&ensp;Strain gauge based technology is used commonly in the manufacture of pressure sensors. The gauges used in pressure sensors themselves are commonly made from silicon, polysilicon, metal film, thick film, and bonded foil.<br><br> &ensp;&ensp;基于应变片的技术广泛应用于压力传感器的制造。压力传感器中使用的压力表通常由硅、多晶硅、金属薄膜、厚膜和粘合箔制成。</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p><strong>PCBA testing</strong> PCBA测试<br><br> &ensp;&ensp;During automated or semi-automated testing of PCBA boards, the mechanical stress they experience is often difficult to quantify and assess. Excessive stress can lead to hidden defects such as microcracks and solder joint damage, directly impacting product reliability. Furthermore, the lack of stress data hinders process optimization, resulting in a bottleneck in yield improvement.<br><br> &ensp;&ensp;PCBA 在自动化或半自动化测试过程中，PCBA板承受的机械应力往往难以量化评估。应力过大可能导致微裂纹、焊点损伤等隐性缺陷，直接影响产品可靠性；应力数据缺失则使得工艺优化缺乏依据，良率提升陷入瓶颈。</p>
+<hr>
+<h2 id="应变片在BE段PCBA测试中的应用"><a href="#应变片在BE段PCBA测试中的应用" class="headerlink" title="应变片在BE段PCBA测试中的应用"></a><strong>应变片在BE段PCBA测试中的应用</strong></h2><ul>
+<li>Specfic: Strain guage is to qualify test fixtures, the values need to meet ±300μstrain (±500μstrain max)</li>
+<li>Deminisons: 1.5x1.5mm</li>
+<li>Mode: <span class="exturl" data-url="aHR0cHM6Ly9zdHJlc3NwaS5jb20vc2lwLTE3MDMtc2VyaWVz">Minebea SIP 1703<i class="fa fa-external-link-alt"></i></span> (1.5x1.5mm) YFR0512L50W3MS</li>
+</ul>
+<p><strong><span class="exturl" data-url="aHR0cHM6Ly9wcm9kdWN0Lm1pbmViZWFtaXRzdW1pLmNvbS9lbi90ZWNobm9sb2d5L3NlbnNpbmdfZGV2aWNlcy9zLWdhZ2VzX3RlY2hub3RlLmh0bWw=">Here is the basic technology introduction<i class="fa fa-external-link-alt"></i></span></strong></p>
+<hr>
+<p><strong>Structural health monitoring</strong> 结构健康监测<br><br> &ensp;&ensp;Structural health monitoring (SHM) is used to monitor structures after their completion. To prevent failures, strain gauges are used to detect and locate damages and creep. A specific example is the monitoring of bridge cables increasing safety by detecting possible damages. Also, the bridge’s behavior to unusual loads such as special heavy-duty transports can be analyzed.<br><br> &ensp;&ensp;结构健康监测（SHM）用于在结构完工后进行监测。为防止故障，应变计用于检测和定位损伤及蠕变。一个具体例子是监控桥梁电缆，通过检测可能的损坏来提高安全性。此外，还可以分析桥梁对特殊重型运输等特殊载荷的行为。</p>
+<p><strong>Biological measurements</strong> 生物测量<br><br> &ensp;&ensp;Measuring the strain of skin can provide a multitude of biomechanic measurements such as posture, joint rotation, respiration and swelling both in humans and other animals. Resistive foil strain gauges are seldom used for these applications, however, due to their low strain limit. Instead, soft and deformable strain gauges are often attached to a host garment, to make it simple to apply the sensor to the correct part of the body, though sometimes they are attached directly to the skin. Typically in these applications, such soft strain gauges are known as stretch sensors. For medical use, the sensors must be accurate and repeatable which typically requires the use of capacitive stretch sensors.<br><br> &ensp;&ensp;测量皮肤应变可以提供多种生物力学测量，如姿势、关节旋转、呼吸以及人类及其他动物的肿胀。然而，由于应变极限较低，电阻箔应变计很少用于这些应用。相反，软质且可变形的应变计通常会安装在主体服装上，以便将传感器贴合到身体的正确部位，尽管有时传感器会直接连接到皮肤上。在这些应用中，通常这种软应变计被称为拉伸传感器。对于医疗用途，传感器必须准确且可重复，通常需要使用电容拉伸传感器。</p>
+<p><strong>Predictive maintenance</strong> 预防性维护<br><br> &ensp;&ensp;Many objects and materials in industrial applications have a finite life. To improve their lifetime and cost of ownership, predictive maintenance principles are used. Strain gauges can be used to monitor the strain as an indicator of fatigue in materials to enable software systems to predict when certain components need to be replaced or serviced. Resistive foil gauges can be used to instrument stiff materials like metals, ceramics, composites and similar, whereas highly elastic strain gauges are used to monitor softer materials such as rubber, plastics, textiles and the like.<br><br> &ensp;&ensp;工业应用中的许多物品和材料寿命有限。为了延长使用寿命和使用成本，采用了预测性维护原则。应变计可用于监测应变，作为材料疲劳的指示器，使软件系统能够预测何时需要更换或维护某些部件。电阻箔计可用于仪器化刚性材料，如金属、陶瓷、复合材料等，而高弹性应变计则用于监测橡胶、塑料、纺织等较软材料。</p>
+<p><strong>Aviation</strong> 航空<br><br> &ensp;&ensp;In aviation, strain gauges are the standard approach to measuring the structural load and calculating wing deflection. Strain gauges are fixed in several locations on the aircraft. However, deflection measurement systems have been shown to measure strains reliably remotely. This reduces instrumentation weight on the aircraft and thus is replacing (certain) strain gauges.<br><br> &ensp;&ensp;在航空领域，应变计是测量结构载荷和计算机翼挠度的标准方法。应变计固定在飞机的多个位置。然而，偏转测量系统已被证明能够可靠地远程测量应变。这减轻了飞机上的仪表重量，从而更换了（某些）应变计。</p>
+<p><strong>Repurposing</strong> 再利用<br><br> &ensp;&ensp;There are also applications where it isn’t first obvious that you would measure strain to get to the wanted result. So for example in the detection of intruders on certain structures, strain gauges can be used to detect the presence of such an intruder. This is done by measuring the slight change in strain of the said structure.<br><br> &ensp;&ensp;也有些应用中，测量应变以达到理想结果并不明显。例如，在某些结构上的入侵者检测时，应变计可以用来检测入侵者的存在。这是通过测量该结构应变的细微变化来完成的。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU3RyYWluX2dhdWdl">Strain Gauge<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5lZnVuZGEuY29tL2Rlc2lnbnN0YW5kYXJkcy9zZW5zb3JzL3N0cmFpbl9nYWdlcy9zdHJhaW5fZ2FnZV9zZWxlY3Rpb25fbWF0bC5jZm0=">Strain Gauge Material<i class="fa fa-external-link-alt"></i></span></li>
 </ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
-</ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
-</blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
-</blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
-</blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
-</blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
-</blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
 ]]></content>
       <categories>
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
+        <tag>Sensor</tag>
+        <tag>Gauge</tag>
+        <tag>μstrain</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
+    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
+<ul>
+<li>图片越来越多，博客仓库体积膨胀  </li>
+<li>国内访问不稳定  </li>
+<li>免费图床存在跑路风险  </li>
+<li>后期迁移成本极高</li>
+</ul>
+<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
+<blockquote>
+<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
+</blockquote>
+<hr>
+<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
+<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
+<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
+<p>图片通过 jsDelivr CDN 访问：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
+</blockquote>
+<hr>
+<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
+<ul>
+<li>仓库名：<code>burro-imgbed</code></li>
+<li>可见性：<strong>Public（必须）</strong></li>
+<li>不需要 README &#x2F; License</li>
+</ul>
+<blockquote>
+<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
+</blockquote>
+<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
+<hr>
+<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
+<li>进入图床仓库</li>
+<li>点击 <strong>Add file → Create new file</strong></li>
+<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
+</ol>
+<p>文件内容保持为空即可。</p>
+<hr>
+<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
+<ol>
+<li>点击右上角 <strong>Commit changes…</strong></li>
+<li>填写提交信息：</li>
+</ol>
+<p><strong>Commit message</strong><br><code>Create .keep</code></p>
+<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
+<p>然后提交。</p>
+<blockquote>
+<p>提交说明仅用于记录操作，不影响功能。</p>
+</blockquote>
+<hr>
+<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
+<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
+<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
+<hr>
+<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
+<ol>
+<li>点击 <strong>Add file → Upload files</strong></li>
+<li>上传一张测试图片，例如：test.png</li>
+</ol>
+<p>提交即可。</p>
+<hr>
+<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
+<ul>
+<li>GitHub 用户名：<code>Burro-CMD</code></li>
+<li>图床仓库：<code>burro-imgbed</code></li>
+<li>图片路径：<code>images/blog/test.png</code></li>
+</ul>
+<p>访问地址为：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>将该链接直接粘贴到浏览器地址栏打开。</p>
+<p>如果浏览器中可以直接看到图片，说明：</p>
+<ul>
+<li>GitHub 图床 ✅  </li>
+<li>jsDelivr CDN ✅  </li>
+<li>国内访问 ✅</li>
+</ul>
+<p>图床已经完全可用。</p>
+<hr>
+<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
+<p>例如：</p>
+<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
+<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
+<p>对应的 jsDelivr 链接示例：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
+
+<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
+<hr>
+<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
+
+<p>无需任何插件，NexT 主题可直接渲染。</p>
+<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
+<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
+<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
+<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
+<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>jsDelivr</tag>
       </tags>
   </entry>
   <entry>
@@ -3098,118 +3213,91 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
-    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
-<ul>
-<li>图片越来越多，博客仓库体积膨胀  </li>
-<li>国内访问不稳定  </li>
-<li>免费图床存在跑路风险  </li>
-<li>后期迁移成本极高</li>
-</ul>
-<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
-<blockquote>
-<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
+    <title>在Win平台上部署Hexo</title>
+    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
 </blockquote>
-<hr>
-<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
-<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
-<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
-<p>图片通过 jsDelivr CDN 访问：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
-</blockquote>
-<hr>
-<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
-<ul>
-<li>仓库名：<code>burro-imgbed</code></li>
-<li>可见性：<strong>Public（必须）</strong></li>
-<li>不需要 README &#x2F; License</li>
+<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
+<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+<p>2)安装配置</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>3）生成，部署</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
+<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
 </blockquote>
-<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
-<hr>
-<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
-<li>进入图床仓库</li>
-<li>点击 <strong>Add file → Create new file</strong></li>
-<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
-</ol>
-<p>文件内容保持为空即可。</p>
-<hr>
-<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
-<ol>
-<li>点击右上角 <strong>Commit changes…</strong></li>
-<li>填写提交信息：</li>
-</ol>
-<p><strong>Commit message</strong><br><code>Create .keep</code></p>
-<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
-<p>然后提交。</p>
+<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>提交说明仅用于记录操作，不影响功能。</p>
+<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
 </blockquote>
-<hr>
-<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
-<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
-<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
-<hr>
-<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
-<ol>
-<li>点击 <strong>Add file → Upload files</strong></li>
-<li>上传一张测试图片，例如：test.png</li>
-</ol>
-<p>提交即可。</p>
-<hr>
-<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
-<ul>
-<li>GitHub 用户名：<code>Burro-CMD</code></li>
-<li>图床仓库：<code>burro-imgbed</code></li>
-<li>图片路径：<code>images/blog/test.png</code></li>
+</li>
 </ul>
-<p>访问地址为：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>将该链接直接粘贴到浏览器地址栏打开。</p>
-<p>如果浏览器中可以直接看到图片，说明：</p>
+<p>2). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>GitHub 图床 ✅  </li>
-<li>jsDelivr CDN ✅  </li>
-<li>国内访问 ✅</li>
+<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>连续按 3 次回车，什么都不用输。</p>
+</blockquote>
+</li>
 </ul>
-<p>图床已经完全可用。</p>
-<hr>
-<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
-<p>例如：</p>
-<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
-<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
-<p>对应的 jsDelivr 链接示例：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
+<p>Step2: 复制密钥</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
+</blockquote>
+<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
+<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
+<p>就改 repo 这一行！保存文件。</p>
+<p>Step5: 测试</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>输入 yes 回车。看到 successfully 就是成功！</p>
+<p>3). 报错信息</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>国内网络把 GitHub 的 22 端口也墙了</li>
+</ul>
+<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
+</ul>
+<p>Step2: 再测试连接，输入如下命令</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
+<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
+<p>2）为博客添加标签</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
+<p>3）添加分类功能</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
 
-<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
-<hr>
-<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
-
-<p>无需任何插件，NexT 主题可直接渲染。</p>
-<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
-<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
-<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
-<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
-<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
+<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
 ]]></content>
       <categories>
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
+        <tag>Blog</tag>
         <tag>Hexo</tag>
-        <tag>jsDelivr</tag>
+        <tag>Github</tag>
+        <tag>Node.js</tag>
       </tags>
   </entry>
   <entry>
@@ -3240,6 +3328,57 @@ th {
         <tag>Python</tag>
         <tag>X-code</tag>
         <tag>Brew</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
+</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Github</tag>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3372,147 +3511,8 @@ th {
         <tag>GitHub</tag>
         <tag>Blog</tag>
         <tag>Hexo</tag>
+        <tag>Node.js</tag>
         <tag>NPM</tag>
-        <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Win平台上部署Hexo</title>
-    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
-</blockquote>
-<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-
-<p>2)安装配置</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>3）生成，部署</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
-</blockquote>
-<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
-</blockquote>
-</li>
-</ul>
-<p>2). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>连续按 3 次回车，什么都不用输。</p>
-</blockquote>
-</li>
-</ul>
-<p>Step2: 复制密钥</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
-</blockquote>
-<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
-<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
-<p>就改 repo 这一行！保存文件。</p>
-<p>Step5: 测试</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>输入 yes 回车。看到 successfully 就是成功！</p>
-<p>3). 报错信息</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>国内网络把 GitHub 的 22 端口也墙了</li>
-</ul>
-<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
-</ul>
-<p>Step2: 再测试连接，输入如下命令</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
-<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
-<p>2）为博客添加标签</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
-<p>3）添加分类功能</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
-
-<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Hexo</tag>
-        <tag>Node.js</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Github</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3871,6 +3871,33 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微针连接技术选型与应用综述</title>
     <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
@@ -4178,94 +4205,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>指纹识别模块多角度压力测试技术总结</title>
     <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
@@ -4452,6 +4391,67 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>换空气滤芯篇（实操）</title>
     <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
@@ -4500,6 +4500,41 @@ th {
         <tag>Siemens</tag>
         <tag>NX</tag>
         <tag>NX操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
       </tags>
   </entry>
   <entry>
@@ -4640,41 +4675,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
-</ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
-</ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>精度</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>电机（01）：基础理论篇——公差与配合</title>
     <url>/2026/08/24/%E7%94%B5%E6%9C%BA%EF%BC%8801%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E7%AF%87%E2%80%94%E2%80%94%E5%85%AC%E5%B7%AE%E4%B8%8E%E9%85%8D%E5%90%88/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="尺寸公差与配合体系"><a href="#尺寸公差与配合体系" class="headerlink" title="尺寸公差与配合体系"></a>尺寸公差与配合体系</h2><h3 id="公差与配合基础："><a href="#公差与配合基础：" class="headerlink" title="公差与配合基础："></a>公差与配合基础：</h3><ul>
@@ -4767,8 +4767,8 @@ th {
 <h4 id="间隙配合（Clearance-Fit）"><a href="#间隙配合（Clearance-Fit）" class="headerlink" title="间隙配合（Clearance Fit）"></a>间隙配合（Clearance Fit）</h4><ul>
 <li><strong>定义</strong>：孔的公差带完全位于轴的公差带之上。装配后<strong>孔的实际尺寸始终大于或等于轴的实际尺寸</strong>，形成具有活动能力的间隙。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
-<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 ($EI - es \ge 0$)</li>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 (EI - es)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：转动轴承套筒、滑动轴承、导向柱（如 <strong>H7&#x2F;g6</strong>, <strong>H8&#x2F;f7</strong>）。</li>
@@ -4776,8 +4776,8 @@ th {
 <h4 id="过渡配合（Transition-Fit）"><a href="#过渡配合（Transition-Fit）" class="headerlink" title="过渡配合（Transition Fit）"></a>过渡配合（Transition Fit）</h4><ul>
 <li><strong>定义</strong>：孔与轴的公差带相互重叠。装配后<strong>可能产生间隙，也可能产生过盈</strong>，具体取决于零件的实际加工尺寸。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
-<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：需要精确对中且便于拆卸定位的结构，如定位销、联轴器轴套、无框电机转子基座（如 <strong>H7&#x2F;k6</strong>, <strong>H7&#x2F;m6</strong>）。</li>
@@ -4785,8 +4785,8 @@ th {
 <h4 id="过盈配合（Interference-Fit）"><a href="#过盈配合（Interference-Fit）" class="headerlink" title="过盈配合（Interference Fit）"></a>过盈配合（Interference Fit）</h4><ul>
 <li><strong>定义</strong>：孔的公差带完全位于轴的公差带之下。装配后<strong>轴的实际尺寸始终大于或等于孔的实际尺寸</strong>，形成静止紧固的结合状态。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
-<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 ($ei - ES \ge 0$)</li>
+<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
+<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 (ei - ES)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：靠摩擦力直接传递大扭矩或永久固定的装配，如电机定子压入外壳、齿轮与轴的重载固定（如 <strong>H7&#x2F;p6</strong>, <strong>H7&#x2F;s6</strong>）。</li>
@@ -4897,7 +4897,10 @@ th {
       </categories>
       <tags>
         <tag>公差与配合</tag>
-        <tag>Tolerance and Fits</tag>
+        <tag>Tolerance and Fits Calculator</tag>
+        <tag>Me Tools</tag>
+        <tag>ISO 286 - 1/ 286 - 2</tag>
+        <tag>GB/T 1800.1 / GB/T 1800.2</tag>
       </tags>
   </entry>
   <entry>

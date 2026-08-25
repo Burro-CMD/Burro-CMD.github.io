@@ -39,10 +39,13 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6%20Calculation%20step.png">
 <meta property="article:published_time" content="2026-08-24T16:20:12.000Z">
-<meta property="article:modified_time" content="2026-08-25T02:15:03.849Z">
+<meta property="article:modified_time" content="2026-08-25T02:21:51.264Z">
 <meta property="article:author" content="HUNPHY">
 <meta property="article:tag" content="公差与配合">
-<meta property="article:tag" content="Tolerance and Fits">
+<meta property="article:tag" content="Tolerance and Fits Calculator">
+<meta property="article:tag" content="Me Tools">
+<meta property="article:tag" content="ISO 286 - 1&#x2F; 286 - 2">
+<meta property="article:tag" content="GB&#x2F;T 1800.1 &#x2F; GB&#x2F;T 1800.2">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%85%AC%E5%B7%AE%E5%B8%A6.png">
 
@@ -206,7 +209,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">91</span>
+        <span class="site-state-item-count">94</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -288,7 +291,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>3.2k</span>
+      <span>3.1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -396,8 +399,8 @@
 <h4 id="间隙配合（Clearance-Fit）"><a href="#间隙配合（Clearance-Fit）" class="headerlink" title="间隙配合（Clearance Fit）"></a>间隙配合（Clearance Fit）</h4><ul>
 <li><strong>定义</strong>：孔的公差带完全位于轴的公差带之上。装配后<strong>孔的实际尺寸始终大于或等于轴的实际尺寸</strong>，形成具有活动能力的间隙。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
-<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 ($EI - es \ge 0$)</li>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 (EI - es)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：转动轴承套筒、滑动轴承、导向柱（如 <strong>H7&#x2F;g6</strong>, <strong>H8&#x2F;f7</strong>）。</li>
@@ -405,8 +408,8 @@
 <h4 id="过渡配合（Transition-Fit）"><a href="#过渡配合（Transition-Fit）" class="headerlink" title="过渡配合（Transition Fit）"></a>过渡配合（Transition Fit）</h4><ul>
 <li><strong>定义</strong>：孔与轴的公差带相互重叠。装配后<strong>可能产生间隙，也可能产生过盈</strong>，具体取决于零件的实际加工尺寸。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
-<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：需要精确对中且便于拆卸定位的结构，如定位销、联轴器轴套、无框电机转子基座（如 <strong>H7&#x2F;k6</strong>, <strong>H7&#x2F;m6</strong>）。</li>
@@ -414,8 +417,8 @@
 <h4 id="过盈配合（Interference-Fit）"><a href="#过盈配合（Interference-Fit）" class="headerlink" title="过盈配合（Interference Fit）"></a>过盈配合（Interference Fit）</h4><ul>
 <li><strong>定义</strong>：孔的公差带完全位于轴的公差带之下。装配后<strong>轴的实际尺寸始终大于或等于孔的实际尺寸</strong>，形成静止紧固的结合状态。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
-<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 ($ei - ES \ge 0$)</li>
+<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
+<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 (ei - ES)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：靠摩擦力直接传递大扭矩或永久固定的装配，如电机定子压入外壳、齿轮与轴的重载固定（如 <strong>H7&#x2F;p6</strong>, <strong>H7&#x2F;s6</strong>）。</li>
@@ -530,7 +533,10 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%85%AC%E5%B7%AE%E4%B8%8E%E9%85%8D%E5%90%88/" rel="tag"><i class="fa fa-tag"></i> 公差与配合</a>
-              <a href="/tags/Tolerance-and-Fits/" rel="tag"><i class="fa fa-tag"></i> Tolerance and Fits</a>
+              <a href="/tags/Tolerance-and-Fits-Calculator/" rel="tag"><i class="fa fa-tag"></i> Tolerance and Fits Calculator</a>
+              <a href="/tags/Me-Tools/" rel="tag"><i class="fa fa-tag"></i> Me Tools</a>
+              <a href="/tags/ISO-286-1-286-2/" rel="tag"><i class="fa fa-tag"></i> ISO 286 - 1/ 286 - 2</a>
+              <a href="/tags/GB-T-1800-1-GB-T-1800-2/" rel="tag"><i class="fa fa-tag"></i> GB/T 1800.1 / GB/T 1800.2</a>
           </div>
 
         
