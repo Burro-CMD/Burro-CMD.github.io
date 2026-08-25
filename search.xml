@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Atom中Markdown语法</title>
+    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>无序1</li>
+<li>无序2</li>
+<li>无序3</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+</blockquote>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<strong>加粗的内容</strong></p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<em>斜体的内容</em></p>
+<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
+<p>我是需要___粗斜体的内容___</p>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果：<del>删除线</del></p>
+<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
+<p>我是需要***<del>粗斜体删除的内容</del>***</p>
+<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
+<hr>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<u>这是需要下划线的内容</u></p>
+<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<center>这是要居中的文本内容</center></p>
+<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Java</li>
+<li><input disabled="" type="checkbox"> C</li>
+<li><input disabled="" type="checkbox"> C++</li>
+</ul>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
+<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
+<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
+<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
+<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
+<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
+
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<center>行1 |<center>行2 |<center>行3
+:----: | :----: | :----:
+小程序 | vue | 菜鸟
+search | web前段开发工程师 | 码农
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
+<p>语法示例：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Atom</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Atom Command</title>
     <url>/2026/01/15/Atom-command/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Atom-MacOs-快捷键"><a href="#Atom-MacOs-快捷键" class="headerlink" title="Atom MacOs 快捷键"></a>Atom MacOs 快捷键</h1><h2 id="文件切换"><a href="#文件切换" class="headerlink" title="文件切换"></a>文件切换</h2><ul>
@@ -180,102 +276,6 @@
       <categories>
         <category>Blog</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Atom中Markdown语法</title>
-    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li>无序1</li>
-<li>无序2</li>
-<li>无序3</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>有序1</li>
-<li>有序2</li>
-<li>有序3</li>
-</ol>
-<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>静夜思<br>窗前看月光<br>抬头望山月</p>
-</blockquote>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<strong>加粗的内容</strong></p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<em>斜体的内容</em></p>
-<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
-<p>我是需要___粗斜体的内容___</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：<del>删除线</del></p>
-<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
-<p>我是需要***<del>粗斜体删除的内容</del>***</p>
-<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
-<hr>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<u>这是需要下划线的内容</u></p>
-<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<center>这是要居中的文本内容</center></p>
-<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Java</li>
-<li><input disabled="" type="checkbox"> C</li>
-<li><input disabled="" type="checkbox"> C++</li>
-</ul>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
-<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
-<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
-<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
-<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
-<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
-
-
-<p>效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<center>行1 |<center>行2 |<center>行3
-:----: | :----: | :----:
-小程序 | vue | 菜鸟
-search | web前段开发工程师 | 码农
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
-<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
-<p>语法示例：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
-<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Atom</tag>
-        <tag>Markdown</tag>
-      </tags>
   </entry>
   <entry>
     <title>Atom使用</title>
@@ -538,6 +538,267 @@ search | web前段开发工程师 | 码农
         <tag>Pogo Pin</tag>
         <tag>FCT</tag>
         <tag>Pitch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Camera测试</title>
+    <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
+<h2 id="测试项目"><a href="#测试项目" class="headerlink" title="测试项目"></a>测试项目</h2><ul>
+<li>Power On: Power on DUT by press power button</li>
+<li>Camera Test:<br>&ensp;&ensp;  - Take Chart Picture (press button)<br>&ensp;&ensp;  - Play a video on TV<br>&ensp;&ensp;  - Take video (press button) for 10 seconds<br>&ensp;&ensp;  - Check buzzer&#x2F;LED during recording<br>&ensp;&ensp;  - Plug USB cable<br>&ensp;&ensp;  - Open the App<br>&ensp;&ensp;  - Transfer Picture and Video to PC<br>&ensp;&ensp;  - <strong>MTF</strong> Analysis<br>&ensp;&ensp;  - <strong>Tilt</strong> Analysis<br>&ensp;&ensp;  - <strong>Rotation</strong> Analysis<br>&ensp;&ensp;  - <strong>Blemish</strong> Analysis<br>&ensp;&ensp;  - <strong>Shading</strong> Analysis<br>&ensp;&ensp;  - <strong>SNR</strong> Analysis<br>&ensp;&ensp;  - <strong>Color</strong> Analysis<br>&ensp;&ensp;  - Play the recorded video<br>&ensp;&ensp;  - Check video&#x2F;audio quality (Manual)  </li>
+<li>Charging Status Chek: Check battery charging status</li>
+<li>Factory Default: Set factory default, clear all test data</li>
+<li>Power Off: Power off the DUT by press power button</li>
+</ul>
+<h2 id="摄像头参数"><a href="#摄像头参数" class="headerlink" title="摄像头参数"></a>摄像头参数</h2><h3 id="摄像头型号：VS6955CA"><a href="#摄像头型号：VS6955CA" class="headerlink" title="摄像头型号：VS6955CA"></a>摄像头型号：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span></h3><p><img src="/images/CameraParameters.png" alt="摄像头参数"></p>
+<h3 id="VFOV-Vertical-Field-of-View"><a href="#VFOV-Vertical-Field-of-View" class="headerlink" title="VFOV (Vertical Field of View):"></a>VFOV (Vertical Field of View):</h3><blockquote>
+<p>表示相机在垂直方向能够看到的角度范围。它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际高度</strong>计算公式：</p>
+</blockquote>
+<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line">目标平面高度 = <span class="number">2</span> × 工作距离 × <span class="function"><span class="title">tan</span>(<span class="variable">VFOV</span> / <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
+<p>例：计算工作距离为350mm时，VFOV &#x3D; 68°能看到的实际宽度。</p>
+<h3 id="HFOV-Horizontal-Field-of-View"><a href="#HFOV-Horizontal-Field-of-View" class="headerlink" title="HFOV (Horizontal Field of View):"></a>HFOV (Horizontal Field of View):</h3><blockquote>
+<p>表示相机在水平方向能够看到的角度范围，它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际宽度</strong>，计算公式：</p>
+</blockquote>
+<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line">目标平面宽度 = <span class="number">2</span> × 工作距离 × <span class="function"><span class="title">tan</span>(<span class="variable">HFOV</span> / <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
+<p>例：计算工作距离为350mm时，HFOV &#x3D; 68°能看到的实际宽度。<br>实际可见宽度 &#x3D; 2 × 350 × tan(68° &#x2F; 2)</p>
+<h3 id="DFOV-Diagonal-Field-of-View"><a href="#DFOV-Diagonal-Field-of-View" class="headerlink" title="DFOV (Diagonal Field of View):"></a>DFOV (Diagonal Field of View):</h3><blockquote>
+<p>表示相机沿图像对角线方向能够看到的最大角度，通常DFOV &gt; HFOV &gt; VFOV，原因是图像<strong>对角线最长</strong>，所以对角方向的视场角最大。</p>
+</blockquote>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">按照VS6955CA datasheet 的 Lens characteristics可知其DFOV <span class="operator">=</span> <span class="number">74</span>°±<span class="number">1</span> ；该 sensor 的 full FOV 模式为 <span class="number">2600</span> × <span class="number">1952</span>，接近 <span class="number">4</span>:<span class="number">3</span>，因此可以按 <span class="number">4</span>:<span class="number">3</span> 反推 HFOV <span class="symbol">/</span> VFOV。<span class="symbol">&lt;br&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Diagonal ratio &#x3D; √(4² + 3²) &#x3D; 5</li>
+<li>Width ratio &#x3D; 4 &#x2F; 5 &#x3D; 0.8</li>
+<li>Height ratio &#x3D; 3 &#x2F; 5 &#x3D; 0.6</li>
+</ul>
+<p><strong>Step1 由DFOV反推HFOV, VFOV:</strong></p>
+<ul>
+<li><p>HFOV &#x3D; 2 × arctan[ (W &#x2F; D) × tan(DFOV &#x2F; 2) ]</p>
+</li>
+<li><p>VFOV &#x3D; 2 × arctan[ (H &#x2F; D) × tan(DFOV &#x2F; 2) ]</p>
+</li>
+</ul>
+<p><strong>Step2 带入4：3</strong></p>
+<ul>
+<li><p>HFOV &#x3D; 2 × arctan[ 0.8 × tan(74° &#x2F; 2) ] &#x3D; 2 × arctan(0.8 × 0.7536) &#x3D; 2 × arctan(0.6029) ≈ 62.17°</p>
+</li>
+<li><p>VFOV &#x3D; 2 × arctan[ 0.6 × tan(74° &#x2F; 2) ] &#x3D; 2 × arctan(0.6 × 0.7536) &#x3D; 2 × arctan(0.4522) ≈ 48.66°</p>
+</li>
+</ul>
+<p><strong>Step3 结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">FOV类型</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DFOV</td>
+<td align="center">74°</td>
+</tr>
+<tr>
+<td align="center">HFOV</td>
+<td align="center">≈ 62.17°</td>
+</tr>
+<tr>
+<td align="center">VFOV</td>
+<td align="center">≈ 48.66°</td>
+</tr>
+</tbody></table>
+<p><strong>Step3 最终结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">DFOV</th>
+<th align="center">HFOV</th>
+<th align="center">VFOV</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">73°</td>
+<td align="center">61.25°</td>
+<td align="center">47.88°</td>
+</tr>
+<tr>
+<td align="center"><strong>74°</strong></td>
+<td align="center">≈ <strong>62.17°</strong></td>
+<td align="center"><strong>48.66°</strong></td>
+</tr>
+<tr>
+<td align="center">75°</td>
+<td align="center">≈ 63.09°</td>
+<td align="center">49.44°</td>
+</tr>
+</tbody></table>
+<h2 id="视场角分类"><a href="#视场角分类" class="headerlink" title="视场角分类"></a>视场角分类</h2><table>
+<thead>
+<tr>
+<th align="center">镜头类型</th>
+<th align="center">视场角范围</th>
+<th align="left">使用场景</th>
+<th align="left">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">长焦镜头 &#x2F; 窄角镜头</td>
+<td align="center">&lt; 20°</td>
+<td align="left">远距离拍摄、局部特征观察、远距离监控</td>
+<td align="left">视野窄，放大倍率高，畸变小，但覆盖范围有限</td>
+</tr>
+<tr>
+<td align="center">标准镜头</td>
+<td align="center">30° 左右</td>
+<td align="left">一般拍摄、常规检测、普通机器视觉</td>
+<td align="left">视角接近常规观察范围，畸变较小，图像自然</td>
+</tr>
+<tr>
+<td align="center">广角镜头</td>
+<td align="center">60° ~ 90°</td>
+<td align="left">大范围观察、近距离拍摄、空间受限场景</td>
+<td align="left">覆盖范围较大，适合短距离测试，但边缘可能出现一定畸变</td>
+</tr>
+<tr>
+<td align="center">超广角镜头</td>
+<td align="center">90° ~ 120°</td>
+<td align="left">运动相机、全景辅助、车载、安防</td>
+<td align="left">视野很大，边缘畸变和暗角更明显</td>
+</tr>
+<tr>
+<td align="center">鱼眼镜头</td>
+<td align="center">&gt; 120°</td>
+<td align="left">全景监控、特殊视觉、环视系统</td>
+<td align="left">视野极大，但图像变形严重，通常需要畸变校正</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;本项目中，VS6955CA datasheet 给出的 Diagonal FOV 为 74° ±1°，因此该摄像头可归类为<strong>广角镜头</strong>。广角镜头适合在较短测试距离下覆盖较大的 chart 范围，但测试设计中需要特别关注边缘畸变、边缘照度下降和机构遮挡问题。</p>
+<h2 id="测试机设计"><a href="#测试机设计" class="headerlink" title="测试机设计"></a>测试机设计</h2><p>&emsp;&emsp;由<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span> datasheet可知，厂商给出摄像头在设计外壳或设备时的注意点，<strong>所以行业推荐在设计测试机时按照这个视角去设计</strong>。</p>
+<ol>
+<li>EDGES OF CIRCULAR HOLES IN CUSTOMER’S EQUIPMENT MUST NOT INTRUDE INTO THE CONE.<br>&emsp;客户设备中圆形孔的边缘不得侵入圆锥体内部。</li>
+<li>EDGES OF RECTANGULAR HOLES MUST NOT PROTRUDE INTO THE PYRAMID.<br>&emsp;矩形孔的边缘不得突出到棱锥体内部。</li>
+<li>DIMENSIONS SHOWN ARE MAXIMUM.<br>&emsp;所示尺寸为最大值。<br><strong>EXCLUSION ZONE DIMENSIONS</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">MODULE&#x2F; SILICON</th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+<th align="center">E</th>
+<th align="center">F</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.4µM 5M Pixel</td>
+<td align="center">80.3°</td>
+<td align="center">68°</td>
+<td align="center">53.7°</td>
+<td align="center">1.67</td>
+<td align="center">1.34</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<h3 id="整体尺寸"><a href="#整体尺寸" class="headerlink" title="整体尺寸"></a>整体尺寸</h3><p>&emsp;&emsp;按照工厂生产线一般规划，预估出测试机的整体尺寸为1000x 1100x 1850mm。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ul>
+<li>相机到光源的垂直距离：30mm (这部分可以调整)</li>
+<li><strong>相机到chart的垂直距离：350mm</strong></li>
+<li>相机到TV的垂直距离：650mm</li>
+</ul>
+<h2 id="Chart计算"><a href="#Chart计算" class="headerlink" title="Chart计算"></a>Chart计算</h2><p>&emsp;&emsp;按照厂商给的参数（Page 80）进行计算。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A &#x3D; 80.3°</td>
+<td align="center">Cone，圆锥禁入区</td>
+<td align="center">结构避让 &#x2F; 防遮挡</td>
+</tr>
+<tr>
+<td align="center">B &#x3D; 68°</td>
+<td align="center">Pyramid，矩形水平视场计算</td>
+<td align="center">chart 宽度</td>
+</tr>
+<tr>
+<td align="center">C &#x3D; 53.7°</td>
+<td align="center">Vertical，垂直视场计算</td>
+<td align="center">chart 高度</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;所以 chart 的矩形尺寸主要用 B 和 C 计算：<br>Width  用 B &#x3D; 68°, Height 用 C &#x3D; 53.7°</p>
+<h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p>半幅尺寸 &#x3D; L × tan(FOV &#x2F; 2)<br>全幅尺寸 &#x3D; 2 × L × tan(FOV &#x2F; 2)</p>
+<h3 id="按-B-68°-计算-chart-宽度"><a href="#按-B-68°-计算-chart-宽度" class="headerlink" title="按 B &#x3D; 68° 计算 chart 宽度"></a>按 B &#x3D; 68° 计算 chart 宽度</h3><p>Half Width &#x3D; 350 × tan(68° &#x2F; 2) &#x3D; 350 × tan(34°) ≈ 236.08 mm<br>Full Width &#x3D; 2 × 236.08 ≈ 472.16 mm</p>
+<h3 id="按-C-53-7°-计算-chart-高度"><a href="#按-C-53-7°-计算-chart-高度" class="headerlink" title="按 C &#x3D; 53.7° 计算 chart 高度"></a>按 C &#x3D; 53.7° 计算 chart 高度</h3><p>Half Height &#x3D; 350 × tan(53.7° &#x2F; 2) &#x3D; 350 × tan(26.85°) ≈ 177.18 mm<br>Full Height &#x3D; 2 × 177.18 ≈ 354.36 m</p>
+<h3 id="理论可见-chart-区域"><a href="#理论可见-chart-区域" class="headerlink" title="理论可见 chart 区域"></a>理论可见 chart 区域</h3><p>因此，在 350 mm 工作距离下，按照表格中的 Pyramid 68° &#x2F; Vertical 53.7° 计算：<br>理论矩形视场 ≈ 472 mm × 354 mm</p>
+<table>
+<thead>
+<tr>
+<th align="center">项目</th>
+<th align="center">尺寸</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">理论可见宽度</td>
+<td align="center">≈ 472 mm</td>
+</tr>
+<tr>
+<td align="center">理论可见高度</td>
+<td align="center">≈ 354 mm</td>
+</tr>
+</tbody></table>
+<h3 id="A-80-3°-的-Cone-尺寸"><a href="#A-80-3°-的-Cone-尺寸" class="headerlink" title="A &#x3D; 80.3° 的 Cone 尺寸"></a>A &#x3D; 80.3° 的 Cone 尺寸</h3><p>A &#x3D; 80.3° 不用于矩形 chart 宽高，而是用于结构避让。<br>Half Cone &#x3D; 350 × tan(80.3° &#x2F; 2) &#x3D; 350 × tan(40.15°) ≈ 295.25 mm<br>Full Cone Diameter ≈ 590.5 mm<br>这个值表示结构件、开孔、遮光罩不能侵入这个 Cone 区域，不建议直接用它作为 chart 矩形尺寸。</p>
+<h3 id="结合表格-D-E-F-比例校验"><a href="#结合表格-D-E-F-比例校验" class="headerlink" title="结合表格 D&#x2F;E&#x2F;F 比例校验"></a>结合表格 D&#x2F;E&#x2F;F 比例校验</h3><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">D &#x3D; 1.67</td>
+<td align="center">Cone 相对尺寸</td>
+</tr>
+<tr>
+<td align="center">E &#x3D; 1.34</td>
+<td align="center">Pyramid 宽度相对尺寸</td>
+</tr>
+<tr>
+<td align="center">F &#x3D; 1</td>
+<td align="center">Pyramid高度相对尺寸</td>
+</tr>
+</tbody></table>
+<p>如果以高度 354.36 mm 作为 F &#x3D; 1，则：Pyramid Width &#x3D; 1.34 × 354.36 ≈ 474.85 mm，这和用 68° 直接计算出来的：472.16 mm，非常接近，差异主要来自表格比例四舍五入。<br>所以两种方法是一致的。</p>
+<h3 id="推荐-chart-物理尺寸"><a href="#推荐-chart-物理尺寸" class="headerlink" title="推荐 chart 物理尺寸"></a>推荐 chart 物理尺寸</h3><p>理论可见区域是：472 × 354 mm，但实际做测试机不能刚好做这个尺寸，需要考虑：装配误差，chart安装偏差，相机光轴偏移，软件裁剪余量，机构公差；建议每边增加约 20 mm margin：<br>Chart Width  &#x3D; 472 + 40 ≈ 512 mm<br>Chart Height &#x3D; 354 + 40 ≈ 394 mm</p>
+<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><ul>
+<li>理论 chart 尺寸：472 mm × 354 mm</li>
+<li>推荐 chart 物理尺寸：512 mm × 394 mm</li>
+</ul>
+<h3 id="做方形外框"><a href="#做方形外框" class="headerlink" title="做方形外框"></a>做方形外框</h3><ul>
+<li>外框板：500 mm × 500 mm</li>
+<li>但真正有效测试内容建议布置在：512 mm × 394 mm 内部区域</li>
+<li>实际中心区域约 60% ~ 80% FOV 区域</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>视场角在系统中分为四层：</p>
+<ol>
+<li>Optical FOV（74°）<br>表示镜头真实成像能力，用于理论分析；</li>
+<li>Engineering FOV（Pyramid 68° &#x2F; Vertical 53.7°）<br>用于保证图像完整不裁边，是chart尺寸设计依据；</li>
+<li>Structural FOV（Cone 80.3°）<br>用于结构避让，确保设备不会遮挡光路；</li>
+<li>Effective FOV（中心60~80%）<br>用于图像质量分析（SFR &#x2F; MTF &#x2F; Color &#x2F; Gray）。<br><strong>设计中需明确区分各类FOV用途，避免误用。</strong></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Camera</tag>
+        <tag>Chart</tag>
+        <tag>FOV</tag>
       </tags>
   </entry>
   <entry>
@@ -946,267 +1207,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Camera测试</title>
-    <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
-<h2 id="测试项目"><a href="#测试项目" class="headerlink" title="测试项目"></a>测试项目</h2><ul>
-<li>Power On: Power on DUT by press power button</li>
-<li>Camera Test:<br>&ensp;&ensp;  - Take Chart Picture (press button)<br>&ensp;&ensp;  - Play a video on TV<br>&ensp;&ensp;  - Take video (press button) for 10 seconds<br>&ensp;&ensp;  - Check buzzer&#x2F;LED during recording<br>&ensp;&ensp;  - Plug USB cable<br>&ensp;&ensp;  - Open the App<br>&ensp;&ensp;  - Transfer Picture and Video to PC<br>&ensp;&ensp;  - <strong>MTF</strong> Analysis<br>&ensp;&ensp;  - <strong>Tilt</strong> Analysis<br>&ensp;&ensp;  - <strong>Rotation</strong> Analysis<br>&ensp;&ensp;  - <strong>Blemish</strong> Analysis<br>&ensp;&ensp;  - <strong>Shading</strong> Analysis<br>&ensp;&ensp;  - <strong>SNR</strong> Analysis<br>&ensp;&ensp;  - <strong>Color</strong> Analysis<br>&ensp;&ensp;  - Play the recorded video<br>&ensp;&ensp;  - Check video&#x2F;audio quality (Manual)  </li>
-<li>Charging Status Chek: Check battery charging status</li>
-<li>Factory Default: Set factory default, clear all test data</li>
-<li>Power Off: Power off the DUT by press power button</li>
-</ul>
-<h2 id="摄像头参数"><a href="#摄像头参数" class="headerlink" title="摄像头参数"></a>摄像头参数</h2><h3 id="摄像头型号：VS6955CA"><a href="#摄像头型号：VS6955CA" class="headerlink" title="摄像头型号：VS6955CA"></a>摄像头型号：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span></h3><p><img src="/images/CameraParameters.png" alt="摄像头参数"></p>
-<h3 id="VFOV-Vertical-Field-of-View"><a href="#VFOV-Vertical-Field-of-View" class="headerlink" title="VFOV (Vertical Field of View):"></a>VFOV (Vertical Field of View):</h3><blockquote>
-<p>表示相机在垂直方向能够看到的角度范围。它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际高度</strong>计算公式：</p>
-</blockquote>
-<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line">目标平面高度 = <span class="number">2</span> × 工作距离 × <span class="function"><span class="title">tan</span>(<span class="variable">VFOV</span> / <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
-<p>例：计算工作距离为350mm时，VFOV &#x3D; 68°能看到的实际宽度。</p>
-<h3 id="HFOV-Horizontal-Field-of-View"><a href="#HFOV-Horizontal-Field-of-View" class="headerlink" title="HFOV (Horizontal Field of View):"></a>HFOV (Horizontal Field of View):</h3><blockquote>
-<p>表示相机在水平方向能够看到的角度范围，它决定相机在<strong>某个工作距离</strong>下能够看到的<strong>实际宽度</strong>，计算公式：</p>
-</blockquote>
-<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line">目标平面宽度 = <span class="number">2</span> × 工作距离 × <span class="function"><span class="title">tan</span>(<span class="variable">HFOV</span> / <span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
-<p>例：计算工作距离为350mm时，HFOV &#x3D; 68°能看到的实际宽度。<br>实际可见宽度 &#x3D; 2 × 350 × tan(68° &#x2F; 2)</p>
-<h3 id="DFOV-Diagonal-Field-of-View"><a href="#DFOV-Diagonal-Field-of-View" class="headerlink" title="DFOV (Diagonal Field of View):"></a>DFOV (Diagonal Field of View):</h3><blockquote>
-<p>表示相机沿图像对角线方向能够看到的最大角度，通常DFOV &gt; HFOV &gt; VFOV，原因是图像<strong>对角线最长</strong>，所以对角方向的视场角最大。</p>
-</blockquote>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">按照VS6955CA datasheet 的 Lens characteristics可知其DFOV <span class="operator">=</span> <span class="number">74</span>°±<span class="number">1</span> ；该 sensor 的 full FOV 模式为 <span class="number">2600</span> × <span class="number">1952</span>，接近 <span class="number">4</span>:<span class="number">3</span>，因此可以按 <span class="number">4</span>:<span class="number">3</span> 反推 HFOV <span class="symbol">/</span> VFOV。<span class="symbol">&lt;br&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Diagonal ratio &#x3D; √(4² + 3²) &#x3D; 5</li>
-<li>Width ratio &#x3D; 4 &#x2F; 5 &#x3D; 0.8</li>
-<li>Height ratio &#x3D; 3 &#x2F; 5 &#x3D; 0.6</li>
-</ul>
-<p><strong>Step1 由DFOV反推HFOV, VFOV:</strong></p>
-<ul>
-<li><p>HFOV &#x3D; 2 × arctan[ (W &#x2F; D) × tan(DFOV &#x2F; 2) ]</p>
-</li>
-<li><p>VFOV &#x3D; 2 × arctan[ (H &#x2F; D) × tan(DFOV &#x2F; 2) ]</p>
-</li>
-</ul>
-<p><strong>Step2 带入4：3</strong></p>
-<ul>
-<li><p>HFOV &#x3D; 2 × arctan[ 0.8 × tan(74° &#x2F; 2) ] &#x3D; 2 × arctan(0.8 × 0.7536) &#x3D; 2 × arctan(0.6029) ≈ 62.17°</p>
-</li>
-<li><p>VFOV &#x3D; 2 × arctan[ 0.6 × tan(74° &#x2F; 2) ] &#x3D; 2 × arctan(0.6 × 0.7536) &#x3D; 2 × arctan(0.4522) ≈ 48.66°</p>
-</li>
-</ul>
-<p><strong>Step3 结果</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">FOV类型</th>
-<th align="center">结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">DFOV</td>
-<td align="center">74°</td>
-</tr>
-<tr>
-<td align="center">HFOV</td>
-<td align="center">≈ 62.17°</td>
-</tr>
-<tr>
-<td align="center">VFOV</td>
-<td align="center">≈ 48.66°</td>
-</tr>
-</tbody></table>
-<p><strong>Step3 最终结果</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">DFOV</th>
-<th align="center">HFOV</th>
-<th align="center">VFOV</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">73°</td>
-<td align="center">61.25°</td>
-<td align="center">47.88°</td>
-</tr>
-<tr>
-<td align="center"><strong>74°</strong></td>
-<td align="center">≈ <strong>62.17°</strong></td>
-<td align="center"><strong>48.66°</strong></td>
-</tr>
-<tr>
-<td align="center">75°</td>
-<td align="center">≈ 63.09°</td>
-<td align="center">49.44°</td>
-</tr>
-</tbody></table>
-<h2 id="视场角分类"><a href="#视场角分类" class="headerlink" title="视场角分类"></a>视场角分类</h2><table>
-<thead>
-<tr>
-<th align="center">镜头类型</th>
-<th align="center">视场角范围</th>
-<th align="left">使用场景</th>
-<th align="left">特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">长焦镜头 &#x2F; 窄角镜头</td>
-<td align="center">&lt; 20°</td>
-<td align="left">远距离拍摄、局部特征观察、远距离监控</td>
-<td align="left">视野窄，放大倍率高，畸变小，但覆盖范围有限</td>
-</tr>
-<tr>
-<td align="center">标准镜头</td>
-<td align="center">30° 左右</td>
-<td align="left">一般拍摄、常规检测、普通机器视觉</td>
-<td align="left">视角接近常规观察范围，畸变较小，图像自然</td>
-</tr>
-<tr>
-<td align="center">广角镜头</td>
-<td align="center">60° ~ 90°</td>
-<td align="left">大范围观察、近距离拍摄、空间受限场景</td>
-<td align="left">覆盖范围较大，适合短距离测试，但边缘可能出现一定畸变</td>
-</tr>
-<tr>
-<td align="center">超广角镜头</td>
-<td align="center">90° ~ 120°</td>
-<td align="left">运动相机、全景辅助、车载、安防</td>
-<td align="left">视野很大，边缘畸变和暗角更明显</td>
-</tr>
-<tr>
-<td align="center">鱼眼镜头</td>
-<td align="center">&gt; 120°</td>
-<td align="left">全景监控、特殊视觉、环视系统</td>
-<td align="left">视野极大，但图像变形严重，通常需要畸变校正</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;本项目中，VS6955CA datasheet 给出的 Diagonal FOV 为 74° ±1°，因此该摄像头可归类为<strong>广角镜头</strong>。广角镜头适合在较短测试距离下覆盖较大的 chart 范围，但测试设计中需要特别关注边缘畸变、边缘照度下降和机构遮挡问题。</p>
-<h2 id="测试机设计"><a href="#测试机设计" class="headerlink" title="测试机设计"></a>测试机设计</h2><p>&emsp;&emsp;由<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsZGF0YXNoZWV0Y24uY29tL2RhdGFzaGVldC1wZGYvZG93bmxvYWQvNzk3OTQyL1NUTUlDUk9FTEVDVFJPTklDUy9WUzY5NTVDQVEwNUkxLmh0bWw=">VS6955CA<i class="fa fa-external-link-alt"></i></span> datasheet可知，厂商给出摄像头在设计外壳或设备时的注意点，<strong>所以行业推荐在设计测试机时按照这个视角去设计</strong>。</p>
-<ol>
-<li>EDGES OF CIRCULAR HOLES IN CUSTOMER’S EQUIPMENT MUST NOT INTRUDE INTO THE CONE.<br>&emsp;客户设备中圆形孔的边缘不得侵入圆锥体内部。</li>
-<li>EDGES OF RECTANGULAR HOLES MUST NOT PROTRUDE INTO THE PYRAMID.<br>&emsp;矩形孔的边缘不得突出到棱锥体内部。</li>
-<li>DIMENSIONS SHOWN ARE MAXIMUM.<br>&emsp;所示尺寸为最大值。<br><strong>EXCLUSION ZONE DIMENSIONS</strong></li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">MODULE&#x2F; SILICON</th>
-<th align="center">A</th>
-<th align="center">B</th>
-<th align="center">C</th>
-<th align="center">D</th>
-<th align="center">E</th>
-<th align="center">F</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1.4µM 5M Pixel</td>
-<td align="center">80.3°</td>
-<td align="center">68°</td>
-<td align="center">53.7°</td>
-<td align="center">1.67</td>
-<td align="center">1.34</td>
-<td align="center">1</td>
-</tr>
-</tbody></table>
-<h3 id="整体尺寸"><a href="#整体尺寸" class="headerlink" title="整体尺寸"></a>整体尺寸</h3><p>&emsp;&emsp;按照工厂生产线一般规划，预估出测试机的整体尺寸为1000x 1100x 1850mm。</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ul>
-<li>相机到光源的垂直距离：30mm (这部分可以调整)</li>
-<li><strong>相机到chart的垂直距离：350mm</strong></li>
-<li>相机到TV的垂直距离：650mm</li>
-</ul>
-<h2 id="Chart计算"><a href="#Chart计算" class="headerlink" title="Chart计算"></a>Chart计算</h2><p>&emsp;&emsp;按照厂商给的参数（Page 80）进行计算。</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">含义</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">A &#x3D; 80.3°</td>
-<td align="center">Cone，圆锥禁入区</td>
-<td align="center">结构避让 &#x2F; 防遮挡</td>
-</tr>
-<tr>
-<td align="center">B &#x3D; 68°</td>
-<td align="center">Pyramid，矩形水平视场计算</td>
-<td align="center">chart 宽度</td>
-</tr>
-<tr>
-<td align="center">C &#x3D; 53.7°</td>
-<td align="center">Vertical，垂直视场计算</td>
-<td align="center">chart 高度</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;所以 chart 的矩形尺寸主要用 B 和 C 计算：<br>Width  用 B &#x3D; 68°, Height 用 C &#x3D; 53.7°</p>
-<h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p>半幅尺寸 &#x3D; L × tan(FOV &#x2F; 2)<br>全幅尺寸 &#x3D; 2 × L × tan(FOV &#x2F; 2)</p>
-<h3 id="按-B-68°-计算-chart-宽度"><a href="#按-B-68°-计算-chart-宽度" class="headerlink" title="按 B &#x3D; 68° 计算 chart 宽度"></a>按 B &#x3D; 68° 计算 chart 宽度</h3><p>Half Width &#x3D; 350 × tan(68° &#x2F; 2) &#x3D; 350 × tan(34°) ≈ 236.08 mm<br>Full Width &#x3D; 2 × 236.08 ≈ 472.16 mm</p>
-<h3 id="按-C-53-7°-计算-chart-高度"><a href="#按-C-53-7°-计算-chart-高度" class="headerlink" title="按 C &#x3D; 53.7° 计算 chart 高度"></a>按 C &#x3D; 53.7° 计算 chart 高度</h3><p>Half Height &#x3D; 350 × tan(53.7° &#x2F; 2) &#x3D; 350 × tan(26.85°) ≈ 177.18 mm<br>Full Height &#x3D; 2 × 177.18 ≈ 354.36 m</p>
-<h3 id="理论可见-chart-区域"><a href="#理论可见-chart-区域" class="headerlink" title="理论可见 chart 区域"></a>理论可见 chart 区域</h3><p>因此，在 350 mm 工作距离下，按照表格中的 Pyramid 68° &#x2F; Vertical 53.7° 计算：<br>理论矩形视场 ≈ 472 mm × 354 mm</p>
-<table>
-<thead>
-<tr>
-<th align="center">项目</th>
-<th align="center">尺寸</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">理论可见宽度</td>
-<td align="center">≈ 472 mm</td>
-</tr>
-<tr>
-<td align="center">理论可见高度</td>
-<td align="center">≈ 354 mm</td>
-</tr>
-</tbody></table>
-<h3 id="A-80-3°-的-Cone-尺寸"><a href="#A-80-3°-的-Cone-尺寸" class="headerlink" title="A &#x3D; 80.3° 的 Cone 尺寸"></a>A &#x3D; 80.3° 的 Cone 尺寸</h3><p>A &#x3D; 80.3° 不用于矩形 chart 宽高，而是用于结构避让。<br>Half Cone &#x3D; 350 × tan(80.3° &#x2F; 2) &#x3D; 350 × tan(40.15°) ≈ 295.25 mm<br>Full Cone Diameter ≈ 590.5 mm<br>这个值表示结构件、开孔、遮光罩不能侵入这个 Cone 区域，不建议直接用它作为 chart 矩形尺寸。</p>
-<h3 id="结合表格-D-E-F-比例校验"><a href="#结合表格-D-E-F-比例校验" class="headerlink" title="结合表格 D&#x2F;E&#x2F;F 比例校验"></a>结合表格 D&#x2F;E&#x2F;F 比例校验</h3><table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">D &#x3D; 1.67</td>
-<td align="center">Cone 相对尺寸</td>
-</tr>
-<tr>
-<td align="center">E &#x3D; 1.34</td>
-<td align="center">Pyramid 宽度相对尺寸</td>
-</tr>
-<tr>
-<td align="center">F &#x3D; 1</td>
-<td align="center">Pyramid高度相对尺寸</td>
-</tr>
-</tbody></table>
-<p>如果以高度 354.36 mm 作为 F &#x3D; 1，则：Pyramid Width &#x3D; 1.34 × 354.36 ≈ 474.85 mm，这和用 68° 直接计算出来的：472.16 mm，非常接近，差异主要来自表格比例四舍五入。<br>所以两种方法是一致的。</p>
-<h3 id="推荐-chart-物理尺寸"><a href="#推荐-chart-物理尺寸" class="headerlink" title="推荐 chart 物理尺寸"></a>推荐 chart 物理尺寸</h3><p>理论可见区域是：472 × 354 mm，但实际做测试机不能刚好做这个尺寸，需要考虑：装配误差，chart安装偏差，相机光轴偏移，软件裁剪余量，机构公差；建议每边增加约 20 mm margin：<br>Chart Width  &#x3D; 472 + 40 ≈ 512 mm<br>Chart Height &#x3D; 354 + 40 ≈ 394 mm</p>
-<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><ul>
-<li>理论 chart 尺寸：472 mm × 354 mm</li>
-<li>推荐 chart 物理尺寸：512 mm × 394 mm</li>
-</ul>
-<h3 id="做方形外框"><a href="#做方形外框" class="headerlink" title="做方形外框"></a>做方形外框</h3><ul>
-<li>外框板：500 mm × 500 mm</li>
-<li>但真正有效测试内容建议布置在：512 mm × 394 mm 内部区域</li>
-<li>实际中心区域约 60% ~ 80% FOV 区域</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>视场角在系统中分为四层：</p>
-<ol>
-<li>Optical FOV（74°）<br>表示镜头真实成像能力，用于理论分析；</li>
-<li>Engineering FOV（Pyramid 68° &#x2F; Vertical 53.7°）<br>用于保证图像完整不裁边，是chart尺寸设计依据；</li>
-<li>Structural FOV（Cone 80.3°）<br>用于结构避让，确保设备不会遮挡光路；</li>
-<li>Effective FOV（中心60~80%）<br>用于图像质量分析（SFR &#x2F; MTF &#x2F; Color &#x2F; Gray）。<br><strong>设计中需明确区分各类FOV用途，避免误用。</strong></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Camera</tag>
-        <tag>Chart</tag>
-        <tag>FOV</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
     <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
@@ -1592,63 +1592,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>MacBook效率工具</title>
-    <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
-<h3 id="IINA-免费开源视频播放器"><a href="#IINA-免费开源视频播放器" class="headerlink" title="IINA - 免费开源视频播放器"></a>IINA - 免费开源视频播放器</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9paW5hLmlvLw==">IINA<i class="fa fa-external-link-alt"></i></span> 是一款 macOS 下的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoYzcwMDAwL2lpbmE=">开源<i class="fa fa-external-link-alt"></i></span>视频播放器，基于 <span class="exturl" data-url="aHR0cHM6Ly9tcHYuaW8v">mpv<i class="fa fa-external-link-alt"></i></span>，为现代 macOS(10.10+) 而生，支持 Touch Bar、兼容 MPV 脚本、几乎支持所有格式、网络播放、拥有优雅外观的<code>免费开源</code>视频播放器。<span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjI3Mw==">少数派<i class="fa fa-external-link-alt"></i></span> 也出了相应的使用说明。</p>
-<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
-<h3 id="Hidden-Bar-免费隐藏工具栏"><a href="#Hidden-Bar-免费隐藏工具栏" class="headerlink" title="Hidden Bar - 免费隐藏工具栏"></a>Hidden Bar - 免费隐藏工具栏</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9jbi9hcHAvaGlkZGVuLWJhci9pZDE0NTI0NTMwNjY/bXQ9MTI=">Hidden Bar<i class="fa fa-external-link-alt"></i></span> 菜单栏图标太多，很碍眼？想要一款能够隐藏菜单栏图标的<code>免费</code>工具？Hidden Bar for mac分享给大家！Hidden Bar Mac版使用非常简单，运行 Hidden Bar 之后，会在菜单栏上出现一个分隔符 “｜”，左侧的是被隐藏图标，右侧是长期显示图标。只需要按住 command ⌘ 键，然后拖动一个应用图标到分隔符 “｜”左边，就代表隐藏了，是不是很方便呢？</p>
-<h3 id="Dukto-免费局域网传输工具"><a href="#Dukto-免费局域网传输工具" class="headerlink" title="Dukto - 免费局域网传输工具"></a>Dukto - 免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
-<h3 id="FDM-免费链接下载工具"><a href="#FDM-免费链接下载工具" class="headerlink" title="FDM - 免费链接下载工具"></a>FDM - 免费链接下载工具</h3><ul>
-<li>快速、安全且有效率地下載</li>
-<li>從熱門網站下載影片</li>
-<li>伺服器支援</li>
-<li>HTTP&#x2F;HTTPS&#x2F;FTP&#x2F;BT 支援</li>
-<li>現代化設計的友善介面</li>
-<li>支援 Windows 及macOS作業系統<br>&emsp;&emsp;<strong>此外</strong>, 在 macOS及 Windows作業系統下的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZG93bmxvYWQuaHRt">Free Download Manager<i class="fa fa-external-link-alt"></i></span>還能讓您調整使用頻寬，組織下載，控制種子優先順序，以有效地下載大型及斷點續傳檔案。FDM能夠啟動您的所有下載高達10倍速，處理各種熱門格式的影片，從網路瀏覽器拖放網址，同時下載多個檔案。我們的網路下載管理器也相容於 Google Chrome、Mozilla Firefox、Microsoft Edge、nternet Explorer 及Safari瀏覽器。有關更多資訊，請點擊<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZmVhdHVyZXMuaHRt">这里<i class="fa fa-external-link-alt"></i></span>。</li>
-</ul>
-<h3 id="Beyong-compare-文件对比工具"><a href="#Beyong-compare-文件对比工具" class="headerlink" title="Beyong compare - 文件对比工具"></a>Beyong compare - 文件对比工具</h3><ul>
-<li>Beyond Compare 是一款功能非常强大的文件对比工具，不仅仅可以对比文件、Word 、Excal、mp3、文件夹等等，还可以对比图片，而且还可以填写新的文件格式。我们先看看 Beyond Compare 目前支持哪些文件格式的对比。</li>
-<li>Mac 版本：</li>
-</ul>
-<ol>
-<li>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Nvb3RlcnNvZnR3YXJlLmNvbS9kb3dubG9hZC5waHA=">官网<i class="fa fa-external-link-alt"></i></span>下载BeyondCompare并安装成功后，执行如下操作:</li>
-<li>进入Beyond Compare应用程序MacOS目录下(&#x2F;Applications&#x2F;BeyondCompare.app&#x2F;Contents&#x2F;MacOS)</li>
-<li>选中Beyond Compare, 右击选中“显示包内容”-&gt;Contents-&gt;MacOS-&gt;</li>
-<li>将主启动程序文件BCompare重命名为BCompare.real</li>
-</ol>
-<ul>
-<li>在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看</li>
-<li>打开终端cd到BCompare文件目录，使用命令：touch BCompare创建文件</li>
-<li>打开BCompare文件输入一下代码：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> <span class="string">&quot;/Users/<span class="subst">$(whoami)</span>/Library/Application Support/BeyondCompare/registry.dat&quot;</span></span><br><span class="line"><span class="string">&quot;`dirname &quot;</span><span class="variable">$0</span><span class="string">&quot;`&quot;</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
-第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</li>
-</ul>
-<ol start="5">
-<li>给新建的文件BCompare，授权文件执行权限</li>
-</ol>
-<ul>
-<li>授权文件执行权限<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod a+x <span class="regexp">/Applications/</span>Beyond\Compare.app<span class="regexp">/Contents/</span>MacOS/BCompare</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
-<h3 id="Xmind-Zen-思维导图工具"><a href="#Xmind-Zen-思维导图工具" class="headerlink" title="Xmind Zen - 思维导图工具"></a>Xmind Zen - 思维导图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnNlZ21lbnRmYXVsdC5jb20vP2VuYz11YlJZNVBCMlNaT3VSYWc4UUxDRStRPT0udDVqcnp1NTlvT09ya2hkYlk0a1h3aExWTlhZUFNZV0VnbEZFNHF5Skd0T3BubTJkbFZtZjg0MGYyOWZMdTdWNQ==">XMind ZEN<i class="fa fa-external-link-alt"></i></span>  是一款功能强大、颜值超高的全新[思维导图]工具，100% 重写了思维导图的引擎，着眼在未来的黑科技上，提升了思维导图的展示效果，丰富了绘图的元素。所有内置主题的字体都能让你的导图在各平台上拥有一致的视觉呈现效果。当导图中的中、日、韩字符不能够被正确呈现时，CJK字体列表可以作为备选方案解决这种窘境。</p>
-<h3 id="Chrome-免费谷歌浏览器"><a href="#Chrome-免费谷歌浏览器" class="headerlink" title="Chrome - 免费谷歌浏览器"></a>Chrome - 免费谷歌浏览器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNuL2Nocm9tZS8=">官网<i class="fa fa-external-link-alt"></i></span></p>
-<ul>
-<li>MAC下，插件的安装位置：所有的chrome插件都是安装在资源管理库(library)里面的,如果你的记性够好，请记住MAC下插件的安装位置：<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/Library/</span>Application Support<span class="regexp">/Google/</span>Chrome<span class="regexp">/Default/</span>Extensions</span><br></pre></td></tr></table></figure></li>
-<li>谷歌访问助手</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJpbnRmcmllbmRseS5jb20v">Print Friendly&amp;PDF<i class="fa fa-external-link-alt"></i></span>, 网页打印成PDF。</li>
-</ul>
-<h3 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h3><p>&emsp;&emsp;自1989年第一版JMP软件问世以来，<span class="exturl" data-url="aHR0cHM6Ly93d3cuam1wLmNvbS96aF9jbi9zb2Z0d2FyZS5odG1s">JMP<i class="fa fa-external-link-alt"></i></span>. 统计发现软件一直是各个行业和政府部门的科学家、工程师及其他数据探索人员的首选工具。 [1]   JMP系列产品包括JMP，JMP Pro，JMP Clinical，JMP Genomics等产品线。通过帮助全球客户发现数据背后的价值，JMP被广泛应用于业务可视化、探索性数据分析(EDA)、数据挖掘、建模预测、实验设计、产品研发、生物统计、医学统计、可靠性分析、市场调研、<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlODUlQUQlRTglQTUlQkYlRTYlQTAlQkMlRTclOEUlOUIlRTglQjQlQTglRTklODclOEYvNTMzMDUwNjE=">六西格玛质量<i class="fa fa-external-link-alt"></i></span>管理等领域，裨益半导体和电子、医药、化工、食品、金融和服务、政府和教育等各行各业，并逐渐成为全球领先的数据分析方法及咨询供应商，致力于帮助客户从数据中获取价值，优化决策，驱动创新，成就未来。</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>MacBook</tag>
-        <tag>效率</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Siemens NX 视图方位快捷键</title>
     <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
@@ -1690,27 +1633,6 @@ th {
         <tag>NX</tag>
         <tag>NX 2506</tag>
         <tag>视图方位快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks参数优化</title>
-    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
-<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
-<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
-<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
-<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -1785,6 +1707,84 @@ th {
         <tag>仿真</tag>
         <tag>动画</tag>
         <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MacBook效率工具</title>
+    <url>/2021/10/01/MacBook%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="MacZip-免费好用的-mac-压缩工具"><a href="#MacZip-免费好用的-mac-压缩工具" class="headerlink" title="MacZip - 免费好用的 mac 压缩工具"></a>MacZip - 免费好用的 mac 压缩工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9lemlwLmF3ZWh1bnQuY29tLw==">MacZip<i class="fa fa-external-link-alt"></i></span> - 专为macOS而设计的压缩软件！是一款 macOS 下的<code>免费</code>压缩软件，相较于之前介绍过的 Keka，MacZip 的特色在于你可以在无需解压的状态下查看、编辑压缩包，它支持读取的格式涵盖了 zip、rar、7z、iso 等数十种，足以满足日常需求。此外，MacZip 还提供了一键过滤图片、文档的功能，可以用于快速搜索包内文件。你也可以在 MacZip 中开启预览功能，更方便地查看文件。同时 MacZip 支持多种加密压缩格式，并且提供了右键快捷方式。</p>
+<h3 id="IINA-免费开源视频播放器"><a href="#IINA-免费开源视频播放器" class="headerlink" title="IINA - 免费开源视频播放器"></a>IINA - 免费开源视频播放器</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9paW5hLmlvLw==">IINA<i class="fa fa-external-link-alt"></i></span> 是一款 macOS 下的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoYzcwMDAwL2lpbmE=">开源<i class="fa fa-external-link-alt"></i></span>视频播放器，基于 <span class="exturl" data-url="aHR0cHM6Ly9tcHYuaW8v">mpv<i class="fa fa-external-link-alt"></i></span>，为现代 macOS(10.10+) 而生，支持 Touch Bar、兼容 MPV 脚本、几乎支持所有格式、网络播放、拥有优雅外观的<code>免费开源</code>视频播放器。<span class="exturl" data-url="aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC81MjI3Mw==">少数派<i class="fa fa-external-link-alt"></i></span> 也出了相应的使用说明。</p>
+<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
+<h3 id="Hidden-Bar-免费隐藏工具栏"><a href="#Hidden-Bar-免费隐藏工具栏" class="headerlink" title="Hidden Bar - 免费隐藏工具栏"></a>Hidden Bar - 免费隐藏工具栏</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9jbi9hcHAvaGlkZGVuLWJhci9pZDE0NTI0NTMwNjY/bXQ9MTI=">Hidden Bar<i class="fa fa-external-link-alt"></i></span> 菜单栏图标太多，很碍眼？想要一款能够隐藏菜单栏图标的<code>免费</code>工具？Hidden Bar for mac分享给大家！Hidden Bar Mac版使用非常简单，运行 Hidden Bar 之后，会在菜单栏上出现一个分隔符 “｜”，左侧的是被隐藏图标，右侧是长期显示图标。只需要按住 command ⌘ 键，然后拖动一个应用图标到分隔符 “｜”左边，就代表隐藏了，是不是很方便呢？</p>
+<h3 id="Dukto-免费局域网传输工具"><a href="#Dukto-免费局域网传输工具" class="headerlink" title="Dukto - 免费局域网传输工具"></a>Dukto - 免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
+<h3 id="FDM-免费链接下载工具"><a href="#FDM-免费链接下载工具" class="headerlink" title="FDM - 免费链接下载工具"></a>FDM - 免费链接下载工具</h3><ul>
+<li>快速、安全且有效率地下載</li>
+<li>從熱門網站下載影片</li>
+<li>伺服器支援</li>
+<li>HTTP&#x2F;HTTPS&#x2F;FTP&#x2F;BT 支援</li>
+<li>現代化設計的友善介面</li>
+<li>支援 Windows 及macOS作業系統<br>&emsp;&emsp;<strong>此外</strong>, 在 macOS及 Windows作業系統下的 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZG93bmxvYWQuaHRt">Free Download Manager<i class="fa fa-external-link-alt"></i></span>還能讓您調整使用頻寬，組織下載，控制種子優先順序，以有效地下載大型及斷點續傳檔案。FDM能夠啟動您的所有下載高達10倍速，處理各種熱門格式的影片，從網路瀏覽器拖放網址，同時下載多個檔案。我們的網路下載管理器也相容於 Google Chrome、Mozilla Firefox、Microsoft Edge、nternet Explorer 及Safari瀏覽器。有關更多資訊，請點擊<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWRvd25sb2FkbWFuYWdlci5vcmcvemgvZmVhdHVyZXMuaHRt">这里<i class="fa fa-external-link-alt"></i></span>。</li>
+</ul>
+<h3 id="Beyong-compare-文件对比工具"><a href="#Beyong-compare-文件对比工具" class="headerlink" title="Beyong compare - 文件对比工具"></a>Beyong compare - 文件对比工具</h3><ul>
+<li>Beyond Compare 是一款功能非常强大的文件对比工具，不仅仅可以对比文件、Word 、Excal、mp3、文件夹等等，还可以对比图片，而且还可以填写新的文件格式。我们先看看 Beyond Compare 目前支持哪些文件格式的对比。</li>
+<li>Mac 版本：</li>
+</ul>
+<ol>
+<li>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Nvb3RlcnNvZnR3YXJlLmNvbS9kb3dubG9hZC5waHA=">官网<i class="fa fa-external-link-alt"></i></span>下载BeyondCompare并安装成功后，执行如下操作:</li>
+<li>进入Beyond Compare应用程序MacOS目录下(&#x2F;Applications&#x2F;BeyondCompare.app&#x2F;Contents&#x2F;MacOS)</li>
+<li>选中Beyond Compare, 右击选中“显示包内容”-&gt;Contents-&gt;MacOS-&gt;</li>
+<li>将主启动程序文件BCompare重命名为BCompare.real</li>
+</ol>
+<ul>
+<li>在同级目录下新建一个脚本文件命名为BCompare，文件内容往下看</li>
+<li>打开终端cd到BCompare文件目录，使用命令：touch BCompare创建文件</li>
+<li>打开BCompare文件输入一下代码：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> <span class="string">&quot;/Users/<span class="subst">$(whoami)</span>/Library/Application Support/BeyondCompare/registry.dat&quot;</span></span><br><span class="line"><span class="string">&quot;`dirname &quot;</span><span class="variable">$0</span><span class="string">&quot;`&quot;</span>/BCompare.real <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序</li>
+</ul>
+<ol start="5">
+<li>给新建的文件BCompare，授权文件执行权限</li>
+</ol>
+<ul>
+<li>授权文件执行权限<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod a+x <span class="regexp">/Applications/</span>Beyond\Compare.app<span class="regexp">/Contents/</span>MacOS/BCompare</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。</p>
+<h3 id="Xmind-Zen-思维导图工具"><a href="#Xmind-Zen-思维导图工具" class="headerlink" title="Xmind Zen - 思维导图工具"></a>Xmind Zen - 思维导图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly9saW5rLnNlZ21lbnRmYXVsdC5jb20vP2VuYz11YlJZNVBCMlNaT3VSYWc4UUxDRStRPT0udDVqcnp1NTlvT09ya2hkYlk0a1h3aExWTlhZUFNZV0VnbEZFNHF5Skd0T3BubTJkbFZtZjg0MGYyOWZMdTdWNQ==">XMind ZEN<i class="fa fa-external-link-alt"></i></span>  是一款功能强大、颜值超高的全新[思维导图]工具，100% 重写了思维导图的引擎，着眼在未来的黑科技上，提升了思维导图的展示效果，丰富了绘图的元素。所有内置主题的字体都能让你的导图在各平台上拥有一致的视觉呈现效果。当导图中的中、日、韩字符不能够被正确呈现时，CJK字体列表可以作为备选方案解决这种窘境。</p>
+<h3 id="Chrome-免费谷歌浏览器"><a href="#Chrome-免费谷歌浏览器" class="headerlink" title="Chrome - 免费谷歌浏览器"></a>Chrome - 免费谷歌浏览器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNuL2Nocm9tZS8=">官网<i class="fa fa-external-link-alt"></i></span></p>
+<ul>
+<li>MAC下，插件的安装位置：所有的chrome插件都是安装在资源管理库(library)里面的,如果你的记性够好，请记住MAC下插件的安装位置：<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/Library/</span>Application Support<span class="regexp">/Google/</span>Chrome<span class="regexp">/Default/</span>Extensions</span><br></pre></td></tr></table></figure></li>
+<li>谷歌访问助手</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJpbnRmcmllbmRseS5jb20v">Print Friendly&amp;PDF<i class="fa fa-external-link-alt"></i></span>, 网页打印成PDF。</li>
+</ul>
+<h3 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h3><p>&emsp;&emsp;自1989年第一版JMP软件问世以来，<span class="exturl" data-url="aHR0cHM6Ly93d3cuam1wLmNvbS96aF9jbi9zb2Z0d2FyZS5odG1s">JMP<i class="fa fa-external-link-alt"></i></span>. 统计发现软件一直是各个行业和政府部门的科学家、工程师及其他数据探索人员的首选工具。 [1]   JMP系列产品包括JMP，JMP Pro，JMP Clinical，JMP Genomics等产品线。通过帮助全球客户发现数据背后的价值，JMP被广泛应用于业务可视化、探索性数据分析(EDA)、数据挖掘、建模预测、实验设计、产品研发、生物统计、医学统计、可靠性分析、市场调研、<span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTUlODUlQUQlRTglQTUlQkYlRTYlQTAlQkMlRTclOEUlOUIlRTglQjQlQTglRTklODclOEYvNTMzMDUwNjE=">六西格玛质量<i class="fa fa-external-link-alt"></i></span>管理等领域，裨益半导体和电子、医药、化工、食品、金融和服务、政府和教育等各行各业，并逐渐成为全球领先的数据分析方法及咨询供应商，致力于帮助客户从数据中获取价值，优化决策，驱动创新，成就未来。</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>MacBook</tag>
+        <tag>效率</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1884,6 +1884,31 @@ th {
         <tag>Sensor</tag>
         <tag>Gauge</tag>
         <tag>μstrain</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2662,31 +2687,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2708,242 +2708,6 @@ th {
       </categories>
       <tags>
         <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
-</ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
-</ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
-</blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
-</blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
-</blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
-</blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
-</blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
-    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
-<ul>
-<li>图片越来越多，博客仓库体积膨胀  </li>
-<li>国内访问不稳定  </li>
-<li>免费图床存在跑路风险  </li>
-<li>后期迁移成本极高</li>
-</ul>
-<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
-<blockquote>
-<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
-</blockquote>
-<hr>
-<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
-<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
-<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
-<p>图片通过 jsDelivr CDN 访问：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
-</blockquote>
-<hr>
-<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
-<ul>
-<li>仓库名：<code>burro-imgbed</code></li>
-<li>可见性：<strong>Public（必须）</strong></li>
-<li>不需要 README &#x2F; License</li>
-</ul>
-<blockquote>
-<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
-</blockquote>
-<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
-<hr>
-<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
-<li>进入图床仓库</li>
-<li>点击 <strong>Add file → Create new file</strong></li>
-<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
-</ol>
-<p>文件内容保持为空即可。</p>
-<hr>
-<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
-<ol>
-<li>点击右上角 <strong>Commit changes…</strong></li>
-<li>填写提交信息：</li>
-</ol>
-<p><strong>Commit message</strong><br><code>Create .keep</code></p>
-<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
-<p>然后提交。</p>
-<blockquote>
-<p>提交说明仅用于记录操作，不影响功能。</p>
-</blockquote>
-<hr>
-<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
-<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
-<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
-<hr>
-<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
-<ol>
-<li>点击 <strong>Add file → Upload files</strong></li>
-<li>上传一张测试图片，例如：test.png</li>
-</ol>
-<p>提交即可。</p>
-<hr>
-<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
-<ul>
-<li>GitHub 用户名：<code>Burro-CMD</code></li>
-<li>图床仓库：<code>burro-imgbed</code></li>
-<li>图片路径：<code>images/blog/test.png</code></li>
-</ul>
-<p>访问地址为：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>将该链接直接粘贴到浏览器地址栏打开。</p>
-<p>如果浏览器中可以直接看到图片，说明：</p>
-<ul>
-<li>GitHub 图床 ✅  </li>
-<li>jsDelivr CDN ✅  </li>
-<li>国内访问 ✅</li>
-</ul>
-<p>图床已经完全可用。</p>
-<hr>
-<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
-<p>例如：</p>
-<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
-<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
-<p>对应的 jsDelivr 链接示例：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
-
-<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
-<hr>
-<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
-
-<p>无需任何插件，NexT 主题可直接渲染。</p>
-<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
-<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
-<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
-<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
-<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>Hexo</tag>
-        <tag>jsDelivr</tag>
       </tags>
   </entry>
   <entry>
@@ -3094,6 +2858,127 @@ th {
       </categories>
   </entry>
   <entry>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
+<blockquote>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
+</blockquote>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
+<ol>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
+</blockquote>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
+<ul>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
+</ul>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
+<ul>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
+</ul>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
+<p>例如：</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）</title>
     <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在上一篇文章中，我已经搭建好了基于 <strong>GitHub 公共仓库 + jsDelivr CDN</strong> 的免费图床方案。<br>但在实际写博客时，如果每次都要：</p>
@@ -3210,6 +3095,121 @@ th {
       </categories>
       <tags>
         <tag>PicGo - GitHub - 图床 - jsDelivr - Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
+    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
+<ul>
+<li>图片越来越多，博客仓库体积膨胀  </li>
+<li>国内访问不稳定  </li>
+<li>免费图床存在跑路风险  </li>
+<li>后期迁移成本极高</li>
+</ul>
+<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
+<blockquote>
+<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
+</blockquote>
+<hr>
+<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
+<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
+<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
+<p>图片通过 jsDelivr CDN 访问：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
+</blockquote>
+<hr>
+<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
+<ul>
+<li>仓库名：<code>burro-imgbed</code></li>
+<li>可见性：<strong>Public（必须）</strong></li>
+<li>不需要 README &#x2F; License</li>
+</ul>
+<blockquote>
+<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
+</blockquote>
+<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
+<hr>
+<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
+<li>进入图床仓库</li>
+<li>点击 <strong>Add file → Create new file</strong></li>
+<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
+</ol>
+<p>文件内容保持为空即可。</p>
+<hr>
+<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
+<ol>
+<li>点击右上角 <strong>Commit changes…</strong></li>
+<li>填写提交信息：</li>
+</ol>
+<p><strong>Commit message</strong><br><code>Create .keep</code></p>
+<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
+<p>然后提交。</p>
+<blockquote>
+<p>提交说明仅用于记录操作，不影响功能。</p>
+</blockquote>
+<hr>
+<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
+<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
+<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
+<hr>
+<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
+<ol>
+<li>点击 <strong>Add file → Upload files</strong></li>
+<li>上传一张测试图片，例如：test.png</li>
+</ol>
+<p>提交即可。</p>
+<hr>
+<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
+<ul>
+<li>GitHub 用户名：<code>Burro-CMD</code></li>
+<li>图床仓库：<code>burro-imgbed</code></li>
+<li>图片路径：<code>images/blog/test.png</code></li>
+</ul>
+<p>访问地址为：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>将该链接直接粘贴到浏览器地址栏打开。</p>
+<p>如果浏览器中可以直接看到图片，说明：</p>
+<ul>
+<li>GitHub 图床 ✅  </li>
+<li>jsDelivr CDN ✅  </li>
+<li>国内访问 ✅</li>
+</ul>
+<p>图床已经完全可用。</p>
+<hr>
+<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
+<p>例如：</p>
+<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
+<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
+<p>对应的 jsDelivr 链接示例：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
+
+<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
+<hr>
+<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
+
+<p>无需任何插件，NexT 主题可直接渲染。</p>
+<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
+<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
+<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
+<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
+<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>jsDelivr</tag>
       </tags>
   </entry>
   <entry>
@@ -3377,57 +3377,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在Win平台上部署Hexo</title>
     <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -3513,6 +3462,57 @@ th {
         <tag>Hexo</tag>
         <tag>Node.js</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
+</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Github</tag>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3655,33 +3655,6 @@ th {
         <tag>判断力</tag>
         <tag>风险</tag>
         <tag>干中学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
       </tags>
   </entry>
   <entry>
@@ -3895,304 +3868,6 @@ th {
         <tag>电机</tag>
         <tag>O-ring</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>指纹识别模块多角度压力测试技术总结</title>
-    <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
-<p>&emsp;&emsp;鉴于这些原因，所以产品的测试需要把这些进行量化：</p>
-<ol>
-<li>硅胶指纹</li>
-</ol>
-<ul>
-<li>连接硅胶指纹的模组应该是金属的  </li>
-<li>DC 对地阻抗: ≤3KΩ (硅胶指纹到模组的地)</li>
-<li>硅胶指纹的中心与产品指纹识别模组中心公差是0.2mm</li>
-</ul>
-<ol start="2">
-<li><p>按压角度：0°、45°、90°、135°  </p>
-</li>
-<li><p>按压力度：最大4N（要求9±1N），精度±0.5N</p>
-</li>
-</ol>
-<p>以上量化指标落实到测试设备要求</p>
-<ul>
-<li>需要检测5Kg的压力感应器</li>
-<li>线性模组移动精度为0.005mm</li>
-<li>硅胶指纹的中心，产品指纹识别模组中心，旋转台中心三者的中心要在一条线上（垂直）</li>
-<li>手动移动平台15mm，工作台面100 x 100mm</li>
-<li>自动移动平台15mm，工作台面80 x 80mm，最小移动量0.005mm</li>
-<li>旋转台需要360°旋转，旋转台的工作台面80 x 80mm，最小旋转量为0.05°</li>
-</ul>
-<h2 id="高精度压力传感器（核心测力部件）"><a href="#高精度压力传感器（核心测力部件）" class="headerlink" title="高精度压力传感器（核心测力部件）"></a>高精度压力传感器（核心测力部件）</h2><p>&emsp;&emsp;高精度传感器量程的<code>30%～70%</code>，需求4Kg 用 10Kg 量程刚好落在区间，测量精度最高，所以压力传感器需要10Kg。<br>&emsp;&emsp;推荐选用日本<span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS<i class="fa fa-external-link-alt"></i></span>压力传感器。</p>
-<p>&emsp;&emsp;因为项目Schedule比较紧，所以选用国产XJC sensor（X8030），因其安全超载可以达到150%。</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数 Parameter</th>
-<th align="center">规格 Spec</th>
-<th align="center">参数 Parameter</th>
-<th align="center">规格 Spec</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><strong>量程 Capacity</strong></td>
-<td align="center">0~5KG</td>
-<td align="center"><strong>材质 Material</strong></td>
-<td align="center">不锈钢 Stainless steel</td>
-</tr>
-<tr>
-<td align="center"><strong>非线性 Nonlinearity</strong></td>
-<td align="center">0.05%F.S.</td>
-<td align="center"><strong>输出灵敏度 Rated output</strong></td>
-<td align="center">1.0 ± 10% mV&#x2F;V</td>
-</tr>
-<tr>
-<td align="center"><strong>推荐供电电压 Recommended excitation</strong></td>
-<td align="center">5V-10VDC</td>
-<td align="center"><strong>最大供电电压 Maximum excitation</strong></td>
-<td align="center">15V DC</td>
-</tr>
-<tr>
-<td align="center"><strong>防护等级 Protection class</strong></td>
-<td align="center">IP64</td>
-<td align="center"><strong>温度补偿范围 Compensated temp range</strong></td>
-<td align="center">-10~60 ℃</td>
-</tr>
-<tr>
-<td align="center"><strong>滞后 Hysteresis</strong></td>
-<td align="center">0.05%F.S.</td>
-<td align="center"><strong>工作温度范围 Operation temp range</strong></td>
-<td align="center">-20~80℃</td>
-</tr>
-<tr>
-<td align="center"><strong>重复性 Repeatability</strong></td>
-<td align="center">0.05%F.S.</td>
-<td align="center"><strong>绝缘电阻 Insulation resistance</strong></td>
-<td align="center">≥5000MΩ&#x2F;100VDC</td>
-</tr>
-<tr>
-<td align="center"><strong>输入阻抗 Input impedance</strong></td>
-<td align="center">350Ω±10Ω</td>
-<td align="center"><strong>输出阻抗 Output impedance</strong></td>
-<td align="center">350Ω ± 5Ω</td>
-</tr>
-<tr>
-<td align="center"><strong>30分钟蠕变 Creep(30min)</strong></td>
-<td align="center">0.1%F.S.</td>
-<td align="center"><strong>温度灵敏度漂移 Temp effect on output</strong></td>
-<td align="center">0.1%F.S.&#x2F;10 ℃</td>
-</tr>
-<tr>
-<td align="center"><strong>零点输出 Zero balance</strong></td>
-<td align="center">± 2%F.S</td>
-<td align="center"><strong>零点温度漂移 Temp effect on zero</strong></td>
-<td align="center">0.1%F.S.&#x2F;10 ℃</td>
-</tr>
-<tr>
-<td align="center"><strong>安全超载 Safe load limit</strong></td>
-<td align="center">150%F.S.</td>
-<td align="center"><strong>极限超载 Ultimate load limit</strong></td>
-<td align="center">200%F.S.</td>
-</tr>
-<tr>
-<td align="center"><strong>线缆规格 Cable size</strong></td>
-<td align="center">Φ2×4m</td>
-<td align="center"><strong>使用寿命 Service Life</strong></td>
-<td align="center">满量程100万次以上 Full scale more than 1 million times</td>
-</tr>
-<tr>
-<td align="center"><strong>线缆接线定义 Cable connection</strong></td>
-<td align="center">Ex+：红Red；Ex-：黑Black</td>
-<td align="center">Sig+：绿Green；Sig-：白White</td>
-<td align="center">—</td>
-</tr>
-</tbody></table>
-<h2 id="标准仿真指纹硅胶压头（工况模拟核心部件）"><a href="#标准仿真指纹硅胶压头（工况模拟核心部件）" class="headerlink" title="标准仿真指纹硅胶压头（工况模拟核心部件）"></a>标准仿真指纹硅胶压头（工况模拟核心部件）</h2><p>&emsp;&emsp;硅胶指纹准备3种尺寸（大、中、小）。</p>
-<h2 id="高精度角度定位工装（工况基准部件）"><a href="#高精度角度定位工装（工况基准部件）" class="headerlink" title="高精度角度定位工装（工况基准部件）"></a>高精度角度定位工装（工况基准部件）</h2><p>&emsp;&emsp;手动移动平台15mm，工作台面100 x 100mm。</p>
-<h2 id="伺服稳压驱动模组（动力执行部件）"><a href="#伺服稳压驱动模组（动力执行部件）" class="headerlink" title="伺服稳压驱动模组（动力执行部件）"></a>伺服稳压驱动模组（动力执行部件）</h2><p>&emsp;&emsp;按照要求是需要一款XYR的滑台平台来装载产品，水平负载8Kg</p>
-<h3 id="XY轴"><a href="#XY轴" class="headerlink" title="XY轴"></a>XY轴</h3><ul>
-<li>定位精度：0.01mm</li>
-<li>反复定位精度：±0.005mm</li>
-<li>电机规格：两相步进28框</li>
-<li>行程：±15mm</li>
-<li>X-Y最大速度：10mm&#x2F;sec</li>
-</ul>
-<h3 id="θ轴"><a href="#θ轴" class="headerlink" title="θ轴"></a>θ轴</h3><ul>
-<li>传动比：1：90</li>
-<li>定位精度：0.02°</li>
-<li>反复定位精度：0.01°</li>
-<li>空回：0.02°</li>
-<li>电机规格：两相步进42框</li>
-<li>θ最大速度：18°&#x2F;sec</li>
-</ul>
-<h3 id="电机规格：两相步进28框"><a href="#电机规格：两相步进28框" class="headerlink" title="电机规格：两相步进28框"></a>电机规格：两相步进28框</h3><ul>
-<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
-<li>标准步距角 1.8°，完整一圈需要 200 个脉冲</li>
-<li>出线：4 线双极居多，少量 6&#x2F;8 线；</li>
-<li>驱动器必须搭配两相微型步进驱动（如 DM420、A4988、TMC2208），不能用三相驱动</li>
-<li>28 框基础性能区间<ul>
-<li>保持转矩：0.06～0.17 N・m（60～170 mNm）</li>
-<li>额定电流：0.6～1.0A</li>
-<li>供电常用 DC12V&#x2F;24V</li>
-</ul>
-</li>
-</ul>
-<h3 id="电机规格：两相步进42框"><a href="#电机规格：两相步进42框" class="headerlink" title="电机规格：两相步进42框"></a>电机规格：两相步进42框</h3><ul>
-<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
-<li>标准步距角 1.8°，完整一圈需要 200 个脉冲；</li>
-<li>出线常见 4 线（双极性驱动）、6 线、8 线；</li>
-<li>配套驱动器只能用两相步进驱动器，不能接三相驱动。</li>
-<li>42 框基础性能区间<ul>
-<li>保持转矩：0.2～0.5 N・m</li>
-<li>额定电流：0.8～2.0 A</li>
-<li>供电常用：DC24V</li>
-</ul>
-</li>
-</ul>
-<h3 id="设备测试架构"><a href="#设备测试架构" class="headerlink" title="设备测试架构"></a>设备测试架构</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png" alt="测试架构"></p>
-<h2 id="测试方案与流程"><a href="#测试方案与流程" class="headerlink" title="测试方案与流程"></a>测试方案与流程</h2><ul>
-<li><p>在0°、45°、90°、135°、180每个角度，<code>X</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>左</code>边离开指纹识别模块感应区的<code>右</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
-</li>
-<li><p>在0°、45°、90°、135°、180每个角度，<code>Y</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>顶</code>边离开指纹识别模块感应区的<code>底</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
-</li>
-</ul>
-<h2 id="核心测试结果与数据分析"><a href="#核心测试结果与数据分析" class="headerlink" title="核心测试结果与数据分析"></a>核心测试结果与数据分析</h2><p>&emsp;&emsp;所有工况统一采用恒定 4N 标准压力按压，仅变量为设备摆放角度，对比各角度指纹识别表现，总结如下：</p>
-<h3 id="正交垂直角度（0°、90°、180°）识别表现最优"><a href="#正交垂直角度（0°、90°、180°）识别表现最优" class="headerlink" title="正交垂直角度（0°、90°、180°）识别表现最优"></a>正交垂直角度（0°、90°、180°）识别表现最优</h3><p>&emsp;&emsp;在 0°、90°、180° 三个垂直正向角度，恒定 4N 压力下压头与传感器贴合均匀完整，指纹纹理成像清晰，识别成功率≥99.2%，平均识别响应时间 0.2~0.3s，无拒真、误识、卡顿等问题。正向姿态下按压受力均匀，角度偏移对信号采集几乎无负面影响，完全满足日常使用标准。</p>
-<h3 id="旋转角度（45°、135°）存在识别性能衰减"><a href="#旋转角度（45°、135°）存在识别性能衰减" class="headerlink" title="旋转角度（45°、135°）存在识别性能衰减"></a>旋转角度（45°、135°）存在识别性能衰减</h3><p>&emsp;&emsp;被测物水平旋转至 45°、135° 档位时，统一采用恒定 4N 压力按压，识别成功率下降至 92.1%~94.5%。核心原因：被测产品水平旋转偏移后，硅胶压头与指纹区域受力分布不均，单侧贴合间隙偏大，局部指纹纹理接触不充分，传感器采集的指纹图像存在轻微畸变，特征点匹配精度下降，是本次测试暴露的薄弱工况。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;本次测试以恒定 4N 标准按压力作为统一控制条件，依托 XYR 旋转滑台实现被测物 0°、45°、90°、135°、180° 五档水平旋转定位，全程仅将产品水平旋转角度作为单一变量，标准化验证不同摆放姿态下指纹识别模组的识别一致性与运行稳定性。</p>
-<p>&emsp;&emsp;整套测试设备采用自上而下分层堆叠架构：伺服下压模组搭配标准硅胶指纹压头提供稳定恒定 4N 载荷，产品专用 Holder 保证被测件夹持无位移，XY 手动滑台完成压头与指纹区域居中校准，底层 XYR 滑台精准实现多档位水平旋转锁止。设备闭环压力控制系统稳压精度高，重复按压无压力漂移，各角度测试工况可复现、数据具备横向对比价值，硬件整套循环测试后无形变、无功能失效，设备工装与驱动机构可靠性满足批量验证需求。</p>
-<p>&emsp;&emsp;实测数据显示，当被测物水平旋转至 0°、90°、180° 正向档位时，恒定 4N 压力下压头与指纹区域贴合均匀，指纹成像完整清晰，识别成功率稳定≥99.2%，识别响应速度平稳，无拒真、卡顿、识别失败等异常，完全符合产品设计指标与用户常规使用要求。</p>
-<p>&emsp;&emsp;当被测物水平旋转至 45°、135° 斜向档位时，同等 4N 标准压力下识别成功率降至92.1%~94.5%；根本原因为产品水平旋转后，硅胶压头受力分布失衡，指纹识别区域单侧贴合间隙增大，局部纹理接触不充分，采集图像出现轻微形变，指纹特征点匹配准确度下降，是产品当前性能短板工况。<br>全角度循环按压测试完成后，指纹传感器、模组结构未出现硬件损伤、永久性能衰减，撤除压力后识别性能可即时恢复，证明产品硬件本体耐压、耐磨基础可靠性达标，性能差异仅来源于水平旋转带来的按压贴合形变问题。</p>
-<p>&emsp;&emsp;本次多角度恒定压力专项测试精准定位了产品旋转工况下的识别缺陷，为指纹识别算法迭代优化、模组缓冲结构改良、出厂品质检验标准制定提供了客观、可复现的实测数据支撑。通过针对性优化形变指纹匹配算法、改善传感器缓冲贴合结构，可有效提升 45°、135° 水平旋转工况下的识别容错率，规避终端用户握持旋转解锁失败的使用问题，进一步提升产品全场景使用稳定性。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>NTS力学传感器<span class="exturl" data-url="aHR0cHM6Ly9udHMtbWVhc3VyZS5jby5qcC8=">日本本土官网<i class="fa fa-external-link-alt"></i></span>: 原厂主站，日文，完整产品规格&#x2F; 手册，NTS传感器长期稳定，适合疲劳循环测试。</li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS英文国际站<i class="fa fa-external-link-alt"></i></span>: 海外产品介绍，适合查阅英文参数。</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bGl2ZS5jb20vemgvdS8lRTglQkQlQUMlRTYlOEQlQTIvJUU3JTg5JTlCJUU5JUExJUJGLyVFOCU4NyVBQS8lRTUlOEQlODMlRTUlODUlOEIlRTUlOEElOUIjOQ==">单位转换<i class="fa fa-external-link-alt"></i></span>: 千克转化为牛顿或者千克力。</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueGpjc2Vuc29yLmNvbS8=">鑫精诚力学传感器<i class="fa fa-external-link-alt"></i></span>: XJC sensor交期短，价格是NTS的1&#x2F;3，疲劳稳定性略逊原装。</li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5udWFlcy5uZXQvUHJvZHVjdEN1c3QvMTQ2MTc1MS00MDk2MDIuaHRtbA==">天翰精密<i class="fa fa-external-link-alt"></i></span>：XYR滑台。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Fingerprint</tag>
-        <tag>Multi-angle</tag>
-        <tag>多角度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换空气滤芯篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
-<li>十字螺丝刀</li>
-<li>新空气滤芯，17210-K1Z-CA0</li>
-</ol>
-<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
-<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
-<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
-<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
-<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>空气滤芯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新建组件</title>
-    <url>/2026/07/01/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"><a href="#情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看" class="headerlink" title="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"></a>情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看</h2><ul>
-<li><p>步骤：</p>
-<ul>
-<li>选择“装配器导航”</li>
-<li>选择“装配”</li>
-<li>点击“新建组件”</li>
-<li>选择对象：选择需要生成的子装配体的部件</li>
-<li>保存为子装配体</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6.png" alt="新建组件"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Siemens</tag>
-        <tag>NX</tag>
-        <tag>NX操作</tag>
       </tags>
   </entry>
   <entry>
@@ -4503,38 +4178,328 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>智能可视耳勺3D打印</title>
-    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
-<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
-<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
 </ul>
-<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
-<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
 </ul>
-<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
-<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
-</ul>
-<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
-<li>使用拓竹Bumbu Lab X1E。</li>
-</ul>
-<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
-<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
-</ul>
-<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
-<li>洁视家智能可视耳勺</li>
-<li>Soliworks</li>
-<li>Bumbu Lab X1E</li>
-<li>磁铁：8x, Φ4.0-2.00mm</li>
-</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
       </categories>
       <tags>
         <tag>3D建模</tag>
         <tag>3D打印</tag>
-        <tag>精度</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指纹识别模块多角度压力测试技术总结</title>
+    <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
+<p>&emsp;&emsp;鉴于这些原因，所以产品的测试需要把这些进行量化：</p>
+<ol>
+<li>硅胶指纹</li>
+</ol>
+<ul>
+<li>连接硅胶指纹的模组应该是金属的  </li>
+<li>DC 对地阻抗: ≤3KΩ (硅胶指纹到模组的地)</li>
+<li>硅胶指纹的中心与产品指纹识别模组中心公差是0.2mm</li>
+</ul>
+<ol start="2">
+<li><p>按压角度：0°、45°、90°、135°  </p>
+</li>
+<li><p>按压力度：最大4N（要求9±1N），精度±0.5N</p>
+</li>
+</ol>
+<p>以上量化指标落实到测试设备要求</p>
+<ul>
+<li>需要检测5Kg的压力感应器</li>
+<li>线性模组移动精度为0.005mm</li>
+<li>硅胶指纹的中心，产品指纹识别模组中心，旋转台中心三者的中心要在一条线上（垂直）</li>
+<li>手动移动平台15mm，工作台面100 x 100mm</li>
+<li>自动移动平台15mm，工作台面80 x 80mm，最小移动量0.005mm</li>
+<li>旋转台需要360°旋转，旋转台的工作台面80 x 80mm，最小旋转量为0.05°</li>
+</ul>
+<h2 id="高精度压力传感器（核心测力部件）"><a href="#高精度压力传感器（核心测力部件）" class="headerlink" title="高精度压力传感器（核心测力部件）"></a>高精度压力传感器（核心测力部件）</h2><p>&emsp;&emsp;高精度传感器量程的<code>30%～70%</code>，需求4Kg 用 10Kg 量程刚好落在区间，测量精度最高，所以压力传感器需要10Kg。<br>&emsp;&emsp;推荐选用日本<span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS<i class="fa fa-external-link-alt"></i></span>压力传感器。</p>
+<p>&emsp;&emsp;因为项目Schedule比较紧，所以选用国产XJC sensor（X8030），因其安全超载可以达到150%。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>量程 Capacity</strong></td>
+<td align="center">0~5KG</td>
+<td align="center"><strong>材质 Material</strong></td>
+<td align="center">不锈钢 Stainless steel</td>
+</tr>
+<tr>
+<td align="center"><strong>非线性 Nonlinearity</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>输出灵敏度 Rated output</strong></td>
+<td align="center">1.0 ± 10% mV&#x2F;V</td>
+</tr>
+<tr>
+<td align="center"><strong>推荐供电电压 Recommended excitation</strong></td>
+<td align="center">5V-10VDC</td>
+<td align="center"><strong>最大供电电压 Maximum excitation</strong></td>
+<td align="center">15V DC</td>
+</tr>
+<tr>
+<td align="center"><strong>防护等级 Protection class</strong></td>
+<td align="center">IP64</td>
+<td align="center"><strong>温度补偿范围 Compensated temp range</strong></td>
+<td align="center">-10~60 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>滞后 Hysteresis</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>工作温度范围 Operation temp range</strong></td>
+<td align="center">-20~80℃</td>
+</tr>
+<tr>
+<td align="center"><strong>重复性 Repeatability</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>绝缘电阻 Insulation resistance</strong></td>
+<td align="center">≥5000MΩ&#x2F;100VDC</td>
+</tr>
+<tr>
+<td align="center"><strong>输入阻抗 Input impedance</strong></td>
+<td align="center">350Ω±10Ω</td>
+<td align="center"><strong>输出阻抗 Output impedance</strong></td>
+<td align="center">350Ω ± 5Ω</td>
+</tr>
+<tr>
+<td align="center"><strong>30分钟蠕变 Creep(30min)</strong></td>
+<td align="center">0.1%F.S.</td>
+<td align="center"><strong>温度灵敏度漂移 Temp effect on output</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>零点输出 Zero balance</strong></td>
+<td align="center">± 2%F.S</td>
+<td align="center"><strong>零点温度漂移 Temp effect on zero</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>安全超载 Safe load limit</strong></td>
+<td align="center">150%F.S.</td>
+<td align="center"><strong>极限超载 Ultimate load limit</strong></td>
+<td align="center">200%F.S.</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆规格 Cable size</strong></td>
+<td align="center">Φ2×4m</td>
+<td align="center"><strong>使用寿命 Service Life</strong></td>
+<td align="center">满量程100万次以上 Full scale more than 1 million times</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆接线定义 Cable connection</strong></td>
+<td align="center">Ex+：红Red；Ex-：黑Black</td>
+<td align="center">Sig+：绿Green；Sig-：白White</td>
+<td align="center">—</td>
+</tr>
+</tbody></table>
+<h2 id="标准仿真指纹硅胶压头（工况模拟核心部件）"><a href="#标准仿真指纹硅胶压头（工况模拟核心部件）" class="headerlink" title="标准仿真指纹硅胶压头（工况模拟核心部件）"></a>标准仿真指纹硅胶压头（工况模拟核心部件）</h2><p>&emsp;&emsp;硅胶指纹准备3种尺寸（大、中、小）。</p>
+<h2 id="高精度角度定位工装（工况基准部件）"><a href="#高精度角度定位工装（工况基准部件）" class="headerlink" title="高精度角度定位工装（工况基准部件）"></a>高精度角度定位工装（工况基准部件）</h2><p>&emsp;&emsp;手动移动平台15mm，工作台面100 x 100mm。</p>
+<h2 id="伺服稳压驱动模组（动力执行部件）"><a href="#伺服稳压驱动模组（动力执行部件）" class="headerlink" title="伺服稳压驱动模组（动力执行部件）"></a>伺服稳压驱动模组（动力执行部件）</h2><p>&emsp;&emsp;按照要求是需要一款XYR的滑台平台来装载产品，水平负载8Kg</p>
+<h3 id="XY轴"><a href="#XY轴" class="headerlink" title="XY轴"></a>XY轴</h3><ul>
+<li>定位精度：0.01mm</li>
+<li>反复定位精度：±0.005mm</li>
+<li>电机规格：两相步进28框</li>
+<li>行程：±15mm</li>
+<li>X-Y最大速度：10mm&#x2F;sec</li>
+</ul>
+<h3 id="θ轴"><a href="#θ轴" class="headerlink" title="θ轴"></a>θ轴</h3><ul>
+<li>传动比：1：90</li>
+<li>定位精度：0.02°</li>
+<li>反复定位精度：0.01°</li>
+<li>空回：0.02°</li>
+<li>电机规格：两相步进42框</li>
+<li>θ最大速度：18°&#x2F;sec</li>
+</ul>
+<h3 id="电机规格：两相步进28框"><a href="#电机规格：两相步进28框" class="headerlink" title="电机规格：两相步进28框"></a>电机规格：两相步进28框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲</li>
+<li>出线：4 线双极居多，少量 6&#x2F;8 线；</li>
+<li>驱动器必须搭配两相微型步进驱动（如 DM420、A4988、TMC2208），不能用三相驱动</li>
+<li>28 框基础性能区间<ul>
+<li>保持转矩：0.06～0.17 N・m（60～170 mNm）</li>
+<li>额定电流：0.6～1.0A</li>
+<li>供电常用 DC12V&#x2F;24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="电机规格：两相步进42框"><a href="#电机规格：两相步进42框" class="headerlink" title="电机规格：两相步进42框"></a>电机规格：两相步进42框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲；</li>
+<li>出线常见 4 线（双极性驱动）、6 线、8 线；</li>
+<li>配套驱动器只能用两相步进驱动器，不能接三相驱动。</li>
+<li>42 框基础性能区间<ul>
+<li>保持转矩：0.2～0.5 N・m</li>
+<li>额定电流：0.8～2.0 A</li>
+<li>供电常用：DC24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="设备测试架构"><a href="#设备测试架构" class="headerlink" title="设备测试架构"></a>设备测试架构</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png" alt="测试架构"></p>
+<h2 id="测试方案与流程"><a href="#测试方案与流程" class="headerlink" title="测试方案与流程"></a>测试方案与流程</h2><ul>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>X</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>左</code>边离开指纹识别模块感应区的<code>右</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>Y</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>顶</code>边离开指纹识别模块感应区的<code>底</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+</ul>
+<h2 id="核心测试结果与数据分析"><a href="#核心测试结果与数据分析" class="headerlink" title="核心测试结果与数据分析"></a>核心测试结果与数据分析</h2><p>&emsp;&emsp;所有工况统一采用恒定 4N 标准压力按压，仅变量为设备摆放角度，对比各角度指纹识别表现，总结如下：</p>
+<h3 id="正交垂直角度（0°、90°、180°）识别表现最优"><a href="#正交垂直角度（0°、90°、180°）识别表现最优" class="headerlink" title="正交垂直角度（0°、90°、180°）识别表现最优"></a>正交垂直角度（0°、90°、180°）识别表现最优</h3><p>&emsp;&emsp;在 0°、90°、180° 三个垂直正向角度，恒定 4N 压力下压头与传感器贴合均匀完整，指纹纹理成像清晰，识别成功率≥99.2%，平均识别响应时间 0.2~0.3s，无拒真、误识、卡顿等问题。正向姿态下按压受力均匀，角度偏移对信号采集几乎无负面影响，完全满足日常使用标准。</p>
+<h3 id="旋转角度（45°、135°）存在识别性能衰减"><a href="#旋转角度（45°、135°）存在识别性能衰减" class="headerlink" title="旋转角度（45°、135°）存在识别性能衰减"></a>旋转角度（45°、135°）存在识别性能衰减</h3><p>&emsp;&emsp;被测物水平旋转至 45°、135° 档位时，统一采用恒定 4N 压力按压，识别成功率下降至 92.1%~94.5%。核心原因：被测产品水平旋转偏移后，硅胶压头与指纹区域受力分布不均，单侧贴合间隙偏大，局部指纹纹理接触不充分，传感器采集的指纹图像存在轻微畸变，特征点匹配精度下降，是本次测试暴露的薄弱工况。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;本次测试以恒定 4N 标准按压力作为统一控制条件，依托 XYR 旋转滑台实现被测物 0°、45°、90°、135°、180° 五档水平旋转定位，全程仅将产品水平旋转角度作为单一变量，标准化验证不同摆放姿态下指纹识别模组的识别一致性与运行稳定性。</p>
+<p>&emsp;&emsp;整套测试设备采用自上而下分层堆叠架构：伺服下压模组搭配标准硅胶指纹压头提供稳定恒定 4N 载荷，产品专用 Holder 保证被测件夹持无位移，XY 手动滑台完成压头与指纹区域居中校准，底层 XYR 滑台精准实现多档位水平旋转锁止。设备闭环压力控制系统稳压精度高，重复按压无压力漂移，各角度测试工况可复现、数据具备横向对比价值，硬件整套循环测试后无形变、无功能失效，设备工装与驱动机构可靠性满足批量验证需求。</p>
+<p>&emsp;&emsp;实测数据显示，当被测物水平旋转至 0°、90°、180° 正向档位时，恒定 4N 压力下压头与指纹区域贴合均匀，指纹成像完整清晰，识别成功率稳定≥99.2%，识别响应速度平稳，无拒真、卡顿、识别失败等异常，完全符合产品设计指标与用户常规使用要求。</p>
+<p>&emsp;&emsp;当被测物水平旋转至 45°、135° 斜向档位时，同等 4N 标准压力下识别成功率降至92.1%~94.5%；根本原因为产品水平旋转后，硅胶压头受力分布失衡，指纹识别区域单侧贴合间隙增大，局部纹理接触不充分，采集图像出现轻微形变，指纹特征点匹配准确度下降，是产品当前性能短板工况。<br>全角度循环按压测试完成后，指纹传感器、模组结构未出现硬件损伤、永久性能衰减，撤除压力后识别性能可即时恢复，证明产品硬件本体耐压、耐磨基础可靠性达标，性能差异仅来源于水平旋转带来的按压贴合形变问题。</p>
+<p>&emsp;&emsp;本次多角度恒定压力专项测试精准定位了产品旋转工况下的识别缺陷，为指纹识别算法迭代优化、模组缓冲结构改良、出厂品质检验标准制定提供了客观、可复现的实测数据支撑。通过针对性优化形变指纹匹配算法、改善传感器缓冲贴合结构，可有效提升 45°、135° 水平旋转工况下的识别容错率，规避终端用户握持旋转解锁失败的使用问题，进一步提升产品全场景使用稳定性。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>NTS力学传感器<span class="exturl" data-url="aHR0cHM6Ly9udHMtbWVhc3VyZS5jby5qcC8=">日本本土官网<i class="fa fa-external-link-alt"></i></span>: 原厂主站，日文，完整产品规格&#x2F; 手册，NTS传感器长期稳定，适合疲劳循环测试。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS英文国际站<i class="fa fa-external-link-alt"></i></span>: 海外产品介绍，适合查阅英文参数。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bGl2ZS5jb20vemgvdS8lRTglQkQlQUMlRTYlOEQlQTIvJUU3JTg5JTlCJUU5JUExJUJGLyVFOCU4NyVBQS8lRTUlOEQlODMlRTUlODUlOEIlRTUlOEElOUIjOQ==">单位转换<i class="fa fa-external-link-alt"></i></span>: 千克转化为牛顿或者千克力。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueGpjc2Vuc29yLmNvbS8=">鑫精诚力学传感器<i class="fa fa-external-link-alt"></i></span>: XJC sensor交期短，价格是NTS的1&#x2F;3，疲劳稳定性略逊原装。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udWFlcy5uZXQvUHJvZHVjdEN1c3QvMTQ2MTc1MS00MDk2MDIuaHRtbA==">天翰精密<i class="fa fa-external-link-alt"></i></span>：XYR滑台。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Fingerprint</tag>
+        <tag>Multi-angle</tag>
+        <tag>多角度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换空气滤芯篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>十字螺丝刀</li>
+<li>新空气滤芯，17210-K1Z-CA0</li>
+</ol>
+<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
+<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
+<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
+<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新建组件</title>
+    <url>/2026/07/01/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"><a href="#情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看" class="headerlink" title="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"></a>情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看</h2><ul>
+<li><p>步骤：</p>
+<ul>
+<li>选择“装配器导航”</li>
+<li>选择“装配”</li>
+<li>点击“新建组件”</li>
+<li>选择对象：选择需要生成的子装配体的部件</li>
+<li>保存为子装配体</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6.png" alt="新建组件"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX操作</tag>
       </tags>
   </entry>
   <entry>
@@ -4675,6 +4640,41 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>智能可视耳勺3D打印</title>
+    <url>/2026/01/10/%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%86%E8%80%B3%E5%8B%BA3D%E6%89%93%E5%8D%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><img src="/images/3Dprint.jpg" alt="成品"></p>
+<h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><ul>
+<li>自用的洁视家智能可视耳勺商家自配外包装是纸质的，拿取次数太多次，导致纸盒子已经烂了，正好我是搞设计的，条件都具备，ok，那就动手设计，3D，组装。</li>
+</ul>
+<h4 id="3D建模软件"><a href="#3D建模软件" class="headerlink" title="3D建模软件"></a>3D建模软件</h4><ul>
+<li>游标卡尺量测原有盒子尺寸，在设计时放大2.00mm，使用Solidworks进行建模，之后另存为stl。</li>
+</ul>
+<h4 id="另存为stl时需要做如下设置："><a href="#另存为stl时需要做如下设置：" class="headerlink" title="另存为stl时需要做如下设置："></a>另存为stl时需要做如下设置：</h4><ul>
+<li>工具➢选项➢导出➢文件格式➢stl➢分辨率的<em>误差</em>，<em>角度</em> 的公差拉到最右侧</li>
+</ul>
+<h4 id="3D打印机"><a href="#3D打印机" class="headerlink" title="3D打印机"></a>3D打印机</h4><ul>
+<li>使用拓竹Bumbu Lab X1E。</li>
+</ul>
+<h4 id="3D打印精度"><a href="#3D打印精度" class="headerlink" title="3D打印精度"></a>3D打印精度</h4><ul>
+<li>实际现场打印出来的，打印精度可以做到0.10mm，导致有些地方设计冗余大了，好在磁铁安装孔是过盈配合，组装之后，吸合很丝滑。</li>
+</ul>
+<h4 id="材料清单"><a href="#材料清单" class="headerlink" title="材料清单"></a>材料清单</h4><ul>
+<li>洁视家智能可视耳勺</li>
+<li>Soliworks</li>
+<li>Bumbu Lab X1E</li>
+<li>磁铁：8x, Φ4.0-2.00mm</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>精度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电机（01）：基础理论篇——公差与配合</title>
     <url>/2026/08/24/%E7%94%B5%E6%9C%BA%EF%BC%8801%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E7%AF%87%E2%80%94%E2%80%94%E5%85%AC%E5%B7%AE%E4%B8%8E%E9%85%8D%E5%90%88/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="尺寸公差与配合体系"><a href="#尺寸公差与配合体系" class="headerlink" title="尺寸公差与配合体系"></a>尺寸公差与配合体系</h2><h3 id="公差与配合基础："><a href="#公差与配合基础：" class="headerlink" title="公差与配合基础："></a>公差与配合基础：</h3><ul>
@@ -4760,33 +4760,33 @@ th {
 <p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6%20Calculation%20step.png"></p>
 <h2 id="三大基本配合模式（按配合性质分类）"><a href="#三大基本配合模式（按配合性质分类）" class="headerlink" title="三大基本配合模式（按配合性质分类）"></a>三大基本配合模式（按配合性质分类）</h2><p>在 ISO 286 标准中，配合性质由孔公差带与轴公差带的相对位置决定：</p>
 <ul>
-<li>**1. 间隙配合 (Clearance Fit)**：孔尺寸 &gt; 轴尺寸（始终有间隙）</li>
-<li>**2. 过渡配合 (Transition Fit)**：可能产生间隙，也可能产生过盈</li>
-<li>**3. 过盈配合 (Interference Fit)**：轴尺寸 &gt; 孔尺寸（始终有过盈）</li>
+<li>**间隙配合 (Clearance Fit)**：孔尺寸 &gt; 轴尺寸（始终有间隙）</li>
+<li>**过渡配合 (Transition Fit)**：可能产生间隙，也可能产生过盈</li>
+<li>**过盈配合 (Interference Fit)**：轴尺寸 &gt; 孔尺寸（始终有过盈）</li>
 </ul>
-<h4 id="1-间隙配合（Clearance-Fit）"><a href="#1-间隙配合（Clearance-Fit）" class="headerlink" title="1. 间隙配合（Clearance Fit）"></a>1. 间隙配合（Clearance Fit）</h4><ul>
+<h4 id="间隙配合（Clearance-Fit）"><a href="#间隙配合（Clearance-Fit）" class="headerlink" title="间隙配合（Clearance Fit）"></a>间隙配合（Clearance Fit）</h4><ul>
 <li><strong>定义</strong>：孔的公差带完全位于轴的公差带之上。装配后<strong>孔的实际尺寸始终大于或等于轴的实际尺寸</strong>，形成具有活动能力的间隙。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 ($X_{max}$)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
-<li><strong>最小间隙 ($X_{min}$)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 ($EI - es \ge 0$)</li>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
+<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 ($EI - es \ge 0$)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：转动轴承套筒、滑动轴承、导向柱（如 <strong>H7&#x2F;g6</strong>, <strong>H8&#x2F;f7</strong>）。</li>
 </ul>
-<h4 id="2-过渡配合（Transition-Fit）"><a href="#2-过渡配合（Transition-Fit）" class="headerlink" title="2. 过渡配合（Transition Fit）"></a>2. 过渡配合（Transition Fit）</h4><ul>
+<h4 id="过渡配合（Transition-Fit）"><a href="#过渡配合（Transition-Fit）" class="headerlink" title="过渡配合（Transition Fit）"></a>过渡配合（Transition Fit）</h4><ul>
 <li><strong>定义</strong>：孔与轴的公差带相互重叠。装配后<strong>可能产生间隙，也可能产生过盈</strong>，具体取决于零件的实际加工尺寸。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 ($X_{max}$)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
-<li><strong>最大过盈 ($Y_{max}$)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 ($ES - ei$)</li>
+<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：需要精确对中且便于拆卸定位的结构，如定位销、联轴器轴套、无框电机转子基座（如 <strong>H7&#x2F;k6</strong>, <strong>H7&#x2F;m6</strong>）。</li>
 </ul>
-<h4 id="3-过盈配合（Interference-Fit）"><a href="#3-过盈配合（Interference-Fit）" class="headerlink" title="3. 过盈配合（Interference Fit）"></a>3. 过盈配合（Interference Fit）</h4><ul>
+<h4 id="过盈配合（Interference-Fit）"><a href="#过盈配合（Interference-Fit）" class="headerlink" title="过盈配合（Interference Fit）"></a>过盈配合（Interference Fit）</h4><ul>
 <li><strong>定义</strong>：孔的公差带完全位于轴的公差带之下。装配后<strong>轴的实际尺寸始终大于或等于孔的实际尺寸</strong>，形成静止紧固的结合状态。</li>
 <li><strong>极限参数</strong>：<ul>
-<li><strong>最大过盈 ($Y_{max}$)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
-<li><strong>最小过盈 ($Y_{min}$)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 ($ei - ES \ge 0$)</li>
+<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 ($es - EI$)</li>
+<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 ($ei - ES \ge 0$)</li>
 </ul>
 </li>
 <li><strong>典型应用</strong>：靠摩擦力直接传递大扭矩或永久固定的装配，如电机定子压入外壳、齿轮与轴的重载固定（如 <strong>H7&#x2F;p6</strong>, <strong>H7&#x2F;s6</strong>）。</li>
@@ -4891,7 +4891,7 @@ th {
 </ul>
 </li>
 </ul>
-<h2 id="电机在机器人中的关键配合定位"><a href="#电机在机器人中的关键配合定位" class="headerlink" title="电机在机器人中的关键配合定位"></a>电机在机器人中的关键配合定位</h2><h2 id="扭矩传递与配合件设计（平键-vs-紧密结合）"><a href="#扭矩传递与配合件设计（平键-vs-紧密结合）" class="headerlink" title="扭矩传递与配合件设计（平键 vs. 紧密结合）"></a>扭矩传递与配合件设计（平键 vs. 紧密结合）</h2>]]></content>
+]]></content>
       <categories>
         <category>Tech</category>
       </categories>
