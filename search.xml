@@ -1649,6 +1649,50 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Siemens NX 视图方位快捷键</title>
+    <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt="NX坐标系"></p>
+<ul>
+<li><code>Home</code>：正三侧视图</li>
+<li><code>End</code>：正等侧视图</li>
+</ul>
+<hr>
+<ul>
+<li><code>Ctrl+Alt+F</code>：正前方（Front）</li>
+<li><code>Ctrl+Alt+T</code>：正上方（Top）</li>
+<li><code>Ctrl+Alt+R</code>：右（Right）</li>
+<li><code>Ctrl+Alt+L</code>：左（Left）</li>
+</ul>
+<hr>
+<ul>
+<li><code>F6</code>：缩放，启用后，按鼠标左键框选矩形，会放大矩形区域。  </li>
+<li><code>F7</code>：旋转，启用后按住鼠标左键进行旋转，与鼠标中键一样。</li>
+<li><code>F8</code>：选择一个面，按此键可以正视于选择的面。无选择面，则正视于前、后、左、右、仰、俯视图中最接近的其中一个</li>
+<li><code>Ctrl+F</code>：适合窗口（Fit Window），将视图大小缩放到适合的窗口。</li>
+<li><code>Ctrl+R</code>：旋转视图（Rotate View），可以沿指定轴旋转。</li>
+<li><code>Ctrl+Shift+Z</code>：缩放视图（Zoom View），指定倍率缩放。</li>
+</ul>
+<hr>
+<ul>
+<li>显示&#x2F;隐藏WCS坐标<ul>
+<li>“W”</li>
+<li>菜单-&gt;格式-&gt;WCS -&gt;显示</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX 2506</tag>
+        <tag>视图方位快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SolidWorks在设备设计中的运动动画应用实践</title>
     <url>/2024/02/27/SolidWorks%E5%9C%A8%E8%AE%BE%E5%A4%87%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="模型处理"><a href="#模型处理" class="headerlink" title="模型处理"></a>模型处理</h2><p>&emsp;&emsp;主要对整个模型进行一些基本的处理，以便后期模型运动提供便利。</p>
@@ -1723,50 +1767,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Siemens NX 视图方位快捷键</title>
-    <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt="NX坐标系"></p>
-<ul>
-<li><code>Home</code>：正三侧视图</li>
-<li><code>End</code>：正等侧视图</li>
-</ul>
-<hr>
-<ul>
-<li><code>Ctrl+Alt+F</code>：正前方（Front）</li>
-<li><code>Ctrl+Alt+T</code>：正上方（Top）</li>
-<li><code>Ctrl+Alt+R</code>：右（Right）</li>
-<li><code>Ctrl+Alt+L</code>：左（Left）</li>
-</ul>
-<hr>
-<ul>
-<li><code>F6</code>：缩放，启用后，按鼠标左键框选矩形，会放大矩形区域。  </li>
-<li><code>F7</code>：旋转，启用后按住鼠标左键进行旋转，与鼠标中键一样。</li>
-<li><code>F8</code>：选择一个面，按此键可以正视于选择的面。无选择面，则正视于前、后、左、右、仰、俯视图中最接近的其中一个</li>
-<li><code>Ctrl+F</code>：适合窗口（Fit Window），将视图大小缩放到适合的窗口。</li>
-<li><code>Ctrl+R</code>：旋转视图（Rotate View），可以沿指定轴旋转。</li>
-<li><code>Ctrl+Shift+Z</code>：缩放视图（Zoom View），指定倍率缩放。</li>
-</ul>
-<hr>
-<ul>
-<li>显示&#x2F;隐藏WCS坐标<ul>
-<li>“W”</li>
-<li>菜单-&gt;格式-&gt;WCS -&gt;显示</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Siemens</tag>
-        <tag>NX</tag>
-        <tag>NX 2506</tag>
-        <tag>视图方位快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Solidworks参数优化</title>
     <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
@@ -1785,62 +1785,6 @@ th {
       <tags>
         <tag>Solidworks</tag>
         <tag>参数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks高效机械设计插件</title>
-    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
-<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
-<li>ICAN工具箱版本</li>
-<li>版本：V9.5.3</li>
-<li>发布日期：2026-05-07</li>
-<li>大小：69 Mb</li>
-<li>版本要求：Sw2016含以上</li>
-<li>支持系统：win7、win10、win11 64位</li>
-</ul>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
-<p>提供5种打孔功能,打孔效率提升10倍!</p>
-</blockquote>
-<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
-<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
-</blockquote>
-<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
-<p>快速装配常见紧固件,自动识别规格!</p>
-</blockquote>
-<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
-<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
-</blockquote>
-<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
-<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
-</blockquote>
-<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
-<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
-</blockquote>
-<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
-<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
-</blockquote>
-<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
-<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
-</blockquote>
-<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
-<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
-</blockquote>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
-<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
-  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
-  您的浏览器不支持HTML5视频播放，请升级浏览器。
-</video>
-
-<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -2579,6 +2523,31 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -2662,31 +2631,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2711,124 +2655,59 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
-</ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
+    <title>Solidworks高效机械设计插件</title>
+    <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
+<h3 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h3><ul>
+<li>ICAN工具箱版本</li>
+<li>版本：V9.5.3</li>
+<li>发布日期：2026-05-07</li>
+<li>大小：69 Mb</li>
+<li>版本要求：Sw2016含以上</li>
+<li>支持系统：win7、win10、win11 64位</li>
 </ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><h4 id="自动打孔"><a href="#自动打孔" class="headerlink" title="自动打孔"></a>自动打孔</h4><blockquote>
+<p>提供5种打孔功能,打孔效率提升10倍!</p>
 </blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+<h4 id="配孔检查"><a href="#配孔检查" class="headerlink" title="配孔检查"></a>配孔检查</h4><blockquote>
+<p>一键检查漏配孔、偏孔、孔规格不匹配问题!</p>
 </blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+<h4 id="自动装配螺丝"><a href="#自动装配螺丝" class="headerlink" title="自动装配螺丝"></a>自动装配螺丝</h4><blockquote>
+<p>快速装配常见紧固件,自动识别规格!</p>
 </blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+<h4 id="自动出图"><a href="#自动出图" class="headerlink" title="自动出图"></a>自动出图</h4><blockquote>
+<p>一键出三视图,自动标注线形尺寸、尺寸链、对板块类效果特别好</p>
 </blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+<h4 id="超级BOM"><a href="#超级BOM" class="headerlink" title="超级BOM"></a>超级BOM</h4><blockquote>
+<p>常规BOM、层级BOM,多样化物料统计方式!便捷修改物料数据,非常强大!</p>
 </blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+<h4 id="快速特征"><a href="#快速特征" class="headerlink" title="快速特征"></a>快速特征</h4><blockquote>
+<p>一键绘制卡黄槽、退刀槽、清角、圆柱面打孔等复杂特征。</p>
+</blockquote>
+<h4 id="批量大师"><a href="#批量大师" class="headerlink" title="批量大师"></a>批量大师</h4><blockquote>
+<p>批量带图改名、转格式、修改属性、图号分离、打印、替换图框、CAD合并等。</p>
+</blockquote>
+<h4 id="查重大师"><a href="#查重大师" class="headerlink" title="查重大师"></a>查重大师</h4><blockquote>
+<p>一键找出特征相同的零件,文件名却不相同的零件,并一键替换!</p>
+</blockquote>
+<h4 id="高效设计库"><a href="#高效设计库" class="headerlink" title="高效设计库"></a>高效设计库</h4><blockquote>
+<p>将常用标准件放入设计库中,下次调用插入装配体时,自动断开链接。</p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><h4 id="Ican工具箱使用教程"><a href="#Ican工具箱使用教程" class="headerlink" title="Ican工具箱使用教程"></a>Ican工具箱使用教程</h4><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2ljYW5oZWxwL0pER0YwMDAwMDEwOC81NjEzNA==">文字版<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="操作视频"><a href="#操作视频" class="headerlink" title="操作视频"></a>操作视频</h4><video controls preload="auto" width="100%" height="auto">
+  <source src="https://attachment.forface3d.com/forfaceModelResource/builder/20250915/1967497037563985920.mp4?fileAccessId=8655838053876424704&fType=mp4" type="video/mp4">
+  您的浏览器不支持HTML5视频播放，请升级浏览器。
+</video>
+
+<h2 id="嘉立创FA插件"><a href="#嘉立创FA插件" class="headerlink" title="嘉立创FA插件"></a>嘉立创FA插件</h2><p>插件介绍<br>  嘉立创 FA 选型插件是一款专为机械工程师打造的免费 SolidWorks 选型工具，致力于提供高效便捷的设计选型支持。插件内置海量 3D 零部件标准模型，搭载动态参数化驱动功能，可灵活调整模型尺寸，同时支持模型预览、本地保存，还能一键将选中模型插入当前装配体，大幅简化设计流程、提升选型效率。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuamxjLWpkZ2YuY29tL2RvY3VtZW50L2RldGFpbC81NDE0MzM0ODE5NTc5NTc2MzU=">FA插件使用教程<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
+        <tag>Solidworks</tag>
+        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -2979,118 +2858,124 @@ th {
       </categories>
   </entry>
   <entry>
-    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
-    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
-<ul>
-<li>图片越来越多，博客仓库体积膨胀  </li>
-<li>国内访问不稳定  </li>
-<li>免费图床存在跑路风险  </li>
-<li>后期迁移成本极高</li>
-</ul>
-<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
 <blockquote>
-<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
 </blockquote>
-<hr>
-<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
-<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
-<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
-<p>图片通过 jsDelivr CDN 访问：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
-</blockquote>
-<hr>
-<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
-<ul>
-<li>仓库名：<code>burro-imgbed</code></li>
-<li>可见性：<strong>Public（必须）</strong></li>
-<li>不需要 README &#x2F; License</li>
-</ul>
-<blockquote>
-<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
-</blockquote>
-<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
-<hr>
-<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
-<li>进入图床仓库</li>
-<li>点击 <strong>Add file → Create new file</strong></li>
-<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
-</ol>
-<p>文件内容保持为空即可。</p>
-<hr>
-<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
 <ol>
-<li>点击右上角 <strong>Commit changes…</strong></li>
-<li>填写提交信息：</li>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
 </ol>
-<p><strong>Commit message</strong><br><code>Create .keep</code></p>
-<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
-<p>然后提交。</p>
 <blockquote>
-<p>提交说明仅用于记录操作，不影响功能。</p>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
 </blockquote>
-<hr>
-<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
-<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
-<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
-<hr>
-<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
-<ol>
-<li>点击 <strong>Add file → Upload files</strong></li>
-<li>上传一张测试图片，例如：test.png</li>
-</ol>
-<p>提交即可。</p>
-<hr>
-<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
 <ul>
-<li>GitHub 用户名：<code>Burro-CMD</code></li>
-<li>图床仓库：<code>burro-imgbed</code></li>
-<li>图片路径：<code>images/blog/test.png</code></li>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
 </ul>
-<p>访问地址为：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>将该链接直接粘贴到浏览器地址栏打开。</p>
-<p>如果浏览器中可以直接看到图片，说明：</p>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
 <ul>
-<li>GitHub 图床 ✅  </li>
-<li>jsDelivr CDN ✅  </li>
-<li>国内访问 ✅</li>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
 </ul>
-<p>图床已经完全可用。</p>
-<hr>
-<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
 <p>例如：</p>
-<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
-<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
-<p>对应的 jsDelivr 链接示例：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
-
-<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
-<hr>
-<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
-
-<p>无需任何插件，NexT 主题可直接渲染。</p>
-<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
-<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
-<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
-<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
-<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>Tech</category>
       </categories>
       <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>Hexo</tag>
-        <tag>jsDelivr</tag>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
       </tags>
   </entry>
   <entry>
@@ -3210,6 +3095,121 @@ th {
       </categories>
       <tags>
         <tag>PicGo - GitHub - 图床 - jsDelivr - Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
+    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
+<ul>
+<li>图片越来越多，博客仓库体积膨胀  </li>
+<li>国内访问不稳定  </li>
+<li>免费图床存在跑路风险  </li>
+<li>后期迁移成本极高</li>
+</ul>
+<p>本文记录一次 <strong>从 0 开始、可长期使用</strong> 的图床搭建方案：</p>
+<blockquote>
+<p><strong>GitHub 公共仓库 + jsDelivr CDN</strong><br>免费 · 稳定 · 不依赖第三方图床 · 适合工程博客</p>
+</blockquote>
+<hr>
+<h2 id="方案整体结构"><a href="#方案整体结构" class="headerlink" title="方案整体结构"></a>方案整体结构</h2><p>最终推荐的结构如下：</p>
+<p>Hexo 博客仓库（只放 Markdown）<br>└─ burroblog-src-next8  </p>
+<p>GitHub 图床仓库（只放图片）<br>└─ burro-imgbed<br>└─ images<br>└─ blog<br>└─ xxx.png  </p>
+<p>图片通过 jsDelivr CDN 访问：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/<span class="tag">&lt;<span class="name">GitHub用户名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图床仓库名</span>&gt;</span>/<span class="tag">&lt;<span class="name">图片路径</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>博客仓库与图片仓库彻底解耦，是后期维护最省心、最稳妥的做法。</p>
+</blockquote>
+<hr>
+<h2 id="新建-GitHub-图床仓库"><a href="#新建-GitHub-图床仓库" class="headerlink" title="新建 GitHub 图床仓库"></a>新建 GitHub 图床仓库</h2><p>在 GitHub 新建一个仓库：</p>
+<ul>
+<li>仓库名：<code>burro-imgbed</code></li>
+<li>可见性：<strong>Public（必须）</strong></li>
+<li>不需要 README &#x2F; License</li>
+</ul>
+<blockquote>
+<p>⚠️ jsDelivr 只能加速 <strong>公开仓库</strong>，图床仓库必须是 Public。</p>
+</blockquote>
+<p>该仓库 <strong>只用于存放图片</strong>，不放代码、不放文档。</p>
+<hr>
+<h2 id="创建图床目录结构（关键步骤）"><a href="#创建图床目录结构（关键步骤）" class="headerlink" title="创建图床目录结构（关键步骤）"></a>创建图床目录结构（关键步骤）</h2><p>GitHub 不支持直接创建空文件夹，因此使用 <code>.keep</code> 文件占位。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
+<li>进入图床仓库</li>
+<li>点击 <strong>Add file → Create new file</strong></li>
+<li>在 <strong>文件名输入框</strong> 中填写：images&#x2F;blog&#x2F;.keep</li>
+</ol>
+<p>文件内容保持为空即可。</p>
+<hr>
+<h2 id="提交-keep（GitHub-新-UI）"><a href="#提交-keep（GitHub-新-UI）" class="headerlink" title="提交 .keep（GitHub 新 UI）"></a>提交 <code>.keep</code>（GitHub 新 UI）</h2><p>在 GitHub 新版界面中，提交信息被收进按钮里。</p>
+<ol>
+<li>点击右上角 <strong>Commit changes…</strong></li>
+<li>填写提交信息：</li>
+</ol>
+<p><strong>Commit message</strong><br><code>Create .keep</code></p>
+<p><strong>Extended description（可选）</strong><br><code>init image bed structure</code></p>
+<p>然后提交。</p>
+<blockquote>
+<p>提交说明仅用于记录操作，不影响功能。</p>
+</blockquote>
+<hr>
+<h2 id="确认目录创建成功"><a href="#确认目录创建成功" class="headerlink" title="确认目录创建成功"></a>确认目录创建成功</h2><p>提交完成后，仓库中应看到：</p>
+<p>burro-imgbed<br>└─ images<br>└─ blog<br>└─ .keep  </p>
+<p>看到 <code>blog/</code> 目录，说明图床的<strong>基础结构已经搭建完成</strong>。</p>
+<hr>
+<h2 id="上传第一张图片"><a href="#上传第一张图片" class="headerlink" title="上传第一张图片"></a>上传第一张图片</h2><p>进入 <code>images/blog/</code> 目录：</p>
+<ol>
+<li>点击 <strong>Add file → Upload files</strong></li>
+<li>上传一张测试图片，例如：test.png</li>
+</ol>
+<p>提交即可。</p>
+<hr>
+<h2 id="使用-jsDelivr-访问图片（核心验证）"><a href="#使用-jsDelivr-访问图片（核心验证）" class="headerlink" title="使用 jsDelivr 访问图片（核心验证）"></a>使用 jsDelivr 访问图片（核心验证）</h2><p>假设：</p>
+<ul>
+<li>GitHub 用户名：<code>Burro-CMD</code></li>
+<li>图床仓库：<code>burro-imgbed</code></li>
+<li>图片路径：<code>images/blog/test.png</code></li>
+</ul>
+<p>访问地址为：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>将该链接直接粘贴到浏览器地址栏打开。</p>
+<p>如果浏览器中可以直接看到图片，说明：</p>
+<ul>
+<li>GitHub 图床 ✅  </li>
+<li>jsDelivr CDN ✅  </li>
+<li>国内访问 ✅</li>
+</ul>
+<p>图床已经完全可用。</p>
+<hr>
+<h2 id="是否可以继续新建子目录？"><a href="#是否可以继续新建子目录？" class="headerlink" title="是否可以继续新建子目录？"></a>是否可以继续新建子目录？</h2><p><strong>可以，而且非常推荐。</strong></p>
+<p>例如：</p>
+<p>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
+<p>创建方式相同：images&#x2F;blog&#x2F;hexo&#x2F;.keep</p>
+<p>对应的 jsDelivr 链接示例：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>hexo/arch.png</span><br></pre></td></tr></table></figure>
+
+<p>子目录层级不影响 CDN 使用，可按内容自由组织。</p>
+<hr>
+<h2 id="在-Hexo-文章中使用图片"><a href="#在-Hexo-文章中使用图片" class="headerlink" title="在 Hexo 文章中使用图片"></a>在 Hexo 文章中使用图片</h2><p>在 Markdown 中直接引用即可：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![示意图](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
+
+<p>无需任何插件，NexT 主题可直接渲染。</p>
+<h2 id="重要使用规范（强烈建议）"><a href="#重要使用规范（强烈建议）" class="headerlink" title="重要使用规范（强烈建议）"></a>重要使用规范（强烈建议）</h2><h3 id="1️⃣-不要覆盖同名图片"><a href="#1️⃣-不要覆盖同名图片" class="headerlink" title="1️⃣ 不要覆盖同名图片"></a>1️⃣ 不要覆盖同名图片</h3><p>jsDelivr 有缓存，更新图片请 更换文件名。<br>推荐：hexo-arch-202606.png<br>不推荐：arch.png</p>
+<h3 id="2️⃣-图床仓库只放图片"><a href="#2️⃣-图床仓库只放图片" class="headerlink" title="2️⃣ 图床仓库只放图片"></a>2️⃣ 图床仓库只放图片</h3><p>不放代码、不放压缩包。</p>
+<h3 id="3️⃣-博客仓库不再存图片"><a href="#3️⃣-博客仓库不再存图片" class="headerlink" title="3️⃣ 博客仓库不再存图片"></a>3️⃣ 博客仓库不再存图片</h3><p>Markdown 与图片彻底解耦，维护成本最低。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>该方案具备：</p>
+<p>✅ 免费<br>✅ 稳定<br>✅ 不依赖第三方图床<br>✅ 不占博客仓库体积<br>✅ 适合长期维护  </p>
+<p>这是目前个人工程博客 + Hexo + GitHub Pages 场景下<br>最稳妥、最推荐的图床方案之一。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>jsDelivr</tag>
       </tags>
   </entry>
   <entry>
@@ -3377,57 +3377,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在Win平台上部署Hexo</title>
     <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -3513,6 +3462,57 @@ th {
         <tag>Hexo</tag>
         <tag>Node.js</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
+</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Github</tag>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3868,6 +3868,33 @@ th {
         <tag>电机</tag>
         <tag>O-ring</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
       </tags>
   </entry>
   <entry>
@@ -4361,33 +4388,6 @@ th {
         <tag>Fingerprint</tag>
         <tag>Multi-angle</tag>
         <tag>多角度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
       </tags>
   </entry>
   <entry>
@@ -4904,7 +4904,7 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>电机（02）：减速器.md</title>
+    <title>电机（02）：减速器</title>
     <url>/2026/08/25/%E7%94%B5%E6%9C%BA%EF%BC%8802%EF%BC%89%EF%BC%9A%E5%87%8F%E9%80%9F%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
 <p>在现代机械工程与机器人领域，常见的减速器类型主要有以下 6 大类：</p>
@@ -4930,25 +4930,28 @@ th {
 <ul>
 <li><strong>结构组成</strong>：太阳轮（Sun Gear）、行星齿轮（Planetary Gears）、内齿圈（Ring Gear）、行星架（Carrier）。</li>
 <li><strong>核心优势</strong>：传动效率极高（&gt; 95%）、功率密度高、结构对称受力均衡、适宜高频正反转。</li>
-<li><strong>主要缺点</strong>：存在一定背隙（常规 3<del>8 arcmin，高精度可达 1</del>3 arcmin），若追求极高精度需精配。</li>
+<li><strong>主要缺点</strong>：存在一定背隙（常规 3 ~ 8 arcmin，高精度可达 1 ~ 3 arcmin），若追求极高精度需精配。</li>
 <li><strong>典型应用</strong>：四足&#x2F;腿足机器人（准直驱关节 QDD）、CNC 进给轴、AGV 驱动轮、自动化生产线。</li>
 </ul>
 <hr>
-<h3 id="4-摆线针轮减速器（Cycloidal-Reducer）"><a href="#4-摆线针轮减速器（Cycloidal-Reducer）" class="headerlink" title="4. 摆线针轮减速器（Cycloidal Reducer）"></a>4. 摆线针轮减速器（Cycloidal Reducer）</h3><ul>
+<h3 id="4-摆线针轮减速器（Cycloidal-Reducer）"><a href="#4-摆线针轮减速器（Cycloidal-Reducer）" class="headerlink" title="4. 摆线针轮减速器（Cycloidal Reducer）"></a>4. 摆线针轮减速器（Cycloidal Reducer）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%91%86%E7%BA%BF%E9%92%88%E8%BD%AE%E5%87%8F%E9%80%9F%E5%99%A8%EF%BC%88Cycloidal%20Reducer%EF%BC%891.jpg"></p>
+<ul>
 <li><strong>结构组成</strong>：针齿壳、摆线轮、偏心套及销轴。</li>
 <li><strong>核心优势</strong>：多齿同时啮合，抗过载与冲击能力强，结构紧凑，减速比大。</li>
 <li><strong>主要缺点</strong>：装配与对中要求高、高速时振动较明显。</li>
 <li><strong>典型应用</strong>：轻载工业机器人关节、起重运输机械、精密阀门控制。</li>
 </ul>
 <hr>
-<h3 id="5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）"><a href="#5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）" class="headerlink" title="5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）"></a>5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）</h3><ul>
+<h3 id="5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）"><a href="#5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）" class="headerlink" title="5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）"></a>5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Helical%20Gearbox.png"></p>
+<ul>
 <li><strong>结构组成</strong>：采用倾斜齿线的渐开线齿轮咬合。</li>
 <li><strong>核心优势</strong>：重合度高、传动平稳、噪音低、承载力大、技术极其成熟。</li>
 <li><strong>主要缺点</strong>：轴向尺寸相对较大，存在轴向力（需搭配推力轴承）。</li>
 <li><strong>典型应用</strong>：通用工业自动化设备、工厂输送带、重型机械传动。</li>
 </ul>
 <hr>
-<h3 id="6-蜗轮蜗杆减速器（Worm-Gearbox）"><a href="#6-蜗轮蜗杆减速器（Worm-Gearbox）" class="headerlink" title="6. 蜗轮蜗杆减速器（Worm Gearbox）"></a>6. 蜗轮蜗杆减速器（Worm Gearbox）</h3><ul>
+<h3 id="6-蜗轮蜗杆减速器（Worm-Gearbox）"><a href="#6-蜗轮蜗杆减速器（Worm-Gearbox）" class="headerlink" title="6. 蜗轮蜗杆减速器（Worm Gearbox）"></a>6. 蜗轮蜗杆减速器（Worm Gearbox）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%9C%97%E8%BD%AE%E8%9C%97%E6%9D%86.png"></p>
+<ul>
 <li><strong>结构组成</strong>：交错轴排列的蜗杆与蜗轮。</li>
 <li><strong>核心优势</strong>：结构紧凑、具有反向自锁特性（大传动比下）、运行平顺静音、成本低。</li>
 <li><strong>主要缺点</strong>：滑动摩擦大，传动效率低（通常仅 50% ~ 70%），发热量大。</li>
@@ -5000,43 +5003,6 @@ th {
       </categories>
       <tags>
         <tag>减速器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>申请美国EVUS（签证更新电子系统）</title>
-    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
-<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
-<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
-<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
-<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
-<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
-<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
-<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
-<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
-<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
-<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
-<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
-<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
-<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
-<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
-<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
-<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
-<hr>
-<p><strong>参考网站：</strong></p>
-<ol>
-<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
-<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
-<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>EVUS</tag>
       </tags>
   </entry>
   <entry>
@@ -5128,6 +5094,43 @@ th {
       <tags>
         <tag>Cpk</tag>
         <tag>Cp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>申请美国EVUS（签证更新电子系统）</title>
+    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
+<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
+<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
+<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
+<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
+<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
+<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
+<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
+<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
+<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
+<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
+<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
+<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
+<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
+<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
+<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
+<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
+<hr>
+<p><strong>参考网站：</strong></p>
+<ol>
+<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
+<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
+<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>EVUS</tag>
       </tags>
   </entry>
   <entry>
