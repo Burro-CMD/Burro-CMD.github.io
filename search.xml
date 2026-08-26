@@ -1649,6 +1649,80 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>SolidWorks在设备设计中的运动动画应用实践</title>
+    <url>/2024/02/27/SolidWorks%E5%9C%A8%E8%AE%BE%E5%A4%87%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="模型处理"><a href="#模型处理" class="headerlink" title="模型处理"></a>模型处理</h2><p>&emsp;&emsp;主要对整个模型进行一些基本的处理，以便后期模型运动提供便利。</p>
+<h3 id="模型颜色的处理"><a href="#模型颜色的处理" class="headerlink" title="模型颜色的处理"></a>模型颜色的处理</h3><p>&emsp;&emsp;主要是对模型颜色进行着色，这关系到后期视频的输出画面。</p>
+<h3 id="模型环境处理"><a href="#模型环境处理" class="headerlink" title="模型环境处理"></a>模型环境处理</h3><p>&emsp;&emsp;主要是对模型周边的环境进行设备，灯光，摄像头等基础进行设置。</p>
+<h3 id="模型约束关系的处理"><a href="#模型约束关系的处理" class="headerlink" title="模型约束关系的处理"></a>模型约束关系的处理</h3><p>&emsp;&emsp;如果我们拿到的是.step档的话，还需要对模型一些部件进行一些基础的约束，再对模型主要部件进行X&#x2F; Y&#x2F; Z 方向约束。</p>
+<h2 id="模型运动逻辑关系"><a href="#模型运动逻辑关系" class="headerlink" title="模型运动逻辑关系"></a>模型运动逻辑关系</h2><h3 id="测量并计算每个零部件需要到达的距离"><a href="#测量并计算每个零部件需要到达的距离" class="headerlink" title="测量并计算每个零部件需要到达的距离"></a>测量并计算每个零部件需要到达的距离</h3><ol>
+<li><p>Y轴移动产品正上方<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E4%BA%A7%E5%93%81%E8%87%B3%E6%AD%A3%E4%B8%8A%E6%96%B9.png"></p>
+</li>
+<li><p>Z轴下降到产品位置<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0%E4%BA%A7%E5%93%81%E4%BD%8D%E7%BD%AE.png"></p>
+</li>
+<li><p>Y轴移动Tester正上方<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E7%A7%BB%E5%8A%A8Tester%E6%AD%A3%E4%B8%8A%E6%96%B9.png"></p>
+</li>
+</ol>
+<h3 id="理顺各零件的动作顺序"><a href="#理顺各零件的动作顺序" class="headerlink" title="理顺各零件的动作顺序"></a>理顺各零件的动作顺序</h3><p>&emsp;&emsp;理顺各零件的动作顺序。  </p>
+<ol>
+<li><p>初始状态<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/1%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81.png"></p>
+</li>
+<li><p>Y轴移动到172.98mm位置<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/2Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0172.98mm%E4%BD%8D%E7%BD%AE.png"></p>
+</li>
+<li><p>Z轴下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/3.Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
+</li>
+<li><p>夹爪气缸夹紧4mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/4.%E5%A4%B9%E7%88%AA%E6%B0%94%E7%BC%B8%E5%A4%B9%E7%B4%A74mm.png"></p>
+</li>
+<li><p>Z轴带着产品上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/5.Z%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
+</li>
+<li><p>Y轴移动到319.48mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/6.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0319.48mm.png"></p>
+</li>
+<li><p>Z轴下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/7.Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
+</li>
+<li><p>下压停留1s进行测试<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/8.%E4%B8%8B%E5%8E%8B%E5%81%9C%E7%95%991s%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95.png"></p>
+</li>
+<li><p>测试完成，Z轴带着产品上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/9.%E6%B5%8B%E8%AF%95%E5%AE%8C%E6%88%90%EF%BC%8CZ%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
+</li>
+<li><p>10.Y轴移动到172.98mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/10.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0172.98mm.png"></p>
+</li>
+<li><p>Z轴带着产品下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/11.Z%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
+</li>
+<li><p>松开夹爪4mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/12.%E6%9D%BE%E5%BC%80%E5%A4%B9%E7%88%AA4mm.png"></p>
+</li>
+<li><p>Z轴上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/13.Z%E8%BD%B4%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
+</li>
+<li><p>Y轴移动到0mm（初始位置）<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/14.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B00mm%EF%BC%88%E5%88%9D%E5%A7%8B%E4%BD%8D%E7%BD%AE%EF%BC%89.png"></p>
+</li>
+</ol>
+<h3 id="列出逻辑关系时序图"><a href="#列出逻辑关系时序图" class="headerlink" title="列出逻辑关系时序图"></a>列出逻辑关系时序图</h3><p>&emsp;&emsp;对时序，节拍进行规划，实际的节拍可能会很短，但是视频展现出来的节拍时间要适当的加长，这样最终视频呈现出来才比较合理。<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E6%97%B6%E5%BA%8F%E5%9B%BE.png"></p>
+<h2 id="动画制作"><a href="#动画制作" class="headerlink" title="动画制作"></a>动画制作</h2><p>&emsp;&emsp;根据逻辑关系时序图，对每个驱动部件添加动力以及时间。以下是算例中各部件的逻辑时序图。</p>
+<ol>
+<li><p>新建算例<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E8%BF%90%E5%8A%A8%E7%AE%97%E4%BE%8Bpng.png"></p>
+</li>
+<li><p>调整视频输出视图<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E8%BE%93%E5%87%BA%E8%A7%86%E5%9B%BE.png"></p>
+</li>
+<li><p>添加马达</p>
+</li>
+</ol>
+<p>马达：为每个夹爪添加马达（8x）<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Clamper%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<p>马达；产品水平移动，马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/DUT%E6%B0%B4%E5%B9%B3%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<p>马达：Y轴移动，线性马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<p>马达：Z轴升降，线性马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Z%E8%BD%B4%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<h2 id="视频输出"><a href="#视频输出" class="headerlink" title="视频输出"></a>视频输出</h2><p>&emsp;&emsp;主要是视频的输出，包括视频文件名称以及位置，视频格式，视频比例。</p>
+<h3 id="八个夹爪动作"><a href="#八个夹爪动作" class="headerlink" title="八个夹爪动作"></a>八个夹爪动作</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/8.gif"></p>
+<h3 id="整个设备动作"><a href="#整个设备动作" class="headerlink" title="整个设备动作"></a>整个设备动作</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BE%93%E5%87%BAvideo.gif"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>仿真</tag>
+        <tag>动画</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Siemens NX 视图方位快捷键</title>
     <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
@@ -1770,77 +1844,46 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>SolidWorks在设备设计中的运动动画应用实践</title>
-    <url>/2024/02/27/SolidWorks%E5%9C%A8%E8%AE%BE%E5%A4%87%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="模型处理"><a href="#模型处理" class="headerlink" title="模型处理"></a>模型处理</h2><p>&emsp;&emsp;主要对整个模型进行一些基本的处理，以便后期模型运动提供便利。</p>
-<h3 id="模型颜色的处理"><a href="#模型颜色的处理" class="headerlink" title="模型颜色的处理"></a>模型颜色的处理</h3><p>&emsp;&emsp;主要是对模型颜色进行着色，这关系到后期视频的输出画面。</p>
-<h3 id="模型环境处理"><a href="#模型环境处理" class="headerlink" title="模型环境处理"></a>模型环境处理</h3><p>&emsp;&emsp;主要是对模型周边的环境进行设备，灯光，摄像头等基础进行设置。</p>
-<h3 id="模型约束关系的处理"><a href="#模型约束关系的处理" class="headerlink" title="模型约束关系的处理"></a>模型约束关系的处理</h3><p>&emsp;&emsp;如果我们拿到的是.step档的话，还需要对模型一些部件进行一些基础的约束，再对模型主要部件进行X&#x2F; Y&#x2F; Z 方向约束。</p>
-<h2 id="模型运动逻辑关系"><a href="#模型运动逻辑关系" class="headerlink" title="模型运动逻辑关系"></a>模型运动逻辑关系</h2><h3 id="测量并计算每个零部件需要到达的距离"><a href="#测量并计算每个零部件需要到达的距离" class="headerlink" title="测量并计算每个零部件需要到达的距离"></a>测量并计算每个零部件需要到达的距离</h3><ol>
-<li><p>Y轴移动产品正上方<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E4%BA%A7%E5%93%81%E8%87%B3%E6%AD%A3%E4%B8%8A%E6%96%B9.png"></p>
-</li>
-<li><p>Z轴下降到产品位置<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0%E4%BA%A7%E5%93%81%E4%BD%8D%E7%BD%AE.png"></p>
-</li>
-<li><p>Y轴移动Tester正上方<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E7%A7%BB%E5%8A%A8Tester%E6%AD%A3%E4%B8%8A%E6%96%B9.png"></p>
-</li>
+    <title>StrainGauge</title>
+    <url>/2020/02/07/Strain%20Gauge/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
+<p>&ensp;&ensp;Invented by Edward E. Simmons and Arthur C. Ruge in 1938, the most common type of strain gauge consists of an insulating flexible backing which supports a metallic foil pattern.<br>&ensp;&ensp;应变计由 Edward E. Simmons 和 Arthur C. Ruge 于 1938 年发明，最常见的类型是由绝缘柔性背衬支撑金属箔图案组成。</p>
+<p>&ensp;&ensp;The gauge is attached to the object by a <strong>suitable adhesive</strong>, such as cyanoacrylate (氰基丙烯酸酯). Proper adhesion is critical, as any air gaps or flexibility in the bonding layer will introduce measurement errors known as creep or hysteresis. As the object is deformed, the foil is deformed, causing its electrical resistance to change. This resistance change, usually measured using a Wheatstone bridge, is related to the strain by the quantity known as the gauge factor.<br>&ensp;&ensp;应变片通过合适的粘合剂（例如氰基丙烯酸酯）固定在被测物体上。良好的粘合至关重要，因为粘合层中的任何气隙或柔性都会引入测量误差，称为蠕变或滞后。当被测物体发生形变时，应变片也会发生形变，导致其电阻发生变化。这种电阻变化通常使用惠斯通电桥测量，它与应变之间的关系称为应变系数。</p>
+<h2 id="Physical-operation"><a href="#Physical-operation" class="headerlink" title="Physical operation"></a>Physical operation</h2><p>&ensp;&ensp;A strain gauge takes advantage of the physical property of electrical conductance and its dependence on the conductor’s geometry.<br>&ensp;&ensp;应变计利用了电导率的物理特性及其对导体几何形状的依赖性。</p>
+<p>&ensp;&ensp;When an electrical conductor is stretched within the limits of its elasticity such that it does not break or permanently deform, it will become narrower and longer, which increases its electrical resistance end-to-end.<br>&ensp;&ensp;当电导体在其弹性极限内被拉伸而不断裂或永久变形时，它会变得更窄更长，从而增加其端到端的电阻。</p>
+<p>&ensp;&ensp;Conversely, when a conductor is compressed such that it does not buckle, it will broaden and shorten, which decreases its electrical resistance end-to-end. From the measured electrical resistance of the strain gauge, the amount of induced stress may be inferred.<br>&ensp;&ensp;反之，当导体受到压缩而不发生屈曲时，它会变宽变短，从而降低其端到端的电阻。通过测量应变片的电阻值，可以推断出所施加的应力大小。</p>
+<p>&ensp;&ensp;A typical strain gauge arranges a long, thin conductive strip in a zig-zag pattern of parallel lines. This does not increase the sensitivity, since the percentage change in resistance for a given strain for the entire zig-zag is the same as for any single trace. A single linear trace would have to be extremely thin, hence liable to overheating (which would change its resistance and cause it to expand), or would need to be operated at a much lower voltage, making it difficult to measure resistance changes accurately.<br>&ensp;&ensp;典型的应变计将一条细长的导电条以锯齿状平行线排列。但这并不会提高灵敏度，因为对于给定的应变，整个锯齿状区域的电阻变化百分比与任何单条导线的电阻变化百分比相同。单条线性导线必须非常细，因此容易过热（过热会改变其电阻并导致其膨胀），或者需要使用低得多的电压，这使得精确测量电阻变化变得困难。</p>
+<h2 id="Gauge-factor"><a href="#Gauge-factor" class="headerlink" title="Gauge factor"></a>Gauge factor</h2><p>&ensp;&ensp;The gauge factor GF is defined as:<br>GF &#x3D; (ΔR &#x2F; RG) &#x2F; ε  <br> ΔR is the change in resistance caused by strain,<br> ΔR 是由应变引起的电阻变化，<br> RG is the resistance of the undeformed gauge, and ϵ is strain.<br> RG 是未变形应变片的电阻，ϵ 是应变。</p>
+<p>&ensp;&ensp;For common metallic foil gauges, the gauge factor is usually a little over 2. For a single active gauge and three dummy resistors of the same resistance about the active gauge in a balanced Wheatstone bridge configuration, the output sensor voltage<br>SV from the bridge is approximately:<br>&ensp;&ensp;对于常见的金属箔式电磁感应计，其灵敏度系数通常略大于 2。在平衡惠斯通电桥配置中，对于单个有效电磁感应计和围绕其的三个相同阻值的假电阻，电桥的输出传感器电压SV 约为：<br><br> SV &#x3D; EV × (GF·ε &#x2F; 4)<br><br> &ensp;&ensp;Foil gauges typically have active areas of about 2–10 mm2 in size. With careful installation, the correct gauge, and the correct adhesive, strains up to at least 10% can be measured.<br>&ensp;&ensp;箔式应变计的有效测量面积通常约为 2–10 mm²。只要安装得当，使用正确的应变计和粘合剂，就可以测量至少 10% 的应变。</p>
+<h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><p><a title="Izantux, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:StrainGaugeVisualization.svg"><img width="250" alt="StrainGaugeVisualization" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png"></a></p>
+<p>&ensp;&ensp;Strain gauges are attached to the <strong>substrate with a special glue</strong>. The type of glue depends on the required lifetime of the measurement system. For <strong>short term</strong> measurements (up to some weeks) <strong>cyanoacrylate</strong> glue is appropriate, for <strong>long lasting installation</strong> <strong>epoxy glue(环氧树脂胶)</strong> is required. Usually epoxy glue requires high temperature curing (at about 80-100 °C). The preparation of the surface where the strain gauge is to be glued is of the utmost importance. <strong>The surface must be smoothed</strong> (e.g. with very fine sand paper), <strong>deoiled with solvents</strong>, <u>the solvent traces must then be removed and the strain gauge must be glued immediately after this to avoid oxidation or pollution of the prepared area. <strong>If these steps are not followed the strain gauge binding to the surface may be unreliable and unpredictable measurement errors may be generated.</strong></u><br><br> &ensp;&ensp;应变片通过<strong>专用胶水</strong>粘贴到基材上。胶水的类型取决于测量系统的预期使用寿命。对于<strong>短期</strong>测量（数周以内），<strong>氰基丙烯酸酯胶</strong>适用；对于<strong>长期安装</strong>，则需要<strong>环氧树脂胶</strong>。环氧树脂胶通常需要在高温下固化（约 80-100 °C）。应变片粘贴表面的准备工作至关重要。<strong>必须将表面打磨光滑</strong>（例如使用极细的砂纸），<strong>用溶剂脱油</strong>，然后清除溶剂残留，并立即粘贴应变片，以避免氧化或污染处理过的区域。<strong>如果不遵循这些步骤，应变片与表面的粘合可能不可靠，并可能产生不可预测的测量误差。</strong></p>
+<p>&ensp;&ensp;Strain gauge based technology is used commonly in the manufacture of pressure sensors. The gauges used in pressure sensors themselves are commonly made from silicon, polysilicon, metal film, thick film, and bonded foil.<br><br> &ensp;&ensp;基于应变片的技术广泛应用于压力传感器的制造。压力传感器中使用的压力表通常由硅、多晶硅、金属薄膜、厚膜和粘合箔制成。</p>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p><strong>PCBA testing</strong> PCBA测试<br><br> &ensp;&ensp;During automated or semi-automated testing of PCBA boards, the mechanical stress they experience is often difficult to quantify and assess. Excessive stress can lead to hidden defects such as microcracks and solder joint damage, directly impacting product reliability. Furthermore, the lack of stress data hinders process optimization, resulting in a bottleneck in yield improvement.<br><br> &ensp;&ensp;PCBA 在自动化或半自动化测试过程中，PCBA板承受的机械应力往往难以量化评估。应力过大可能导致微裂纹、焊点损伤等隐性缺陷，直接影响产品可靠性；应力数据缺失则使得工艺优化缺乏依据，良率提升陷入瓶颈。</p>
+<hr>
+<h2 id="应变片在BE段PCBA测试中的应用"><a href="#应变片在BE段PCBA测试中的应用" class="headerlink" title="应变片在BE段PCBA测试中的应用"></a><strong>应变片在BE段PCBA测试中的应用</strong></h2><ul>
+<li>Specfic: Strain guage is to qualify test fixtures, the values need to meet ±300μstrain (±500μstrain max)</li>
+<li>Deminisons: 1.5x1.5mm</li>
+<li>Mode: <span class="exturl" data-url="aHR0cHM6Ly9zdHJlc3NwaS5jb20vc2lwLTE3MDMtc2VyaWVz">Minebea SIP 1703<i class="fa fa-external-link-alt"></i></span> (1.5x1.5mm) YFR0512L50W3MS</li>
+</ul>
+<p><strong><span class="exturl" data-url="aHR0cHM6Ly9wcm9kdWN0Lm1pbmViZWFtaXRzdW1pLmNvbS9lbi90ZWNobm9sb2d5L3NlbnNpbmdfZGV2aWNlcy9zLWdhZ2VzX3RlY2hub3RlLmh0bWw=">Here is the basic technology introduction<i class="fa fa-external-link-alt"></i></span></strong></p>
+<hr>
+<p><strong>Structural health monitoring</strong> 结构健康监测<br><br> &ensp;&ensp;Structural health monitoring (SHM) is used to monitor structures after their completion. To prevent failures, strain gauges are used to detect and locate damages and creep. A specific example is the monitoring of bridge cables increasing safety by detecting possible damages. Also, the bridge’s behavior to unusual loads such as special heavy-duty transports can be analyzed.<br><br> &ensp;&ensp;结构健康监测（SHM）用于在结构完工后进行监测。为防止故障，应变计用于检测和定位损伤及蠕变。一个具体例子是监控桥梁电缆，通过检测可能的损坏来提高安全性。此外，还可以分析桥梁对特殊重型运输等特殊载荷的行为。</p>
+<p><strong>Biological measurements</strong> 生物测量<br><br> &ensp;&ensp;Measuring the strain of skin can provide a multitude of biomechanic measurements such as posture, joint rotation, respiration and swelling both in humans and other animals. Resistive foil strain gauges are seldom used for these applications, however, due to their low strain limit. Instead, soft and deformable strain gauges are often attached to a host garment, to make it simple to apply the sensor to the correct part of the body, though sometimes they are attached directly to the skin. Typically in these applications, such soft strain gauges are known as stretch sensors. For medical use, the sensors must be accurate and repeatable which typically requires the use of capacitive stretch sensors.<br><br> &ensp;&ensp;测量皮肤应变可以提供多种生物力学测量，如姿势、关节旋转、呼吸以及人类及其他动物的肿胀。然而，由于应变极限较低，电阻箔应变计很少用于这些应用。相反，软质且可变形的应变计通常会安装在主体服装上，以便将传感器贴合到身体的正确部位，尽管有时传感器会直接连接到皮肤上。在这些应用中，通常这种软应变计被称为拉伸传感器。对于医疗用途，传感器必须准确且可重复，通常需要使用电容拉伸传感器。</p>
+<p><strong>Predictive maintenance</strong> 预防性维护<br><br> &ensp;&ensp;Many objects and materials in industrial applications have a finite life. To improve their lifetime and cost of ownership, predictive maintenance principles are used. Strain gauges can be used to monitor the strain as an indicator of fatigue in materials to enable software systems to predict when certain components need to be replaced or serviced. Resistive foil gauges can be used to instrument stiff materials like metals, ceramics, composites and similar, whereas highly elastic strain gauges are used to monitor softer materials such as rubber, plastics, textiles and the like.<br><br> &ensp;&ensp;工业应用中的许多物品和材料寿命有限。为了延长使用寿命和使用成本，采用了预测性维护原则。应变计可用于监测应变，作为材料疲劳的指示器，使软件系统能够预测何时需要更换或维护某些部件。电阻箔计可用于仪器化刚性材料，如金属、陶瓷、复合材料等，而高弹性应变计则用于监测橡胶、塑料、纺织等较软材料。</p>
+<p><strong>Aviation</strong> 航空<br><br> &ensp;&ensp;In aviation, strain gauges are the standard approach to measuring the structural load and calculating wing deflection. Strain gauges are fixed in several locations on the aircraft. However, deflection measurement systems have been shown to measure strains reliably remotely. This reduces instrumentation weight on the aircraft and thus is replacing (certain) strain gauges.<br><br> &ensp;&ensp;在航空领域，应变计是测量结构载荷和计算机翼挠度的标准方法。应变计固定在飞机的多个位置。然而，偏转测量系统已被证明能够可靠地远程测量应变。这减轻了飞机上的仪表重量，从而更换了（某些）应变计。</p>
+<p><strong>Repurposing</strong> 再利用<br><br> &ensp;&ensp;There are also applications where it isn’t first obvious that you would measure strain to get to the wanted result. So for example in the detection of intruders on certain structures, strain gauges can be used to detect the presence of such an intruder. This is done by measuring the slight change in strain of the said structure.<br><br> &ensp;&ensp;也有些应用中，测量应变以达到理想结果并不明显。例如，在某些结构上的入侵者检测时，应变计可以用来检测入侵者的存在。这是通过测量该结构应变的细微变化来完成的。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU3RyYWluX2dhdWdl">Strain Gauge<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5lZnVuZGEuY29tL2Rlc2lnbnN0YW5kYXJkcy9zZW5zb3JzL3N0cmFpbl9nYWdlcy9zdHJhaW5fZ2FnZV9zZWxlY3Rpb25fbWF0bC5jZm0=">Strain Gauge Material<i class="fa fa-external-link-alt"></i></span></li>
 </ol>
-<h3 id="理顺各零件的动作顺序"><a href="#理顺各零件的动作顺序" class="headerlink" title="理顺各零件的动作顺序"></a>理顺各零件的动作顺序</h3><p>&emsp;&emsp;理顺各零件的动作顺序。  </p>
-<ol>
-<li><p>初始状态<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/1%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81.png"></p>
-</li>
-<li><p>Y轴移动到172.98mm位置<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/2Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0172.98mm%E4%BD%8D%E7%BD%AE.png"></p>
-</li>
-<li><p>Z轴下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/3.Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
-</li>
-<li><p>夹爪气缸夹紧4mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/4.%E5%A4%B9%E7%88%AA%E6%B0%94%E7%BC%B8%E5%A4%B9%E7%B4%A74mm.png"></p>
-</li>
-<li><p>Z轴带着产品上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/5.Z%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
-</li>
-<li><p>Y轴移动到319.48mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/6.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0319.48mm.png"></p>
-</li>
-<li><p>Z轴下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/7.Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
-</li>
-<li><p>下压停留1s进行测试<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/8.%E4%B8%8B%E5%8E%8B%E5%81%9C%E7%95%991s%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95.png"></p>
-</li>
-<li><p>测试完成，Z轴带着产品上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/9.%E6%B5%8B%E8%AF%95%E5%AE%8C%E6%88%90%EF%BC%8CZ%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
-</li>
-<li><p>10.Y轴移动到172.98mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/10.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0172.98mm.png"></p>
-</li>
-<li><p>Z轴带着产品下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/11.Z%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
-</li>
-<li><p>松开夹爪4mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/12.%E6%9D%BE%E5%BC%80%E5%A4%B9%E7%88%AA4mm.png"></p>
-</li>
-<li><p>Z轴上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/13.Z%E8%BD%B4%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
-</li>
-<li><p>Y轴移动到0mm（初始位置）<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/14.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B00mm%EF%BC%88%E5%88%9D%E5%A7%8B%E4%BD%8D%E7%BD%AE%EF%BC%89.png"></p>
-</li>
-</ol>
-<h3 id="列出逻辑关系时序图"><a href="#列出逻辑关系时序图" class="headerlink" title="列出逻辑关系时序图"></a>列出逻辑关系时序图</h3><p>&emsp;&emsp;对时序，节拍进行规划，实际的节拍可能会很短，但是视频展现出来的节拍时间要适当的加长，这样最终视频呈现出来才比较合理。<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E6%97%B6%E5%BA%8F%E5%9B%BE.png"></p>
-<h2 id="动画制作"><a href="#动画制作" class="headerlink" title="动画制作"></a>动画制作</h2><p>&emsp;&emsp;根据逻辑关系时序图，对每个驱动部件添加动力以及时间。以下是算例中各部件的逻辑时序图。</p>
-<ol>
-<li><p>新建算例<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E8%BF%90%E5%8A%A8%E7%AE%97%E4%BE%8Bpng.png"></p>
-</li>
-<li><p>调整视频输出视图<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E8%BE%93%E5%87%BA%E8%A7%86%E5%9B%BE.png"></p>
-</li>
-<li><p>添加马达</p>
-</li>
-</ol>
-<p>马达：为每个夹爪添加马达（8x）<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Clamper%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
-<p>马达；产品水平移动，马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/DUT%E6%B0%B4%E5%B9%B3%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
-<p>马达：Y轴移动，线性马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
-<p>马达：Z轴升降，线性马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Z%E8%BD%B4%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
-<h2 id="视频输出"><a href="#视频输出" class="headerlink" title="视频输出"></a>视频输出</h2><p>&emsp;&emsp;主要是视频的输出，包括视频文件名称以及位置，视频格式，视频比例。</p>
-<h3 id="八个夹爪动作"><a href="#八个夹爪动作" class="headerlink" title="八个夹爪动作"></a>八个夹爪动作</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/8.gif"></p>
-<h3 id="整个设备动作"><a href="#整个设备动作" class="headerlink" title="整个设备动作"></a>整个设备动作</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BE%93%E5%87%BAvideo.gif"></p>
 ]]></content>
       <categories>
         <category>Tech</category>
       </categories>
       <tags>
-        <tag>Solidworks</tag>
-        <tag>插件</tag>
-        <tag>仿真</tag>
-        <tag>动画</tag>
+        <tag>Sensor</tag>
+        <tag>Gauge</tag>
+        <tag>μstrain</tag>
       </tags>
   </entry>
   <entry>
@@ -2936,49 +2979,6 @@ th {
       </categories>
   </entry>
   <entry>
-    <title>StrainGauge</title>
-    <url>/2020/02/07/Strain%20Gauge/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Strain-gauge"><a href="#Strain-gauge" class="headerlink" title="Strain gauge"></a>Strain gauge</h2><p>&ensp;&ensp;A strain gauge (also spelled strain gage) is a device used to measure strain on an object.<br>&ensp;&ensp;应变计（也拼写为应变计）是一种用于测量物体应变的装置。</p>
-<p>&ensp;&ensp;Invented by Edward E. Simmons and Arthur C. Ruge in 1938, the most common type of strain gauge consists of an insulating flexible backing which supports a metallic foil pattern.<br>&ensp;&ensp;应变计由 Edward E. Simmons 和 Arthur C. Ruge 于 1938 年发明，最常见的类型是由绝缘柔性背衬支撑金属箔图案组成。</p>
-<p>&ensp;&ensp;The gauge is attached to the object by a <strong>suitable adhesive</strong>, such as cyanoacrylate (氰基丙烯酸酯). Proper adhesion is critical, as any air gaps or flexibility in the bonding layer will introduce measurement errors known as creep or hysteresis. As the object is deformed, the foil is deformed, causing its electrical resistance to change. This resistance change, usually measured using a Wheatstone bridge, is related to the strain by the quantity known as the gauge factor.<br>&ensp;&ensp;应变片通过合适的粘合剂（例如氰基丙烯酸酯）固定在被测物体上。良好的粘合至关重要，因为粘合层中的任何气隙或柔性都会引入测量误差，称为蠕变或滞后。当被测物体发生形变时，应变片也会发生形变，导致其电阻发生变化。这种电阻变化通常使用惠斯通电桥测量，它与应变之间的关系称为应变系数。</p>
-<h2 id="Physical-operation"><a href="#Physical-operation" class="headerlink" title="Physical operation"></a>Physical operation</h2><p>&ensp;&ensp;A strain gauge takes advantage of the physical property of electrical conductance and its dependence on the conductor’s geometry.<br>&ensp;&ensp;应变计利用了电导率的物理特性及其对导体几何形状的依赖性。</p>
-<p>&ensp;&ensp;When an electrical conductor is stretched within the limits of its elasticity such that it does not break or permanently deform, it will become narrower and longer, which increases its electrical resistance end-to-end.<br>&ensp;&ensp;当电导体在其弹性极限内被拉伸而不断裂或永久变形时，它会变得更窄更长，从而增加其端到端的电阻。</p>
-<p>&ensp;&ensp;Conversely, when a conductor is compressed such that it does not buckle, it will broaden and shorten, which decreases its electrical resistance end-to-end. From the measured electrical resistance of the strain gauge, the amount of induced stress may be inferred.<br>&ensp;&ensp;反之，当导体受到压缩而不发生屈曲时，它会变宽变短，从而降低其端到端的电阻。通过测量应变片的电阻值，可以推断出所施加的应力大小。</p>
-<p>&ensp;&ensp;A typical strain gauge arranges a long, thin conductive strip in a zig-zag pattern of parallel lines. This does not increase the sensitivity, since the percentage change in resistance for a given strain for the entire zig-zag is the same as for any single trace. A single linear trace would have to be extremely thin, hence liable to overheating (which would change its resistance and cause it to expand), or would need to be operated at a much lower voltage, making it difficult to measure resistance changes accurately.<br>&ensp;&ensp;典型的应变计将一条细长的导电条以锯齿状平行线排列。但这并不会提高灵敏度，因为对于给定的应变，整个锯齿状区域的电阻变化百分比与任何单条导线的电阻变化百分比相同。单条线性导线必须非常细，因此容易过热（过热会改变其电阻并导致其膨胀），或者需要使用低得多的电压，这使得精确测量电阻变化变得困难。</p>
-<h2 id="Gauge-factor"><a href="#Gauge-factor" class="headerlink" title="Gauge factor"></a>Gauge factor</h2><p>&ensp;&ensp;The gauge factor GF is defined as:<br>GF &#x3D; (ΔR &#x2F; RG) &#x2F; ε  <br> ΔR is the change in resistance caused by strain,<br> ΔR 是由应变引起的电阻变化，<br> RG is the resistance of the undeformed gauge, and ϵ is strain.<br> RG 是未变形应变片的电阻，ϵ 是应变。</p>
-<p>&ensp;&ensp;For common metallic foil gauges, the gauge factor is usually a little over 2. For a single active gauge and three dummy resistors of the same resistance about the active gauge in a balanced Wheatstone bridge configuration, the output sensor voltage<br>SV from the bridge is approximately:<br>&ensp;&ensp;对于常见的金属箔式电磁感应计，其灵敏度系数通常略大于 2。在平衡惠斯通电桥配置中，对于单个有效电磁感应计和围绕其的三个相同阻值的假电阻，电桥的输出传感器电压SV 约为：<br><br> SV &#x3D; EV × (GF·ε &#x2F; 4)<br><br> &ensp;&ensp;Foil gauges typically have active areas of about 2–10 mm2 in size. With careful installation, the correct gauge, and the correct adhesive, strains up to at least 10% can be measured.<br>&ensp;&ensp;箔式应变计的有效测量面积通常约为 2–10 mm²。只要安装得当，使用正确的应变计和粘合剂，就可以测量至少 10% 的应变。</p>
-<h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><p><a title="Izantux, CC0, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:StrainGaugeVisualization.svg"><img width="250" alt="StrainGaugeVisualization" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/StrainGaugeVisualization.svg/250px-StrainGaugeVisualization.svg.png"></a></p>
-<p>&ensp;&ensp;Strain gauges are attached to the <strong>substrate with a special glue</strong>. The type of glue depends on the required lifetime of the measurement system. For <strong>short term</strong> measurements (up to some weeks) <strong>cyanoacrylate</strong> glue is appropriate, for <strong>long lasting installation</strong> <strong>epoxy glue(环氧树脂胶)</strong> is required. Usually epoxy glue requires high temperature curing (at about 80-100 °C). The preparation of the surface where the strain gauge is to be glued is of the utmost importance. <strong>The surface must be smoothed</strong> (e.g. with very fine sand paper), <strong>deoiled with solvents</strong>, <u>the solvent traces must then be removed and the strain gauge must be glued immediately after this to avoid oxidation or pollution of the prepared area. <strong>If these steps are not followed the strain gauge binding to the surface may be unreliable and unpredictable measurement errors may be generated.</strong></u><br><br> &ensp;&ensp;应变片通过<strong>专用胶水</strong>粘贴到基材上。胶水的类型取决于测量系统的预期使用寿命。对于<strong>短期</strong>测量（数周以内），<strong>氰基丙烯酸酯胶</strong>适用；对于<strong>长期安装</strong>，则需要<strong>环氧树脂胶</strong>。环氧树脂胶通常需要在高温下固化（约 80-100 °C）。应变片粘贴表面的准备工作至关重要。<strong>必须将表面打磨光滑</strong>（例如使用极细的砂纸），<strong>用溶剂脱油</strong>，然后清除溶剂残留，并立即粘贴应变片，以避免氧化或污染处理过的区域。<strong>如果不遵循这些步骤，应变片与表面的粘合可能不可靠，并可能产生不可预测的测量误差。</strong></p>
-<p>&ensp;&ensp;Strain gauge based technology is used commonly in the manufacture of pressure sensors. The gauges used in pressure sensors themselves are commonly made from silicon, polysilicon, metal film, thick film, and bonded foil.<br><br> &ensp;&ensp;基于应变片的技术广泛应用于压力传感器的制造。压力传感器中使用的压力表通常由硅、多晶硅、金属薄膜、厚膜和粘合箔制成。</p>
-<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p><strong>PCBA testing</strong> PCBA测试<br><br> &ensp;&ensp;During automated or semi-automated testing of PCBA boards, the mechanical stress they experience is often difficult to quantify and assess. Excessive stress can lead to hidden defects such as microcracks and solder joint damage, directly impacting product reliability. Furthermore, the lack of stress data hinders process optimization, resulting in a bottleneck in yield improvement.<br><br> &ensp;&ensp;PCBA 在自动化或半自动化测试过程中，PCBA板承受的机械应力往往难以量化评估。应力过大可能导致微裂纹、焊点损伤等隐性缺陷，直接影响产品可靠性；应力数据缺失则使得工艺优化缺乏依据，良率提升陷入瓶颈。</p>
-<hr>
-<h2 id="应变片在BE段PCBA测试中的应用"><a href="#应变片在BE段PCBA测试中的应用" class="headerlink" title="应变片在BE段PCBA测试中的应用"></a><strong>应变片在BE段PCBA测试中的应用</strong></h2><ul>
-<li>Specfic: Strain guage is to qualify test fixtures, the values need to meet ±300μstrain (±500μstrain max)</li>
-<li>Deminisons: 1.5x1.5mm</li>
-<li>Mode: <span class="exturl" data-url="aHR0cHM6Ly9zdHJlc3NwaS5jb20vc2lwLTE3MDMtc2VyaWVz">Minebea SIP 1703<i class="fa fa-external-link-alt"></i></span> (1.5x1.5mm) YFR0512L50W3MS</li>
-</ul>
-<p><strong><span class="exturl" data-url="aHR0cHM6Ly9wcm9kdWN0Lm1pbmViZWFtaXRzdW1pLmNvbS9lbi90ZWNobm9sb2d5L3NlbnNpbmdfZGV2aWNlcy9zLWdhZ2VzX3RlY2hub3RlLmh0bWw=">Here is the basic technology introduction<i class="fa fa-external-link-alt"></i></span></strong></p>
-<hr>
-<p><strong>Structural health monitoring</strong> 结构健康监测<br><br> &ensp;&ensp;Structural health monitoring (SHM) is used to monitor structures after their completion. To prevent failures, strain gauges are used to detect and locate damages and creep. A specific example is the monitoring of bridge cables increasing safety by detecting possible damages. Also, the bridge’s behavior to unusual loads such as special heavy-duty transports can be analyzed.<br><br> &ensp;&ensp;结构健康监测（SHM）用于在结构完工后进行监测。为防止故障，应变计用于检测和定位损伤及蠕变。一个具体例子是监控桥梁电缆，通过检测可能的损坏来提高安全性。此外，还可以分析桥梁对特殊重型运输等特殊载荷的行为。</p>
-<p><strong>Biological measurements</strong> 生物测量<br><br> &ensp;&ensp;Measuring the strain of skin can provide a multitude of biomechanic measurements such as posture, joint rotation, respiration and swelling both in humans and other animals. Resistive foil strain gauges are seldom used for these applications, however, due to their low strain limit. Instead, soft and deformable strain gauges are often attached to a host garment, to make it simple to apply the sensor to the correct part of the body, though sometimes they are attached directly to the skin. Typically in these applications, such soft strain gauges are known as stretch sensors. For medical use, the sensors must be accurate and repeatable which typically requires the use of capacitive stretch sensors.<br><br> &ensp;&ensp;测量皮肤应变可以提供多种生物力学测量，如姿势、关节旋转、呼吸以及人类及其他动物的肿胀。然而，由于应变极限较低，电阻箔应变计很少用于这些应用。相反，软质且可变形的应变计通常会安装在主体服装上，以便将传感器贴合到身体的正确部位，尽管有时传感器会直接连接到皮肤上。在这些应用中，通常这种软应变计被称为拉伸传感器。对于医疗用途，传感器必须准确且可重复，通常需要使用电容拉伸传感器。</p>
-<p><strong>Predictive maintenance</strong> 预防性维护<br><br> &ensp;&ensp;Many objects and materials in industrial applications have a finite life. To improve their lifetime and cost of ownership, predictive maintenance principles are used. Strain gauges can be used to monitor the strain as an indicator of fatigue in materials to enable software systems to predict when certain components need to be replaced or serviced. Resistive foil gauges can be used to instrument stiff materials like metals, ceramics, composites and similar, whereas highly elastic strain gauges are used to monitor softer materials such as rubber, plastics, textiles and the like.<br><br> &ensp;&ensp;工业应用中的许多物品和材料寿命有限。为了延长使用寿命和使用成本，采用了预测性维护原则。应变计可用于监测应变，作为材料疲劳的指示器，使软件系统能够预测何时需要更换或维护某些部件。电阻箔计可用于仪器化刚性材料，如金属、陶瓷、复合材料等，而高弹性应变计则用于监测橡胶、塑料、纺织等较软材料。</p>
-<p><strong>Aviation</strong> 航空<br><br> &ensp;&ensp;In aviation, strain gauges are the standard approach to measuring the structural load and calculating wing deflection. Strain gauges are fixed in several locations on the aircraft. However, deflection measurement systems have been shown to measure strains reliably remotely. This reduces instrumentation weight on the aircraft and thus is replacing (certain) strain gauges.<br><br> &ensp;&ensp;在航空领域，应变计是测量结构载荷和计算机翼挠度的标准方法。应变计固定在飞机的多个位置。然而，偏转测量系统已被证明能够可靠地远程测量应变。这减轻了飞机上的仪表重量，从而更换了（某些）应变计。</p>
-<p><strong>Repurposing</strong> 再利用<br><br> &ensp;&ensp;There are also applications where it isn’t first obvious that you would measure strain to get to the wanted result. So for example in the detection of intruders on certain structures, strain gauges can be used to detect the presence of such an intruder. This is done by measuring the slight change in strain of the said structure.<br><br> &ensp;&ensp;也有些应用中，测量应变以达到理想结果并不明显。例如，在某些结构上的入侵者检测时，应变计可以用来检测入侵者的存在。这是通过测量该结构应变的细微变化来完成的。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvU3RyYWluX2dhdWdl">Strain Gauge<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5lZnVuZGEuY29tL2Rlc2lnbnN0YW5kYXJkcy9zZW5zb3JzL3N0cmFpbl9nYWdlcy9zdHJhaW5fZ2FnZV9zZWxlY3Rpb25fbWF0bC5jZm0=">Strain Gauge Material<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Sensor</tag>
-        <tag>Gauge</tag>
-        <tag>μstrain</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
     <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
@@ -3213,94 +3213,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>在Win平台上部署Hexo</title>
-    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
-</blockquote>
-<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
-
-<p>2)安装配置</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>3）生成，部署</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
-</blockquote>
-<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
-</blockquote>
-</li>
-</ul>
-<p>2). 报错信息</p>
-<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>连续按 3 次回车，什么都不用输。</p>
-</blockquote>
-</li>
-</ul>
-<p>Step2: 复制密钥</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
-</blockquote>
-<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
-<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
-<p>就改 repo 这一行！保存文件。</p>
-<p>Step5: 测试</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>输入 yes 回车。看到 successfully 就是成功！</p>
-<p>3). 报错信息</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>国内网络把 GitHub 的 22 端口也墙了</li>
-</ul>
-<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
-</ul>
-<p>Step2: 再测试连接，输入如下命令</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
-<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
-<p>2）为博客添加标签</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
-<p>3）添加分类功能</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
-<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
-
-<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Hexo</tag>
-        <tag>Github</tag>
-        <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mac环境下安装Python3</title>
     <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
@@ -3328,57 +3240,6 @@ th {
         <tag>Python</tag>
         <tag>X-code</tag>
         <tag>Brew</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Github</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3511,8 +3372,147 @@ th {
         <tag>GitHub</tag>
         <tag>Blog</tag>
         <tag>Hexo</tag>
-        <tag>Node.js</tag>
         <tag>NPM</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
+</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Win平台上部署Hexo</title>
+    <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此篇博客产生是因为之前的电脑不用了，需要使用新电脑，故需要在新电脑上部署环境，进行如下操作的前提是要有有之前的<strong>原始代码文件夹</strong>。</p>
+</blockquote>
+<h3 id="1-安装Git-Node-js-Atom"><a href="#1-安装Git-Node-js-Atom" class="headerlink" title="1.安装Git, Node.js, Atom"></a>1.安装Git, Node.js, Atom</h3><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlQUUlODklRTglQTMlODUtR2l0">Git<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL3poLWNuL2Rvd25sb2Fk">Node.js<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hdG9tLWVkaXRvci5jYy8=">Atom<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h3><p>1）cd到含有源码的文件夹，使用npm命令安装Hexo，输入</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+<p>2)安装配置</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>3）生成，部署</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在depoly时，在新电脑上会出现如下的报错信息，这是电脑不知道你是谁，需要执行以下指令：</p>
+</blockquote>
+<h3 id="3-报错信息以及对策"><a href="#3-报错信息以及对策" class="headerlink" title="3.报错信息以及对策"></a>3.报错信息以及对策</h3><p>1). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">*** Please tell <span class="keyword">me</span> who you are.</span><br><span class="line">Run</span><br><span class="line">  git config --<span class="keyword">global</span> user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">  git config --<span class="keyword">global</span> user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> <span class="keyword">set</span> your account<span class="comment">&#x27;s default identity.</span></span><br><span class="line">Omit --<span class="keyword">global</span> <span class="keyword">to</span> <span class="keyword">set</span> the identity only <span class="keyword">in</span> this repository.</span><br><span class="line"></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> <span class="keyword">auto</span>-detect email address (got <span class="comment">&#x27;Hunphy@DESKTOP-4N3FE84.(none)&#x27;)</span></span><br><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Recv failure: Connection was reset</span></span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Fix command:<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的github的用户名&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你注册GitHub的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完上面的两条指令之后，再去生成，部署，这时会hexo deploy之后会出现github登录对话框，直接登录，登录成功之后就可以正常部署了。</p>
+</blockquote>
+</li>
+</ul>
+<p>2). 报错信息</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">fatal:</span> unable <span class="keyword">to</span> access <span class="comment">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;: Failed to connect to github.com por</span></span><br><span class="line">t <span class="number">443</span> after <span class="number">21222</span> ms: Could <span class="built_in">not</span> connect <span class="keyword">to</span> server</span><br><span class="line">FATAL Something<span class="comment">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="symbol">Error:</span> Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\Hexo\burroblog-src\node_modules\hexo-util\<span class="keyword">lib</span>\spawn.js:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">    at ChildProcess.emit (node:events:<span class="number">509</span>:<span class="number">28</span>)</span><br><span class="line">    at cp.emit (D:\Hexo\burroblog-src\node_modules\cross-spawn\<span class="keyword">lib</span>\enoent.js:<span class="number">34</span>:<span class="number">29</span>)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:<span class="number">295</span>:<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这是再国内有时连不上github，下面就用GitHub官方推荐方式<br>Step1: 生成 SSH 密钥<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>连续按 3 次回车，什么都不用输。</p>
+</blockquote>
+</li>
+</ul>
+<p>Step2: 复制密钥</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把终端里输出的一长串内容全部复制，以 ssh-ed25519 开头的那行。</p>
+</blockquote>
+<p>Step3: 把密钥粘贴到 GitHub<br>打开这个链接（直接点）：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> 点 New SSH key → 粘贴刚才复制的内容 → 保存。</p>
+<p>Step4: 修改 _config.yml （最关键）<br>打开你博客的 _config.yml，找到 deploy 那一段：<br>把原来的 HTTPS 地址删掉，换成 SSH 地址：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="params">eploy:</span></span><br><span class="line">  <span class="params">type:</span> git</span><br><span class="line">  <span class="params">repo:</span> git@github.com:Burro-CMD<span class="symbol">/Burro-CMD.github.io.git</span></span><br><span class="line">  <span class="params">branch:</span> main</span><br></pre></td></tr></table></figure>
+<p>就改 repo 这一行！保存文件。</p>
+<p>Step5: 测试</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>输入 yes 回车。看到 successfully 就是成功！</p>
+<p>3). 报错信息</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">Hunphy@DESKTOP<span class="number">-4</span>N3FE84 MINGW64 /d/Hexo/burroblog-src</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line">Connection reset <span class="keyword">by</span> <span class="number">20.205</span><span class="number">.243</span><span class="number">.166</span> port <span class="number">22</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>国内网络把 GitHub 的 22 端口也墙了</li>
+</ul>
+<p>Step1: 创建 SSH 配置文件，执行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh &amp;&amp; <span class="built_in">cat</span> &gt; ~/.ssh/config &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">Host github.com</span></span><br><span class="line"><span class="string">  Hostname ssh.github.com</span></span><br><span class="line"><span class="string">  Port 443</span></span><br><span class="line"><span class="string">  User git</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>作用：强制 SSH 走 443 端口（不会被墙）</li>
+</ul>
+<p>Step2: 再测试连接，输入如下命令</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>会出现：Are you sure you want to continue connecting (yes&#x2F;no)?输入 → yes 回车<br>出现：Hi xxx! You’ve successfully authenticated…</p>
+<h3 id="4-博客网站的操作"><a href="#4-博客网站的操作" class="headerlink" title="4.博客网站的操作"></a>4.博客网站的操作</h3><p>1）发布博客</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;新博客名字&quot;</span></span><br></pre></td></tr></table></figure>
+<p>2）为博客添加标签</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;tags中找到index.md，修改该文件：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags</span><br><span class="line"><span class="attribute">date</span>: <span class="number">2026</span>--<span class="number">01</span>-<span class="number">31</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"><span class="attribute">types</span>: <span class="string">&quot;tags&quot;</span></span><br></pre></td></tr></table></figure>
+<p>3）添加分类功能</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page categories</span><br></pre></td></tr></table></figure>
+<p>之后在source&#x2F;categories中找到index.md，修改该文件：<br>4）发布，推送博客</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">hexo <span class="keyword">generate</span>:生成网站文件夹</span><br><span class="line">hexo server --debug: 这是进行本地网站调试，浏览器访问http:<span class="comment">//localhost:4000</span></span><br><span class="line">Hexo deploy: 将网站文件夹上传到Github仓库，以后本地做了修改后，便进行这两个操作，将网站生成并上传即可。</span><br></pre></td></tr></table></figure>
+
+<p>5）删除博客<br>在source&#x2F;_post文件夹下，删除对应的md文件，然后通过hexo g, hexo d生成，部署网页，即可成功删除博客。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -3868,33 +3868,6 @@ th {
         <tag>电机</tag>
         <tag>O-ring</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>抽吸传感器低成本测试方案</title>
-    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
-<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
-<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
-<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
-<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
-<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
-<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
-</ul>
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
-<p>reference:</p>
-<ol>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>3D建模</tag>
-        <tag>3D打印</tag>
-        <tag>气动回路图</tag>
-        <tag>E-cigarette</tag>
       </tags>
   </entry>
   <entry>
@@ -4388,6 +4361,33 @@ th {
         <tag>Fingerprint</tag>
         <tag>Multi-angle</tag>
         <tag>多角度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>抽吸传感器低成本测试方案</title>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
+<h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
+<h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
+<h2 id="测试原理"><a href="#测试原理" class="headerlink" title="测试原理"></a>测试原理</h2><p>需要给抽吸传感器提供一个气流变化环境，气路测试系统设计，由于特殊性，测试机3D图不作展示。<br><img src="/images/%E6%B0%94%E8%B7%AF%E5%9B%9E%E8%B7%AF%E5%9B%BE.JPG" alt="气动回路图"></p>
+<h2 id="涉及到的技术"><a href="#涉及到的技术" class="headerlink" title="涉及到的技术"></a>涉及到的技术</h2><ul>
+<li>真空发生器选型:要求提供-100~-200Pa空气压力，精度为0.01Pa，需要可以抓取压力数值</li>
+<li>3D print辅助快速验证：快速迭代，用于PCBA上咪头与治具墙体之间的间隙，气流道的设计。</li>
+</ul>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>为客户降低了测试设备成本，又缩短了开发周期，最后成功完成SMT的打件与功能测试，并顺利交货。<br>此次成功的项目经验为公司业务提供了更多可能性。</p>
+<p>reference:</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5xaW55aXRlYy5jb20vIw==">http://www.qinyitec.com/#<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>3D建模</tag>
+        <tag>3D打印</tag>
+        <tag>气动回路图</tag>
+        <tag>E-cigarette</tag>
       </tags>
   </entry>
   <entry>
@@ -4901,6 +4901,105 @@ th {
         <tag>Me Tools</tag>
         <tag>ISO 286 - 1/ 286 - 2</tag>
         <tag>GB/T 1800.1 / GB/T 1800.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电机（02）：减速器.md</title>
+    <url>/2026/08/25/%E7%94%B5%E6%9C%BA%EF%BC%8802%EF%BC%89%EF%BC%9A%E5%87%8F%E9%80%9F%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>在现代机械工程与机器人领域，常见的减速器类型主要有以下 6 大类：</p>
+</blockquote>
+<h3 id="1-谐波减速器（Harmonic-Drive）"><a href="#1-谐波减速器（Harmonic-Drive）" class="headerlink" title="1. 谐波减速器（Harmonic Drive）"></a>1. 谐波减速器（Harmonic Drive）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%B0%90%E6%B3%A2.jpg"></p>
+<ul>
+<li><strong>结构组成</strong>：柔轮（Flexspline）、刚轮（Circular Spline）、波发生器（Wave Generator）。</li>
+<li><strong>工作原理</strong>：依靠波发生器使柔轮产生受控弹性变形，与刚轮的内齿形成错齿啮合，实现大减速比传动。</li>
+<li><strong>核心优势</strong>：零&#x2F;近零背隙（&lt; 1 arcmin）、体积小、重量轻、中空过线、单级减速比大（30:1 ~ 160:1）。</li>
+<li><strong>主要缺点</strong>：柔轮易金属疲劳、扭转刚度较低、冲击承载能力有限。</li>
+<li><strong>典型应用</strong>：人形机器人（肩&#x2F;肘&#x2F;手腕关节）、工业协作机械臂、航天抓取机构。</li>
+</ul>
+<hr>
+<h3 id="2-RV-减速器（RotVector-Reducer）"><a href="#2-RV-减速器（RotVector-Reducer）" class="headerlink" title="2. RV 减速器（RotVector Reducer）"></a>2. RV 减速器（RotVector Reducer）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/RV.png"></p>
+<ul>
+<li><strong>结构组成</strong>：由第一级行星齿轮传动和第二级摆线针轮传动组合而成。</li>
+<li><strong>核心优势</strong>：超高刚度、极强抗冲击能力、承载能力大、高精度与长寿命。</li>
+<li><strong>主要缺点</strong>：结构复杂、零件加工精度要求极高、重量较大、成本高。</li>
+<li><strong>典型应用</strong>：多关节工业机器人（底座&#x2F;大臂&#x2F;小臂等重载关节）、数控机床高精度转台。</li>
+</ul>
+<hr>
+<h3 id="3-行星齿轮减速器（Planetary-Gearbox）"><a href="#3-行星齿轮减速器（Planetary-Gearbox）" class="headerlink" title="3. 行星齿轮减速器（Planetary Gearbox）"></a>3. 行星齿轮减速器（Planetary Gearbox）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%A1%8C%E6%98%9F.jpg"></p>
+<ul>
+<li><strong>结构组成</strong>：太阳轮（Sun Gear）、行星齿轮（Planetary Gears）、内齿圈（Ring Gear）、行星架（Carrier）。</li>
+<li><strong>核心优势</strong>：传动效率极高（&gt; 95%）、功率密度高、结构对称受力均衡、适宜高频正反转。</li>
+<li><strong>主要缺点</strong>：存在一定背隙（常规 3<del>8 arcmin，高精度可达 1</del>3 arcmin），若追求极高精度需精配。</li>
+<li><strong>典型应用</strong>：四足&#x2F;腿足机器人（准直驱关节 QDD）、CNC 进给轴、AGV 驱动轮、自动化生产线。</li>
+</ul>
+<hr>
+<h3 id="4-摆线针轮减速器（Cycloidal-Reducer）"><a href="#4-摆线针轮减速器（Cycloidal-Reducer）" class="headerlink" title="4. 摆线针轮减速器（Cycloidal Reducer）"></a>4. 摆线针轮减速器（Cycloidal Reducer）</h3><ul>
+<li><strong>结构组成</strong>：针齿壳、摆线轮、偏心套及销轴。</li>
+<li><strong>核心优势</strong>：多齿同时啮合，抗过载与冲击能力强，结构紧凑，减速比大。</li>
+<li><strong>主要缺点</strong>：装配与对中要求高、高速时振动较明显。</li>
+<li><strong>典型应用</strong>：轻载工业机器人关节、起重运输机械、精密阀门控制。</li>
+</ul>
+<hr>
+<h3 id="5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）"><a href="#5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）" class="headerlink" title="5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）"></a>5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）</h3><ul>
+<li><strong>结构组成</strong>：采用倾斜齿线的渐开线齿轮咬合。</li>
+<li><strong>核心优势</strong>：重合度高、传动平稳、噪音低、承载力大、技术极其成熟。</li>
+<li><strong>主要缺点</strong>：轴向尺寸相对较大，存在轴向力（需搭配推力轴承）。</li>
+<li><strong>典型应用</strong>：通用工业自动化设备、工厂输送带、重型机械传动。</li>
+</ul>
+<hr>
+<h3 id="6-蜗轮蜗杆减速器（Worm-Gearbox）"><a href="#6-蜗轮蜗杆减速器（Worm-Gearbox）" class="headerlink" title="6. 蜗轮蜗杆减速器（Worm Gearbox）"></a>6. 蜗轮蜗杆减速器（Worm Gearbox）</h3><ul>
+<li><strong>结构组成</strong>：交错轴排列的蜗杆与蜗轮。</li>
+<li><strong>核心优势</strong>：结构紧凑、具有反向自锁特性（大传动比下）、运行平顺静音、成本低。</li>
+<li><strong>主要缺点</strong>：滑动摩擦大，传动效率低（通常仅 50% ~ 70%），发热量大。</li>
+<li><strong>典型应用</strong>：升降机、卷扬机、车库门控系统、低成本传动机构。</li>
+</ul>
+<hr>
+<h3 id="💡-核心减速器性能速查表"><a href="#💡-核心减速器性能速查表" class="headerlink" title="💡 核心减速器性能速查表"></a>💡 核心减速器性能速查表</h3><table>
+<thead>
+<tr>
+<th align="left">减速器类型</th>
+<th align="left">回程间隙 (Backlash)</th>
+<th align="left">传动效率</th>
+<th align="left">扭矩密度 &#x2F; 刚性</th>
+<th align="left">核心适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>谐波减速器</strong></td>
+<td align="left">极低（&lt; 1 arcmin）</td>
+<td align="left">中等（70% ~ 85%）</td>
+<td align="left">扭矩密度极高 &#x2F; 刚度一般</td>
+<td align="left">轻量化机器人关节、协作臂</td>
+</tr>
+<tr>
+<td align="left"><strong>RV 减速器</strong></td>
+<td align="left">极低（&lt; 1 arcmin）</td>
+<td align="left">高（85% ~ 90%）</td>
+<td align="left">刚性与抗冲击力极高</td>
+<td align="left">工业机器人重载关节</td>
+</tr>
+<tr>
+<td align="left"><strong>行星减速器</strong></td>
+<td align="left">低 ~ 中（1 ~ 8 arcmin）</td>
+<td align="left">极高（90% ~ 98%）</td>
+<td align="left">刚度高 &#x2F; 响应极快</td>
+<td align="left">足式机器人、伺服自动化</td>
+</tr>
+<tr>
+<td align="left"><strong>斜齿轮减速器</strong></td>
+<td align="left">较大（&gt; 10 arcmin）</td>
+<td align="left">极高（&gt; 95%）</td>
+<td align="left">适合连续大功率</td>
+<td align="left">工厂通用传动、重型机械</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>减速器</tag>
       </tags>
   </entry>
   <entry>
