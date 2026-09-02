@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PicGo error code 401 and solution.md">
+<meta property="og:url" content="https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20%E6%88%90%E5%8A%9F%E4%B8%8A%E4%BC%A0.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20401%20error.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg">
+<meta property="article:published_time" content="2026-09-02T16:01:12.000Z">
+<meta property="article:modified_time" content="2026-09-02T08:44:36.802Z">
+<meta property="article:author" content="HUNPHY">
+<meta property="article:tag" content="图床">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="PicGo">
+<meta property="article:tag" content="Error Code 401">
+<meta property="article:tag" content="Token">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20%E6%88%90%E5%8A%9F%E4%B8%8A%E4%BC%A0.jpg">
+
+
+<link rel="canonical" href="https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/","path":"2026/09/02/PicGo错误代码401和解决方法/","title":"PicGo error code 401 and solution.md"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PicGo error code 401 and solution.md | HUNPHY'S BLOG</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HUNPHY'S BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">出发，永远是最有意义的事，去做就是了。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%88%90%E5%8A%9F"><span class="nav-number">1.</span> <span class="nav-text">上传成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5"><span class="nav-number">2.</span> <span class="nav-text">上传失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">日志查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HUNPHY"
+      src="/images/Avatar.JPG">
+  <p class="site-author-name" itemprop="name">HUNPHY</p>
+  <div class="site-description" itemprop="description">出发，永远是最有意义的事，去做就是了。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">107</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Avatar.JPG">
+      <meta itemprop="name" content="HUNPHY">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HUNPHY'S BLOG">
+      <meta itemprop="description" content="出发，永远是最有意义的事，去做就是了。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PicGo error code 401 and solution.md | HUNPHY'S BLOG">
+      <meta itemprop="description" content="本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PicGo error code 401 and solution.md
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-09-02 16:01:12" itemprop="dateCreated datePublished" datetime="2026-09-02T16:01:12+00:00">2026-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此次上传失败是源于Token过期，导致上传失败。</p>
+</blockquote>
+<h2 id="上传成功"><a href="#上传成功" class="headerlink" title="上传成功"></a>上传成功</h2><p>正常图片上传成功会在右下角显示通知“上传成功”<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20%E6%88%90%E5%8A%9F%E4%B8%8A%E4%BC%A0.jpg"></p>
+<h2 id="上传失败"><a href="#上传失败" class="headerlink" title="上传失败"></a>上传失败</h2><p>自动拖拽上传图片是出现如下错误：<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20401%20error.jpg"></p>
+<h2 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h2><ol>
+<li><p>打开PicGo设置，高级，日志文件<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2.jpg"></p>
+</li>
+<li><p>日志详细解读<br>详细日志显示如下，可以看出在访问Github时，返回401 code，看起来是权限的问题，</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> transform</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] <span class="type">Can</span>&#x27;t find transformer <span class="operator">-</span> compress<span class="operator">-</span>next, <span class="keyword">switch</span> to <span class="keyword">default</span> transformer <span class="operator">-</span> path</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Transforming</span>... <span class="type">Current</span> transformer <span class="keyword">is</span> [path]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> upload</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] beforeUploadPlugins: renameFn running</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Uploading</span>... <span class="type">Current</span> uploader <span class="keyword">is</span> [github]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] failed</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">ERROR</span>] &#123;</span><br><span class="line">  <span class="string">&quot;method&quot;</span>: <span class="string">&quot;PUT&quot;</span>,</span><br><span class="line">  <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://api.github.com/repos/Burro-CMD/burro-imgbed/contents/images/blog/Parallel%20key%20dimensions%20-%20DIN%206885.jpg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">  <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Request failed with status code 401&quot;</span>,</span><br><span class="line">  <span class="string">&quot;stack&quot;</span>: <span class="string">&quot;AxiosError: Request failed with status code 401<span class="subst">\n</span>    at settle (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:2304:7)<span class="subst">\n</span>    at IncomingMessage.handleStreamEnd (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:3772:13)<span class="subst">\n</span>    at IncomingMessage.emit (node:events:531:35)<span class="subst">\n</span>    at endReadableNT (node:internal/streams/readable:1698:12)<span class="subst">\n</span>    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)&quot;</span>,</span><br><span class="line">  <span class="string">&quot;response&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;status&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;body&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Bad credentials&quot;</span>,</span><br><span class="line">      <span class="string">&quot;documentation_url&quot;</span>: <span class="string">&quot;https://docs.github.com/rest&quot;</span>,</span><br><span class="line">      <span class="string">&quot;status&quot;</span>: <span class="string">&quot;401&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录Github，点击右上角头像，选择Settings-&gt;Developer settings-&gt;Github Apps-&gt;Personal access token-&gt;Fine-grained tokens，查看之后发现token已过期。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>点击Regenerator token<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>需要复制好token，然后粘贴到PicGo中，<br>点击PicGo-&gt;图床列表-&gt;Github<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"><i class="fa fa-tag"></i> 图床</a>
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+              <a href="/tags/PicGo/" rel="tag"><i class="fa fa-tag"></i> PicGo</a>
+              <a href="/tags/Error-Code-401/" rel="tag"><i class="fa fa-tag"></i> Error Code 401</a>
+              <a href="/tags/Token/" rel="tag"><i class="fa fa-tag"></i> Token</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_copy_link"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/09/01/%E7%94%B5%E6%9C%BA%EF%BC%8804%EF%BC%89%EF%BC%9A%E9%94%AE%E5%92%8C%E9%94%AE%E6%A7%BD%E5%B0%BA%E5%AF%B8%E5%8F%8A%E6%A0%87%E5%87%86/" rel="prev" title="电机（04）：键和键槽尺寸及标准">
+                  <i class="fa fa-angle-left"></i> 电机（04）：键和键槽尺寸及标准
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HUNPHY</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">111k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:41</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
