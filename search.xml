@@ -182,102 +182,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Atom中Markdown语法</title>
-    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li>无序1</li>
-<li>无序2</li>
-<li>无序3</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>有序1</li>
-<li>有序2</li>
-<li>有序3</li>
-</ol>
-<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>静夜思<br>窗前看月光<br>抬头望山月</p>
-</blockquote>
-<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<strong>加粗的内容</strong></p>
-<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
-<p>效果：我是需要<em>斜体的内容</em></p>
-<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
-<p>我是需要___粗斜体的内容___</p>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：<del>删除线</del></p>
-<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
-<p>我是需要***<del>粗斜体删除的内容</del>***</p>
-<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
-<hr>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<u>这是需要下划线的内容</u></p>
-<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<center>这是要居中的文本内容</center></p>
-<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Java</li>
-<li><input disabled="" type="checkbox"> C</li>
-<li><input disabled="" type="checkbox"> C++</li>
-</ul>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
-<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
-<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
-<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
-<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
-<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
-<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
-
-
-<p>效果：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<center>行1 |<center>行2 |<center>行3
-:----: | :----: | :----:
-小程序 | vue | 菜鸟
-search | web前段开发工程师 | 码农
-
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
-<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
-<p>语法示例：</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
-<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
-<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
-<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Atom</tag>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Atom使用</title>
     <url>/2019/08/14/Atom%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h3><p><strong>1. Simplified-chinese-menu</strong><br>Atom 的简体中文汉化语言包,目前最全的汉化包。包含菜单汉化、右键菜单汉化以及设置汉化。</p>
@@ -393,6 +297,102 @@ search | web前段开发工程师 | 码农
       </categories>
       <tags>
         <tag>Atom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Atom中Markdown语法</title>
+    <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">无序列表        语法：-+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li>无序1</li>
+<li>无序2</li>
+<li>无序3</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">有序列表        语法：1.+空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h4 id="引用或强调"><a href="#引用或强调" class="headerlink" title="引用或强调"></a>引用或强调</h4><figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"><span class="title">引用或强调      语法:</span> ```内容```和&gt; +空格</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">静夜思</span><br><span class="line">窗前看月光</span><br><span class="line">抬头望山月</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>静夜思<br>窗前看月光<br>抬头望山月</p>
+</blockquote>
+<h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">加粗           语法: <span class="strong">**内容**</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<strong>加粗的内容</strong></p>
+<h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">斜体          语法: <span class="strong">*内容*</span>或者<span class="emphasis">__内容__</span></span><br></pre></td></tr></table></figure>
+<p>效果：我是需要<em>斜体的内容</em></p>
+<h4 id="斜粗体"><a href="#斜粗体" class="headerlink" title="斜粗体"></a>斜粗体</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">斜粗体        语法：<span class="strong">**<span class="emphasis">*内容*</span>**</span>或者<span class="strong">__<span class="emphasis">_内容_</span>__</span></span><br></pre></td></tr></table></figure>
+<p>我是需要___粗斜体的内容___</p>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight"><table><tr><td class="code"><pre><span class="line">删除线        语法：~~删除线~~</span><br></pre></td></tr></table></figure>
+<p>效果：<del>删除线</del></p>
+<h4 id="粗斜体删除"><a href="#粗斜体删除" class="headerlink" title="粗斜体删除"></a>粗斜体删除</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">粗斜体删除     语法：<span class="strong">**<span class="emphasis">*~~粗斜体删除~~*</span>**</span>或者~~<span class="strong">**<span class="emphasis">*粗斜体删除*</span>**</span>~~</span><br></pre></td></tr></table></figure>
+<p>我是需要***<del>粗斜体删除的内容</del>***</p>
+<h4 id="插入分割线"><a href="#插入分割线" class="headerlink" title="插入分割线"></a>插入分割线</h4><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">插入分割线     语法：---或者<span class="emphasis">____</span>或者<span class="strong">***</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><hr>
+<hr>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">下划线        语法：<span class="tag">&lt;<span class="name">u</span>&gt;</span>这是需要下划线的内容<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<u>这是需要下划线的内容</u></p>
+<h4 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文本居中      语法：<span class="tag">&lt;<span class="name">center</span>&gt;</span>这是要居中的文本内容<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<center>这是要居中的文本内容</center></p>
+<h4 id="Todo列表"><a href="#Todo列表" class="headerlink" title="Todo列表"></a>Todo列表</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">Todo列表     语法：</span><br><span class="line">                * <span class="selector-attr">[x]</span> Java</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C</span><br><span class="line">                * <span class="selector-attr">[ ]</span> C++</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Java</li>
+<li><input disabled="" type="checkbox"> C</li>
+<li><input disabled="" type="checkbox"> C++</li>
+</ul>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">换行         语法：</span><br><span class="line">                方法1.连续两个空格+回车</span><br><span class="line">                方法2.使用html语言换行标签<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>这是第一行，<br>这是第二行。<br>这是第一行，<br>这是第二行。</p>
+<h4 id="添加注脚"><a href="#添加注脚" class="headerlink" title="添加注脚"></a>添加注脚</h4><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">添加注脚     语法：<span class="keyword">this</span> <span class="keyword">is</span> a basic footnot [^<span class="number">1</span>]</span><br><span class="line">说明：需要在站点根目录下安装插件：</span><br><span class="line">命令：npm install hexo-<span class="built_in">ref</span>erence --save</span><br></pre></td></tr></table></figure>
+<p>效果：       this is a basic footnot <sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top hint--error hint--medium hint--rounded hint--bounce" aria-label="这是脚注">[1]</span></a></sup></p>
+<h4 id="缩进字符"><a href="#缩进字符" class="headerlink" title="缩进字符"></a>缩进字符</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">缩进字符     语法：</span><br><span class="line">               <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>不断行的空白格<span class="symbol">&amp;nbsp;</span>或<span class="symbol">&amp;#160;</span></span><br><span class="line">               <span class="symbol">&amp;ensp;</span><span class="symbol">&amp;ensp;</span>半角的空白<span class="symbol">&amp;ensp;</span>或<span class="symbol">&amp;#8194;</span></span><br><span class="line">               <span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>全角的空白<span class="symbol">&amp;emsp;</span>或<span class="symbol">&amp;#8195;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>&nbsp;&nbsp;不断行的空白格&nbsp;或&#160;<br>&ensp;&ensp;半角的空白&ensp;或&#8194;<br>&emsp;&emsp;全角的空白&emsp;或&#8195;</p>
+<h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">特殊符号     语法：<span class="punctuation">\</span><span class="punctuation">\</span>    反斜线</span><br><span class="line">                 <span class="punctuation">\</span>`    反引号</span><br><span class="line">                 \*    星号</span><br><span class="line">                 \_    底线</span><br><span class="line">                 \&#123;\&#125;    花括号</span><br><span class="line">                 \[\]    方括号</span><br><span class="line">                 \(\)    括弧</span><br><span class="line">                 \#    井号</span><br><span class="line">                 \+    加号</span><br><span class="line">                 \-    减号</span><br><span class="line">                 \.    英文句点</span><br><span class="line">                 \!    惊叹号</span><br></pre></td></tr></table></figure>
+<p>效果：<br>\    反斜线<br>`    反引号<br>*    星号<br>_    底线<br>{}    花括号<br>[]    方括号<br>()    括弧<br>#    井号<br>+    加号<br>-    减号<br>.    英文句点<br>!    惊叹号</p>
+<h4 id="存放代码块"><a href="#存放代码块" class="headerlink" title="存放代码块"></a>存放代码块</h4><figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">存放代码块    语法：<span class="string">``</span><span class="string">`代码`</span><span class="string">``</span></span><br></pre></td></tr></table></figure>
+
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">windows.<span class="property">onload</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;反斜杠```用来存放代码&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">表格      语法：</span><br><span class="line">          &lt;center&gt;行<span class="number">1</span> |&lt;center&gt;行<span class="number">2</span> |&lt;center&gt;行<span class="number">3</span></span><br><span class="line">            <span class="symbol">:----</span>:    |  <span class="symbol">:----</span>:   | <span class="symbol">:----</span>:</span><br><span class="line">            小程序     |   vue     | 菜鸟</span><br><span class="line">            search    |   工程师   | 码农</span><br><span class="line">&lt;center&gt;表示表头居中，<span class="symbol">:</span>在最左边表示左对齐，<span class="symbol">:</span>在最右边表示右对齐，左右两边都有<span class="symbol">:</span>表示居中。</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<center>行1 |<center>行2 |<center>行3
+:----: | :----: | :----:
+小程序 | vue | 菜鸟
+search | web前段开发工程师 | 码农
+
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">行内形式     语法：<span class="selector-attr">[链接文字]</span>(链接网址“标题”)</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<ol>
+<li>Example: This is an <span class="exturl" data-url="aHR0cDovL2V4YW1wbGUuY29tLw==" title="With a Title">example link<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>Example: This is an <a href="www.baidu.com">百度</a>.</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">参考形式     语法：</span><br><span class="line">               <span class="selector-attr">[链接文字]</span><span class="selector-attr">[name]</span></span><br><span class="line"></span><br><span class="line">               <span class="selector-attr">[name]</span>: link <span class="string">&quot;Title&quot;</span></span><br></pre></td></tr></table></figure>
+<p>语法示例：</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">我使用 [<span class="symbol">Google</span>][<span class="number">1</span>] 进行学术搜索多一些,使用 [百度][<span class="number">2</span>]进行日常搜索多一些，很少使用[<span class="symbol">Bing</span>][<span class="number">3</span>] .</span><br><span class="line">我不能一边使用 [百度搜索][<span class="number">2</span>] 一边骂他不如 [<span class="symbol">Google</span>][<span class="number">1</span>]，我们需要学会的是利用资源。</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>]: https://www.google.com/ <span class="string">&quot;Google&quot;</span></span><br><span class="line">[<span class="number">2</span>]: https://www.baidu.com/ <span class="string">&quot;Baidu Search&quot;</span></span><br><span class="line">[<span class="number">3</span>]: https://cn.bing.com/ <span class="string">&quot;Bing Search&quot;</span></span><br></pre></td></tr></table></figure>
+<p>效果：<br>早饭后，我打开 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC90aW5n" title="每日英语听力 - 欧路词典">每日英语听力<i class="fa fa-external-link-alt"></i></span> 学习英语。遇到不懂的英语单词，我借助 <span class="exturl" data-url="aHR0cHM6Ly9kaWN0LmV1ZGljLm5ldC8=" title="《欧路词典》在线版">欧路在线词典<i class="fa fa-external-link-alt"></i></span><br>查看释义并加入生词本，方便使用 <span class="exturl" data-url="aHR0cHM6Ly93d3cuZXVkaWMubmV0L3Y0L2VuL2FwcC9ldWRpYw==" title="《欧路词典》英语翻译软件官方主页">客户端<i class="fa fa-external-link-alt"></i></span> 随时记忆单词。</p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">插入互联网上图片         语法：</span><br><span class="line">                      我的笔记本上装了 <span class="selector-tag">openSUSE</span> <span class="selector-tag">Leap</span>:</span><br><span class="line">                      !<span class="selector-attr">[opensuse-laptop]</span>(<span class="attribute">https</span>:<span class="comment">//www.opensuse.org/build/images/opensuse-laptop.gif)</span></span><br><span class="line">说明：鼠标右键复制图片地址。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>我在我的笔记本上装了 openSUSE Leap:<br><img src="https://www.opensuse.org/build/images/opensuse-laptop.gif" alt="opensuse-laptop"></p>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">行内形式：    语法：![alt <span class="built_in">text</span>](图片网址 <span class="string">&quot;Title&quot;</span>)</span><br><span class="line">说明：alt <span class="built_in">text</span> 是替换文本；alt 属性规定在图像无法显示时的替代文本。虽然 alt <span class="built_in">text</span> 可以不填，但推荐还是填上。</span><br><span class="line">Title 是可选项，可以不屑，鼠标悬停与图片上会出现的标题文字。</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://a4.att.hudong.com/53/00/19300001232398130994005711200.jpg" alt="百度" title="百度"></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">这是脚注<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Atom</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -1346,6 +1346,52 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Github图床删除图片</title>
+    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
+<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
+</blockquote>
+<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
+<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
+<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
+<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
+<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
+<hr>
+<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
+<hr>
+<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
+<p>❌ PicGo 本身不支持删除远端图片</p>
+</blockquote>
+<p>原因很简单：</p>
+<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
+<p>👉 删除一定要回到 GitHub 仓库</p>
+<hr>
+<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
+
+<p>可能：</p>
+<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
+<p>这是 CDN 缓存，不是你删错。</p>
+<hr>
+<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>PicGo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Honda WH150T Maintenace (Official)</title>
     <url>/2026/06/03/Honda%20WH150T%20Maintenace%20(Official)/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="技术参数"><a href="#技术参数" class="headerlink" title="技术参数"></a>技术参数</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E6%8A%80%E6%9C%AF%E5%8F%82%E6%95%B01.png"></p>
@@ -1546,52 +1592,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Github图床删除图片</title>
-    <url>/2026/06/03/Github%E5%9B%BE%E5%BA%8A%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><blockquote>
-<p>删除图片 &#x3D; 从 GitHub 仓库里删除文件。<br>PicGo 只是“上传工具”，真正的图片存储在 GitHub 仓库。</p>
-</blockquote>
-<h2 id="✅方法一（最简单，推荐）：GitHub-网页直接删-✅"><a href="#✅方法一（最简单，推荐）：GitHub-网页直接删-✅" class="headerlink" title="✅方法一（最简单，推荐）：GitHub 网页直接删 ✅"></a>✅方法一（最简单，推荐）：GitHub 网页直接删 ✅</h2><p>这是最常用、最安全的方式。<br>操作步骤</p>
-<p>打开图床仓库<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://github.com/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
-<p>进入图片所在目录<br>images&#x2F;blog&#x2F;xxx.png</p>
-<p>点击图片右上角的 🗑 Delete this file<br>填写 commit message（随便写）<br>点击 Commit changes</p>
-<p>✅ 图片立刻从仓库删除<br>✅ 不影响其他图片<br>✅ 不需要本地环境</p>
-<hr>
-<h2 id="✅-方法二：本地-git-删除（适合批量）"><a href="#✅-方法二：本地-git-删除（适合批量）" class="headerlink" title="✅ 方法二：本地 git 删除（适合批量）"></a>✅ 方法二：本地 git 删除（适合批量）</h2><p>如果你本地 clone 了图床仓库：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Burro-CMD/burro-imgbed.git</span><br><span class="line"><span class="built_in">cd</span> burro-imgbed</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除单张"><a href="#删除单张" class="headerlink" title="删除单张"></a>删除单张</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/test.png</span><br><span class="line">git commit -m <span class="string">&quot;remove test image&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">rm</span> images/blog/old-*.png</span><br><span class="line">git commit -m <span class="string">&quot;remove old images&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
-<p>✅ 适合一次删很多图<br>✅ 操作可追溯（Git 历史）</p>
-<hr>
-<h2 id="✅-方法三：PicGo-能删吗？（重要说明）"><a href="#✅-方法三：PicGo-能删吗？（重要说明）" class="headerlink" title="✅ 方法三：PicGo 能删吗？（重要说明）"></a>✅ 方法三：PicGo 能删吗？（重要说明）</h2><blockquote>
-<p>❌ PicGo 本身不支持删除远端图片</p>
-</blockquote>
-<p>原因很简单：</p>
-<p>PicGo 是上传工具<br>没有“远端文件管理 UI”</p>
-<p>👉 删除一定要回到 GitHub 仓库</p>
-<hr>
-<h3 id="⚠️-非常重要：jsDelivr-缓存问题"><a href="#⚠️-非常重要：jsDelivr-缓存问题" class="headerlink" title="⚠️ 非常重要：jsDelivr 缓存问题"></a>⚠️ 非常重要：jsDelivr 缓存问题</h3><p>情况说明<br>即使你已经从 GitHub 删了图片：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png</span><br></pre></td></tr></table></figure>
-
-<p>可能：</p>
-<h3 id="✅-GitHub-上已-404"><a href="#✅-GitHub-上已-404" class="headerlink" title="✅ GitHub 上已 404"></a>✅ GitHub 上已 404</h3><p>⚠️ jsDelivr 短时间内仍能访问</p>
-<p>这是 CDN 缓存，不是你删错。</p>
-<hr>
-<h3 id="✅-正确认知"><a href="#✅-正确认知" class="headerlink" title="✅ 正确认知"></a>✅ 正确认知</h3><p>✅ 图片已经“逻辑删除”<br>✅ CDN 缓存会自动过期<br>✅ 删图本身是成功的  </p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>PicGo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Siemens NX 视图方位快捷键</title>
     <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
@@ -1767,6 +1767,27 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Solidworks高效机械设计插件</title>
     <url>/2026/05/28/Solidworks%E9%AB%98%E6%95%88%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="嘉立创ICAN工具箱"><a href="#嘉立创ICAN工具箱" class="headerlink" title="嘉立创ICAN工具箱"></a>嘉立创ICAN工具箱</h2><p><span class="exturl" data-url="aHR0cHM6Ly9pY2FuLmpsYy5jb20v">ICAN工具箱<i class="fa fa-external-link-alt"></i></span><br>description: 常用工程选型工具汇总，包括电机选型、负载计算与选型网站推荐</p>
@@ -1820,27 +1841,6 @@ th {
       <tags>
         <tag>Solidworks</tag>
         <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks参数优化</title>
-    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
-<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
-<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
-<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
-<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -2579,31 +2579,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>deploy</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -2687,6 +2662,31 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>deploy</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -2708,6 +2708,127 @@ th {
       </categories>
       <tags>
         <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
+<blockquote>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
+</blockquote>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
+<ol>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
+</blockquote>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
+<ul>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
+</ul>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
+<ul>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
+</ul>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
+<p>例如：</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
       </tags>
   </entry>
   <entry>
@@ -2856,127 +2977,6 @@ th {
       <categories>
         <category>Tech</category>
       </categories>
-  </entry>
-  <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
-</ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
-</ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
-</blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
-</blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
-</blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
-</blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
-</blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
@@ -4391,6 +4391,32 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>换空气滤芯篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>十字螺丝刀</li>
+<li>新空气滤芯，17210-K1Z-CA0</li>
+</ol>
+<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
+<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
+<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
+<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>换机油篇（实操）</title>
     <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
@@ -4449,32 +4475,6 @@ th {
         <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
         <tag>机油螺丝</tag>
         <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换空气滤芯篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
-<li>十字螺丝刀</li>
-<li>新空气滤芯，17210-K1Z-CA0</li>
-</ol>
-<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
-<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
-<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
-<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
-<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>空气滤芯</tag>
       </tags>
   </entry>
   <entry>
@@ -4904,43 +4904,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>申请美国EVUS（签证更新电子系统）</title>
-    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
-<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
-<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
-<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
-<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
-<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
-<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
-<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
-<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
-<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
-<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
-<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
-<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
-<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
-<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
-<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
-<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
-<hr>
-<p><strong>参考网站：</strong></p>
-<ol>
-<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
-<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
-<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>EVUS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>电机（02）：减速器</title>
     <url>/2026/08/25/%E7%94%B5%E6%9C%BA%EF%BC%8802%EF%BC%89%EF%BC%9A%E5%87%8F%E9%80%9F%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -5055,6 +5018,208 @@ th {
       </categories>
       <tags>
         <tag>公差表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电机（04）：键和键槽尺寸及标准</title>
+    <url>/2026/09/01/%E7%94%B5%E6%9C%BA%EF%BC%8804%EF%BC%89%EF%BC%9A%E9%94%AE%E5%92%8C%E9%94%AE%E6%A7%BD%E5%B0%BA%E5%AF%B8%E5%8F%8A%E6%A0%87%E5%87%86/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="平键标准"><a href="#平键标准" class="headerlink" title="平键标准"></a>平键标准</h2><ul>
+<li>DIN 6885：Parallel Keys，平键。属于德国 DIN 公制平键系列，尺寸单位为 mm。</li>
+<li>ASME B17.1-1967 (S2023)：Keys and Keyseats，中文可译为键和键槽。标准覆盖平键、斜键及相应键槽，常用于英制设计。通常也会看到旧式称呼 ANSI B17.1。</li>
+<li>GB&#x2F;T 1096-2003《普通型平键》：规定平键的型式、尺寸和公差。</li>
+<li>GB&#x2F;T 1095-2003《平键 键槽的剖面尺寸》：规定轴键槽和轮毂键槽尺寸。</li>
+<li>GB&#x2F;T 1568《键 技术条件》：规定材料、制造精度和验收要求。</li>
+</ul>
+<h3 id="标准对比"><a href="#标准对比" class="headerlink" title="标准对比"></a>标准对比</h3><blockquote>
+<p>GB&#x2F;T 1095 + GB&#x2F;T 1096 与 DIN 6885 属于同一套“公制平键”设计体系，尺寸系列高度接近，很多规格几乎可以直接对应；ANSI&#x2F;ASME B17.1 则是另一套英制体系.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>中国 GB</th>
+<th>德国 DIN</th>
+<th>美国 ANSI&#x2F;ASME</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>平键标准</td>
+<td>GB&#x2F;T 1096-2003</td>
+<td>DIN 6885</td>
+<td>ASME&#x2F;ANSI B17.1</td>
+</tr>
+<tr>
+<td>键槽标准</td>
+<td>GB&#x2F;T 1095-2003</td>
+<td>DIN 6885</td>
+<td>ASME&#x2F;ANSI B17.1</td>
+</tr>
+<tr>
+<td>单位</td>
+<td>mm</td>
+<td>mm</td>
+<td>inch</td>
+</tr>
+<tr>
+<td>尺寸体系</td>
+<td>公制</td>
+<td>公制</td>
+<td>英制</td>
+</tr>
+<tr>
+<td>键截面</td>
+<td>方形&#x2F;矩形</td>
+<td>方形&#x2F;矩形</td>
+<td>方形&#x2F;矩形</td>
+</tr>
+<tr>
+<td>典型尺寸</td>
+<td>8×7、10×8、12×8</td>
+<td>8×7、10×8、12×8</td>
+<td>1&#x2F;4×1&#x2F;4、3&#x2F;8×3&#x2F;8、1&#x2F;2×1&#x2F;2 等</td>
+</tr>
+<tr>
+<td>与GB兼容性</td>
+<td>基准</td>
+<td><strong>很高</strong></td>
+<td><strong>低</strong></td>
+</tr>
+</tbody></table>
+<h4 id="GB-和-DIN-6885，实际上非常接近"><a href="#GB-和-DIN-6885，实际上非常接近" class="headerlink" title="GB 和 DIN 6885，实际上非常接近"></a>GB 和 DIN 6885，实际上非常接近</h4><p>常见轴径对应：</p>
+<table>
+<thead>
+<tr>
+<th>轴径 mm</th>
+<th>GB 平键 b×h</th>
+<th>DIN 6885 b×h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;17~22</td>
+<td>6×6</td>
+<td>6×6</td>
+</tr>
+<tr>
+<td>&gt;22~30</td>
+<td>8×7</td>
+<td>8×7</td>
+</tr>
+<tr>
+<td>&gt;30~38</td>
+<td>10×8</td>
+<td>10×8</td>
+</tr>
+<tr>
+<td>&gt;38~44</td>
+<td>12×8</td>
+<td>12×8</td>
+</tr>
+<tr>
+<td>&gt;44~50</td>
+<td>14×9</td>
+<td>14×9</td>
+</tr>
+<tr>
+<td>&gt;50~58</td>
+<td>16×10</td>
+<td>16×10</td>
+</tr>
+<tr>
+<td>&gt;58~65</td>
+<td>18×11</td>
+<td>18×11</td>
+</tr>
+<tr>
+<td>&gt;65~75</td>
+<td>20×12</td>
+<td>20×12</td>
+</tr>
+<tr>
+<td>&gt;75~85</td>
+<td>22×14</td>
+<td>22×14</td>
+</tr>
+<tr>
+<td>&gt;85~95</td>
+<td>25×14</td>
+<td>25×14</td>
+</tr>
+<tr>
+<td>&gt;95~110</td>
+<td>28×16</td>
+<td>28×16</td>
+</tr>
+</tbody></table>
+<p>可以看到，两套标准在这些常用规格上的<strong>基本尺寸一致</strong>。</p>
+<h4 id="DIN-与-GB-一个值得特别注意的区别：键宽公差"><a href="#DIN-与-GB-一个值得特别注意的区别：键宽公差" class="headerlink" title="DIN 与 GB 一个值得特别注意的区别：键宽公差"></a>DIN 与 GB 一个值得特别注意的区别：键宽公差</h4><p>例如目前 GB&#x2F;T 1096-2003 对<strong>键宽 b</strong>规定为 <strong>h8</strong>。<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2xvYmFsZmFzdGVuZXIuY29tL3N0YW5kYXJkcy9kZXRhaWwucGhwP3NpZD1NakEzTmc9PQ==">globalfastener.com<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Square%20and%20rectangular%20Keys%20GB%20T%201096%20-2003.jpg"></p>
+<p>DIN 6885 资料中常见的是 <strong>h9</strong> 键宽体系，例如 DIN 普通配合常见组合：</p>
+<ul>
+<li>键：<strong>h9</strong></li>
+<li>轴键槽：<strong>N9</strong></li>
+<li>轮毂键槽：<strong>JS9</strong></li>
+</ul>
+<p>DIN 还给出了不同装配性质：</p>
+<ul>
+<li>Tight fit：P9 &#x2F; P9</li>
+<li>Normal&#x2F;loose fit：轴槽 N9 + 轮毂槽 JS9</li>
+<li>Sliding：轴槽 H9 + 轮毂槽 D10</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cua29kNS5jb20vay1rZXktZGltZW5zaW9ucy1kaW4tNjg4NS5odG1s">kod5.com<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Parallel%20key%20dimensions%20-%20DIN%206885.jpg"></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly90b29scy5tYWludGFpbmZsb3cucHJvLw==">MaintainFlow Tools<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Key%20%26%20Keyway%20Size.jpg"></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9saXZlLWthdGFsb2cuZ2FudGVybm9ybS5jb20vcGRmL2dhbnRlci9lbi82ODg1XzEucGRm">live-katalog.ganternorm.com<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/DIN%206885.jpg"></p>
+<p><strong>GB 和 DIN 的 nominal size 很接近，不代表公差要求完全相同。</strong></p>
+<p>如果在 3D 设计软件中直接插一个 DIN 6885 的 10×8 键，<strong>3D 几何基本没有问题</strong>；但如果给中国供应商出正式制造图，最好还是按照 <strong>GB&#x2F;T 1096 + GB&#x2F;T 1095</strong> 重新确认公差。<br>&#96;</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>键</tag>
+        <tag>Key</tag>
+        <tag>Keyway</tag>
+        <tag>Standard</tag>
+        <tag>DIN 6885 metric</tag>
+        <tag>ANSI B17.1 inch</tag>
+        <tag>GB/T 1096-2003</tag>
+        <tag>GB/T 1095-2003</tag>
+        <tag>GB/T 1568</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>申请美国EVUS（签证更新电子系统）</title>
+    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
+<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
+<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
+<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
+<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
+<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
+<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
+<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
+<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
+<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
+<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
+<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
+<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
+<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
+<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
+<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
+<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
+<hr>
+<p><strong>参考网站：</strong></p>
+<ol>
+<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
+<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
+<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>EVUS</tag>
       </tags>
   </entry>
   <entry>
