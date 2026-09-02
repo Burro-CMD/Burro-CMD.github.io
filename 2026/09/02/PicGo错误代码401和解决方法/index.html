@@ -20,7 +20,7 @@
 
     <meta name="description" content="本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PicGo error code 401 and solution.md">
+<meta property="og:title" content="PicGo错误代码401和解决方法">
 <meta property="og:url" content="https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="HUNPHY&#39;S BLOG">
 <meta property="og:description" content="本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。">
@@ -30,9 +30,11 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20regenerator%20token.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PicGo%E6%96%B0%E7%89%88UI.jpg">
 <meta property="article:published_time" content="2026-09-02T16:01:12.000Z">
-<meta property="article:modified_time" content="2026-09-02T08:44:36.802Z">
+<meta property="article:modified_time" content="2026-09-02T08:47:46.672Z">
 <meta property="article:author" content="HUNPHY">
 <meta property="article:tag" content="图床">
 <meta property="article:tag" content="GitHub">
@@ -46,10 +48,10 @@
 <link rel="canonical" href="https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/","path":"2026/09/02/PicGo错误代码401和解决方法/","title":"PicGo error code 401 and solution.md"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://burro-cmd.github.io/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/","path":"2026/09/02/PicGo错误代码401和解决方法/","title":"PicGo错误代码401和解决方法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>PicGo error code 401 and solution.md | HUNPHY'S BLOG</title>
+<title>PicGo错误代码401和解决方法 | HUNPHY'S BLOG</title>
   
 
 
@@ -176,7 +178,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%88%90%E5%8A%9F"><span class="nav-number">1.</span> <span class="nav-text">上传成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5"><span class="nav-number">2.</span> <span class="nav-text">上传失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">日志查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%88%90%E5%8A%9F"><span class="nav-number">1.</span> <span class="nav-text">上传成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5"><span class="nav-number">2.</span> <span class="nav-text">上传失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">日志查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%ACPicGo"><span class="nav-number">6.</span> <span class="nav-text">最新版本PicGo</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -242,12 +244,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="PicGo error code 401 and solution.md | HUNPHY'S BLOG">
+      <meta itemprop="name" content="PicGo错误代码401和解决方法 | HUNPHY'S BLOG">
       <meta itemprop="description" content="本文主要记录PicGo自动上传Github图床时出现401错误代码，以至于图片上传失败。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PicGo error code 401 and solution.md
+          PicGo错误代码401和解决方法
         </h1>
 
         <div class="post-meta-container">
@@ -318,7 +320,9 @@
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg"></p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>点击Regenerator token<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20regenerator%20token.jpg"></p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>需要复制好token，然后粘贴到PicGo中，<br>点击PicGo-&gt;图床列表-&gt;Github<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg"></p>
+<h2 id="最新版本PicGo"><a href="#最新版本PicGo" class="headerlink" title="最新版本PicGo"></a>最新版本PicGo</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2VzL3RhZy92My4wLjI=">PicGo<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PicGo%E6%96%B0%E7%89%88UI.jpg"></p>
 
     </div>
 
