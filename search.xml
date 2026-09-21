@@ -396,6 +396,151 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>B2B Connector测试探针优化复盘</title>
+    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
+<ul>
+<li>同一类产品测试结果不够稳定  </li>
+<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
+<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
+<li>现场维护频率偏高，影响测试效率</li>
+</ul>
+<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
+<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
+<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
+<ul>
+<li>分析接触不稳定的可能根因</li>
+<li>评估不同探针方案的适配性</li>
+<li>设计刀片针（Blade Pin）接触模组</li>
+<li>设计验证思路，对比弹簧探针与刀片针表现</li>
+<li>优化治具压合、定位和接触机构</li>
+<li>支持测试端导入更稳定的量产方案</li>
+</ul>
+<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
+<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
+<ul>
+<li>Conntact Pitch: 0.35mm</li>
+<li>Width of Conntact: 0.24mm</li>
+<li>Number of Signal Contacts: 40</li>
+<li>connector Type: Receptacle</li>
+</ul>
+<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
+<p>结合现场的现象，重点从以下方面排查验证：</p>
+<ul>
+<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
+<li>B2B connector 与转接板的接触是否对正稳定</li>
+<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
+<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
+<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
+</ul>
+<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
+<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
+<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
+<ul>
+<li>应用成熟  </li>
+<li>通用性强  </li>
+<li>维护和更换方便</li>
+</ul>
+<p>不足：  </p>
+<ul>
+<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
+<li>对位置偏差更敏感  </li>
+<li>在某些接触表面条件下，接触电阻波动更明显  </li>
+<li>长时间测试后，现场会出现更多偶发性接触异常</li>
+</ul>
+<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
+<ul>
+<li>接触更“明确”，接触位置更可控</li>
+<li>对表面膜层&#x2F;微弱污染更不敏感</li>
+<li>在该项目中表现出更高的重复稳定性</li>
+<li>对于特定connector结构，能够形成更有效的接触过程</li>
+</ul>
+<p>需要关注的点：</p>
+<ul>
+<li>对对位精度要求更高</li>
+<li>压力控制和行程设计要更合理</li>
+<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
+</ul>
+<p>在两种探针使用验证过程中，发现如下现象：  </p>
+<ul>
+<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
+<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
+</ul>
+<p>针对以上问题，定义了以下清洁步骤：</p>
+<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
+<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
+</ul>
+<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
+<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
+<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
+<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
+</ul>
+<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
+<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
+<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
+<ul>
+<li>保证转接板上的Pad平整且边线平直</li>
+<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
+<li>保证被测件X&#x2F; Y方向基准是明确的</li>
+<li>Z方向的压合高度是稳定的</li>
+<li>Connector 与探针相对位置重复性可控</li>
+</ul>
+<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
+<ul>
+<li>治具针膜上压板的平面度</li>
+<li>压板与被测件的接触顺序</li>
+<li>被测件的受力均匀性</li>
+</ul>
+<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
+<ul>
+<li>定义治具B2B模组的清洁周期</li>
+<li>定义刀片针的更换标准</li>
+<li>定义刀片针的失效判断方法</li>
+</ul>
+<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
+<ul>
+<li>多次重复测试的一致性</li>
+<li>接触电阻波动范围</li>
+<li>fail &#x2F; retest &#x2F; false fail 比例</li>
+<li>一定循环次数后的稳定性</li>
+<li>现场维护频率和更换频率</li>
+</ul>
+<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
+<ol>
+<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
+</ol>
+<ul>
+<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
+<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
+</ul>
+<ol start="2">
+<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
+</ol>
+<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
+<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
+<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
+<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
+<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
+<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
+<blockquote>
+<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
+</blockquote>
+<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>刀片针</tag>
+        <tag>弹簧针</tag>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>FCT</tag>
+        <tag>Pitch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Camera测试</title>
     <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
@@ -654,6 +799,132 @@ search | web前段开发工程师 | 码农
         <tag>Camera</tag>
         <tag>Chart</tag>
         <tag>FOV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
+    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
+<ul>
+<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
+<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
+<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
+<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
+<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
+<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
+<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
+<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
+<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
+<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
+<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
+<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
+<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
+</ul>
+<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
+<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
+<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
+<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
+<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
+<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
+</ul>
+<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
+<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
+<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
+<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
+<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
+<li>Datums are perfect; they are the origin for measurements.</li>
+<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
+<li>Position tolerance is usually cylindrical (use ⌀).</li>
+<li>Profile can control form, orientation, and location in one callout.</li>
+<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
+</ol>
+<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
+<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
+<li>Straightness: Shafts, edges.</li>
+<li>Circularity: Bearing races, rings.</li>
+<li>Cylindricity: Pistons, hydraulic bores.</li>
+<li>Profile: Complex 3D shapes, molds.</li>
+<li>Parallelism: Guide rails, mounting surfaces.</li>
+<li>Perpendicularity: Holes normal to a plate.</li>
+<li>Angularity: 45° brackets, bevels.</li>
+<li>Position: Hole patterns, bolt circles (#1).</li>
+<li>Concentricity: Rotating shafts, pulleys.</li>
+<li>Symmetry: Slots, tabs, symmetrical parts.</li>
+<li>Runout: Wheels, gears, rotating components.</li>
+</ol>
+<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
+  src="https://unisontek.com.tw/wp-content/uploads/2025/11/GDT-Basics-Wall-Chart.pdf"
+  width="100%"
+  height="1000px">
+</iframe>
+
+
+<iframe
+  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
+  width="100%"
+  height="1000px">
+</iframe>
+
+
+<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GD&amp;T - Location_Position (1)</title>
+    <url>/2026/09/10/GD-T-Location-Position/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Location-Tolerance-of-Position"><a href="#Location-Tolerance-of-Position" class="headerlink" title="Location - Tolerance of Position"></a>Location - Tolerance of Position</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Location-position.png"></p>
+<p>解读：位置度 | Ø0.03 | A | B | C</p>
+<ol>
+<li>方框基本尺寸定义孔的理论正确位置。  </li>
+<li>按照基准顺序 A、B、C 建立基准参考系（Datum Reference Frame, DRF）。  </li>
+<li>该孔的实际轴线必须位于一个直径为0.03 mm的圆柱形公差带内。该圆柱公差带的中心轴线就是孔的理论正确轴线。  </li>
+<li>图中位置度公差值后未见 Ⓜ 或 Ⓛ，按 ASME Y14.5 的解释，与特征尺寸无关 RFS。  </li>
+<li>最大中心偏移量：<br>实际孔轴线简化为与理论轴线平行，仅考虑X、Y方向的中心偏移，则允许的最大径向偏移为：<br>0.03&#x2F;2 &#x3D; 0.015mm</li>
+</ol>
+<p>所以：<br>位置度公差带直径：0.03 mm<br>最大单边径向偏移：0.015 mm<br>换算成微米：15 μm</p>
+<h2 id="二维简化计算"><a href="#二维简化计算" class="headerlink" title="二维简化计算"></a>二维简化计算</h2><p> CMM 报告给出相对理论位置的中心偏差：</p>
+<ul>
+<li>X 方向偏差为 $\Delta X$</li>
+<li>Y 方向偏差为 $\Delta Y$</li>
+</ul>
+<p>则直径制位置度结果通常表示为：</p>
+<p>$$<br>T_P &#x3D; 2\sqrt{(\Delta X)^2 + (\Delta Y)^2}<br>$$</p>
+<p>合格条件为：</p>
+<p>$$<br>T_P \leq 0.03\ \text{mm}<br>$$</p>
+<p>例如：</p>
+<p>$$<br>\Delta X &#x3D; 0.009\ \text{mm}<br>$$</p>
+<p>$$<br>\Delta Y &#x3D; 0.012\ \text{mm}<br>$$</p>
+<p>那么：</p>
+<p>$$<br>T_P &#x3D; 2\sqrt{0.009^2 + 0.012^2}<br>$$</p>
+<p>$$<br>T_P &#x3D; 2 \times 0.015 &#x3D; 0.030\ \text{mm}<br>$$</p>
+<p>结果正好处于合格边界。</p>
+<p>再举超差例子：</p>
+<p>$$<br>\Delta X &#x3D; 0.010\ \text{mm}, \quad<br>\Delta Y &#x3D; 0.012\ \text{mm}<br>$$</p>
+<p>$$<br>T_P &#x3D; 2\sqrt{0.010^2 + 0.012^2}<br>\approx 0.0312\ \text{mm}<br>$$</p>
+<p>由于：</p>
+<p>$$<br>0.0312 &gt; 0.030<br>$$</p>
+<p>因此超差约：</p>
+<p>$$<br>0.0312 - 0.030 &#x3D; 0.0012\ \text{mm}<br>$$</p>
+<p>也就是约 <strong>1.2 μm</strong>。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+        <tag>Location</tag>
+        <tag>ASME Y14.5-2018</tag>
+        <tag>GB/T 1182-2018</tag>
       </tags>
   </entry>
   <entry>
@@ -1062,77 +1333,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>GD&amp;T Symbols and Guidelines Cheat Sheet</title>
-    <url>/2021/12/16/GD&amp;T%20Symbols%20and%20Guidelines%20Cheat%20Sheet/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="STANDARD-ASME-Y14-5-2018"><a href="#STANDARD-ASME-Y14-5-2018" class="headerlink" title="STANDARD: ASME Y14.5-2018"></a>STANDARD: ASME Y14.5-2018</h3><h4 id="GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）"><a href="#GEOMETRIC-CHARACTERISTIC-SYMBOLS（14-Symbols）" class="headerlink" title="GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）"></a>GEOMETRIC CHARACTERISTIC SYMBOLS（14 Symbols）</h4><p><strong>1) FORM（No Datum）</strong></p>
-<ul>
-<li><strong>Straightness —— 直线度</strong><br>Symbol: —<br>Meaning: Element lies between two parallel lines.<br>Zone: 2 parallel lines.</li>
-<li><strong>Flatness —— 平面度</strong><br>Symbol: ▭<br>Meaning: Surface between two parallel planes.<br>Zone: 2 parallel planes.</li>
-<li><strong>Circularity (Roundness) —— 圆度</strong><br>Symbol: ◯<br>Meaning: Cross-section between two concentric circles.<br>Zone: 2 concentric circles.</li>
-<li><strong>Cylindricity —— 圆柱度</strong><br>Symbol: ⌭<br>Meaning: Entire cylinder between two concentric cylinders.<br>Zone: 2 concentric cylinders.<br><strong>2) PROFILE（Datum optional）</strong></li>
-<li><strong>Profile of a Line —— 线轮廓度</strong><br>Symbol: ⌒<br>Meaning: Each line element within tolerance band.<br>Zone: Band along true profile.</li>
-<li><strong>Profile of a Surface —— 面轮廓度</strong><br>Symbol: ⌓<br>Meaning: Entire surface within tolerance band.<br>Zone: 3D band around true profile.<br><strong>3) ORIENTATION（Require Datum）</strong></li>
-<li><strong>Parallelism —— 平行度</strong><br>Symbol: ||<br>Meaning: Parallel to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Perpendicularity —— 垂直度</strong><br>Symbol: ⊥<br>Meaning: 90° to datum plane&#x2F;axis.<br>Zone: 2 parallel planes &#x2F; cylinder.</li>
-<li><strong>Angularity —— 倾斜度</strong><br>Symbol: ∠<br>Meaning: At specified basic angle to datum.<br>Zone: 2 parallel planes at basic angle.<br><strong>4) LOCATION（Require Datum）</strong></li>
-<li><strong>Position —— 位置度（最常用）</strong><br>Symbol: ⊕<br>Meaning: Center&#x2F;axis location relative to datums.<br>Zone: Cylinder (usually ⌀tolerance).</li>
-<li><strong>Concentricity —— 同轴度</strong><br>Symbol: ◎<br>Meaning: Median points coaxial with datum axis.<br>Zone: Cylinder about datum axis.</li>
-<li><strong>Symmetry —— 对称度</strong><br>Symbol: ≡<br>Meaning: Median plane symmetric to datum.<br>Zone: Two parallel planes symmetric about datum.<br><strong>5) RUNOUT（Require Datum Axis）</strong></li>
-<li><strong>Circular Runout —— 圆跳动</strong><br>Symbol: ↗<br>Meaning: Variation in one revolution at one cross-section.<br>Zone: Radial displacement at one section.</li>
-<li><strong>Total Runout —— 全跳动</strong><br>Symbol: ⌰<br>Meaning: Variation along entire surface in rotation.<br>Zone: Two concentric cylinders.</li>
-</ul>
-<h4 id="IMPORTANT-MODIFIERS（常用修饰符）"><a href="#IMPORTANT-MODIFIERS（常用修饰符）" class="headerlink" title="IMPORTANT MODIFIERS（常用修饰符）"></a>IMPORTANT MODIFIERS（常用修饰符）</h4><ul>
-<li><strong>MMC —— Maximum Material Condition</strong><br>Symbol: Ⓜ<br>Meaning: Largest size for external features, smallest for internal.</li>
-<li><strong>LMC —— Least Material Condition</strong><br>Symbol: Ⓛ<br>Meaning: Smallest size for external features, largest for internal.</li>
-<li><strong>RFS —— Regardless of Feature Size（默认，不写）</strong><br>Meaning: Tolerance same at any size.</li>
-<li><strong>Projected Tolerance Zone —— 延伸公差带</strong><br>Symbol: Ⓟ<br>Meaning: Zone extends away from feature (for pins&#x2F;studs).</li>
-<li><strong>Diameter Symbol —— 直径符号</strong><br>Symbol: ⌀<br>Meaning: Tolerance zone is cylindrical.</li>
-</ul>
-<h4 id="FEATURE-CONTROL-FRAME-FCF-FORMAT"><a href="#FEATURE-CONTROL-FRAME-FCF-FORMAT" class="headerlink" title="FEATURE CONTROL FRAME (FCF) FORMAT"></a>FEATURE CONTROL FRAME (FCF) FORMAT</h4><p><strong>Example:⊕ ⌀0.1 Ⓜ A B C</strong><br>1: Symbol (Position)<br>2: Tolerance value (diameter 0.1)<br>3: Modifier (MMC)<br>4–6: Datum references (A, B, C)</p>
-<h4 id="FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）"><a href="#FUNDAMENTAL-GD-T-RULES（ASME-Y14-5）" class="headerlink" title="FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）"></a>FUNDAMENTAL GD&amp;T RULES（ASME Y14.5）</h4><ol>
-<li>All dimensions must have a tolerance (except reference&#x2F;min&#x2F;max&#x2F;stock).</li>
-<li>Dimensions &amp; tolerances fully define each feature; no assumed measurements.</li>
-<li>Basic dimensions have no tolerance; they define true position&#x2F;angle.</li>
-<li>Datums are perfect; they are the origin for measurements.</li>
-<li>Form controls do not use datums; orientation&#x2F;location&#x2F;runout require datums.</li>
-<li>Position tolerance is usually cylindrical (use ⌀).</li>
-<li>Profile can control form, orientation, and location in one callout.</li>
-<li>MMC&#x2F;LMC only apply to features of size (holes, pins, slots).</li>
-</ol>
-<h4 id="QUICK-USE-GUIDE"><a href="#QUICK-USE-GUIDE" class="headerlink" title="QUICK USE GUIDE"></a>QUICK USE GUIDE</h4><ol>
-<li>Flatness: Gasket&#x2F;sealing surfaces.</li>
-<li>Straightness: Shafts, edges.</li>
-<li>Circularity: Bearing races, rings.</li>
-<li>Cylindricity: Pistons, hydraulic bores.</li>
-<li>Profile: Complex 3D shapes, molds.</li>
-<li>Parallelism: Guide rails, mounting surfaces.</li>
-<li>Perpendicularity: Holes normal to a plate.</li>
-<li>Angularity: 45° brackets, bevels.</li>
-<li>Position: Hole patterns, bolt circles (#1).</li>
-<li>Concentricity: Rotating shafts, pulleys.</li>
-<li>Symmetry: Slots, tabs, symmetrical parts.</li>
-<li>Runout: Wheels, gears, rotating components.</li>
-</ol>
-<h4 id="GD-T-Symbols-Chart"><a href="#GD-T-Symbols-Chart" class="headerlink" title="GD&amp;T Symbols Chart"></a>GD&amp;T Symbols Chart</h4><iframe
-  src="https://2050755.hs-sites.com/hubfs/Charts/GD%26T_Reference_Chart.pdf?utm_source=email&utm_medium=email&utm_campaign=lead-magnet-funnel&utm_content=delivery-wall-chart-download&_hsmi=418664663&_hsenc=p2ANqtz--dmxAnabqlkzdta2iZlmlIPVEfR8Y0yIFoBmyfHJkQCNI4F96KzPODgIo1gHh4e0uY0RAncmVaRTFCwzQkEJULHU4Ckg&hsCtaAttrib=212470217330"
-  width="100%"
-  height="1000px">
-</iframe>
-
-
-<h5 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h5><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtYWR2aWNlLw==">GD&amp;T Training Blog<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2RhbmR0YmFzaWNzLmNvbS9nZHQtc3ltYm9scy8=">GD&amp;T Symbols Reference Guide<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GD&amp;T</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GRR</title>
     <url>/2026/05/17/GRR/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
@@ -1501,6 +1701,179 @@ th {
         <tag>MacBook</tag>
         <tag>效率</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PicGo错误代码401和解决方法</title>
+    <url>/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此次上传失败是源于Token过期，导致上传失败。</p>
+</blockquote>
+<h2 id="上传成功"><a href="#上传成功" class="headerlink" title="上传成功"></a>上传成功</h2><p>正常图片上传成功会在右下角显示通知“上传成功”<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20%E6%88%90%E5%8A%9F%E4%B8%8A%E4%BC%A0.jpg"></p>
+<h2 id="上传失败"><a href="#上传失败" class="headerlink" title="上传失败"></a>上传失败</h2><p>自动拖拽上传图片是出现如下错误：<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20401%20error.jpg"></p>
+<h2 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h2><ol>
+<li><p>打开PicGo设置，高级，日志文件<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2.jpg"></p>
+</li>
+<li><p>日志详细解读<br>详细日志显示如下，可以看出在访问Github时，返回401 code，看起来是权限的问题，</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> transform</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] <span class="type">Can</span>&#x27;t find transformer <span class="operator">-</span> compress<span class="operator">-</span>next, <span class="keyword">switch</span> to <span class="keyword">default</span> transformer <span class="operator">-</span> path</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Transforming</span>... <span class="type">Current</span> transformer <span class="keyword">is</span> [path]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> upload</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] beforeUploadPlugins: renameFn running</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Uploading</span>... <span class="type">Current</span> uploader <span class="keyword">is</span> [github]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] failed</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">ERROR</span>] &#123;</span><br><span class="line">  <span class="string">&quot;method&quot;</span>: <span class="string">&quot;PUT&quot;</span>,</span><br><span class="line">  <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://api.github.com/repos/Burro-CMD/burro-imgbed/contents/images/blog/Parallel%20key%20dimensions%20-%20DIN%206885.jpg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">  <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Request failed with status code 401&quot;</span>,</span><br><span class="line">  <span class="string">&quot;stack&quot;</span>: <span class="string">&quot;AxiosError: Request failed with status code 401<span class="subst">\n</span>    at settle (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:2304:7)<span class="subst">\n</span>    at IncomingMessage.handleStreamEnd (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:3772:13)<span class="subst">\n</span>    at IncomingMessage.emit (node:events:531:35)<span class="subst">\n</span>    at endReadableNT (node:internal/streams/readable:1698:12)<span class="subst">\n</span>    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)&quot;</span>,</span><br><span class="line">  <span class="string">&quot;response&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;status&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;body&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Bad credentials&quot;</span>,</span><br><span class="line">      <span class="string">&quot;documentation_url&quot;</span>: <span class="string">&quot;https://docs.github.com/rest&quot;</span>,</span><br><span class="line">      <span class="string">&quot;status&quot;</span>: <span class="string">&quot;401&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录Github，点击右上角头像，选择Settings-&gt;Developer settings-&gt;Github Apps-&gt;Personal access token-&gt;Fine-grained tokens，查看之后发现token已过期。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>点击Regenerator token<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20regenerator%20token.jpg"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>需要复制好token，然后粘贴到PicGo中，<br>点击PicGo-&gt;图床列表-&gt;Github<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg"></p>
+<h2 id="最新版本PicGo"><a href="#最新版本PicGo" class="headerlink" title="最新版本PicGo"></a>最新版本PicGo</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2VzL3RhZy92My4wLjI=">PicGo<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PicGo%E6%96%B0%E7%89%88UI.jpg"></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>PicGo</tag>
+        <tag>Error Code 401</tag>
+        <tag>Token</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Siemens NX 视图方位快捷键</title>
+    <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt="NX坐标系"></p>
+<ul>
+<li><code>Home</code>：正三侧视图</li>
+<li><code>End</code>：正等侧视图</li>
+</ul>
+<hr>
+<ul>
+<li><code>Ctrl+Alt+F</code>：正前方（Front）</li>
+<li><code>Ctrl+Alt+T</code>：正上方（Top）</li>
+<li><code>Ctrl+Alt+R</code>：右（Right）</li>
+<li><code>Ctrl+Alt+L</code>：左（Left）</li>
+</ul>
+<hr>
+<ul>
+<li><code>F6</code>：缩放，启用后，按鼠标左键框选矩形，会放大矩形区域。  </li>
+<li><code>F7</code>：旋转，启用后按住鼠标左键进行旋转，与鼠标中键一样。</li>
+<li><code>F8</code>：选择一个面，按此键可以正视于选择的面。无选择面，则正视于前、后、左、右、仰、俯视图中最接近的其中一个</li>
+<li><code>Ctrl+F</code>：适合窗口（Fit Window），将视图大小缩放到适合的窗口。</li>
+<li><code>Ctrl+R</code>：旋转视图（Rotate View），可以沿指定轴旋转。</li>
+<li><code>Ctrl+Shift+Z</code>：缩放视图（Zoom View），指定倍率缩放。</li>
+</ul>
+<hr>
+<ul>
+<li>显示&#x2F;隐藏WCS坐标<ul>
+<li>“W”</li>
+<li>菜单-&gt;格式-&gt;WCS -&gt;显示</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX 2506</tag>
+        <tag>视图方位快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SolidWorks在设备设计中的运动动画应用实践</title>
+    <url>/2024/02/27/SolidWorks%E5%9C%A8%E8%AE%BE%E5%A4%87%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%BF%90%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="模型处理"><a href="#模型处理" class="headerlink" title="模型处理"></a>模型处理</h2><p>&emsp;&emsp;主要对整个模型进行一些基本的处理，以便后期模型运动提供便利。</p>
+<h3 id="模型颜色的处理"><a href="#模型颜色的处理" class="headerlink" title="模型颜色的处理"></a>模型颜色的处理</h3><p>&emsp;&emsp;主要是对模型颜色进行着色，这关系到后期视频的输出画面。</p>
+<h3 id="模型环境处理"><a href="#模型环境处理" class="headerlink" title="模型环境处理"></a>模型环境处理</h3><p>&emsp;&emsp;主要是对模型周边的环境进行设备，灯光，摄像头等基础进行设置。</p>
+<h3 id="模型约束关系的处理"><a href="#模型约束关系的处理" class="headerlink" title="模型约束关系的处理"></a>模型约束关系的处理</h3><p>&emsp;&emsp;如果我们拿到的是.step档的话，还需要对模型一些部件进行一些基础的约束，再对模型主要部件进行X&#x2F; Y&#x2F; Z 方向约束。</p>
+<h2 id="模型运动逻辑关系"><a href="#模型运动逻辑关系" class="headerlink" title="模型运动逻辑关系"></a>模型运动逻辑关系</h2><h3 id="测量并计算每个零部件需要到达的距离"><a href="#测量并计算每个零部件需要到达的距离" class="headerlink" title="测量并计算每个零部件需要到达的距离"></a>测量并计算每个零部件需要到达的距离</h3><ol>
+<li><p>Y轴移动产品正上方<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E4%BA%A7%E5%93%81%E8%87%B3%E6%AD%A3%E4%B8%8A%E6%96%B9.png"></p>
+</li>
+<li><p>Z轴下降到产品位置<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0%E4%BA%A7%E5%93%81%E4%BD%8D%E7%BD%AE.png"></p>
+</li>
+<li><p>Y轴移动Tester正上方<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E7%A7%BB%E5%8A%A8Tester%E6%AD%A3%E4%B8%8A%E6%96%B9.png"></p>
+</li>
+</ol>
+<h3 id="理顺各零件的动作顺序"><a href="#理顺各零件的动作顺序" class="headerlink" title="理顺各零件的动作顺序"></a>理顺各零件的动作顺序</h3><p>&emsp;&emsp;理顺各零件的动作顺序。  </p>
+<ol>
+<li><p>初始状态<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/1%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81.png"></p>
+</li>
+<li><p>Y轴移动到172.98mm位置<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/2Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0172.98mm%E4%BD%8D%E7%BD%AE.png"></p>
+</li>
+<li><p>Z轴下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/3.Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
+</li>
+<li><p>夹爪气缸夹紧4mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/4.%E5%A4%B9%E7%88%AA%E6%B0%94%E7%BC%B8%E5%A4%B9%E7%B4%A74mm.png"></p>
+</li>
+<li><p>Z轴带着产品上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/5.Z%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
+</li>
+<li><p>Y轴移动到319.48mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/6.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0319.48mm.png"></p>
+</li>
+<li><p>Z轴下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/7.Z%E8%BD%B4%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
+</li>
+<li><p>下压停留1s进行测试<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/8.%E4%B8%8B%E5%8E%8B%E5%81%9C%E7%95%991s%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95.png"></p>
+</li>
+<li><p>测试完成，Z轴带着产品上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/9.%E6%B5%8B%E8%AF%95%E5%AE%8C%E6%88%90%EF%BC%8CZ%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
+</li>
+<li><p>10.Y轴移动到172.98mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/10.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B0172.98mm.png"></p>
+</li>
+<li><p>Z轴带着产品下降到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/11.Z%E8%BD%B4%E5%B8%A6%E7%9D%80%E4%BA%A7%E5%93%81%E4%B8%8B%E9%99%8D%E5%88%B0138mm.png"></p>
+</li>
+<li><p>松开夹爪4mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/12.%E6%9D%BE%E5%BC%80%E5%A4%B9%E7%88%AA4mm.png"></p>
+</li>
+<li><p>Z轴上升到138mm<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/13.Z%E8%BD%B4%E4%B8%8A%E5%8D%87%E5%88%B0138mm.png"></p>
+</li>
+<li><p>Y轴移动到0mm（初始位置）<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/14.Y%E8%BD%B4%E7%A7%BB%E5%8A%A8%E5%88%B00mm%EF%BC%88%E5%88%9D%E5%A7%8B%E4%BD%8D%E7%BD%AE%EF%BC%89.png"></p>
+</li>
+</ol>
+<h3 id="列出逻辑关系时序图"><a href="#列出逻辑关系时序图" class="headerlink" title="列出逻辑关系时序图"></a>列出逻辑关系时序图</h3><p>&emsp;&emsp;对时序，节拍进行规划，实际的节拍可能会很短，但是视频展现出来的节拍时间要适当的加长，这样最终视频呈现出来才比较合理。<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E6%97%B6%E5%BA%8F%E5%9B%BE.png"></p>
+<h2 id="动画制作"><a href="#动画制作" class="headerlink" title="动画制作"></a>动画制作</h2><p>&emsp;&emsp;根据逻辑关系时序图，对每个驱动部件添加动力以及时间。以下是算例中各部件的逻辑时序图。</p>
+<ol>
+<li><p>新建算例<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E8%BF%90%E5%8A%A8%E7%AE%97%E4%BE%8Bpng.png"></p>
+</li>
+<li><p>调整视频输出视图<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%B0%83%E6%95%B4%E8%A7%86%E9%A2%91%E8%BE%93%E5%87%BA%E8%A7%86%E5%9B%BE.png"></p>
+</li>
+<li><p>添加马达</p>
+</li>
+</ol>
+<p>马达：为每个夹爪添加马达（8x）<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Clamper%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<p>马达；产品水平移动，马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/DUT%E6%B0%B4%E5%B9%B3%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<p>马达：Y轴移动，线性马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Y%E8%BD%B4%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<p>马达：Z轴升降，线性马达1x<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Z%E8%BD%B4%E6%97%B6%E5%BA%8F%E8%AF%A6%E5%9B%BE.png"></p>
+<h2 id="视频输出"><a href="#视频输出" class="headerlink" title="视频输出"></a>视频输出</h2><p>&emsp;&emsp;主要是视频的输出，包括视频文件名称以及位置，视频格式，视频比例。</p>
+<h3 id="八个夹爪动作"><a href="#八个夹爪动作" class="headerlink" title="八个夹爪动作"></a>八个夹爪动作</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/8.gif"></p>
+<h3 id="整个设备动作"><a href="#整个设备动作" class="headerlink" title="整个设备动作"></a>整个设备动作</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BE%93%E5%87%BAvideo.gif"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>仿真</tag>
+        <tag>动画</tag>
+        <tag>插件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -3587,8 +3960,315 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>微针连接技术选型与应用综述</title>
+    <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
+<ul>
+<li>ACS&#x2F; 硅胶探针  </li>
+<li>Blade Pin&#x2F; 片针&#x2F; 叶片针  </li>
+<li>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</li>
+</ul>
+<p>这三类方案覆盖的 pitch 区间不同，适合的测试对象也不同。下面主要从工程实际使用角度来分享这三类微针的不同。</p>
+<h2 id="分类和技术原理"><a href="#分类和技术原理" class="headerlink" title="分类和技术原理"></a>分类和技术原理</h2><h3 id="ACS-硅胶探针"><a href="#ACS-硅胶探针" class="headerlink" title="ACS&#x2F; 硅胶探针"></a>ACS&#x2F; 硅胶探针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png"></p>
+<p>&emsp;&emsp;ACS (Anisotropic Conductive Sheet) 可以理解为一种基于弹性体的异向导电接触方案。常见形式是在硅胶或类似弹性材料中布置导电介质，通过压缩后实现Z向导通，同时尽量保持平面方向的绝缘。  </p>
+<p>比较典型的pitch区间：0.08 ~ 0.30mm。</p>
+<p>&emsp;&emsp;从使用场景来看，ACS更适合处理超细pitch、较脆弱pad、大面积阵列接触这类问题。———<strong>面向超细间距和柔性接触的测试方案</strong>  </p>
+<h4 id="ACS的优势主要在于："><a href="#ACS的优势主要在于：" class="headerlink" title="ACS的优势主要在于："></a>ACS的优势主要在于：</h4><ul>
+<li>能够支持较小pitch；  </li>
+<li>对被测件表面高度差有一定适应能力；  </li>
+<li>接触应力相对分散；  </li>
+<li>对glass、MEMS、细小 pad 阵列相对友好。</li>
+</ul>
+<h4 id="ACS的局限："><a href="#ACS的局限：" class="headerlink" title="ACS的局限："></a>ACS的局限：</h4><ul>
+<li><strong>电流能力有限；</strong>  </li>
+<li><strong>接触电阻一致性依赖压缩量和压力均匀性；</strong>  </li>
+<li><strong>高频信号能力通常不是强项；</strong>  </li>
+<li><strong>治具结构需要保证比较均匀的压合状态。</strong></li>
+</ul>
+<p>因此，ACS 更适合解决<strong>“接触点很密、被测件较脆弱、测试电流不大”</strong>的问题。</p>
+<h3 id="Blade-Pin-片针-叶片针"><a href="#Blade-Pin-片针-叶片针" class="headerlink" title="Blade Pin&#x2F; 片针&#x2F; 叶片针"></a>Blade Pin&#x2F; 片针&#x2F; 叶片针</h3><p><img src="https://components.omron.com/us-en/sites/components.omron.com.us/files/2023-05/efc-top_05_01_en.jpg"></p>
+<p>&emsp;&emsp;Blade Pin 是一种金属片式接触结构。它不像传统弹簧针那样依靠针管和内部弹簧提供行程，而是通过金属片本身的结构形变、刃口或接触边缘与 pad 形成导通。<br>&emsp;&emsp;在工程应用中，Blade Pin 的定位比较明确：<br><strong>它主要解决 ACS 和传统弹簧针之间的中间 pitch 精密测试问题。</strong></p>
+<p>比较典型的 Blade Pin pitch区间是：0.175 ~ 0.350 mm</p>
+<h4 id="Blade-Pin的优势主要在于："><a href="#Blade-Pin的优势主要在于：" class="headerlink" title="Blade Pin的优势主要在于："></a>Blade Pin的优势主要在于：</h4><ul>
+<li>能支持较高密度的金属接触；</li>
+<li>接触路径比 ACS 更明确；</li>
+<li>接触电阻相对容易控制；</li>
+<li>对 camera module、display module、B-to-B connector 区域测试比较适用。</li>
+</ul>
+<h4 id="Blade-Pin-对结构设计要求也比较高："><a href="#Blade-Pin-对结构设计要求也比较高：" class="headerlink" title="Blade Pin 对结构设计要求也比较高："></a>Blade Pin 对结构设计要求也比较高：</h4><ul>
+<li>对位精度要求高；</li>
+<li>对被测pad的平面度和位置公差敏感；</li>
+<li>不适合直接压在过于脆弱的材料上；</li>
+<li>接触力、刮擦量和 pad 表面处理需要提前验证。</li>
+</ul>
+<p>所以一般不会把Blade Pin视为通用探针，而是把它看作一种针对<strong>fine pitch connector或精密模组接口的专用测试方案</strong>。</p>
+<h3 id="Spring-Pin-弹簧针-Pogo-Pin"><a href="#Spring-Pin-弹簧针-Pogo-Pin" class="headerlink" title="Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin"></a>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</h3><p><img src="https://www.qatech.com/images/home/2020/5_probes_banner.png"></p>
+<p>&emsp;&emsp;弹簧针是测试治具中最常见的方案之一。它依靠内部弹簧提供行程补偿，通过针头与pad接触实现导通。</p>
+<p>弹簧针的优点不在于支持最小 pitch，而在于：</p>
+<ul>
+<li>技术成熟；</li>
+<li>规格丰富；</li>
+<li>寿命较好；</li>
+<li>维护方便；</li>
+<li>对治具公差有一定容忍度；</li>
+<li>可以覆盖信号、电源、功能测试等多种需求。</li>
+</ul>
+<p>一般把弹簧针归类为：<br><strong>面向较大 pitch、通用测试和可靠连接的成熟方案。</strong></p>
+<p>&emsp;&emsp;弹簧针适合ICT、FCT、模组接口、电池接口、电源测试、板级测试等场景。只要pitch 条件允许，弹簧针通常是<strong>优先考虑的方案</strong>。</p>
+<p>在fine pitch场景下，弹簧针会遇到限制：</p>
+<ul>
+<li>结构尺寸较大；</li>
+<li>pitch 缩小后成本和制造难度上升；</li>
+<li>高密度排布下维护难度增加；</li>
+<li>过小 pitch 下容易受到对位、偏摆和针头尺寸限制。</li>
+</ul>
+<p>因此，当pitch 小于0.4 mm时，通常会谨慎评估弹簧针方案的可行性。</p>
+<h2 id="Pitch选型"><a href="#Pitch选型" class="headerlink" title="Pitch选型"></a>Pitch选型</h2><p>&emsp;&emsp;在实际项目中，通常是优先看pitch。pitch决定了接触单元能不能放得下，也决定了后续加工、装配、对位和维护的难度。</p>
+<p>下面是在方案评估中常用的 pitch 分界。</p>
+<h3 id="Pitch-0-10-mm"><a href="#Pitch-0-10-mm" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h3><p>&emsp;&emsp;当 pitch小于0.10mm 时，基本进入超细间距范围。<br>&emsp;&emsp;这个区间内，传统金属针类方案很难稳定实现。接触单元尺寸、加工精度、装配公差和对位能力都会成为问题。</p>
+<p>这种情况下，通常会优先考虑：</p>
+<ul>
+<li>ACS&#x2F; 硅胶探针；</li>
+<li>其他基于弹性体或面接触的方案。</li>
+</ul>
+<p>这个区间的核心不是追求高电流或长寿命，而是先解决“能否稳定接触”的问题</p>
+<h4 id="Pitch-0-10-0-175-mm"><a href="#Pitch-0-10-0-175-mm" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h4><p>&emsp;&emsp;当pitch 在 0.10 ~ 0.175 mm 时，ACS 仍然是主要方案。<br>&emsp;&emsp;这个区间虽然比 0.10 mm 以下稍宽，但对接触结构的尺寸和位置精度仍然非常敏感。<br>&emsp;&emsp;Blade Pin 在这个区间通常不是常规选择，除非供应商有成熟的定制能力，并且项目能够接受较高的开发和验证风险。  </p>
+<p>这个区间通常会重点关注：</p>
+<ul>
+<li>pad尺寸；</li>
+<li>pad表面处理；</li>
+<li>压缩量；</li>
+<li>被测件平面度；</li>
+<li>治具压合均匀性。</li>
+</ul>
+<h4 id="Pitch-0-175-0-30-mm"><a href="#Pitch-0-175-0-30-mm" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h4><p>&emsp;&emsp;当pitch进入 0.175 ~ 0.30 mm 后，ACS 和Blade Pin 会出现重叠。<br>&emsp;&emsp;这个区间是方案判断比较关键的区域。不能只看pitch，还要结合测试目标。  </p>
+<ul>
+<li>如果被测件比较脆弱，例如 glass、MEMS、薄型 sensor或细小pad阵列，倾向 ACS。  </li>
+<li>如果项目更关注接触电阻、金属导通路径、信号稳定性和重复测试寿命，倾向Blade Pin。</li>
+</ul>
+<p>这个区间可以理解为：ACS 和 Blade Pin 的竞争区间。</p>
+<p>在实际评估时，重点看以下几个问题：</p>
+<ul>
+<li>被测pad是否能承受金属接触；</li>
+<li>是否有高速信号；</li>
+<li>是否有电流需求；</li>
+<li>测试寿命要求是多少；</li>
+<li>治具是否能保证稳定对位；</li>
+<li>允许的维护周期和成本是多少。</li>
+</ul>
+<h4 id="Pitch-0-30-0-40-mm"><a href="#Pitch-0-30-0-40-mm" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h4><p>&emsp;&emsp;当pitch在 0.30 ~ 0.40 mm 时，Blade Pin通常会更有优势。<br>&emsp;&emsp;这个区间内，Blade Pin的尺寸、接触稳定性和可制造性相对比较平衡。<br>&emsp;&emsp;相对 ACS，Blade Pin的金属接触路径更清楚；相对弹簧针，Blade Pin又可以支持更小的间距。</p>
+<p>因此，在camera module、display module、fine pitch B-to-B connector测试中，这个区间经常会考虑Blade Pin。  </p>
+<p>&emsp;&emsp;当然，是否最终采用 Blade Pin，还要看 pad设计和被测件结构。如果pad面积太小、表面处理不适合，或者被测件不能承受局部接触力，仍然需要重新评估。</p>
+<h4 id="Pitch-0-40-mm"><a href="#Pitch-0-40-mm" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h4><p>&emsp;&emsp;当pitch 大于 0.40 mm 时，弹簧针通常会成为更自然的选择。</p>
+<p>&emsp;&emsp;这个区间已经有足够空间布置弹簧针结构。</p>
+<p>&emsp;&emsp;相比 ACS 和 Blade Pin，弹簧针在以下方面更成熟：</p>
+<ul>
+<li>行程补偿；</li>
+<li>插拔寿命；</li>
+<li>维护更换；</li>
+<li>标准件选择；</li>
+<li>电流能力；</li>
+<li>治具适配性。</li>
+</ul>
+<p>&emsp;&emsp;所以在 ICT、FCT、板级测试、模组接口、电池连接和电源类测试中，如果 pitch 允许，一般会优先考虑弹簧针。</p>
+<h4 id="Pitch选型总结"><a href="#Pitch选型总结" class="headerlink" title="Pitch选型总结"></a>Pitch选型总结</h4><p>下面是在工程评估中比较常用的简化判断逻辑：</p>
+<h5 id="Pitch-0-10-mm-1"><a href="#Pitch-0-10-mm-1" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h5><p>→ 主要考虑 ACS &#x2F; 硅胶探针</p>
+<h5 id="Pitch-0-10-0-175-mm-1"><a href="#Pitch-0-10-0-175-mm-1" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h5><p>→ ACS &#x2F; 硅胶探针为主</p>
+<h5 id="Pitch-0-175-0-30-mm-1"><a href="#Pitch-0-175-0-30-mm-1" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h5><p>→ ACS 与 Blade Pin 竞争区间</p>
+<h5 id="Pitch-0-30-0-40-mm-1"><a href="#Pitch-0-30-0-40-mm-1" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h5><p>→ Blade Pin &#x2F; 片针为主</p>
+<h5 id="Pitch-0-40-mm-1"><a href="#Pitch-0-40-mm-1" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h5><p>→ 弹簧针 &#x2F; Pogo Pin 为主</p>
+<p>进一步简化，可以概括为：<br><strong>小pitch 看 ACS，中间 pitch 看 Blade Pin，大 pitch 看弹簧针。</strong></p>
+<h2 id="pitch范围"><a href="#pitch范围" class="headerlink" title="pitch范围"></a>pitch范围</h2><table>
+<thead>
+<tr>
+<th>测试方案</th>
+<th>典型 pitch 范围</th>
+<th>推荐应用区间</th>
+<th>工程定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ACS &#x2F; 硅胶探针</td>
+<td>0.08 ~ 0.30 mm</td>
+<td>0.10 ~ 0.20 mm</td>
+<td>超细 pitch 柔性接触</td>
+</tr>
+<tr>
+<td>Blade Pin &#x2F; 片针</td>
+<td>0.175 ~ 0.350 mm</td>
+<td>0.20 ~ 0.30 mm</td>
+<td>中等 fine pitch 精密金属接触</td>
+</tr>
+<tr>
+<td>弹簧针 &#x2F; Pogo Pin</td>
+<td>0.40 ~ 3.00 mm</td>
+<td>0.50 ~ 1.50 mm</td>
+<td>通用测试与可靠连接</td>
+</tr>
+</tbody></table>
+<p>这里的范围更偏向工程量产可用区间，而不是实验室极限能力。不同供应商、不同材料、不同治具结构下，实际边界会有差异。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="MEMS-与超细-pad-阵列"><a href="#MEMS-与超细-pad-阵列" class="headerlink" title="MEMS 与超细 pad 阵列"></a>MEMS 与超细 pad 阵列</h3><p>&emsp;&emsp;MEMS 或超细 pad 阵列通常 pitch 小、pad 面积小，同时被测件本身也比较敏感。</p>
+<p>这类场景下，通常会优先看 ACS。原因主要有三点：</p>
+<ul>
+<li>ACS 支持更小 pitch；</li>
+<li>接触应力分布相对柔和；</li>
+<li>对微小高度差有一定补偿能力。</li>
+</ul>
+<p><strong>如果测试信号电流不大，ACS 往往是更合适的方向。</strong></p>
+<h3 id="Camera-Module测试"><a href="#Camera-Module测试" class="headerlink" title="Camera Module测试"></a>Camera Module测试</h3><p>&emsp;&emsp;Camera module 是比较典型的混合型应用。不同接口位置可能需要不同方案。</p>
+<p>一般会这样拆分：</p>
+<ul>
+<li>sensor 端或细密 pad：优先考虑 ACS；</li>
+<li>B-to-B connector 区域：优先考虑 Blade Pin；</li>
+<li>模组级接口或较大 pad：可以考虑弹簧针。</li>
+</ul>
+<p><strong>Camera module的测试不能只看 pitch，还要考虑高速信号、接地设计、接触电阻、压合结构和模组定位精度。</strong></p>
+<h3 id="Display-Module-测试"><a href="#Display-Module-测试" class="headerlink" title="Display Module 测试"></a>Display Module 测试</h3><p>&emsp;&emsp;Display module 中，如果涉及 glass、FPC、细间距 pad，ACS 通常更合适。  </p>
+<p>&emsp;&emsp;如果测试点位在 B-to-B connector 或相对刚性的模组接口上，Blade Pin 也可以作为候选方案。  </p>
+<p>对于显示模组，会特别关注两个问题：</p>
+<ul>
+<li>被测件是否容易压伤；</li>
+<li>接触区是否允许金属针刮擦或局部压接。</li>
+</ul>
+<p>如果答案不明确，需要提前做样件验证。</p>
+<h3 id="ICT-FCT-与板级测试"><a href="#ICT-FCT-与板级测试" class="headerlink" title="ICT &#x2F; FCT 与板级测试"></a>ICT &#x2F; FCT 与板级测试</h3><p>&emsp;&emsp;ICT 和 FCT 场景中，弹簧针仍然是最常见的方案。</p>
+<p>原因是这类测试通常更关注：</p>
+<ul>
+<li>使用寿命；</li>
+<li>维护效率；</li>
+<li>治具成本；</li>
+<li>标准化；</li>
+<li>稳定接触；</li>
+<li>快速更换。</li>
+</ul>
+<p>只要 pitch 和结构空间允许，弹簧针通常是比较稳妥的选择。</p>
+<h2 id="工程特性对比"><a href="#工程特性对比" class="headerlink" title="工程特性对比"></a>工程特性对比</h2><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>ACS &#x2F; 硅胶探针</th>
+<th>Blade Pin &#x2F; 片针</th>
+<th>弹簧针 &#x2F; Pogo Pin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适合pitch</td>
+<td>最小</td>
+<td>中等fine pitch</td>
+<td>较大pitch</td>
+</tr>
+<tr>
+<td>接触形式</td>
+<td>弹性体面接触</td>
+<td>金属片接触</td>
+<td>金属点接触</td>
+</tr>
+<tr>
+<td>对位要求</td>
+<td>中等</td>
+<td>较高</td>
+<td>相对较低</td>
+</tr>
+<tr>
+<td>对平面度适应</td>
+<td>较好</td>
+<td>一般</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>接触电阻</td>
+<td>中等</td>
+<td>较低</td>
+<td>较低</td>
+</tr>
+<tr>
+<td>电流能力</td>
+<td>较弱</td>
+<td>中等</td>
+<td>较强</td>
+</tr>
+<tr>
+<td>高频能力</td>
+<td>一般</td>
+<td>较好</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>被测件友好性</td>
+<td>较好</td>
+<td>取决于接触设计</td>
+<td>取决于针头和压力</td>
+</tr>
+<tr>
+<td>寿命与维护</td>
+<td>中等</td>
+<td>中等</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>典型场景</td>
+<td>MEMS、glass、细pad</td>
+<td>camera、display、B-to-B</td>
+<td>ICT、FCT、电源、模组接口</td>
+</tr>
+</tbody></table>
+<h2 id="选型注意事项"><a href="#选型注意事项" class="headerlink" title="选型注意事项"></a>选型注意事项</h2><h3 id="Pitch只是基本条件，不是最终答案"><a href="#Pitch只是基本条件，不是最终答案" class="headerlink" title="Pitch只是基本条件，不是最终答案"></a>Pitch只是基本条件，不是最终答案</h3><p>&emsp;&emsp;Pitch 能帮助快速排除不合适的方案，但不能单独决定最终方案。<br>在pitch满足的前提下，还要看电性能、机械结构和量产维护。</p>
+<p>&emsp;&emsp;例如，0.25 mmpitch的场景，ACS和Blade Pin都可能可行。<br>如果被测件是glass，会更倾向 ACS。</p>
+<p>&emsp;&emsp;如果被测对象是B-to-B connector，并且需要更稳定的金属接触，我会更倾向 Blade Pin。</p>
+<h3 id="被测件能不能承受接触力"><a href="#被测件能不能承受接触力" class="headerlink" title="被测件能不能承受接触力"></a>被测件能不能承受接触力</h3><p>&emsp;&emsp;这是早期评估中很容易被低估的问题。</p>
+<p>不同方案的接触方式不同：</p>
+<ul>
+<li>ACS 的接触压力相对分散；</li>
+<li>lade Pin的局部接触更明显；</li>
+<li>弹簧针的针头形状和弹簧力会直接影响 pad 表面。</li>
+</ul>
+<p>如果被测件容易压伤、刮伤或变形，方案就不能只从电性能角度判断。</p>
+<h3 id="是否涉及高速信号或电源路径"><a href="#是否涉及高速信号或电源路径" class="headerlink" title="是否涉及高速信号或电源路径"></a>是否涉及高速信号或电源路径</h3><p>&emsp;&emsp;如果测试中包含高速信号或电源路径，则需要更谨慎地使用ACS。</p>
+<p>&emsp;&emsp;ACS适合fine pitch和柔性接触，但在高速信号完整性和电流能力方面并不是优势方案。</p>
+<p>&emsp;&emsp;Blade Pin和弹簧针在金属导通路径、接触电阻和电流能力方面通常更容易控制。</p>
+<h3 id="治具结构是否能保证稳定接触"><a href="#治具结构是否能保证稳定接触" class="headerlink" title="治具结构是否能保证稳定接触"></a>治具结构是否能保证稳定接触</h3><p>&emsp;&emsp;微针方案最终都要落到治具结构上。如果治具的定位、压合方向、平面度或行程控制不稳定，再好的探针也很难稳定工作。</p>
+<p>一般会同时检查以下内容：</p>
+<ul>
+<li>被测件定位方式；</li>
+<li>压合方向是否垂直；</li>
+<li>接触区平面度；</li>
+<li>压缩量或工作行程；</li>
+<li>接触力分布；</li>
+<li>pad表面处理；</li>
+<li>测试寿命和维护周期。</li>
+</ul>
+<h2 id="常见问题与风险点"><a href="#常见问题与风险点" class="headerlink" title="常见问题与风险点"></a>常见问题与风险点</h2><h3 id="用弹簧针硬做过小-pitch"><a href="#用弹簧针硬做过小-pitch" class="headerlink" title="用弹簧针硬做过小 pitch"></a>用弹簧针硬做过小 pitch</h3><p>&emsp;&emsp;弹簧针虽然成熟，但不适合无限缩小。<br>当 pitch 太小时，针体尺寸、偏摆、装配公差和维护难度都会明显增加。<br>如果 pitch 已经接近 0.3 mm，需要谨慎评估是否应该切换到 Blade Pin 或其他方案。</p>
+<h3 id="把-ACS-用在大电流或高频场景"><a href="#把-ACS-用在大电流或高频场景" class="headerlink" title="把 ACS 用在大电流或高频场景"></a>把 ACS 用在大电流或高频场景</h3><p>&emsp;&emsp;ACS 的优势是 fine pitch 和柔性接触，不是大电流能力。<br>如果测试中有明显的电源路径、高速信号或严格的接触电阻要求，ACS 需要经过充分验证，不能只因为 pitch 合适就直接选用。</p>
+<h3 id="忽略-pad-表面处理"><a href="#忽略-pad-表面处理" class="headerlink" title="忽略 pad 表面处理"></a>忽略 pad 表面处理</h3><p>&emsp;&emsp;不同探针对 pad 表面处理的敏感度不同。<br>金属接触类方案通常更关注镀层、氧化、污染和磨耗。<br>如果 pad 表面状态不稳定，接触电阻和寿命都会受到影响。</p>
+<h3 id="没有把公差链算清楚"><a href="#没有把公差链算清楚" class="headerlink" title="没有把公差链算清楚"></a>没有把公差链算清楚</h3><p>&emsp;&emsp;fine pitch测试最大的问题往往不是单个零件，而是整个系统的公差叠加。</p>
+<p>常见影响因素包括：</p>
+<ul>
+<li>DUT定位公差；</li>
+<li>载具加工公差；</li>
+<li>探针阵列位置公差；</li>
+<li>压合机构偏差；</li>
+<li>DUT 翘曲；</li>
+<li>pad 实际位置偏差。</li>
+</ul>
+<p>这些因素如果前期没有评估，后期容易出现间歇性接触不良。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;ACS、Blade Pin和弹簧针不是简单的优劣关系，而是分别对应不同的pitch区间和工程约束。</p>
+<p>对三类方案的理解可以总结为：<br>ACS解决超细pitch和柔性接触问题；Blade Pin解决中等fine pitch下的精密金属接触问题；弹簧针解决较大pitch下的通用测试和可靠连接问题。</p>
+<p>在实际选型中，通常按照下面的顺序判断：<br>1.	先看pitch，确认技术边界；<br>2.	再看被测件材质和pad结构；<br>3.	接着看电流、信号和接触电阻要求；<br>4.	最后结合治具结构、寿命和维护成本确定方案。</p>
+<p>一句话总结：<br><strong>Pitch决定可选范围，接触方式决定稳定性，治具结构决定最终效果。</strong></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>Pitch</tag>
+        <tag>ACS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>抽吸传感器低成本测试方案</title>
-    <url>/2023/12/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
+    <url>/2024/01/10/%E6%8A%BD%E5%90%B8%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>Business接到电子烟电路板功能测试的需求，由于客户在上市之前需要去做成品在欧盟的认证，急需生产一批产品（5500pcs），开发周期很短，包括PCBA板子备料，测试，交货，只有1个月的时间，而且客户预算不是很高。</p>
 <h2 id="抽吸传感器介绍"><a href="#抽吸传感器介绍" class="headerlink" title="抽吸传感器介绍"></a>抽吸传感器介绍</h2><p>电子烟咪头是一种用于电子烟的微型电声器件，它的主要作用是接收用户的吸气信号，从而控制电子烟的启动与停止。传统的电子烟主要采用电容式咪头作为气流传感器，其成熟的工艺和较低的成本使其成为过往大多数电子烟厂商的首选。然而，随着电子烟行业的快速发展和产品需求的不断升级，电容式咪头的诸多弊端逐渐暴露，例如启动负压公差过大、稳定性差、防油防腐蚀性差、易自启等问题，这些问题在激烈竞争的海外一次性电子烟市场中尤为突出。<br>MEMS集成咪头，凭借其高集成度、稳定的负压启动性能、良好的一致性、小体积以及强大的防油防腐蚀性能，逐步成为替代传统咪头的最理想选择。</p>
 <h2 id="咪头结构"><a href="#咪头结构" class="headerlink" title="咪头结构"></a>咪头结构</h2><p>主要有防灰网、外壳、背极、垫片、膜片、PCB组成。<br><img src="/images/%E7%94%B5%E5%AD%90%E7%83%9F%E5%92%AA%E5%A4%B4%E7%BB%93%E6%9E%84.png" alt="咪头结构"></p>
@@ -3611,6 +4291,192 @@ th {
         <tag>3D打印</tag>
         <tag>气动回路图</tag>
         <tag>E-cigarette</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指纹识别模块多角度压力测试技术总结</title>
+    <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
+<p>&emsp;&emsp;鉴于这些原因，所以产品的测试需要把这些进行量化：</p>
+<ol>
+<li>硅胶指纹</li>
+</ol>
+<ul>
+<li>连接硅胶指纹的模组应该是金属的  </li>
+<li>DC 对地阻抗: ≤3KΩ (硅胶指纹到模组的地)</li>
+<li>硅胶指纹的中心与产品指纹识别模组中心公差是0.2mm</li>
+</ul>
+<ol start="2">
+<li><p>按压角度：0°、45°、90°、135°  </p>
+</li>
+<li><p>按压力度：最大4N（要求9±1N），精度±0.5N</p>
+</li>
+</ol>
+<p>以上量化指标落实到测试设备要求</p>
+<ul>
+<li>需要检测5Kg的压力感应器</li>
+<li>线性模组移动精度为0.005mm</li>
+<li>硅胶指纹的中心，产品指纹识别模组中心，旋转台中心三者的中心要在一条线上（垂直）</li>
+<li>手动移动平台15mm，工作台面100 x 100mm</li>
+<li>自动移动平台15mm，工作台面80 x 80mm，最小移动量0.005mm</li>
+<li>旋转台需要360°旋转，旋转台的工作台面80 x 80mm，最小旋转量为0.05°</li>
+</ul>
+<h2 id="高精度压力传感器（核心测力部件）"><a href="#高精度压力传感器（核心测力部件）" class="headerlink" title="高精度压力传感器（核心测力部件）"></a>高精度压力传感器（核心测力部件）</h2><p>&emsp;&emsp;高精度传感器量程的<code>30%～70%</code>，需求4Kg 用 10Kg 量程刚好落在区间，测量精度最高，所以压力传感器需要10Kg。<br>&emsp;&emsp;推荐选用日本<span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS<i class="fa fa-external-link-alt"></i></span>压力传感器。</p>
+<p>&emsp;&emsp;因为项目Schedule比较紧，所以选用国产XJC sensor（X8030），因其安全超载可以达到150%。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+<th align="center">参数 Parameter</th>
+<th align="center">规格 Spec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>量程 Capacity</strong></td>
+<td align="center">0~5KG</td>
+<td align="center"><strong>材质 Material</strong></td>
+<td align="center">不锈钢 Stainless steel</td>
+</tr>
+<tr>
+<td align="center"><strong>非线性 Nonlinearity</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>输出灵敏度 Rated output</strong></td>
+<td align="center">1.0 ± 10% mV&#x2F;V</td>
+</tr>
+<tr>
+<td align="center"><strong>推荐供电电压 Recommended excitation</strong></td>
+<td align="center">5V-10VDC</td>
+<td align="center"><strong>最大供电电压 Maximum excitation</strong></td>
+<td align="center">15V DC</td>
+</tr>
+<tr>
+<td align="center"><strong>防护等级 Protection class</strong></td>
+<td align="center">IP64</td>
+<td align="center"><strong>温度补偿范围 Compensated temp range</strong></td>
+<td align="center">-10~60 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>滞后 Hysteresis</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>工作温度范围 Operation temp range</strong></td>
+<td align="center">-20~80℃</td>
+</tr>
+<tr>
+<td align="center"><strong>重复性 Repeatability</strong></td>
+<td align="center">0.05%F.S.</td>
+<td align="center"><strong>绝缘电阻 Insulation resistance</strong></td>
+<td align="center">≥5000MΩ&#x2F;100VDC</td>
+</tr>
+<tr>
+<td align="center"><strong>输入阻抗 Input impedance</strong></td>
+<td align="center">350Ω±10Ω</td>
+<td align="center"><strong>输出阻抗 Output impedance</strong></td>
+<td align="center">350Ω ± 5Ω</td>
+</tr>
+<tr>
+<td align="center"><strong>30分钟蠕变 Creep(30min)</strong></td>
+<td align="center">0.1%F.S.</td>
+<td align="center"><strong>温度灵敏度漂移 Temp effect on output</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>零点输出 Zero balance</strong></td>
+<td align="center">± 2%F.S</td>
+<td align="center"><strong>零点温度漂移 Temp effect on zero</strong></td>
+<td align="center">0.1%F.S.&#x2F;10 ℃</td>
+</tr>
+<tr>
+<td align="center"><strong>安全超载 Safe load limit</strong></td>
+<td align="center">150%F.S.</td>
+<td align="center"><strong>极限超载 Ultimate load limit</strong></td>
+<td align="center">200%F.S.</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆规格 Cable size</strong></td>
+<td align="center">Φ2×4m</td>
+<td align="center"><strong>使用寿命 Service Life</strong></td>
+<td align="center">满量程100万次以上 Full scale more than 1 million times</td>
+</tr>
+<tr>
+<td align="center"><strong>线缆接线定义 Cable connection</strong></td>
+<td align="center">Ex+：红Red；Ex-：黑Black</td>
+<td align="center">Sig+：绿Green；Sig-：白White</td>
+<td align="center">—</td>
+</tr>
+</tbody></table>
+<h2 id="标准仿真指纹硅胶压头（工况模拟核心部件）"><a href="#标准仿真指纹硅胶压头（工况模拟核心部件）" class="headerlink" title="标准仿真指纹硅胶压头（工况模拟核心部件）"></a>标准仿真指纹硅胶压头（工况模拟核心部件）</h2><p>&emsp;&emsp;硅胶指纹准备3种尺寸（大、中、小）。</p>
+<h2 id="高精度角度定位工装（工况基准部件）"><a href="#高精度角度定位工装（工况基准部件）" class="headerlink" title="高精度角度定位工装（工况基准部件）"></a>高精度角度定位工装（工况基准部件）</h2><p>&emsp;&emsp;手动移动平台15mm，工作台面100 x 100mm。</p>
+<h2 id="伺服稳压驱动模组（动力执行部件）"><a href="#伺服稳压驱动模组（动力执行部件）" class="headerlink" title="伺服稳压驱动模组（动力执行部件）"></a>伺服稳压驱动模组（动力执行部件）</h2><p>&emsp;&emsp;按照要求是需要一款XYR的滑台平台来装载产品，水平负载8Kg</p>
+<h3 id="XY轴"><a href="#XY轴" class="headerlink" title="XY轴"></a>XY轴</h3><ul>
+<li>定位精度：0.01mm</li>
+<li>反复定位精度：±0.005mm</li>
+<li>电机规格：两相步进28框</li>
+<li>行程：±15mm</li>
+<li>X-Y最大速度：10mm&#x2F;sec</li>
+</ul>
+<h3 id="θ轴"><a href="#θ轴" class="headerlink" title="θ轴"></a>θ轴</h3><ul>
+<li>传动比：1：90</li>
+<li>定位精度：0.02°</li>
+<li>反复定位精度：0.01°</li>
+<li>空回：0.02°</li>
+<li>电机规格：两相步进42框</li>
+<li>θ最大速度：18°&#x2F;sec</li>
+</ul>
+<h3 id="电机规格：两相步进28框"><a href="#电机规格：两相步进28框" class="headerlink" title="电机规格：两相步进28框"></a>电机规格：两相步进28框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲</li>
+<li>出线：4 线双极居多，少量 6&#x2F;8 线；</li>
+<li>驱动器必须搭配两相微型步进驱动（如 DM420、A4988、TMC2208），不能用三相驱动</li>
+<li>28 框基础性能区间<ul>
+<li>保持转矩：0.06～0.17 N・m（60～170 mNm）</li>
+<li>额定电流：0.6～1.0A</li>
+<li>供电常用 DC12V&#x2F;24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="电机规格：两相步进42框"><a href="#电机规格：两相步进42框" class="headerlink" title="电机规格：两相步进42框"></a>电机规格：两相步进42框</h3><ul>
+<li>两相：电气结构，内部只有两组励磁线圈（A 相、B 相）  </li>
+<li>标准步距角 1.8°，完整一圈需要 200 个脉冲；</li>
+<li>出线常见 4 线（双极性驱动）、6 线、8 线；</li>
+<li>配套驱动器只能用两相步进驱动器，不能接三相驱动。</li>
+<li>42 框基础性能区间<ul>
+<li>保持转矩：0.2～0.5 N・m</li>
+<li>额定电流：0.8～2.0 A</li>
+<li>供电常用：DC24V</li>
+</ul>
+</li>
+</ul>
+<h3 id="设备测试架构"><a href="#设备测试架构" class="headerlink" title="设备测试架构"></a>设备测试架构</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%B5%8B%E8%AF%95%E6%9E%B6%E6%9E%84.png" alt="测试架构"></p>
+<h2 id="测试方案与流程"><a href="#测试方案与流程" class="headerlink" title="测试方案与流程"></a>测试方案与流程</h2><ul>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>X</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>左</code>边离开指纹识别模块感应区的<code>右</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+<li><p>在0°、45°、90°、135°、180每个角度，<code>Y</code>轴以每0.5mm的增量移动，一直移到硅胶指纹的<code>顶</code>边离开指纹识别模块感应区的<code>底</code>边边线，每个增量停留的位置要以4N的力按压10次；</p>
+</li>
+</ul>
+<h2 id="核心测试结果与数据分析"><a href="#核心测试结果与数据分析" class="headerlink" title="核心测试结果与数据分析"></a>核心测试结果与数据分析</h2><p>&emsp;&emsp;所有工况统一采用恒定 4N 标准压力按压，仅变量为设备摆放角度，对比各角度指纹识别表现，总结如下：</p>
+<h3 id="正交垂直角度（0°、90°、180°）识别表现最优"><a href="#正交垂直角度（0°、90°、180°）识别表现最优" class="headerlink" title="正交垂直角度（0°、90°、180°）识别表现最优"></a>正交垂直角度（0°、90°、180°）识别表现最优</h3><p>&emsp;&emsp;在 0°、90°、180° 三个垂直正向角度，恒定 4N 压力下压头与传感器贴合均匀完整，指纹纹理成像清晰，识别成功率≥99.2%，平均识别响应时间 0.2~0.3s，无拒真、误识、卡顿等问题。正向姿态下按压受力均匀，角度偏移对信号采集几乎无负面影响，完全满足日常使用标准。</p>
+<h3 id="旋转角度（45°、135°）存在识别性能衰减"><a href="#旋转角度（45°、135°）存在识别性能衰减" class="headerlink" title="旋转角度（45°、135°）存在识别性能衰减"></a>旋转角度（45°、135°）存在识别性能衰减</h3><p>&emsp;&emsp;被测物水平旋转至 45°、135° 档位时，统一采用恒定 4N 压力按压，识别成功率下降至 92.1%~94.5%。核心原因：被测产品水平旋转偏移后，硅胶压头与指纹区域受力分布不均，单侧贴合间隙偏大，局部指纹纹理接触不充分，传感器采集的指纹图像存在轻微畸变，特征点匹配精度下降，是本次测试暴露的薄弱工况。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;本次测试以恒定 4N 标准按压力作为统一控制条件，依托 XYR 旋转滑台实现被测物 0°、45°、90°、135°、180° 五档水平旋转定位，全程仅将产品水平旋转角度作为单一变量，标准化验证不同摆放姿态下指纹识别模组的识别一致性与运行稳定性。</p>
+<p>&emsp;&emsp;整套测试设备采用自上而下分层堆叠架构：伺服下压模组搭配标准硅胶指纹压头提供稳定恒定 4N 载荷，产品专用 Holder 保证被测件夹持无位移，XY 手动滑台完成压头与指纹区域居中校准，底层 XYR 滑台精准实现多档位水平旋转锁止。设备闭环压力控制系统稳压精度高，重复按压无压力漂移，各角度测试工况可复现、数据具备横向对比价值，硬件整套循环测试后无形变、无功能失效，设备工装与驱动机构可靠性满足批量验证需求。</p>
+<p>&emsp;&emsp;实测数据显示，当被测物水平旋转至 0°、90°、180° 正向档位时，恒定 4N 压力下压头与指纹区域贴合均匀，指纹成像完整清晰，识别成功率稳定≥99.2%，识别响应速度平稳，无拒真、卡顿、识别失败等异常，完全符合产品设计指标与用户常规使用要求。</p>
+<p>&emsp;&emsp;当被测物水平旋转至 45°、135° 斜向档位时，同等 4N 标准压力下识别成功率降至92.1%~94.5%；根本原因为产品水平旋转后，硅胶压头受力分布失衡，指纹识别区域单侧贴合间隙增大，局部纹理接触不充分，采集图像出现轻微形变，指纹特征点匹配准确度下降，是产品当前性能短板工况。<br>全角度循环按压测试完成后，指纹传感器、模组结构未出现硬件损伤、永久性能衰减，撤除压力后识别性能可即时恢复，证明产品硬件本体耐压、耐磨基础可靠性达标，性能差异仅来源于水平旋转带来的按压贴合形变问题。</p>
+<p>&emsp;&emsp;本次多角度恒定压力专项测试精准定位了产品旋转工况下的识别缺陷，为指纹识别算法迭代优化、模组缓冲结构改良、出厂品质检验标准制定提供了客观、可复现的实测数据支撑。通过针对性优化形变指纹匹配算法、改善传感器缓冲贴合结构，可有效提升 45°、135° 水平旋转工况下的识别容错率，规避终端用户握持旋转解锁失败的使用问题，进一步提升产品全场景使用稳定性。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>NTS力学传感器<span class="exturl" data-url="aHR0cHM6Ly9udHMtbWVhc3VyZS5jby5qcC8=">日本本土官网<i class="fa fa-external-link-alt"></i></span>: 原厂主站，日文，完整产品规格&#x2F; 手册，NTS传感器长期稳定，适合疲劳循环测试。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udHMtbWVhc3VyZS5jb20v">NTS英文国际站<i class="fa fa-external-link-alt"></i></span>: 海外产品介绍，适合查阅英文参数。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb252ZXJ0bGl2ZS5jb20vemgvdS8lRTglQkQlQUMlRTYlOEQlQTIvJUU3JTg5JTlCJUU5JUExJUJGLyVFOCU4NyVBQS8lRTUlOEQlODMlRTUlODUlOEIlRTUlOEElOUIjOQ==">单位转换<i class="fa fa-external-link-alt"></i></span>: 千克转化为牛顿或者千克力。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueGpjc2Vuc29yLmNvbS8=">鑫精诚力学传感器<i class="fa fa-external-link-alt"></i></span>: XJC sensor交期短，价格是NTS的1&#x2F;3，疲劳稳定性略逊原装。</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5udWFlcy5uZXQvUHJvZHVjdEN1c3QvMTQ2MTc1MS00MDk2MDIuaHRtbA==">天翰精密<i class="fa fa-external-link-alt"></i></span>：XYR滑台。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Fingerprint</tag>
+        <tag>Multi-angle</tag>
+        <tag>多角度</tag>
       </tags>
   </entry>
   <entry>
@@ -3682,9 +4548,11 @@ th {
 <li>新空气滤芯，17210-K1Z-CA0</li>
 </ol>
 <h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BBpng.png"></p>
-<h2 id="拆开外壳"><a href="#拆开外壳" class="headerlink" title="拆开外壳"></a>拆开外壳</h2><p>操作：逆时针拧开8颗</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
+<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
 <h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
 <h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
@@ -3696,6 +4564,31 @@ th {
         <tag>PCX160</tag>
         <tag>Honda WH150T-2</tag>
         <tag>空气滤芯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新建组件</title>
+    <url>/2026/07/01/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"><a href="#情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看" class="headerlink" title="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"></a>情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看</h2><ul>
+<li><p>步骤：</p>
+<ul>
+<li>选择“装配器导航”</li>
+<li>选择“装配”</li>
+<li>点击“新建组件”</li>
+<li>选择对象：选择需要生成的子装配体的部件</li>
+<li>保存为子装配体</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6.png" alt="新建组件"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX操作</tag>
       </tags>
   </entry>
   <entry>
@@ -3871,6 +4764,552 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>电机（01）：基础理论篇——公差与配合</title>
+    <url>/2026/08/24/%E7%94%B5%E6%9C%BA%EF%BC%8801%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E7%AF%87%E2%80%94%E2%80%94%E5%85%AC%E5%B7%AE%E4%B8%8E%E9%85%8D%E5%90%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="尺寸公差与配合体系"><a href="#尺寸公差与配合体系" class="headerlink" title="尺寸公差与配合体系"></a>尺寸公差与配合体系</h2><h3 id="公差与配合基础："><a href="#公差与配合基础：" class="headerlink" title="公差与配合基础："></a>公差与配合基础：</h3><ul>
+<li><p>ISO 286 Geometrical product specifications: 产品技术几何规范</p>
+<ul>
+<li>ISO 286-1 Part 1 Basis of tolerances deviations and fits: 第1部分：公差、偏差和配合的基础</li>
+<li>ISO 286-2 Part 2 Tables of standard tolerance classes and limit deviations for holes and shafts: 第2部分：孔和轴的标准公差等级表及极限偏差表</li>
+</ul>
+</li>
+<li><p>中国国家标准 GB&#x2F;T 1800.1 &#x2F; GB&#x2F;T 1800.2 《产品几何技术规范 (GPS) 极限与配合》）。</p>
+</li>
+</ul>
+<h3 id="孔轴偏差"><a href="#孔轴偏差" class="headerlink" title="孔轴偏差"></a>孔轴偏差</h3><p>在机械制造与公差配合（GB&#x2F;T 1800 &#x2F; ISO 286）中，这四个概念是确定零件精确尺寸与装配关系的基石：</p>
+<h3 id="1-孔偏差（Hole-Deviation）"><a href="#1-孔偏差（Hole-Deviation）" class="headerlink" title="1. 孔偏差（Hole Deviation）"></a>1. 孔偏差（Hole Deviation）</h3><p>指<strong>孔的实际尺寸或极限尺寸</strong>与<strong>基本尺寸</strong>之间的代数差。它包含两种形式：</p>
+<ul>
+<li><strong>上偏差（ES）</strong>：最大极限尺寸减去基本尺寸的代数差。</li>
+<li><strong>下偏差（EI）</strong>：最小极限尺寸减去基本尺寸的代数差。</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：孔的公差（允许的尺寸变动量）即为上偏差与下偏差之差（Th &#x3D; ES - EI）。在 ISO&#x2F;国标中，孔的偏差用<strong>大写字母</strong>（如 H, J, K, P 等）表示。</p>
+</blockquote>
+<hr>
+<h3 id="2-轴偏差（Shaft-Deviation）"><a href="#2-轴偏差（Shaft-Deviation）" class="headerlink" title="2. 轴偏差（Shaft Deviation）"></a>2. 轴偏差（Shaft Deviation）</h3><p>指<strong>轴的实际尺寸或极限尺寸</strong>与<strong>基本尺寸</strong>之间的代数差。同样包含两种形式：</p>
+<ul>
+<li><strong>上偏差（es）</strong>：最大极限尺寸减去基本尺寸的代数差。</li>
+<li><strong>下偏差（ei）</strong>：最小极限尺寸减去基本尺寸的代数差。</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：轴的公差即为上偏差与下偏差之差（Ts &#x3D; es - ei）。在 ISO&#x2F;国标中，轴的偏差用<strong>小写字母</strong>（如 h, g, k, p 等）表示。</p>
+</blockquote>
+<hr>
+<h3 id="3-基孔制配合（Basic-Hole-System）"><a href="#3-基孔制配合（Basic-Hole-System）" class="headerlink" title="3. 基孔制配合（Basic Hole System）"></a>3. 基孔制配合（Basic Hole System）</h3><p>指<strong>以基本偏差为特定位置的孔</strong>作为基准，将不同基本偏差的轴与该基准孔组合，从而形成各种不同配合性质（间隙、过渡或过盈）的制度。</p>
+<ul>
+<li><strong>基准孔代号</strong>：<strong>H</strong>（其下偏差 EI &#x3D; 0，基本尺寸即为孔的最小极限尺寸）。</li>
+<li><strong>工程应用</strong>：<strong>绝对主流（约占 80%~90%）</strong>。因为加工和测量高精度的孔（如用铰刀、拉刀）成本高且刀具规格固定，先固定孔的尺寸，只需改变外圆磨削&#x2F;车削轴的尺寸即可调整配合，能大幅减少定型刀具和量具的数量。</li>
+</ul>
+<hr>
+<h3 id="4-基轴制配合（Basic-Shaft-System）"><a href="#4-基轴制配合（Basic-Shaft-System）" class="headerlink" title="4. 基轴制配合（Basic Shaft System）"></a>4. 基轴制配合（Basic Shaft System）</h3><p>指<strong>以基本偏差为特定位置的轴</strong>作为基准，将不同基本偏差的孔与该基准轴组合，从而形成各种不同配合性质（间隙、过渡或过盈）的制度。</p>
+<ul>
+<li><strong>基准轴代号</strong>：<strong>h</strong>（其上偏差 es &#x3D; 0，基本尺寸即为轴的最大极限尺寸）。</li>
+<li><strong>工程应用</strong>：常用于以下特殊结构场景：<ol>
+<li><strong>冷拉钢材直轴</strong>：直接采用无需切削加工的标准冷拉圆钢做轴（如传动轴），通过改变加工孔来获得不同配合。</li>
+<li><strong>同一轴上有多处不同配合</strong>：例如同一根光滑轴上，某一位置需要过盈固定轴承，另一位置需要间隙配合滑动套筒时，采用基轴制可避免将轴加工成复杂的阶梯轴。</li>
+<li><strong>标准件接口</strong>：外圈安装在机壳孔内的标准轴承（轴承外圈与机壳孔的配合即按基轴制设计）。</li>
+</ol>
+</li>
+</ul>
+<h3 id="孔轴偏差查询"><a href="#孔轴偏差查询" class="headerlink" title="孔轴偏差查询"></a>孔轴偏差查询</h3><h4 id="传统孔轴的公差等级可以查询相对应的表格"><a href="#传统孔轴的公差等级可以查询相对应的表格" class="headerlink" title="传统孔轴的公差等级可以查询相对应的表格"></a>传统孔轴的公差等级可以查询相对应的表格</h4><p><span class="exturl" data-url="aHR0cDovL3d3dy5yZWVnLmNuLzEwNDkv">REEG机械设计<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%85%AC%E5%B7%AE%E5%B8%A6.png"></p>
+<h5 id="孔的配合尺寸公差表"><a href="#孔的配合尺寸公差表" class="headerlink" title="孔的配合尺寸公差表"></a>孔的配合尺寸公差表</h5><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AD%94%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE.jpg"></p>
+<h5 id="轴的配合尺寸公差表"><a href="#轴的配合尺寸公差表" class="headerlink" title="轴的配合尺寸公差表"></a>轴的配合尺寸公差表</h5><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%B4%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE.jpg"></p>
+<h4 id="快速查询"><a href="#快速查询" class="headerlink" title="快速查询"></a>快速查询</h4><ul>
+<li><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span><ul>
+<li>轴偏差<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%B4%E5%81%8F%E5%B7%AE.jpg"></li>
+<li>孔偏差<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AD%94%E5%81%8F%E5%B7%AE.jpg"></li>
+<li>基孔制配合<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%9F%BA%E5%AD%94%E5%88%B6%E9%85%8D%E5%90%88.jpg"></li>
+<li>基轴制配合<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%9F%BA%E8%BD%B4%E5%88%B6%E9%85%8D%E5%90%88.jpg"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="强烈推荐"><a href="#强烈推荐" class="headerlink" title="强烈推荐"></a><strong>强烈推荐</strong></h3><ul>
+<li>查询示例:<ul>
+<li>轴的示例：Φ10 h9</li>
+</ul>
+</li>
+</ul>
+<h4 id="meCalculator"><a href="#meCalculator" class="headerlink" title="meCalculator"></a><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjYWxjdWxhdG9yLnR3Lw==">meCalculator<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/www.mecalculator.tw_zh-tw_calculators_mechanical_tolerance.png"></p>
+<h4 id="英科宇机械设计云平台"><a href="#英科宇机械设计云平台" class="headerlink" title="英科宇机械设计云平台"></a><strong><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/dia%2010%20h9.jpg"></p>
+<ul>
+<li>孔的示例：Φ10 H7</li>
+</ul>
+<h4 id="meCalculator-1"><a href="#meCalculator-1" class="headerlink" title="meCalculator"></a><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjYWxjdWxhdG9yLnR3Lw==">meCalculator<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/www.mecalculator.tw_zh-tw_calculators_mechanical_tolerance%20(1).png"></p>
+<h4 id="英科宇机械设计云平台-1"><a href="#英科宇机械设计云平台-1" class="headerlink" title="英科宇机械设计云平台"></a><strong><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/dia%2010%20H7.jpg"></p>
+<h4 id="Tolerance-Fits-Calculator-查询孔轴配合公差等级"><a href="#Tolerance-Fits-Calculator-查询孔轴配合公差等级" class="headerlink" title="Tolerance &amp; Fits Calculator: 查询孔轴配合公差等级"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9tZWNoc2ltdWxhdG9yLmNvbS90b29scy90b2xlcmFuY2UtZml0cy8/ZD0zNCZob2xlPUg3JnNoYWZ0PXA2">Tolerance &amp; Fits Calculator<i class="fa fa-external-link-alt"></i></span></strong>: 查询孔轴配合公差等级</h4><ul>
+<li>查询示例： Φ10 H7&#x2F;p6<ul>
+<li><p>使用界面<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6.png"></p>
+</li>
+<li><p>计算步骤</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6%20Calculation%20step.png"></p>
+<h2 id="三大基本配合模式（按配合性质分类）"><a href="#三大基本配合模式（按配合性质分类）" class="headerlink" title="三大基本配合模式（按配合性质分类）"></a>三大基本配合模式（按配合性质分类）</h2><p>在 ISO 286 标准中，配合性质由孔公差带与轴公差带的相对位置决定：</p>
+<ul>
+<li>**间隙配合 (Clearance Fit)**：孔尺寸 &gt; 轴尺寸（始终有间隙）</li>
+<li>**过渡配合 (Transition Fit)**：可能产生间隙，也可能产生过盈</li>
+<li>**过盈配合 (Interference Fit)**：轴尺寸 &gt; 孔尺寸（始终有过盈）</li>
+</ul>
+<h4 id="间隙配合（Clearance-Fit）"><a href="#间隙配合（Clearance-Fit）" class="headerlink" title="间隙配合（Clearance Fit）"></a>间隙配合（Clearance Fit）</h4><ul>
+<li><strong>定义</strong>：孔的公差带完全位于轴的公差带之上。装配后<strong>孔的实际尺寸始终大于或等于轴的实际尺寸</strong>，形成具有活动能力的间隙。</li>
+<li><strong>极限参数</strong>：<ul>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 (EI - es)</li>
+</ul>
+</li>
+<li><strong>典型应用</strong>：转动轴承套筒、滑动轴承、导向柱（如 <strong>H7&#x2F;g6</strong>, <strong>H8&#x2F;f7</strong>）。</li>
+</ul>
+<h4 id="过渡配合（Transition-Fit）"><a href="#过渡配合（Transition-Fit）" class="headerlink" title="过渡配合（Transition Fit）"></a>过渡配合（Transition Fit）</h4><ul>
+<li><strong>定义</strong>：孔与轴的公差带相互重叠。装配后<strong>可能产生间隙，也可能产生过盈</strong>，具体取决于零件的实际加工尺寸。</li>
+<li><strong>极限参数</strong>：<ul>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
+</ul>
+</li>
+<li><strong>典型应用</strong>：需要精确对中且便于拆卸定位的结构，如定位销、联轴器轴套、无框电机转子基座（如 <strong>H7&#x2F;k6</strong>, <strong>H7&#x2F;m6</strong>）。</li>
+</ul>
+<h4 id="过盈配合（Interference-Fit）"><a href="#过盈配合（Interference-Fit）" class="headerlink" title="过盈配合（Interference Fit）"></a>过盈配合（Interference Fit）</h4><ul>
+<li><strong>定义</strong>：孔的公差带完全位于轴的公差带之下。装配后<strong>轴的实际尺寸始终大于或等于孔的实际尺寸</strong>，形成静止紧固的结合状态。</li>
+<li><strong>极限参数</strong>：<ul>
+<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
+<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 (ei - ES)</li>
+</ul>
+</li>
+<li><strong>典型应用</strong>：靠摩擦力直接传递大扭矩或永久固定的装配，如电机定子压入外壳、齿轮与轴的重载固定（如 <strong>H7&#x2F;p6</strong>, <strong>H7&#x2F;s6</strong>）。</li>
+</ul>
+<hr>
+<h3 id="ISO-286-常用配合模式汇总（基孔制-vs-基轴制）"><a href="#ISO-286-常用配合模式汇总（基孔制-vs-基轴制）" class="headerlink" title="ISO 286 常用配合模式汇总（基孔制 vs. 基轴制）"></a>ISO 286 常用配合模式汇总（基孔制 vs. 基轴制）</h3><p>为了减少定型刀具和量具的数量，ISO 286 优先推荐以 <strong>基孔制（以 H 孔为基准）</strong> 为主，特殊场景辅以 <strong>基轴制（以 h 轴为基准）</strong>。</p>
+<h4 id="1-基孔制配合（Basic-Hole-System-基准孔代号：H）"><a href="#1-基孔制配合（Basic-Hole-System-基准孔代号：H）" class="headerlink" title="1. 基孔制配合（Basic Hole System, 基准孔代号：H）"></a>1. 基孔制配合（Basic Hole System, 基准孔代号：H）</h4><table>
+<thead>
+<tr>
+<th align="left">配合性质</th>
+<th align="left">ISO 286 常用代号组合</th>
+<th align="left">配合特征描述</th>
+<th align="left">典型工程场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>精密间隙</strong></td>
+<td align="left"><strong>H7&#x2F;h6</strong></td>
+<td align="left">零间隙定位配合</td>
+<td align="left">手动对中、可沿轴向轻松移动的滑动件</td>
+</tr>
+<tr>
+<td align="left"><strong>微小间隙</strong></td>
+<td align="left"><strong>H7&#x2F;g6</strong></td>
+<td align="left">极小间隙，高精度旋转</td>
+<td align="left">精密机床主轴、机器人关节滑动支撑</td>
+</tr>
+<tr>
+<td align="left"><strong>普通旋转</strong></td>
+<td align="left"><strong>H7&#x2F;f7</strong> 或 <strong>H8&#x2F;f7</strong></td>
+<td align="left">标准旋转间隙</td>
+<td align="left">通用转动轴承座、导向套筒</td>
+</tr>
+<tr>
+<td align="left"><strong>粗糙间隙</strong></td>
+<td align="left"><strong>H11&#x2F;c11</strong></td>
+<td align="left">极大间隙</td>
+<td align="left">粗糙暴露环境、热膨胀量大的机械结构</td>
+</tr>
+<tr>
+<td align="left"><strong>精密过渡</strong></td>
+<td align="left"><strong>H7&#x2F;k6</strong></td>
+<td align="left">微过盈&#x2F;微间隙，无间隙定位</td>
+<td align="left">需高同轴度的定位销、齿轮轴套（手锤轻击即可装拆）</td>
+</tr>
+<tr>
+<td align="left"><strong>较紧过渡</strong></td>
+<td align="left"><strong>H7&#x2F;m6</strong></td>
+<td align="left">平均呈微过盈</td>
+<td align="left">承受轻微冲击扭矩的固定键槽配合、伺服轴端</td>
+</tr>
+<tr>
+<td align="left"><strong>轻型过盈</strong></td>
+<td align="left"><strong>H7&#x2F;p6</strong></td>
+<td align="left">稳定过盈，需压床力</td>
+<td align="left">无框电机转子固定、轻载滚珠轴承内圈</td>
+</tr>
+<tr>
+<td align="left"><strong>重型过盈</strong></td>
+<td align="left"><strong>H7&#x2F;s6</strong> 或 <strong>H7&#x2F;r6</strong></td>
+<td align="left">强过盈，需加热&#x2F;冷冻装配</td>
+<td align="left">关节电机定子与铝外壳热套、重载齿轮轮毂</td>
+</tr>
+</tbody></table>
+<h4 id="2-基轴制配合（Basic-Shaft-System-基准轴代号：h）"><a href="#2-基轴制配合（Basic-Shaft-System-基准轴代号：h）" class="headerlink" title="2. 基轴制配合（Basic Shaft System, 基准轴代号：h）"></a>2. 基轴制配合（Basic Shaft System, 基准轴代号：h）</h4><table>
+<thead>
+<tr>
+<th align="left">配合性质</th>
+<th align="left">ISO 286 常用代号组合</th>
+<th align="left">典型工程场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>间隙配合</strong></td>
+<td align="left"><strong>G7&#x2F;h6</strong> 或 <strong>F8&#x2F;h7</strong></td>
+<td align="left">冷拉光圆钢轴配滑动套筒</td>
+</tr>
+<tr>
+<td align="left"><strong>过渡配合</strong></td>
+<td align="left"><strong>K7&#x2F;h6</strong></td>
+<td align="left">滚动轴承外圈与机壳孔（轴承外圈为基轴制标准件）</td>
+</tr>
+<tr>
+<td align="left"><strong>过盈配合</strong></td>
+<td align="left"><strong>P7&#x2F;h6</strong></td>
+<td align="left">轴承外圈在受到高频振动&#x2F;冲击载荷机壳孔内的固定</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="快捷记忆法则（公差带字母分布）"><a href="#快捷记忆法则（公差带字母分布）" class="headerlink" title="快捷记忆法则（公差带字母分布）"></a>快捷记忆法则（公差带字母分布）</h3><p>在 ISO 286 标准中，轴与孔的基本偏差字母代表了公差带相对于零线的位置：</p>
+<ul>
+<li><strong>轴的公差带字母（小写）</strong>：<ul>
+<li><code>a ~ h</code>：位于零线下方 → <strong>间隙配合</strong>（<code>h</code> 上偏差为 0）。</li>
+<li><code>j, k, m, n</code>：跨越或紧贴零线 → <strong>过渡配合</strong>。</li>
+<li><code>p ~ z</code>：位于零线上方 → <strong>过盈配合</strong>。</li>
+</ul>
+</li>
+<li><strong>孔的公差带字母（大写）</strong>：<ul>
+<li><code>A ~ H</code>：位于零线上方 → <strong>间隙配合</strong>（<code>H</code> 下偏差为 0）。</li>
+<li><code>J, K, M, N</code>：跨越或紧贴零线 → <strong>过渡配合</strong>。</li>
+<li><code>P ~ Z</code>：位于零线下方 → <strong>过盈配合</strong>。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>公差与配合</tag>
+        <tag>Tolerance and Fits Calculator</tag>
+        <tag>Me Tools</tag>
+        <tag>ISO 286 - 1/ 286 - 2</tag>
+        <tag>GB/T 1800.1 / GB/T 1800.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电机（02）：减速器</title>
+    <url>/2026/08/25/%E7%94%B5%E6%9C%BA%EF%BC%8802%EF%BC%89%EF%BC%9A%E5%87%8F%E9%80%9F%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>在现代机械工程与机器人领域，常见的减速器类型主要有以下 6 大类：</p>
+</blockquote>
+<h3 id="1-谐波减速器（Harmonic-Drive）"><a href="#1-谐波减速器（Harmonic-Drive）" class="headerlink" title="1. 谐波减速器（Harmonic Drive）"></a>1. 谐波减速器（Harmonic Drive）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%B0%90%E6%B3%A2.jpg"></p>
+<ul>
+<li><strong>结构组成</strong>：柔轮（Flexspline）、刚轮（Circular Spline）、波发生器（Wave Generator）。</li>
+<li><strong>工作原理</strong>：依靠波发生器使柔轮产生受控弹性变形，与刚轮的内齿形成错齿啮合，实现大减速比传动。</li>
+<li><strong>核心优势</strong>：零&#x2F;近零背隙（&lt; 1 arcmin）、体积小、重量轻、中空过线、单级减速比大（30:1 ~ 160:1）。</li>
+<li><strong>主要缺点</strong>：柔轮易金属疲劳、扭转刚度较低、冲击承载能力有限。</li>
+<li><strong>典型应用</strong>：人形机器人（肩&#x2F;肘&#x2F;手腕关节）、工业协作机械臂、航天抓取机构。</li>
+</ul>
+<hr>
+<h3 id="2-RV-减速器（RotVector-Reducer）"><a href="#2-RV-减速器（RotVector-Reducer）" class="headerlink" title="2. RV 减速器（RotVector Reducer）"></a>2. RV 减速器（RotVector Reducer）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/RV.png"></p>
+<ul>
+<li><strong>结构组成</strong>：由第一级行星齿轮传动和第二级摆线针轮传动组合而成。</li>
+<li><strong>核心优势</strong>：超高刚度、极强抗冲击能力、承载能力大、高精度与长寿命。</li>
+<li><strong>主要缺点</strong>：结构复杂、零件加工精度要求极高、重量较大、成本高。</li>
+<li><strong>典型应用</strong>：多关节工业机器人（底座&#x2F;大臂&#x2F;小臂等重载关节）、数控机床高精度转台。</li>
+</ul>
+<hr>
+<h3 id="3-行星齿轮减速器（Planetary-Gearbox）"><a href="#3-行星齿轮减速器（Planetary-Gearbox）" class="headerlink" title="3. 行星齿轮减速器（Planetary Gearbox）"></a>3. 行星齿轮减速器（Planetary Gearbox）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%A1%8C%E6%98%9F.jpg"></p>
+<ul>
+<li><strong>结构组成</strong>：太阳轮（Sun Gear）、行星齿轮（Planetary Gears）、内齿圈（Ring Gear）、行星架（Carrier）。</li>
+<li><strong>核心优势</strong>：传动效率极高（&gt; 95%）、功率密度高、结构对称受力均衡、适宜高频正反转。</li>
+<li><strong>主要缺点</strong>：存在一定背隙（常规 3 ~ 8 arcmin，高精度可达 1 ~ 3 arcmin），若追求极高精度需精配。</li>
+<li><strong>典型应用</strong>：四足&#x2F;腿足机器人（准直驱关节 QDD）、CNC 进给轴、AGV 驱动轮、自动化生产线。</li>
+</ul>
+<hr>
+<h3 id="4-摆线针轮减速器（Cycloidal-Reducer）"><a href="#4-摆线针轮减速器（Cycloidal-Reducer）" class="headerlink" title="4. 摆线针轮减速器（Cycloidal Reducer）"></a>4. 摆线针轮减速器（Cycloidal Reducer）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%91%86%E7%BA%BF%E9%92%88%E8%BD%AE%E5%87%8F%E9%80%9F%E5%99%A8%EF%BC%88Cycloidal%20Reducer%EF%BC%891.jpg"></p>
+<ul>
+<li><strong>结构组成</strong>：针齿壳、摆线轮、偏心套及销轴。</li>
+<li><strong>核心优势</strong>：多齿同时啮合，抗过载与冲击能力强，结构紧凑，减速比大。</li>
+<li><strong>主要缺点</strong>：装配与对中要求高、高速时振动较明显。</li>
+<li><strong>典型应用</strong>：轻载工业机器人关节、起重运输机械、精密阀门控制。</li>
+</ul>
+<hr>
+<h3 id="5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）"><a href="#5-斜齿轮-平行轴齿轮减速器（Helical-Gearbox）" class="headerlink" title="5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）"></a>5. 斜齿轮 &#x2F; 平行轴齿轮减速器（Helical Gearbox）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Helical%20Gearbox.png"></p>
+<ul>
+<li><strong>结构组成</strong>：采用倾斜齿线的渐开线齿轮咬合。</li>
+<li><strong>核心优势</strong>：重合度高、传动平稳、噪音低、承载力大、技术极其成熟。</li>
+<li><strong>主要缺点</strong>：轴向尺寸相对较大，存在轴向力（需搭配推力轴承）。</li>
+<li><strong>典型应用</strong>：通用工业自动化设备、工厂输送带、重型机械传动。</li>
+</ul>
+<hr>
+<h3 id="6-蜗轮蜗杆减速器（Worm-Gearbox）"><a href="#6-蜗轮蜗杆减速器（Worm-Gearbox）" class="headerlink" title="6. 蜗轮蜗杆减速器（Worm Gearbox）"></a>6. 蜗轮蜗杆减速器（Worm Gearbox）</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%9C%97%E8%BD%AE%E8%9C%97%E6%9D%86.png"></p>
+<ul>
+<li><strong>结构组成</strong>：交错轴排列的蜗杆与蜗轮。</li>
+<li><strong>核心优势</strong>：结构紧凑、具有反向自锁特性（大传动比下）、运行平顺静音、成本低。</li>
+<li><strong>主要缺点</strong>：滑动摩擦大，传动效率低（通常仅 50% ~ 70%），发热量大。</li>
+<li><strong>典型应用</strong>：升降机、卷扬机、车库门控系统、低成本传动机构。</li>
+</ul>
+<hr>
+<h3 id="💡-核心减速器性能速查表"><a href="#💡-核心减速器性能速查表" class="headerlink" title="💡 核心减速器性能速查表"></a>💡 核心减速器性能速查表</h3><table>
+<thead>
+<tr>
+<th align="left">减速器类型</th>
+<th align="left">回程间隙 (Backlash)</th>
+<th align="left">传动效率</th>
+<th align="left">扭矩密度 &#x2F; 刚性</th>
+<th align="left">核心适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>谐波减速器</strong></td>
+<td align="left">极低（&lt; 1 arcmin）</td>
+<td align="left">中等（70% ~ 85%）</td>
+<td align="left">扭矩密度极高 &#x2F; 刚度一般</td>
+<td align="left">轻量化机器人关节、协作臂</td>
+</tr>
+<tr>
+<td align="left"><strong>RV 减速器</strong></td>
+<td align="left">极低（&lt; 1 arcmin）</td>
+<td align="left">高（85% ~ 90%）</td>
+<td align="left">刚性与抗冲击力极高</td>
+<td align="left">工业机器人重载关节</td>
+</tr>
+<tr>
+<td align="left"><strong>行星减速器</strong></td>
+<td align="left">低 ~ 中（1 ~ 8 arcmin）</td>
+<td align="left">极高（90% ~ 98%）</td>
+<td align="left">刚度高 &#x2F; 响应极快</td>
+<td align="left">足式机器人、伺服自动化</td>
+</tr>
+<tr>
+<td align="left"><strong>斜齿轮减速器</strong></td>
+<td align="left">较大（&gt; 10 arcmin）</td>
+<td align="left">极高（&gt; 95%）</td>
+<td align="left">适合连续大功率</td>
+<td align="left">工厂通用传动、重型机械</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>减速器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电机（03）：孔轴配合公差表</title>
+    <url>/2026/08/27/%E7%94%B5%E6%9C%BA%EF%BC%8803%EF%BC%89%EF%BC%9A%E5%AD%94%E8%BD%B4%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE%E8%A1%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="配合尺寸公差表（孔）"><a href="#配合尺寸公差表（孔）" class="headerlink" title="配合尺寸公差表（孔）"></a>配合尺寸公差表（孔）</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E5%AD%941.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E5%AD%942.jpg"></p>
+<h2 id="配合尺寸公差表（轴）"><a href="#配合尺寸公差表（轴）" class="headerlink" title="配合尺寸公差表（轴）"></a>配合尺寸公差表（轴）</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E8%BD%B41.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E8%BD%B42.jpg"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>公差表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电机（04）：键和键槽尺寸及标准</title>
+    <url>/2026/09/01/%E7%94%B5%E6%9C%BA%EF%BC%8804%EF%BC%89%EF%BC%9A%E9%94%AE%E5%92%8C%E9%94%AE%E6%A7%BD%E5%B0%BA%E5%AF%B8%E5%8F%8A%E6%A0%87%E5%87%86/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="平键标准"><a href="#平键标准" class="headerlink" title="平键标准"></a>平键标准</h2><ul>
+<li>DIN 6885：Parallel Keys，平键。属于德国 DIN 公制平键系列，尺寸单位为 mm。</li>
+<li>ASME B17.1-1967 (S2023)：Keys and Keyseats，中文可译为键和键槽。标准覆盖平键、斜键及相应键槽，常用于英制设计。通常也会看到旧式称呼 ANSI B17.1。</li>
+<li>GB&#x2F;T 1096-2003《普通型平键》：规定平键的型式、尺寸和公差。</li>
+<li>GB&#x2F;T 1095-2003《平键 键槽的剖面尺寸》：规定轴键槽和轮毂键槽尺寸。</li>
+<li>GB&#x2F;T 1568《键 技术条件》：规定材料、制造精度和验收要求。</li>
+</ul>
+<h3 id="标准对比"><a href="#标准对比" class="headerlink" title="标准对比"></a>标准对比</h3><blockquote>
+<p>GB&#x2F;T 1095 + GB&#x2F;T 1096 与 DIN 6885 属于同一套“公制平键”设计体系，尺寸系列高度接近，很多规格几乎可以直接对应；ANSI&#x2F;ASME B17.1 则是另一套英制体系.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>中国 GB</th>
+<th>德国 DIN</th>
+<th>美国 ANSI&#x2F;ASME</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>平键标准</td>
+<td>GB&#x2F;T 1096-2003</td>
+<td>DIN 6885</td>
+<td>ASME&#x2F;ANSI B17.1</td>
+</tr>
+<tr>
+<td>键槽标准</td>
+<td>GB&#x2F;T 1095-2003</td>
+<td>DIN 6885</td>
+<td>ASME&#x2F;ANSI B17.1</td>
+</tr>
+<tr>
+<td>单位</td>
+<td>mm</td>
+<td>mm</td>
+<td>inch</td>
+</tr>
+<tr>
+<td>尺寸体系</td>
+<td>公制</td>
+<td>公制</td>
+<td>英制</td>
+</tr>
+<tr>
+<td>键截面</td>
+<td>方形&#x2F;矩形</td>
+<td>方形&#x2F;矩形</td>
+<td>方形&#x2F;矩形</td>
+</tr>
+<tr>
+<td>典型尺寸</td>
+<td>8×7、10×8、12×8</td>
+<td>8×7、10×8、12×8</td>
+<td>1&#x2F;4×1&#x2F;4、3&#x2F;8×3&#x2F;8、1&#x2F;2×1&#x2F;2 等</td>
+</tr>
+<tr>
+<td>与GB兼容性</td>
+<td>基准</td>
+<td><strong>很高</strong></td>
+<td><strong>低</strong></td>
+</tr>
+</tbody></table>
+<h4 id="GB-和-DIN-6885，实际上非常接近"><a href="#GB-和-DIN-6885，实际上非常接近" class="headerlink" title="GB 和 DIN 6885，实际上非常接近"></a>GB 和 DIN 6885，实际上非常接近</h4><p>常见轴径对应：</p>
+<table>
+<thead>
+<tr>
+<th>轴径 mm</th>
+<th>GB 平键 b×h</th>
+<th>DIN 6885 b×h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;17~22</td>
+<td>6×6</td>
+<td>6×6</td>
+</tr>
+<tr>
+<td>&gt;22~30</td>
+<td>8×7</td>
+<td>8×7</td>
+</tr>
+<tr>
+<td>&gt;30~38</td>
+<td>10×8</td>
+<td>10×8</td>
+</tr>
+<tr>
+<td>&gt;38~44</td>
+<td>12×8</td>
+<td>12×8</td>
+</tr>
+<tr>
+<td>&gt;44~50</td>
+<td>14×9</td>
+<td>14×9</td>
+</tr>
+<tr>
+<td>&gt;50~58</td>
+<td>16×10</td>
+<td>16×10</td>
+</tr>
+<tr>
+<td>&gt;58~65</td>
+<td>18×11</td>
+<td>18×11</td>
+</tr>
+<tr>
+<td>&gt;65~75</td>
+<td>20×12</td>
+<td>20×12</td>
+</tr>
+<tr>
+<td>&gt;75~85</td>
+<td>22×14</td>
+<td>22×14</td>
+</tr>
+<tr>
+<td>&gt;85~95</td>
+<td>25×14</td>
+<td>25×14</td>
+</tr>
+<tr>
+<td>&gt;95~110</td>
+<td>28×16</td>
+<td>28×16</td>
+</tr>
+</tbody></table>
+<p>可以看到，两套标准在这些常用规格上的<strong>基本尺寸一致</strong>。</p>
+<h4 id="DIN-与-GB-一个值得特别注意的区别：键宽公差"><a href="#DIN-与-GB-一个值得特别注意的区别：键宽公差" class="headerlink" title="DIN 与 GB 一个值得特别注意的区别：键宽公差"></a>DIN 与 GB 一个值得特别注意的区别：键宽公差</h4><p>例如目前 GB&#x2F;T 1096-2003 对<strong>键宽 b</strong>规定为 <strong>h8</strong>。<br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2xvYmFsZmFzdGVuZXIuY29tL3N0YW5kYXJkcy9kZXRhaWwucGhwP3NpZD1NakEzTmc9PQ==">globalfastener.com<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Square%20and%20rectangular%20Keys%20GB%20T%201096%20-2003.jpg"></p>
+<p>DIN 6885 资料中常见的是 <strong>h9</strong> 键宽体系，例如 DIN 普通配合常见组合：</p>
+<ul>
+<li>键：<strong>h9</strong></li>
+<li>轴键槽：<strong>N9</strong></li>
+<li>轮毂键槽：<strong>JS9</strong></li>
+</ul>
+<p>DIN 还给出了不同装配性质：</p>
+<ul>
+<li>Tight fit：P9 &#x2F; P9</li>
+<li>Normal&#x2F;loose fit：轴槽 N9 + 轮毂槽 JS9</li>
+<li>Sliding：轴槽 H9 + 轮毂槽 D10</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cua29kNS5jb20vay1rZXktZGltZW5zaW9ucy1kaW4tNjg4NS5odG1s">kod5.com<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Parallel%20key%20dimensions%20-%20DIN%206885.jpg"></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly90b29scy5tYWludGFpbmZsb3cucHJvLw==">MaintainFlow Tools<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Key%20%26%20Keyway%20Size.jpg"></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9saXZlLWthdGFsb2cuZ2FudGVybm9ybS5jb20vcGRmL2dhbnRlci9lbi82ODg1XzEucGRm">live-katalog.ganternorm.com<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/DIN%206885.jpg"></p>
+<p><strong>GB 和 DIN 的 nominal size 很接近，不代表公差要求完全相同。</strong></p>
+<p>如果在 3D 设计软件中直接插一个 DIN 6885 的 10×8 键，<strong>3D 几何基本没有问题</strong>；但如果给中国供应商出正式制造图，最好还是按照 <strong>GB&#x2F;T 1096 + GB&#x2F;T 1095</strong> 重新确认公差。<br>&#96;</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>键</tag>
+        <tag>Key</tag>
+        <tag>Keyway</tag>
+        <tag>Standard</tag>
+        <tag>DIN 6885 metric</tag>
+        <tag>ANSI B17.1 inch</tag>
+        <tag>GB/T 1096-2003</tag>
+        <tag>GB/T 1095-2003</tag>
+        <tag>GB/T 1568</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑端主动屏蔽WiFi方法</title>
+    <url>/2026/09/03/%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%BB%E5%8A%A8%E5%B1%8F%E8%94%BDWiFi%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>主动屏蔽WiFi。</p>
+<h2 id="禁止连接指定-Wi‑Fi操作方法"><a href="#禁止连接指定-Wi‑Fi操作方法" class="headerlink" title="禁止连接指定 Wi‑Fi操作方法"></a>禁止连接指定 Wi‑Fi操作方法</h2><h3 id="以管理员身份打开命令提示符"><a href="#以管理员身份打开命令提示符" class="headerlink" title="以管理员身份打开命令提示符"></a>以管理员身份打开命令提示符</h3><ul>
+<li>开始菜单（最常用）</li>
+<li>按 Win 键。</li>
+<li>输入 cmd 或 命令提示符。</li>
+<li>在搜索结果中，右键 命令提示符。</li>
+<li>选择 以管理员身份运行。</li>
+<li>出现 UAC 提示时点击 是。</li>
+</ul>
+<h3 id="输入指令"><a href="#输入指令" class="headerlink" title="输入指令"></a>输入指令</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=block <span class="attribute">ssid</span>=<span class="string">&quot;WiFi名称&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前过滤规则"><a href="#查看当前过滤规则" class="headerlink" title="查看当前过滤规则"></a>查看当前过滤规则</h3><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="keyword">show</span> filters</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除禁止规则"><a href="#删除禁止规则" class="headerlink" title="删除禁止规则"></a>删除禁止规则</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan delete<span class="built_in"> filter </span><span class="attribute">permission</span>=block <span class="attribute">ssid</span>=<span class="string">&quot;Company_Guest&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<h2 id="只允许连接指定-Wi‑Fi"><a href="#只允许连接指定-Wi‑Fi" class="headerlink" title="只允许连接指定 Wi‑Fi"></a>只允许连接指定 Wi‑Fi</h2><h3 id="如果希望电脑只能连接某几个-Wi‑Fi："><a href="#如果希望电脑只能连接某几个-Wi‑Fi：" class="headerlink" title="如果希望电脑只能连接某几个 Wi‑Fi："></a>如果希望电脑只能连接某几个 Wi‑Fi：</h3><p>允许指定网络：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=allow <span class="attribute">ssid</span>=<span class="string">&quot;Office_WLAN&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<h3 id="然后启用白名单模式："><a href="#然后启用白名单模式：" class="headerlink" title="然后启用白名单模式："></a>然后启用白名单模式：</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=denyall <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<p>这样除了允许列表中的 Wi‑Fi，其余全部无法连接。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>WiFi</tag>
+        <tag>网络</tag>
+        <tag>屏蔽</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>申请美国EVUS（签证更新电子系统）</title>
     <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
@@ -3905,6 +5344,32 @@ th {
       </categories>
       <tags>
         <tag>EVUS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软排线建模</title>
+    <url>/2026/07/01/%E8%BD%AF%E6%8E%92%E7%BA%BF%E5%BB%BA%E6%A8%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景：根据2D图档建3D版的电子软排线"><a href="#背景：根据2D图档建3D版的电子软排线" class="headerlink" title="背景：根据2D图档建3D版的电子软排线"></a>背景：根据2D图档建3D版的电子软排线</h2><ul>
+<li>步骤：</li>
+</ul>
+<ol>
+<li>新建：选择“文件”“新建” “模型”</li>
+<li>导入：“文件”⟶“导入”⟶“AutoCAD DXF&#x2F;DWG”</li>
+<li>拉伸：“主页”⟶“拉伸”⟶“选择曲线”⟶“距离”⟶“应用”</li>
+<li>启动“钣金”：“文件”⟶“钣金”</li>
+<li>转换钣金：“转换为钣金”</li>
+<li>折弯：“折弯”⟶“折弯线”（绘制折弯线）⟶“选择面”⟶“角度”⟶“内嵌”⟶“折弯半径”</li>
+<li>折弯：“折弯”⟶“折弯线”（绘制折弯线）⟶“选择面”⟶“角度”⟶“内嵌”⟶“折弯半径”</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%AF%E6%8E%92%E7%BA%BF%E5%BB%BA%E6%A8%A1%20(2).png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX操作</tag>
       </tags>
   </entry>
   <entry>
