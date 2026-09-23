@@ -1,6 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Atom Command</title>
+    <url>/2026/01/15/Atom-command/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Atom-MacOs-快捷键"><a href="#Atom-MacOs-快捷键" class="headerlink" title="Atom MacOs 快捷键"></a>Atom MacOs 快捷键</h1><h2 id="文件切换"><a href="#文件切换" class="headerlink" title="文件切换"></a>文件切换</h2><ul>
+<li>ctrl-shift-s 保存所有打开的文件</li>
+<li>cmd-shift-o 打开目录</li>
+<li>cmd-\ 显示或隐藏目录树</li>
+<li>ctrl-0 焦点移到目录树</li>
+<li>目录树下，使用a，m，delete来增加，修改和删除</li>
+<li>cmd-t或cmd-p 查找文件</li>
+<li>cmd-b 在打开的文件之间切换</li>
+<li>cmd-shift-b 只搜索从上次git commit后修改或者新增的文件</li>
+</ul>
+<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><p>（等价于上下左右）</p>
+<ul>
+<li>ctrl-p 前一行</li>
+<li>ctrl-n 后一行</li>
+<li>ctrl-f 前一个字符</li>
+<li>ctrl-b 后一个字符</li>
+<li>alt-B, alt-left 移动到单词开始</li>
+<li>alt-F, alt-right 移动到单词末尾</li>
+<li>cmd-right, ctrl-E 移动到一行结束</li>
+<li>cmd-left, ctrl-A 移动到一行开始</li>
+<li>cmd-up 移动到文件开始</li>
+<li>cmd-down 移动到文件结束</li>
+<li>ctrl-g 移动到指定行 row:column 处</li>
+<li>cmd-r 在方法之间跳转</li>
+</ul>
+<h2 id="目录树操作"><a href="#目录树操作" class="headerlink" title="目录树操作"></a>目录树操作</h2><ul>
+<li>cmd-\ 或者 cmd-k cmd-b 显示(隐藏)目录树</li>
+<li>ctrl-0 焦点切换到目录树(再按一次或者Esc退出目录树)</li>
+<li>a 添加文件</li>
+<li>d 将当前文件另存为(duplicate)</li>
+<li>i 显示(隐藏)版本控制忽略的文件</li>
+<li>alt-right 和 alt-left 展开(隐藏)所有目录</li>
+<li>ctrl-al-] 和 ctrl-al-[ 同上</li>
+<li>ctrl-[ 和 ctrl-] 展开(隐藏)当前目录</li>
+<li>ctrl-f 和 ctrl-b 同上</li>
+<li>cmd-k h 或者 cmd-k left 在左半视图中打开文件</li>
+<li>cmd-k j 或者 cmd-k down 在下半视图中打开文件</li>
+<li>cmd-k k 或者 cmd-k up 在上半视图中打开文件</li>
+<li>cmd-k l 或者 cmd-k right 在右半视图中打开文件</li>
+<li>ctrl-shift-C 复制当前文件绝对路径</li>
+</ul>
+<h2 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h2><ul>
+<li>cmd-F2 在本行增加书签</li>
+<li>F2 跳到当前文件的下一条书签</li>
+<li>shift-F2 跳到当前文件的上一条书签</li>
+<li>ctrl-F2 列出当前工程所有书签</li>
+</ul>
+<h2 id="选取"><a href="#选取" class="headerlink" title="选取"></a>选取</h2><blockquote>
+<p>大部分和导航一致，只不过加上shift</p>
+</blockquote>
+<ul>
+<li>ctrl-shift-P 选取至上一行</li>
+<li>ctrl-shift-N 选取至下一样</li>
+<li>ctrl-shift-B 选取至前一个字符</li>
+<li>ctrl-shift-F 选取至后一个字符</li>
+<li>alt-shift-B, alt-shift-left 选取至字符开始</li>
+<li>alt-shift-F, alt-shift-right 选取至字符结束</li>
+<li>ctrl-shift-E, cmd-shift-right 选取至本行结束</li>
+<li>ctrl-shift-A, cmd-shift-left 选取至本行开始</li>
+<li>cmd-shift-up 选取至文件开始</li>
+<li>cmd-shift-down 选取至文件结尾</li>
+<li>cmd-A 全选</li>
+<li>cmd-L 选取一行，继续按回选取下一行</li>
+<li>ctrl-shift-W 选取当前单词</li>
+</ul>
+<h2 id="编辑和删除文本"><a href="#编辑和删除文本" class="headerlink" title="编辑和删除文本"></a>编辑和删除文本</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ul>
+<li>ctrl-T 使光标前后字符交换</li>
+<li>cmd-J 将下一行与当前行合并</li>
+<li>ctrl-cmd-up, ctrl-cmd-down 使当前行向上或者向下移动</li>
+<li>cmd-shift-D 复制当前行到下一行</li>
+<li>cmd-K, cmd-U 使当前字符大写</li>
+<li>cmd-K, cmd-L 使当前字符小写</li>
+<li>cmd-shift-P 搜索命令</li>
+</ul>
+<h3 id="删除和剪切"><a href="#删除和剪切" class="headerlink" title="删除和剪切"></a>删除和剪切</h3><ul>
+<li>ctrl-shift-K 删除当前行</li>
+<li>cmd-backspace 删除到当前行开始</li>
+<li>cmd-fn-backspace 删除到当前行结束</li>
+<li>ctrl-K 剪切到当前行结束</li>
+<li>alt-backspace 或 alt-H 删除到当前单词开始</li>
+<li>alt-delete 或 alt-D 删除到当前单词结束</li>
+</ul>
+<h3 id="多光标和多处选取"><a href="#多光标和多处选取" class="headerlink" title="多光标和多处选取"></a>多光标和多处选取</h3><ul>
+<li>cmd-click 增加新光标</li>
+<li>cmd-shift-L 将多行选取改为多行光标</li>
+<li>ctrl-shift-up, ctrl-shift-down 增加上（下）一行光标</li>
+<li>cmd-D 选取文档中和当前单词相同的下一处</li>
+<li>ctrl-cmd-G 选取文档中所有和当前光标单词相同的位置</li>
+</ul>
+<h3 id="括号跳转"><a href="#括号跳转" class="headerlink" title="括号跳转"></a>括号跳转</h3><ul>
+<li>ctrl-m 相应括号之间，html tag之间等跳转</li>
+<li>ctrl-cmd-m 括号(tag)之间文本选取</li>
+<li>alt-cmd-. 关闭当前XML&#x2F;HTML tag</li>
+</ul>
+<h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><ul>
+<li>ctrl-shift-U 调出切换编码选项</li>
+</ul>
+<h3 id="查找和替换"><a href="#查找和替换" class="headerlink" title="查找和替换"></a>查找和替换</h3><ul>
+<li>cmd-F 在buffer中查找</li>
+<li>cmd-shift-f 在整个工程中查找</li>
+</ul>
+<h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><ul>
+<li>alt-shift-S 查看当前可用代码片段</li>
+</ul>
+<blockquote>
+<p>在~&#x2F;.atom目录下snippets.cson文件中存放了你定制的snippets</p>
+</blockquote>
+<p>定制说明</p>
+<h3 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h3><ul>
+<li>ctrl-space 提示补全信息</li>
+</ul>
+<h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><ul>
+<li>alt-cmd-[ 折叠</li>
+<li>alt-cmd-] 展开</li>
+<li>alt-cmd-shift-{ 折叠全部</li>
+<li>alt-cmd-shift-} 展开全部</li>
+<li>cmd-k cmd-N 指定折叠层级 N为层级数</li>
+</ul>
+<h3 id="文件语法高亮"><a href="#文件语法高亮" class="headerlink" title="文件语法高亮"></a>文件语法高亮</h3><ul>
+<li>ctrl-shift-L 选择文本类型</li>
+</ul>
+<h3 id="使用Atom进行写作"><a href="#使用Atom进行写作" class="headerlink" title="使用Atom进行写作"></a>使用Atom进行写作</h3><ul>
+<li>ctrl-shift-M Markdown预览可用代码片段</li>
+</ul>
+<blockquote>
+<p>b, legal, img, l, i, code, t, table</p>
+</blockquote>
+<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><ul>
+<li>cmd-alt-Z checkout HEAD 版本</li>
+<li>cmd-shift-B 弹出untracked 和 modified文件列表</li>
+<li>alt-g down alt-g up 在修改处跳转</li>
+<li>alt-G D 弹出diff列表</li>
+<li>alt-G O 在github上打开文件</li>
+<li>alt-G G 在github上打开项目地址</li>
+<li>alt-G B 在github上打开文件blame</li>
+<li>alt-G H 在github上打开文件history</li>
+<li>alt-G I 在github上打开issues</li>
+<li>alt-G R 在github打开分支比较</li>
+<li>alt-G C 拷贝当前文件在gihub上的网址</li>
+</ul>
+<h2 id="推荐一些好用的插件"><a href="#推荐一些好用的插件" class="headerlink" title="推荐一些好用的插件"></a>推荐一些好用的插件</h2><ul>
+<li>主题</li>
+<li>atom-material-ui 好看到爆</li>
+<li>atom-material-syntax</li>
+<li>美化</li>
+<li>atom-beautify 一键代码美化</li>
+<li>file-icons 给文件加上好看的图标</li>
+<li>atom-minimap 方便美观的缩略滚动图</li>
+<li>pretty-json json格式化工具</li>
+<li>activate-power-mode 炫酷的打字特效</li>
+<li>git</li>
+<li>atomatigit 可视化git操作</li>
+<li>git-time-machine git版本对比工具，可视化选择每一个commit</li>
+<li>merge-conflicts 合并冲突可视化工具</li>
+<li>代码提示</li>
+<li>emmet 这个不用介绍了吧</li>
+<li>atom-ternjs js代码提示很强大，高度定制化</li>
+<li>docblockr jsdoc 给js添加注释</li>
+<li>autoclose-html 闭合html标签</li>
+<li>color-picker 取色器 必备插件</li>
+<li>pigments 颜色显示插件 必装</li>
+<li>terminal-panel 直接在atom里面写命令了</li>
+<li>svg-preview svg预览</li>
+<li>便捷操作</li>
+<li>advanced-open-file 快速打开、切换文件</li>
+<li>project-folder 快速打开、切换项目</li>
+<li>script 立即执行当前js文件</li>
+<li>高亮</li>
+<li>language-vue vue框架代码高亮</li>
+<li>终端</li>
+<li>platformio-atom-ide-terminal 终端插件，支持显示、隐藏及多窗口</li>
+</ul>
+<p>  From: <span class="exturl" data-url="aHR0cHM6Ly9sZW9hdGNoaW5hLmdpdGh1Yi5pby8yMDE3LzAyLzE2L2F0b20tc2hvcnRjdXRzLW1hY29zLw==">https://leoatchina.github.io/2017/02/16/atom-shortcuts-macos/<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Atom中Markdown语法</title>
     <url>/2019/08/16/Atom%E4%B8%ADMarkdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">一级标题       语法：#+空格</span><br><span class="line">二级标题       语法：##+空格</span><br><span class="line">三级标题       语法：###+空格</span><br></pre></td></tr></table></figure>
@@ -213,187 +394,6 @@ search | web前段开发工程师 | 码农
       <tags>
         <tag>Atom</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Atom Command</title>
-    <url>/2026/01/15/Atom-command/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Atom-MacOs-快捷键"><a href="#Atom-MacOs-快捷键" class="headerlink" title="Atom MacOs 快捷键"></a>Atom MacOs 快捷键</h1><h2 id="文件切换"><a href="#文件切换" class="headerlink" title="文件切换"></a>文件切换</h2><ul>
-<li>ctrl-shift-s 保存所有打开的文件</li>
-<li>cmd-shift-o 打开目录</li>
-<li>cmd-\ 显示或隐藏目录树</li>
-<li>ctrl-0 焦点移到目录树</li>
-<li>目录树下，使用a，m，delete来增加，修改和删除</li>
-<li>cmd-t或cmd-p 查找文件</li>
-<li>cmd-b 在打开的文件之间切换</li>
-<li>cmd-shift-b 只搜索从上次git commit后修改或者新增的文件</li>
-</ul>
-<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><p>（等价于上下左右）</p>
-<ul>
-<li>ctrl-p 前一行</li>
-<li>ctrl-n 后一行</li>
-<li>ctrl-f 前一个字符</li>
-<li>ctrl-b 后一个字符</li>
-<li>alt-B, alt-left 移动到单词开始</li>
-<li>alt-F, alt-right 移动到单词末尾</li>
-<li>cmd-right, ctrl-E 移动到一行结束</li>
-<li>cmd-left, ctrl-A 移动到一行开始</li>
-<li>cmd-up 移动到文件开始</li>
-<li>cmd-down 移动到文件结束</li>
-<li>ctrl-g 移动到指定行 row:column 处</li>
-<li>cmd-r 在方法之间跳转</li>
-</ul>
-<h2 id="目录树操作"><a href="#目录树操作" class="headerlink" title="目录树操作"></a>目录树操作</h2><ul>
-<li>cmd-\ 或者 cmd-k cmd-b 显示(隐藏)目录树</li>
-<li>ctrl-0 焦点切换到目录树(再按一次或者Esc退出目录树)</li>
-<li>a 添加文件</li>
-<li>d 将当前文件另存为(duplicate)</li>
-<li>i 显示(隐藏)版本控制忽略的文件</li>
-<li>alt-right 和 alt-left 展开(隐藏)所有目录</li>
-<li>ctrl-al-] 和 ctrl-al-[ 同上</li>
-<li>ctrl-[ 和 ctrl-] 展开(隐藏)当前目录</li>
-<li>ctrl-f 和 ctrl-b 同上</li>
-<li>cmd-k h 或者 cmd-k left 在左半视图中打开文件</li>
-<li>cmd-k j 或者 cmd-k down 在下半视图中打开文件</li>
-<li>cmd-k k 或者 cmd-k up 在上半视图中打开文件</li>
-<li>cmd-k l 或者 cmd-k right 在右半视图中打开文件</li>
-<li>ctrl-shift-C 复制当前文件绝对路径</li>
-</ul>
-<h2 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h2><ul>
-<li>cmd-F2 在本行增加书签</li>
-<li>F2 跳到当前文件的下一条书签</li>
-<li>shift-F2 跳到当前文件的上一条书签</li>
-<li>ctrl-F2 列出当前工程所有书签</li>
-</ul>
-<h2 id="选取"><a href="#选取" class="headerlink" title="选取"></a>选取</h2><blockquote>
-<p>大部分和导航一致，只不过加上shift</p>
-</blockquote>
-<ul>
-<li>ctrl-shift-P 选取至上一行</li>
-<li>ctrl-shift-N 选取至下一样</li>
-<li>ctrl-shift-B 选取至前一个字符</li>
-<li>ctrl-shift-F 选取至后一个字符</li>
-<li>alt-shift-B, alt-shift-left 选取至字符开始</li>
-<li>alt-shift-F, alt-shift-right 选取至字符结束</li>
-<li>ctrl-shift-E, cmd-shift-right 选取至本行结束</li>
-<li>ctrl-shift-A, cmd-shift-left 选取至本行开始</li>
-<li>cmd-shift-up 选取至文件开始</li>
-<li>cmd-shift-down 选取至文件结尾</li>
-<li>cmd-A 全选</li>
-<li>cmd-L 选取一行，继续按回选取下一行</li>
-<li>ctrl-shift-W 选取当前单词</li>
-</ul>
-<h2 id="编辑和删除文本"><a href="#编辑和删除文本" class="headerlink" title="编辑和删除文本"></a>编辑和删除文本</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ul>
-<li>ctrl-T 使光标前后字符交换</li>
-<li>cmd-J 将下一行与当前行合并</li>
-<li>ctrl-cmd-up, ctrl-cmd-down 使当前行向上或者向下移动</li>
-<li>cmd-shift-D 复制当前行到下一行</li>
-<li>cmd-K, cmd-U 使当前字符大写</li>
-<li>cmd-K, cmd-L 使当前字符小写</li>
-<li>cmd-shift-P 搜索命令</li>
-</ul>
-<h3 id="删除和剪切"><a href="#删除和剪切" class="headerlink" title="删除和剪切"></a>删除和剪切</h3><ul>
-<li>ctrl-shift-K 删除当前行</li>
-<li>cmd-backspace 删除到当前行开始</li>
-<li>cmd-fn-backspace 删除到当前行结束</li>
-<li>ctrl-K 剪切到当前行结束</li>
-<li>alt-backspace 或 alt-H 删除到当前单词开始</li>
-<li>alt-delete 或 alt-D 删除到当前单词结束</li>
-</ul>
-<h3 id="多光标和多处选取"><a href="#多光标和多处选取" class="headerlink" title="多光标和多处选取"></a>多光标和多处选取</h3><ul>
-<li>cmd-click 增加新光标</li>
-<li>cmd-shift-L 将多行选取改为多行光标</li>
-<li>ctrl-shift-up, ctrl-shift-down 增加上（下）一行光标</li>
-<li>cmd-D 选取文档中和当前单词相同的下一处</li>
-<li>ctrl-cmd-G 选取文档中所有和当前光标单词相同的位置</li>
-</ul>
-<h3 id="括号跳转"><a href="#括号跳转" class="headerlink" title="括号跳转"></a>括号跳转</h3><ul>
-<li>ctrl-m 相应括号之间，html tag之间等跳转</li>
-<li>ctrl-cmd-m 括号(tag)之间文本选取</li>
-<li>alt-cmd-. 关闭当前XML&#x2F;HTML tag</li>
-</ul>
-<h3 id="编码方式"><a href="#编码方式" class="headerlink" title="编码方式"></a>编码方式</h3><ul>
-<li>ctrl-shift-U 调出切换编码选项</li>
-</ul>
-<h3 id="查找和替换"><a href="#查找和替换" class="headerlink" title="查找和替换"></a>查找和替换</h3><ul>
-<li>cmd-F 在buffer中查找</li>
-<li>cmd-shift-f 在整个工程中查找</li>
-</ul>
-<h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><ul>
-<li>alt-shift-S 查看当前可用代码片段</li>
-</ul>
-<blockquote>
-<p>在~&#x2F;.atom目录下snippets.cson文件中存放了你定制的snippets</p>
-</blockquote>
-<p>定制说明</p>
-<h3 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h3><ul>
-<li>ctrl-space 提示补全信息</li>
-</ul>
-<h3 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h3><ul>
-<li>alt-cmd-[ 折叠</li>
-<li>alt-cmd-] 展开</li>
-<li>alt-cmd-shift-{ 折叠全部</li>
-<li>alt-cmd-shift-} 展开全部</li>
-<li>cmd-k cmd-N 指定折叠层级 N为层级数</li>
-</ul>
-<h3 id="文件语法高亮"><a href="#文件语法高亮" class="headerlink" title="文件语法高亮"></a>文件语法高亮</h3><ul>
-<li>ctrl-shift-L 选择文本类型</li>
-</ul>
-<h3 id="使用Atom进行写作"><a href="#使用Atom进行写作" class="headerlink" title="使用Atom进行写作"></a>使用Atom进行写作</h3><ul>
-<li>ctrl-shift-M Markdown预览可用代码片段</li>
-</ul>
-<blockquote>
-<p>b, legal, img, l, i, code, t, table</p>
-</blockquote>
-<h3 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h3><ul>
-<li>cmd-alt-Z checkout HEAD 版本</li>
-<li>cmd-shift-B 弹出untracked 和 modified文件列表</li>
-<li>alt-g down alt-g up 在修改处跳转</li>
-<li>alt-G D 弹出diff列表</li>
-<li>alt-G O 在github上打开文件</li>
-<li>alt-G G 在github上打开项目地址</li>
-<li>alt-G B 在github上打开文件blame</li>
-<li>alt-G H 在github上打开文件history</li>
-<li>alt-G I 在github上打开issues</li>
-<li>alt-G R 在github打开分支比较</li>
-<li>alt-G C 拷贝当前文件在gihub上的网址</li>
-</ul>
-<h2 id="推荐一些好用的插件"><a href="#推荐一些好用的插件" class="headerlink" title="推荐一些好用的插件"></a>推荐一些好用的插件</h2><ul>
-<li>主题</li>
-<li>atom-material-ui 好看到爆</li>
-<li>atom-material-syntax</li>
-<li>美化</li>
-<li>atom-beautify 一键代码美化</li>
-<li>file-icons 给文件加上好看的图标</li>
-<li>atom-minimap 方便美观的缩略滚动图</li>
-<li>pretty-json json格式化工具</li>
-<li>activate-power-mode 炫酷的打字特效</li>
-<li>git</li>
-<li>atomatigit 可视化git操作</li>
-<li>git-time-machine git版本对比工具，可视化选择每一个commit</li>
-<li>merge-conflicts 合并冲突可视化工具</li>
-<li>代码提示</li>
-<li>emmet 这个不用介绍了吧</li>
-<li>atom-ternjs js代码提示很强大，高度定制化</li>
-<li>docblockr jsdoc 给js添加注释</li>
-<li>autoclose-html 闭合html标签</li>
-<li>color-picker 取色器 必备插件</li>
-<li>pigments 颜色显示插件 必装</li>
-<li>terminal-panel 直接在atom里面写命令了</li>
-<li>svg-preview svg预览</li>
-<li>便捷操作</li>
-<li>advanced-open-file 快速打开、切换文件</li>
-<li>project-folder 快速打开、切换项目</li>
-<li>script 立即执行当前js文件</li>
-<li>高亮</li>
-<li>language-vue vue框架代码高亮</li>
-<li>终端</li>
-<li>platformio-atom-ide-terminal 终端插件，支持显示、隐藏及多窗口</li>
-</ul>
-<p>  From: <span class="exturl" data-url="aHR0cHM6Ly9sZW9hdGNoaW5hLmdpdGh1Yi5pby8yMDE3LzAyLzE2L2F0b20tc2hvcnRjdXRzLW1hY29zLw==">https://leoatchina.github.io/2017/02/16/atom-shortcuts-macos/<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
   </entry>
   <entry>
     <title>B2B Connector测试探针优化复盘</title>
@@ -1285,54 +1285,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>GD&amp;T - Location_Position (1)</title>
-    <url>/2026/09/10/GD-T-Location-Position/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Location-Tolerance-of-Position"><a href="#Location-Tolerance-of-Position" class="headerlink" title="Location - Tolerance of Position"></a>Location - Tolerance of Position</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Location-position.png"></p>
-<p>解读：位置度 | Ø0.03 | A | B | C</p>
-<ol>
-<li>方框基本尺寸定义孔的理论正确位置。  </li>
-<li>按照基准顺序 A、B、C 建立基准参考系（Datum Reference Frame, DRF）。  </li>
-<li>该孔的实际轴线必须位于一个直径为0.03 mm的圆柱形公差带内。该圆柱公差带的中心轴线就是孔的理论正确轴线。  </li>
-<li>图中位置度公差值后未见 Ⓜ 或 Ⓛ，按 ASME Y14.5 的解释，与特征尺寸无关 RFS。  </li>
-<li>最大中心偏移量：<br>实际孔轴线简化为与理论轴线平行，仅考虑X、Y方向的中心偏移，则允许的最大径向偏移为：<br>0.03&#x2F;2 &#x3D; 0.015mm</li>
-</ol>
-<p>所以：<br>位置度公差带直径：0.03 mm<br>最大单边径向偏移：0.015 mm<br>换算成微米：15 μm</p>
-<h2 id="二维简化计算"><a href="#二维简化计算" class="headerlink" title="二维简化计算"></a>二维简化计算</h2><p> CMM 报告给出相对理论位置的中心偏差：</p>
-<ul>
-<li>X 方向偏差为 $\Delta X$</li>
-<li>Y 方向偏差为 $\Delta Y$</li>
-</ul>
-<p>则直径制位置度结果通常表示为：</p>
-<p>$$<br>T_P &#x3D; 2\sqrt{(\Delta X)^2 + (\Delta Y)^2}<br>$$</p>
-<p>合格条件为：</p>
-<p>$$<br>T_P \leq 0.03\ \text{mm}<br>$$</p>
-<p>例如：</p>
-<p>$$<br>\Delta X &#x3D; 0.009\ \text{mm}<br>$$</p>
-<p>$$<br>\Delta Y &#x3D; 0.012\ \text{mm}<br>$$</p>
-<p>那么：</p>
-<p>$$<br>T_P &#x3D; 2\sqrt{0.009^2 + 0.012^2}<br>$$</p>
-<p>$$<br>T_P &#x3D; 2 \times 0.015 &#x3D; 0.030\ \text{mm}<br>$$</p>
-<p>结果正好处于合格边界。</p>
-<p>再举超差例子：</p>
-<p>$$<br>\Delta X &#x3D; 0.010\ \text{mm}, \quad<br>\Delta Y &#x3D; 0.012\ \text{mm}<br>$$</p>
-<p>$$<br>T_P &#x3D; 2\sqrt{0.010^2 + 0.012^2}<br>\approx 0.0312\ \text{mm}<br>$$</p>
-<p>由于：</p>
-<p>$$<br>0.0312 &gt; 0.030<br>$$</p>
-<p>因此超差约：</p>
-<p>$$<br>0.0312 - 0.030 &#x3D; 0.0012\ \text{mm}<br>$$</p>
-<p>也就是约 <strong>1.2 μm</strong>。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>GD&amp;T</tag>
-        <tag>Location</tag>
-        <tag>ASME Y14.5-2018</tag>
-        <tag>GB/T 1182-2018</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GRR</title>
     <url>/2026/05/17/GRR/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GRR（Gauge-Repeatability-Reproducibility）"><a href="#GRR（Gauge-Repeatability-Reproducibility）" class="headerlink" title="GRR（Gauge Repeatability &amp; Reproducibility）"></a>GRR（Gauge Repeatability &amp; Reproducibility）</h2><blockquote>
@@ -1398,6 +1350,54 @@ th {
         <tag>GRR</tag>
         <tag>均值——极差法</tag>
         <tag>方差分析法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GD&amp;T - Location_Position (1)</title>
+    <url>/2026/09/10/GD-T-Location-Position/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Location-Tolerance-of-Position"><a href="#Location-Tolerance-of-Position" class="headerlink" title="Location - Tolerance of Position"></a>Location - Tolerance of Position</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Location-position.png"></p>
+<p>解读：位置度 | Ø0.03 | A | B | C</p>
+<ol>
+<li>方框基本尺寸定义孔的理论正确位置。  </li>
+<li>按照基准顺序 A、B、C 建立基准参考系（Datum Reference Frame, DRF）。  </li>
+<li>该孔的实际轴线必须位于一个直径为0.03 mm的圆柱形公差带内。该圆柱公差带的中心轴线就是孔的理论正确轴线。  </li>
+<li>图中位置度公差值后未见 Ⓜ 或 Ⓛ，按 ASME Y14.5 的解释，与特征尺寸无关 RFS。  </li>
+<li>最大中心偏移量：<br>实际孔轴线简化为与理论轴线平行，仅考虑X、Y方向的中心偏移，则允许的最大径向偏移为：<br>0.03&#x2F;2 &#x3D; 0.015mm</li>
+</ol>
+<p>所以：<br>位置度公差带直径：0.03 mm<br>最大单边径向偏移：0.015 mm<br>换算成微米：15 μm</p>
+<h2 id="二维简化计算"><a href="#二维简化计算" class="headerlink" title="二维简化计算"></a>二维简化计算</h2><p> CMM 报告给出相对理论位置的中心偏差：</p>
+<ul>
+<li>X 方向偏差为 $\Delta X$</li>
+<li>Y 方向偏差为 $\Delta Y$</li>
+</ul>
+<p>则直径制位置度结果通常表示为：</p>
+<p>$$<br>T_P &#x3D; 2\sqrt{(\Delta X)^2 + (\Delta Y)^2}<br>$$</p>
+<p>合格条件为：</p>
+<p>$$<br>T_P \leq 0.03\ \text{mm}<br>$$</p>
+<p>例如：</p>
+<p>$$<br>\Delta X &#x3D; 0.009\ \text{mm}<br>$$</p>
+<p>$$<br>\Delta Y &#x3D; 0.012\ \text{mm}<br>$$</p>
+<p>那么：</p>
+<p>$$<br>T_P &#x3D; 2\sqrt{0.009^2 + 0.012^2}<br>$$</p>
+<p>$$<br>T_P &#x3D; 2 \times 0.015 &#x3D; 0.030\ \text{mm}<br>$$</p>
+<p>结果正好处于合格边界。</p>
+<p>再举超差例子：</p>
+<p>$$<br>\Delta X &#x3D; 0.010\ \text{mm}, \quad<br>\Delta Y &#x3D; 0.012\ \text{mm}<br>$$</p>
+<p>$$<br>T_P &#x3D; 2\sqrt{0.010^2 + 0.012^2}<br>\approx 0.0312\ \text{mm}<br>$$</p>
+<p>由于：</p>
+<p>$$<br>0.0312 &gt; 0.030<br>$$</p>
+<p>因此超差约：</p>
+<p>$$<br>0.0312 - 0.030 &#x3D; 0.0012\ \text{mm}<br>$$</p>
+<p>也就是约 <strong>1.2 μm</strong>。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>GD&amp;T</tag>
+        <tag>Location</tag>
+        <tag>ASME Y14.5-2018</tag>
+        <tag>GB/T 1182-2018</tag>
       </tags>
   </entry>
   <entry>
@@ -1524,7 +1524,7 @@ th {
 </ol>
 ]]></content>
       <categories>
-        <category>Tech</category>
+        <category>Blog</category>
       </categories>
       <tags>
         <tag>PicGo</tag>
@@ -1780,54 +1780,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>PicGo错误代码401和解决方法</title>
-    <url>/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<p>此次上传失败是源于Token过期，导致上传失败。</p>
-</blockquote>
-<h2 id="上传成功"><a href="#上传成功" class="headerlink" title="上传成功"></a>上传成功</h2><p>正常图片上传成功会在右下角显示通知“上传成功”<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20%E6%88%90%E5%8A%9F%E4%B8%8A%E4%BC%A0.jpg"></p>
-<h2 id="上传失败"><a href="#上传失败" class="headerlink" title="上传失败"></a>上传失败</h2><p>自动拖拽上传图片是出现如下错误：<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20401%20error.jpg"></p>
-<h2 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h2><ol>
-<li><p>打开PicGo设置，高级，日志文件<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2.jpg"></p>
-</li>
-<li><p>日志详细解读<br>详细日志显示如下，可以看出在访问Github时，返回401 code，看起来是权限的问题，</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> transform</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] <span class="type">Can</span>&#x27;t find transformer <span class="operator">-</span> compress<span class="operator">-</span>next, <span class="keyword">switch</span> to <span class="keyword">default</span> transformer <span class="operator">-</span> path</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Transforming</span>... <span class="type">Current</span> transformer <span class="keyword">is</span> [path]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> upload</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] beforeUploadPlugins: renameFn running</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Uploading</span>... <span class="type">Current</span> uploader <span class="keyword">is</span> [github]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] failed</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">ERROR</span>] &#123;</span><br><span class="line">  <span class="string">&quot;method&quot;</span>: <span class="string">&quot;PUT&quot;</span>,</span><br><span class="line">  <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://api.github.com/repos/Burro-CMD/burro-imgbed/contents/images/blog/Parallel%20key%20dimensions%20-%20DIN%206885.jpg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">  <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Request failed with status code 401&quot;</span>,</span><br><span class="line">  <span class="string">&quot;stack&quot;</span>: <span class="string">&quot;AxiosError: Request failed with status code 401<span class="subst">\n</span>    at settle (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:2304:7)<span class="subst">\n</span>    at IncomingMessage.handleStreamEnd (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:3772:13)<span class="subst">\n</span>    at IncomingMessage.emit (node:events:531:35)<span class="subst">\n</span>    at endReadableNT (node:internal/streams/readable:1698:12)<span class="subst">\n</span>    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)&quot;</span>,</span><br><span class="line">  <span class="string">&quot;response&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;status&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;body&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Bad credentials&quot;</span>,</span><br><span class="line">      <span class="string">&quot;documentation_url&quot;</span>: <span class="string">&quot;https://docs.github.com/rest&quot;</span>,</span><br><span class="line">      <span class="string">&quot;status&quot;</span>: <span class="string">&quot;401&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登录Github，点击右上角头像，选择Settings-&gt;Developer settings-&gt;Github Apps-&gt;Personal access token-&gt;Fine-grained tokens，查看之后发现token已过期。</p>
-</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg"></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>点击Regenerator token<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20regenerator%20token.jpg"></p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>需要复制好token，然后粘贴到PicGo中，<br>点击PicGo-&gt;图床列表-&gt;Github<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg"></p>
-<h2 id="最新版本PicGo"><a href="#最新版本PicGo" class="headerlink" title="最新版本PicGo"></a>最新版本PicGo</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2VzL3RhZy92My4wLjI=">PicGo<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PicGo%E6%96%B0%E7%89%88UI.jpg"></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>GitHub</tag>
-        <tag>PicGo</tag>
-        <tag>Error Code 401</tag>
-        <tag>Token</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NX自制图框导入</title>
-    <url>/2026/09/23/NX%E8%87%AA%E5%88%B6%E5%9B%BE%E6%A1%86%E5%AF%BC%E5%85%A5/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="NX自制图框的导入"><a href="#NX自制图框的导入" class="headerlink" title="NX自制图框的导入"></a>NX自制图框的导入</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E6%8F%92%E5%85%A5%E8%87%AA%E5%88%B6%E5%9B%BE%E6%A1%862.gif"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Siemens</tag>
-        <tag>NX</tag>
-        <tag>NX操作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NX建模模型展平——厚度不一致处理</title>
     <url>/2026/09/21/NX%E5%BB%BA%E6%A8%A1%E6%A8%A1%E5%9E%8B%E5%B1%95%E5%B9%B3%E2%80%94%E2%80%94%E5%8E%9A%E5%BA%A6%E4%B8%8D%E4%B8%80%E8%87%B4%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>这是一个stp档打开之后，发现组装体中有gasket并且是带有折弯的，且此零件模型无特征树。</p>
@@ -1883,6 +1835,54 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>NX自制图框导入</title>
+    <url>/2026/09/23/NX%E8%87%AA%E5%88%B6%E5%9B%BE%E6%A1%86%E5%AF%BC%E5%85%A5/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="NX自制图框的导入"><a href="#NX自制图框的导入" class="headerlink" title="NX自制图框的导入"></a>NX自制图框的导入</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/NX%E6%8F%92%E5%85%A5%E8%87%AA%E5%88%B6%E5%9B%BE%E6%A1%862.gif"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Siemens</tag>
+        <tag>NX</tag>
+        <tag>NX操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PicGo错误代码401和解决方法</title>
+    <url>/2026/09/02/PicGo%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81401%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>此次上传失败是源于Token过期，导致上传失败。</p>
+</blockquote>
+<h2 id="上传成功"><a href="#上传成功" class="headerlink" title="上传成功"></a>上传成功</h2><p>正常图片上传成功会在右下角显示通知“上传成功”<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20%E6%88%90%E5%8A%9F%E4%B8%8A%E4%BC%A0.jpg"></p>
+<h2 id="上传失败"><a href="#上传失败" class="headerlink" title="上传失败"></a>上传失败</h2><p>自动拖拽上传图片是出现如下错误：<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20401%20error.jpg"></p>
+<h2 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h2><ol>
+<li><p>打开PicGo设置，高级，日志文件<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2.jpg"></p>
+</li>
+<li><p>日志详细解读<br>详细日志显示如下，可以看出在访问Github时，返回401 code，看起来是权限的问题，</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> transform</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] <span class="type">Can</span>&#x27;t find transformer <span class="operator">-</span> compress<span class="operator">-</span>next, <span class="keyword">switch</span> to <span class="keyword">default</span> transformer <span class="operator">-</span> path</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Transforming</span>... <span class="type">Current</span> transformer <span class="keyword">is</span> [path]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Before</span> upload</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] beforeUploadPlugins: renameFn running</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">03</span> [<span class="type">PicGo</span> <span class="type">INFO</span>] <span class="type">Uploading</span>... <span class="type">Current</span> uploader <span class="keyword">is</span> [github]</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">WARN</span>] failed</span><br><span class="line"><span class="number">2026</span><span class="operator">-</span><span class="number">09</span><span class="operator">-</span><span class="number">01</span> <span class="number">16</span>:<span class="number">26</span>:<span class="number">04</span> [<span class="type">PicGo</span> <span class="type">ERROR</span>] &#123;</span><br><span class="line">  <span class="string">&quot;method&quot;</span>: <span class="string">&quot;PUT&quot;</span>,</span><br><span class="line">  <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://api.github.com/repos/Burro-CMD/burro-imgbed/contents/images/blog/Parallel%20key%20dimensions%20-%20DIN%206885.jpg&quot;</span>,</span><br><span class="line">  <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">  <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Request failed with status code 401&quot;</span>,</span><br><span class="line">  <span class="string">&quot;stack&quot;</span>: <span class="string">&quot;AxiosError: Request failed with status code 401<span class="subst">\n</span>    at settle (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:2304:7)<span class="subst">\n</span>    at IncomingMessage.handleStreamEnd (C:<span class="subst">\\</span>Users<span class="subst">\\</span>fenca998<span class="subst">\\</span>AppData<span class="subst">\\</span>Local<span class="subst">\\</span>Programs<span class="subst">\\</span>PicGo<span class="subst">\\</span>resources<span class="subst">\\</span>app.asar<span class="subst">\\</span>node_modules<span class="subst">\\</span>picgo<span class="subst">\\</span>node_modules<span class="subst">\\</span>axios<span class="subst">\\</span>dist<span class="subst">\\</span>node<span class="subst">\\</span>axios.cjs:3772:13)<span class="subst">\n</span>    at IncomingMessage.emit (node:events:531:35)<span class="subst">\n</span>    at endReadableNT (node:internal/streams/readable:1698:12)<span class="subst">\n</span>    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)&quot;</span>,</span><br><span class="line">  <span class="string">&quot;response&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;status&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;statusCode&quot;</span>: <span class="number">401</span>,</span><br><span class="line">    <span class="string">&quot;body&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Bad credentials&quot;</span>,</span><br><span class="line">      <span class="string">&quot;documentation_url&quot;</span>: <span class="string">&quot;https://docs.github.com/rest&quot;</span>,</span><br><span class="line">      <span class="string">&quot;status&quot;</span>: <span class="string">&quot;401&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录Github，点击右上角头像，选择Settings-&gt;Developer settings-&gt;Github Apps-&gt;Personal access token-&gt;Fine-grained tokens，查看之后发现token已过期。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20%E5%9B%BE%E5%BA%8Atoken%E8%BF%87%E6%9C%9F.jpg"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>点击Regenerator token<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Token%20setting.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/github%20regenerator%20token.jpg"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>需要复制好token，然后粘贴到PicGo中，<br>点击PicGo-&gt;图床列表-&gt;Github<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20token%E8%AE%BE%E7%BD%AE.jpg"></p>
+<h2 id="最新版本PicGo"><a href="#最新版本PicGo" class="headerlink" title="最新版本PicGo"></a>最新版本PicGo</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2VzL3RhZy92My4wLjI=">PicGo<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PicGo%E6%96%B0%E7%89%88UI.jpg"></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>GitHub</tag>
+        <tag>PicGo</tag>
+        <tag>Error Code 401</tag>
+        <tag>Token</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Siemens NX 视图方位快捷键</title>
     <url>/2026/07/01/Siemens%20NX%20%E8%A7%86%E5%9B%BE%E6%96%B9%E4%BD%8D%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="基于-NX-2506"><a href="#基于-NX-2506" class="headerlink" title="基于 NX 2506"></a>基于 NX 2506</h2><p>Z 轴向上，X 轴向右，Y 轴垂直屏幕向里时，正对的面为正前方（即下图红色面）。  </p>
@@ -1924,6 +1924,27 @@ th {
         <tag>NX</tag>
         <tag>NX 2506</tag>
         <tag>视图方位快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solidworks参数优化</title>
+    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
+<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
+<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
+<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
+<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
+<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Solidworks</tag>
+        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -1998,27 +2019,6 @@ th {
         <tag>仿真</tag>
         <tag>动画</tag>
         <tag>插件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Solidworks参数优化</title>
-    <url>/2026/06/23/Solidworks%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="减少崩溃概率"><a href="#减少崩溃概率" class="headerlink" title="减少崩溃概率"></a>减少崩溃概率</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%87%8F%E5%B0%91%E5%B4%A9%E6%BA%831.png"></p>
-<h2 id="优化装配体设置"><a href="#优化装配体设置" class="headerlink" title="优化装配体设置"></a>优化装配体设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E8%A3%85%E9%85%8D%E4%BD%93%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="优化性能设置"><a href="#优化性能设置" class="headerlink" title="优化性能设置"></a>优化性能设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE1.png"></p>
-<h2 id="备份-恢复设置"><a href="#备份-恢复设置" class="headerlink" title="备份&#x2F;恢复设置"></a>备份&#x2F;恢复设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="FeatureManger设置"><a href="#FeatureManger设置" class="headerlink" title="FeatureManger设置"></a>FeatureManger设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/FeatureManage%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="导入设置"><a href="#导入设置" class="headerlink" title="导入设置"></a>导入设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AF%BC%E5%85%A5%E8%AE%BE%E7%BD%AE.png"></p>
-<h2 id="外部参考设置"><a href="#外部参考设置" class="headerlink" title="外部参考设置"></a>外部参考设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83.png"></p>
-<h2 id="默认模板设置"><a href="#默认模板设置" class="headerlink" title="默认模板设置"></a>默认模板设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%BB%98%E8%AE%A4%E6%A8%A1%E6%9D%BF.png"></p>
-<h2 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Solidworks</tag>
-        <tag>参数</tag>
       </tags>
   </entry>
   <entry>
@@ -2118,139 +2118,6 @@ th {
         <tag>Sensor</tag>
         <tag>Gauge</tag>
         <tag>μstrain</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Visual_Studio_Code与相关核心工具快捷指令汇总</title>
-    <url>/2026/09/23/Visual-Studio-Code%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-VS-Code-与相关工具核心快捷键汇总"><a href="#1-VS-Code-与相关工具核心快捷键汇总" class="headerlink" title="1. VS Code 与相关工具核心快捷键汇总"></a>1. VS Code 与相关工具核心快捷键汇总</h3><table>
-<thead>
-<tr>
-<th align="left">工具 &#x2F; 场景</th>
-<th align="left">快捷键 &#x2F; 指令</th>
-<th align="left">功能说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + Shift + P</code></td>
-<td align="left">打开命令面板（Search Command Palette）</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + ~</code></td>
-<td align="left">唤起 &#x2F; 隐藏底部内置终端（Git Bash）</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + ,</code></td>
-<td align="left">打开 VS Code 设置页面（Settings）</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + Shift + X</code></td>
-<td align="left">打开扩展&#x2F;插件商店（Extensions）</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + K</code> 紧接着按 <code>V</code></td>
-<td align="left">在右侧打开 Markdown 实时预览窗口</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + Shift + V</code></td>
-<td align="left">打开 Markdown 全屏预览窗口</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + 0</code></td>
-<td align="left">重置界面缩放比例为 100%</td>
-</tr>
-<tr>
-<td align="left"><strong>VS Code</strong></td>
-<td align="left"><code>Ctrl + -</code></td>
-<td align="left">缩小界面比例</td>
-</tr>
-<tr>
-<td align="left"><strong>PicGo (插件)</strong></td>
-<td align="left"><code>Ctrl + Alt + U</code></td>
-<td align="left">从剪贴板上传图片并自动插入 Markdown 代码</td>
-</tr>
-<tr>
-<td align="left"><strong>PicGo (插件)</strong></td>
-<td align="left"><code>Ctrl + Alt + E</code></td>
-<td align="left">选择本地文件上传图片</td>
-</tr>
-<tr>
-<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
-<td align="left"><code>git status</code></td>
-<td align="left">查看当前 Git 仓库状态与改动</td>
-</tr>
-<tr>
-<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
-<td align="left"><code>git pull</code></td>
-<td align="left">拉取 GitHub 远程仓库最新源码</td>
-</tr>
-<tr>
-<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
-<td align="left"><code>git add .</code></td>
-<td align="left">添加所有新增&#x2F;修改的文章及文件到暂存区</td>
-</tr>
-<tr>
-<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
-<td align="left"><code>git commit -m &quot;...&quot;</code></td>
-<td align="left">提交更改并添加提交日志</td>
-</tr>
-<tr>
-<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
-<td align="left"><code>git push</code></td>
-<td align="left">推送代码到 GitHub（触发 GitHub Actions 部署）</td>
-</tr>
-<tr>
-<td align="left"><strong>Hexo 本地服务</strong></td>
-<td align="left"><code>npx hexo server</code> 或 <code>hexo s</code></td>
-<td align="left">启动 Hexo 本地服务（在 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000<i class="fa fa-external-link-alt"></i></span> 预览）</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="2-HEXO-博客全流程操作指南（写作、调试、推送）"><a href="#2-HEXO-博客全流程操作指南（写作、调试、推送）" class="headerlink" title="2. HEXO 博客全流程操作指南（写作、调试、推送）"></a>2. HEXO 博客全流程操作指南（写作、调试、推送）</h3><p>在 VS Code 内置终端（<code>Ctrl + ~</code> 打开 Git Bash）中，按照以下步骤依次操作：</p>
-<h4 id="阶段一：准备阶段（写作前）"><a href="#阶段一：准备阶段（写作前）" class="headerlink" title="阶段一：准备阶段（写作前）"></a>阶段一：准备阶段（写作前）</h4><p>每次开始写新文章前，先拉取 GitHub 上的最新源码：<br><code>git pull</code></p>
-<h4 id="阶段二：写作与本地调试"><a href="#阶段二：写作与本地调试" class="headerlink" title="阶段二：写作与本地调试"></a>阶段二：写作与本地调试</h4><ul>
-<li><p>创建新文章（可选，也可以直接在 <code>source/_posts/</code> 目录下新建 <code>.md</code> 文件）：<br><code>npx hexo new</code> “文章标题”</p>
-</li>
-<li><p>启动本地 Hexo 实时预览服务：<br><code>npx hexo server</code><br>(快捷命令: <code>hexo s</code>)<br>运行后按住 <code>Ctrl</code> 点击终端输出的 <code>http://localhost:4000</code> 即可在浏览器看整站效果。按 <code>Ctrl + C</code> 可停止预览服务。</p>
-</li>
-<li><p>图片处理：<br>使用 PicGo 快捷键 <code>Ctrl + Alt + U</code> 自动上传剪贴板图片并插入 Markdown 链接。</p>
-</li>
-</ul>
-<h4 id="阶段三：提交与推送（自动触发云端部署）"><a href="#阶段三：提交与推送（自动触发云端部署）" class="headerlink" title="阶段三：提交与推送（自动触发云端部署）"></a>阶段三：提交与推送（自动触发云端部署）</h4><p>文章写好并测试完毕后，依次执行以下命令推送源码：</p>
-<ol start="0">
-<li><p>将某一篇新增&#x2F;修改的文件添加到暂存区：<br><code>git add &quot;source/_posts/Visual-Studio-Code与相关核心工具快捷指令汇总.md&quot;</code></p>
-</li>
-<li><p>将所有新增&#x2F;修改的文件添加到暂存区：<br><code>git add .</code></p>
-</li>
-<li><p>提交更改，添加日志说明：<br><code>git commit -m &quot;feat: add new post&quot;</code></p>
-</li>
-<li><p>推送到 GitHub 远程仓库（GitHub Actions 会在云端自动编译部署）：<br><code>git push</code></p>
-</li>
-</ol>
-<hr>
-<h4 id="极简操作复习卡片"><a href="#极简操作复习卡片" class="headerlink" title="极简操作复习卡片"></a>极简操作复习卡片</h4><p>日常写博客时，绝大多数时候你只需要按顺序执行这 4 步：</p>
-<ol>
-<li>拉取：<code>git pull</code></li>
-<li>写作：编辑 Markdown，按 <code>Ctrl + Alt + U</code> 插图</li>
-<li>调试（可选）：<code>npx hexo server</code> 本地预览</li>
-<li>推送：<code>git add .</code> -&gt; <code>git commit -m &quot;...&quot; </code>-&gt; <code>git push</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PicGo</tag>
-        <tag>Visual Studio Code</tag>
-        <tag>Git Bash</tag>
-        <tag>快捷指令</tag>
       </tags>
   </entry>
   <entry>
@@ -2946,6 +2813,139 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Visual_Studio_Code与相关核心工具快捷指令汇总</title>
+    <url>/2026/09/23/Visual-Studio-Code%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-VS-Code-与相关工具核心快捷键汇总"><a href="#1-VS-Code-与相关工具核心快捷键汇总" class="headerlink" title="1. VS Code 与相关工具核心快捷键汇总"></a>1. VS Code 与相关工具核心快捷键汇总</h3><table>
+<thead>
+<tr>
+<th align="left">工具 &#x2F; 场景</th>
+<th align="left">快捷键 &#x2F; 指令</th>
+<th align="left">功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + Shift + P</code></td>
+<td align="left">打开命令面板（Search Command Palette）</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + ~</code></td>
+<td align="left">唤起 &#x2F; 隐藏底部内置终端（Git Bash）</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + ,</code></td>
+<td align="left">打开 VS Code 设置页面（Settings）</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + Shift + X</code></td>
+<td align="left">打开扩展&#x2F;插件商店（Extensions）</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + K</code> 紧接着按 <code>V</code></td>
+<td align="left">在右侧打开 Markdown 实时预览窗口</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + Shift + V</code></td>
+<td align="left">打开 Markdown 全屏预览窗口</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + 0</code></td>
+<td align="left">重置界面缩放比例为 100%</td>
+</tr>
+<tr>
+<td align="left"><strong>VS Code</strong></td>
+<td align="left"><code>Ctrl + -</code></td>
+<td align="left">缩小界面比例</td>
+</tr>
+<tr>
+<td align="left"><strong>PicGo (插件)</strong></td>
+<td align="left"><code>Ctrl + Alt + U</code></td>
+<td align="left">从剪贴板上传图片并自动插入 Markdown 代码</td>
+</tr>
+<tr>
+<td align="left"><strong>PicGo (插件)</strong></td>
+<td align="left"><code>Ctrl + Alt + E</code></td>
+<td align="left">选择本地文件上传图片</td>
+</tr>
+<tr>
+<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
+<td align="left"><code>git status</code></td>
+<td align="left">查看当前 Git 仓库状态与改动</td>
+</tr>
+<tr>
+<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
+<td align="left"><code>git pull</code></td>
+<td align="left">拉取 GitHub 远程仓库最新源码</td>
+</tr>
+<tr>
+<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
+<td align="left"><code>git add .</code></td>
+<td align="left">添加所有新增&#x2F;修改的文章及文件到暂存区</td>
+</tr>
+<tr>
+<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
+<td align="left"><code>git commit -m &quot;...&quot;</code></td>
+<td align="left">提交更改并添加提交日志</td>
+</tr>
+<tr>
+<td align="left"><strong>Git Bash &#x2F; 终端</strong></td>
+<td align="left"><code>git push</code></td>
+<td align="left">推送代码到 GitHub（触发 GitHub Actions 部署）</td>
+</tr>
+<tr>
+<td align="left"><strong>Hexo 本地服务</strong></td>
+<td align="left"><code>npx hexo server</code> 或 <code>hexo s</code></td>
+<td align="left">启动 Hexo 本地服务（在 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000<i class="fa fa-external-link-alt"></i></span> 预览）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="2-HEXO-博客全流程操作指南（写作、调试、推送）"><a href="#2-HEXO-博客全流程操作指南（写作、调试、推送）" class="headerlink" title="2. HEXO 博客全流程操作指南（写作、调试、推送）"></a>2. HEXO 博客全流程操作指南（写作、调试、推送）</h3><p>在 VS Code 内置终端（<code>Ctrl + ~</code> 打开 Git Bash）中，按照以下步骤依次操作：</p>
+<h4 id="阶段一：准备阶段（写作前）"><a href="#阶段一：准备阶段（写作前）" class="headerlink" title="阶段一：准备阶段（写作前）"></a>阶段一：准备阶段（写作前）</h4><p>每次开始写新文章前，先拉取 GitHub 上的最新源码：<br><code>git pull</code></p>
+<h4 id="阶段二：写作与本地调试"><a href="#阶段二：写作与本地调试" class="headerlink" title="阶段二：写作与本地调试"></a>阶段二：写作与本地调试</h4><ul>
+<li><p>创建新文章（可选，也可以直接在 <code>source/_posts/</code> 目录下新建 <code>.md</code> 文件）：<br><code>npx hexo new</code> “文章标题”</p>
+</li>
+<li><p>启动本地 Hexo 实时预览服务：<br><code>npx hexo server</code><br>(快捷命令: <code>hexo s</code>)<br>运行后按住 <code>Ctrl</code> 点击终端输出的 <code>http://localhost:4000</code> 即可在浏览器看整站效果。按 <code>Ctrl + C</code> 可停止预览服务。</p>
+</li>
+<li><p>图片处理：<br>使用 PicGo 快捷键 <code>Ctrl + Alt + U</code> 自动上传剪贴板图片并插入 Markdown 链接。</p>
+</li>
+</ul>
+<h4 id="阶段三：提交与推送（自动触发云端部署）"><a href="#阶段三：提交与推送（自动触发云端部署）" class="headerlink" title="阶段三：提交与推送（自动触发云端部署）"></a>阶段三：提交与推送（自动触发云端部署）</h4><p>文章写好并测试完毕后，依次执行以下命令推送源码：</p>
+<ol start="0">
+<li><p>将某一篇新增&#x2F;修改的文件添加到暂存区：<br><code>git add &quot;source/_posts/Visual-Studio-Code与相关核心工具快捷指令汇总.md&quot;</code></p>
+</li>
+<li><p>将所有新增&#x2F;修改的文件添加到暂存区：<br><code>git add .</code></p>
+</li>
+<li><p>提交更改，添加日志说明：<br><code>git commit -m &quot;feat: add new post&quot;</code></p>
+</li>
+<li><p>推送到 GitHub 远程仓库（GitHub Actions 会在云端自动编译部署）：<br><code>git push</code></p>
+</li>
+</ol>
+<hr>
+<h4 id="极简操作复习卡片"><a href="#极简操作复习卡片" class="headerlink" title="极简操作复习卡片"></a>极简操作复习卡片</h4><p>日常写博客时，绝大多数时候你只需要按顺序执行这 4 步：</p>
+<ol>
+<li>拉取：<code>git pull</code></li>
+<li>写作：编辑 Markdown，按 <code>Ctrl + Alt + U</code> 插图</li>
+<li>调试（可选）：<code>npx hexo server</code> 本地预览</li>
+<li>推送：<code>git add .</code> -&gt; <code>git commit -m &quot;...&quot; </code>-&gt; <code>git push</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PicGo</tag>
+        <tag>Visual Studio Code</tag>
+        <tag>Git Bash</tag>
+        <tag>快捷指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows效率工具</title>
     <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
@@ -3075,127 +3075,6 @@ th {
       </categories>
       <tags>
         <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个高质量机械设计评审应该看什么？</title>
-    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
-<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
-<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
-<blockquote>
-<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
-</blockquote>
-<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
-<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
-<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
-<p>至少应包括以下内容：</p>
-<ol>
-<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
-</li>
-<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
-</li>
-<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
-</li>
-<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
-</li>
-<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
-</li>
-</ol>
-<blockquote>
-<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
-</blockquote>
-<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
-<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
-<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
-<blockquote>
-<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
-</blockquote>
-<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
-<blockquote>
-<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
-</blockquote>
-<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
-<blockquote>
-<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
-</blockquote>
-<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
-<p>设计评审中必须检查：  </p>
-<ul>
-<li>装配顺序是否合理；  </li>
-<li>是否存在装配干涉；  </li>
-<li>是否有足够的工具操作空间；  </li>
-<li>是否需要专用工装；  </li>
-<li>是否容易装反、装错；  </li>
-<li>后期维护是否方便。</li>
-</ul>
-<blockquote>
-<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
-</blockquote>
-<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
-<p>设计评审中要重点看：</p>
-<ul>
-<li>关键功能尺寸是否被识别；</li>
-<li>基准选择是否合理；</li>
-<li>公差链是否分析过；</li>
-<li>是否存在过度约束；</li>
-<li>公差是否过紧导致制造成本过高；</li>
-<li>公差是否过松导致装配或功能风险。</li>
-</ul>
-<blockquote>
-<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
-</blockquote>
-<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
-<p>例如：</p>
-<ul>
-<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
-<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
-<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
-<li>焊接件是否考虑焊接变形和后加工基准；</li>
-<li>表面处理是否影响尺寸或装配。</li>
-</ul>
-<blockquote>
-<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
-</blockquote>
-<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
-<p>设计评审中应该问几个问题：</p>
-<ul>
-<li>是否可以减少零件数量？</li>
-<li>是否可以使用标准件？</li>
-<li>是否可以复用已有模块？</li>
-<li>是否存在过度设计？</li>
-<li>是否有更简单的结构实现同样功能？</li>
-</ul>
-<blockquote>
-<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
-</blockquote>
-<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
-<p>高质量设计评审必须有明确的输出：</p>
-<ul>
-<li>问题清单；</li>
-<li>风险等级；</li>
-<li>责任人；</li>
-<li>完成时间；</li>
-<li>验证方式；</li>
-<li>关闭标准。</li>
-</ul>
-<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
-<blockquote>
-<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
-</blockquote>
-<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
-<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
-<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>评审</tag>
-        <tag>设计</tag>
-        <tag>需求</tag>
-        <tag>风险前置</tag>
       </tags>
   </entry>
   <entry>
@@ -3346,6 +3225,127 @@ th {
       </categories>
   </entry>
   <entry>
+    <title>一个高质量机械设计评审应该看什么？</title>
+    <url>/2019/09/02/%E4%B8%80%E4%B8%AA%E9%AB%98%E8%B4%A8%E9%87%8F%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%AF%84%E5%AE%A1%E5%BA%94%E8%AF%A5%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp;在机械产品开发过程中，设计评审是一个经常被提到、但又很容易被低估的环节。很多团队把设计评审理解成“开会看图纸”，或者“几个资深工程师一起挑问题”。但从Mechanical Lead的角度来看，真正高质量的设计评审，绝不只是检查图纸有没有错误，而是一次系统性的技术风险识别、方案收敛和工程质量确认。<br>换句话说，设计评审的核心目标不是证明设计者做得对，而是帮助团队尽早发现设计可能失败的地方。</p>
+<h1 id="设计评审不是挑错，而是风险前置"><a href="#设计评审不是挑错，而是风险前置" class="headerlink" title="设计评审不是挑错，而是风险前置"></a>设计评审不是挑错，而是风险前置</h1><p>&emsp;&emsp;很多工程师对设计评审有天然压力，觉得评审就是别人来挑自己毛病。这样的理解会导致两个问题：一是设计者倾向于隐藏不确定性，只展示自己有把握的部分；二是评审者容易变成“经验式批评”，只指出问题，却没有形成有效闭环。</p>
+<p>&emsp;&emsp;好的设计评审应该建立一种共识：问题暴露得越早，成本越低；风险讨论得越充分，后期项目越稳定。</p>
+<blockquote>
+<p>对于评审者与被评审者而言，都需要跳出事情本身，避免把评审简单理解为“挑错”或“被否定”。真正有效的评审，应当鼓励问题被充分暴露，让风险在早期得到识别和解决。</p>
+</blockquote>
+<p>&emsp;&emsp;机械设计的很多问题，如果在概念阶段发现，可能只是改一个结构方案；如果在详细设计阶段发现，可能需要改零件、改图纸、改BOM；如果到了试产或客户现场才暴露，往往就变成返工、延期、成本增加，甚至质量事故。</p>
+<p>&emsp;&emsp;所以，设计评审的价值并不在于会议本身，而在于它能否把潜在风险提前暴露出来。</p>
+<h1 id="评审前：输入信息是否完整"><a href="#评审前：输入信息是否完整" class="headerlink" title="评审前：输入信息是否完整"></a>评审前：输入信息是否完整</h1><p>&emsp;&emsp;一个低质量的设计评审，通常是工程师打开3D模型，然后大家边看边问：“这个地方为什么这样设计？”<br>而一个高质量的评审，在会议开始前就应该有清楚的输入。</p>
+<p>至少应包括以下内容：</p>
+<ol>
+<li><p>   <strong>设计需求是否明确</strong><br>包括产品的生产流程，功能要求、接口要求、环境条件、寿命要求、维护要求等。</p>
+</li>
+<li><p>   <strong>设计边界是否清楚</strong><br>哪些是固定约束？哪些可以调整？哪些接口已经确定？哪些还存在不确定性？</p>
+</li>
+<li><p>   <strong>关键风险是否提前识别</strong><br>例如强度风险、刚度风险、装配风险、振动风险、制造风险、供应商能力风险。</p>
+</li>
+<li><p>   <strong>计算或仿真依据是否准备充分</strong><br>对于关键承载件、运动件、密封结构、定位结构，不能只靠经验判断。必要时应有手算、仿真、测试数据或历史案例作为支撑。</p>
+</li>
+<li><p>   <strong>评审目标是否明确</strong><br>本次评审是概念评审、详细设计评审、图纸发布前评审，还是试产问题复盘评审？不同阶段关注点完全不同。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果输入信息不足，评审很容易变成发散讨论，最后看似讨论很多，实际没有结论。</p>
+</blockquote>
+<h1 id="评审中：机械设计应该重点看什么"><a href="#评审中：机械设计应该重点看什么" class="headerlink" title="评审中：机械设计应该重点看什么"></a>评审中：机械设计应该重点看什么</h1><p>&emsp;&emsp;机械设计评审不能只看“结构能不能装上”，而要从多个维度系统检查。</p>
+<p><strong>-1. 消化客户图纸</strong><br>&emsp;&emsp;在正式进入机械设备方案设计或设计评审之前，第一步并不是马上讨论设备结构、机构布局或零部件设计，而是要充分消化客户图纸。尤其是当机械设备与客户产品存在直接接触、定位、搬运、压装、检测、装配或加工关系时，客户产品图纸本身就是设备设计最重要的输入之一。<br>&emsp;&emsp;很多机械设备的问题，并不是设备本身结构设计不合理，而是工程师对客户产品理解不够深。产品外形、基准、公差、材料、表面处理、变形趋势、装配状态、前后制程差异等信息，如果在前期没有被充分识别，后续就很容易导致定位不准、夹持不稳、机构干涉、检测误判、装配不良，甚至需要大幅修改设备结构。<br>因此，Mechanical Lead 在项目早期需要带领团队深入解读客户图纸，而不是只把客户图纸当作一个外形参考或建模依据。</p>
+<p><strong>0. 拆分并深刻理解客户需求</strong><br>&emsp;&emsp;在机械设计评审开始之前，最先要确认的不是结构是否合理、图纸是否完整、强度是否足够，而是：我们是否真正理解了客户需求。<br>&emsp;&emsp;很多设计问题并不是因为工程师能力不足，而是因为一开始对需求的理解不够完整。客户提出的往往是一个<strong>结果性诉求</strong>，例如“设备要更稳定”“结构要更紧凑”“维护要更方便”“成本要降低”“寿命要更长”。但这些表达背后，通常还隐藏着更具体的工程要求：使用环境是什么、承载条件如何、操作频率多高、维护人员能力怎样、安装空间限制在哪里、哪些性能是必须满足的、哪些只是期望优化的。<br>&emsp;&emsp;如果这些需求没有被拆分清楚，后续设计很容易变成“按自己的理解做方案”。表面上看设计完成了，实际上可能偏离了客户真正关心的问题</p>
+<blockquote>
+<p>一切的需求基本都可以量化。极端无法量化，也需要为这个无法量化需求留有冗余。</p>
+</blockquote>
+<p><strong>1. 功能是否真正实现</strong><br>&emsp;&emsp;首先要确认设计是否满足最基本的功能要求。很多时候，结构看起来完整，但对需求的理解可能有偏差。比如某个机构能运动，但是否满足行程？是否满足精度？是否满足速度？是否满足极限工况？这些都需要明确确认。</p>
+<blockquote>
+<p>功能实现不是一句“应该可以”，而是要有工程依据。</p>
+</blockquote>
+<p><strong>2. 强度和刚度是否足够</strong><br>&emsp;&emsp;对于机械结构来说，强度和刚度是底线问题。尤其是承载件、支撑件、运动机构、安装支架等，都要关注最大载荷、冲击载荷、疲劳载荷和异常工况。<br>&emsp;&emsp;这里需要特别注意一点：设计评审不应该只问“会不会断”，还要问“会不会变形到影响功能”。有些结构不会断，但变形后会导致对中失效、间隙变化、密封失效、运动卡滞或传感器位置偏移。</p>
+<blockquote>
+<p>结构不失效不等于功能不失效，设计评审要同时关注强度安全和刚度变形对功能的影响。</p>
+</blockquote>
+<p><strong>3. 装配是否可行</strong><br>&emsp;&emsp;很多设计在3D模型里看起来没有问题，但到了现场装配时才发现工具进不去、螺丝拧不了、零件无法按顺序装入、定位不可靠、拆卸维护困难。  </p>
+<p>设计评审中必须检查：  </p>
+<ul>
+<li>装配顺序是否合理；  </li>
+<li>是否存在装配干涉；  </li>
+<li>是否有足够的工具操作空间；  </li>
+<li>是否需要专用工装；  </li>
+<li>是否容易装反、装错；  </li>
+<li>后期维护是否方便。</li>
+</ul>
+<blockquote>
+<p>一个成熟的机械设计，不只是能制造出来，还要能稳定地装配出来。</p>
+</blockquote>
+<p><strong>4. 公差和基准是否合理</strong><br>&emsp;&emsp;公差设计是机械设计中非常关键但又容易被忽视的部分。很多工程师在建模阶段很认真，但在出图时公差标注比较随意。结果就是：供应商不知道哪些尺寸关键，生产出来的零件虽然“符合图纸”，但装配后功能不稳定。  </p>
+<p>设计评审中要重点看：</p>
+<ul>
+<li>关键功能尺寸是否被识别；</li>
+<li>基准选择是否合理；</li>
+<li>公差链是否分析过；</li>
+<li>是否存在过度约束；</li>
+<li>公差是否过紧导致制造成本过高；</li>
+<li>公差是否过松导致装配或功能风险。</li>
+</ul>
+<blockquote>
+<p>好的公差设计，不是所有尺寸都标得很严，而是关键尺寸必须受控，非关键尺寸适当放宽。</p>
+</blockquote>
+<p><strong>5. 制造工艺是否可实现</strong><br>&emsp;&emsp;机械Leader在评审中一定要关注DFM，也就是面向制造的设计。设计不是只在电脑里成立，还必须在供应商的设备、工艺能力和成本约束下成立。  </p>
+<p>例如：</p>
+<ul>
+<li>机加工件是否存在过深腔体、细长刀具加工、难以保证的位置度；</li>
+<li>钣金件折弯半径、展开尺寸、孔边距是否合理；</li>
+<li>注塑件是否有拔模角、壁厚是否均匀、是否有缩水和变形风险；</li>
+<li>焊接件是否考虑焊接变形和后加工基准；</li>
+<li>表面处理是否影响尺寸或装配。</li>
+</ul>
+<blockquote>
+<p>如果制造工艺没有在设计阶段考虑，后期很可能出现供应商反馈“做不了”“成本太高”“良率太低”。</p>
+</blockquote>
+<p><strong>6. 成本是否被考虑</strong><br>&emsp;&emsp;工程设计并不是只追求性能最大化，而是在性能、成本、质量、周期之间取得平衡。有些设计从技术上可行，但加工成本过高、装配时间过长、零件数量过多、供应链风险过大，这些都不是好的工程方案。  </p>
+<p>设计评审中应该问几个问题：</p>
+<ul>
+<li>是否可以减少零件数量？</li>
+<li>是否可以使用标准件？</li>
+<li>是否可以复用已有模块？</li>
+<li>是否存在过度设计？</li>
+<li>是否有更简单的结构实现同样功能？</li>
+</ul>
+<blockquote>
+<p>机械Leader的价值之一，就是帮助团队避免“技术上漂亮，但工程上不经济”的设计。</p>
+</blockquote>
+<h1 id="评审后：没有闭环，等于没有评审"><a href="#评审后：没有闭环，等于没有评审" class="headerlink" title="评审后：没有闭环，等于没有评审"></a>评审后：没有闭环，等于没有评审</h1><p>&emsp;&emsp;很多设计评审最大的问题，不是会议上没有发现问题，而是问题没有被关闭。</p>
+<p>高质量设计评审必须有明确的输出：</p>
+<ul>
+<li>问题清单；</li>
+<li>风险等级；</li>
+<li>责任人；</li>
+<li>完成时间；</li>
+<li>验证方式；</li>
+<li>关闭标准。</li>
+</ul>
+<p>&emsp;&emsp;尤其是关键风险，不能只写“后续确认”。必须明确通过什么方式确认，是重新计算、修改设计、供应商评估、样件测试，还是下一轮评审。</p>
+<blockquote>
+<p>没有action owner的问题，最后往往没人负责；没有closure criteria的问题，最后很容易变成口头关闭。</p>
+</blockquote>
+<h1 id="Mechanical-Lead在设计评审中的角色"><a href="#Mechanical-Lead在设计评审中的角色" class="headerlink" title="Mechanical Lead在设计评审中的角色"></a>Mechanical Lead在设计评审中的角色</h1><p>&emsp;&emsp;作为Mechanical Lead，不能只是资深工程师式地指出几个技术问题，而应该承担三类角色。<br><strong>第一，风险识别者。</strong><br>要能从设计细节中看到潜在失效风险，并提醒团队提前验证。</p>
+<p><strong>第二，系统平衡者。</strong><br>要在结构性能、成本、制造、装配、项目周期之间做判断，而不是只从单一技术角度评价方案。</p>
+<p><strong>第三，团队能力建设者。</strong><br>每一次设计评审都应该沉淀经验，比如形成check list、设计指南、典型失效案例库，让团队以后少犯同样的错误。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&emsp;&emsp;一个高质量的机械设计评审，不是看谁经验多、谁声音大，也不是简单地把图纸过一遍。它应该是一次有结构、有依据、有闭环的工程风险管理活动。<br>&emsp;&emsp;真正成熟的机械团队，会把设计评审当成提升设计质量的重要机制，而不是项目流程里的一个形式节点。而Mechanical Lead的价值，正是在这个过程中帮助团队看得更早、想得更全、判断得更准。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>评审</tag>
+        <tag>设计</tag>
+        <tag>需求</tag>
+        <tag>风险前置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用 GitHub + jsDelivr 搭建一个免费、稳定的个人图床（完整实战）</title>
     <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20GitHub%20+%20jsDelivr%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E3%80%81%E7%A8%B3%E5%AE%9A%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%EF%BC%88%E5%AE%8C%E6%95%B4%E5%AE%9E%E6%88%98%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在使用 Hexo &#x2F; GitHub Pages 写工程类博客时，<strong>图片管理</strong>往往是最容易被忽略、但后期成本最高的一环：</p>
@@ -3458,125 +3458,6 @@ th {
         <tag>GitHub</tag>
         <tag>Hexo</tag>
         <tag>jsDelivr</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）</title>
-    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在上一篇文章中，我已经搭建好了基于 <strong>GitHub 公共仓库 + jsDelivr CDN</strong> 的免费图床方案。<br>但在实际写博客时，如果每次都要：</p>
-<ul>
-<li>手动截图  </li>
-<li>打开 GitHub  </li>
-<li>上传图片  </li>
-<li>复制链接</li>
-</ul>
-<p>这个流程仍然偏重。</p>
-<p>本文将进一步优化这一流程，目标是：</p>
-<blockquote>
-<p><strong>截图 → 自动上传 → 自动生成 Markdown 图片链接</strong></p>
-</blockquote>
-<p>最终实现 <strong>几乎“无感”的图片插入体验</strong>。</p>
-<hr>
-<h2 id="为什么需要-PicGo？"><a href="#为什么需要-PicGo？" class="headerlink" title="为什么需要 PicGo？"></a>为什么需要 PicGo？</h2><p>PicGo 是一款 <strong>开源的图片上传工具</strong>，支持多种图床后端，包括：</p>
-<ul>
-<li>GitHub</li>
-<li>GitLab</li>
-<li>七牛云 &#x2F; 阿里云 OSS</li>
-<li>自定义接口</li>
-</ul>
-<p>在本方案中，PicGo 的作用是：</p>
-<ul>
-<li>自动把图片上传到 GitHub 图床仓库</li>
-<li>自动生成 jsDelivr 访问链接</li>
-<li>自动复制 Markdown 图片语法到剪贴板</li>
-</ul>
-<hr>
-<h2 id="安装-PicGo"><a href="#安装-PicGo" class="headerlink" title="安装 PicGo"></a>安装 PicGo</h2><h3 id="1️⃣-下载-PicGo"><a href="#1️⃣-下载-PicGo" class="headerlink" title="1️⃣ 下载 PicGo"></a>1️⃣ 下载 PicGo</h3><p>官方项目地址：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv">https://github.com/Molunerfinn/PicGo<i class="fa fa-external-link-alt"></i></span></p>
-<p>根据系统下载对应版本：</p>
-<ul>
-<li>Windows：<code>.exe</code></li>
-<li>macOS：<code>.dmg</code></li>
-<li>Linux：AppImage &#x2F; deb</li>
-</ul>
-<p>安装完成后启动 PicGo。</p>
-<hr>
-<h2 id="准备-GitHub-Token（必须）"><a href="#准备-GitHub-Token（必须）" class="headerlink" title="准备 GitHub Token（必须）"></a>准备 GitHub Token（必须）</h2><p>PicGo 通过 GitHub API 上传图片，需要一个 <strong>Personal Access Token</strong>。</p>
-<h3 id="1️⃣-创建-Token"><a href="#1️⃣-创建-Token" class="headerlink" title="1️⃣ 创建 Token"></a>1️⃣ 创建 Token</h3><p>在 GitHub 中：</p>
-<ol>
-<li>进入 <strong>Settings → Developer settings</strong></li>
-<li>打开 <strong>Personal access tokens</strong></li>
-<li>选择 <strong>Tokens (classic)</strong></li>
-<li>点击 <strong>Generate new token</strong></li>
-</ol>
-<h3 id="2️⃣-Token-权限设置"><a href="#2️⃣-Token-权限设置" class="headerlink" title="2️⃣ Token 权限设置"></a>2️⃣ Token 权限设置</h3><p>至少勾选：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20Token%20Setting.png"></p>
-<p>✅ repo</p>
-<p>生成后复制 Token（只显示一次）。</p>
-<hr>
-<h2 id="配置-PicGo（GitHub-图床）"><a href="#配置-PicGo（GitHub-图床）" class="headerlink" title="配置 PicGo（GitHub 图床）"></a>配置 PicGo（GitHub 图床）</h2><p>打开 PicGo，进入 <strong>图床设置 → GitHub</strong>，填写如下信息：</p>
-<p>Repo: Burro-CMD&#x2F;burro-imgbed<br>Branch: main<br>Token: &lt;你的 GitHub Token&gt;<br>Path: images&#x2F;blog&#x2F;<br>Custom URL: <span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
-<p>说明：</p>
-<ul>
-<li><code>Repo</code>：你的图床仓库</li>
-<li><code>Path</code>：图片上传到的子目录</li>
-<li><code>Custom URL</code>：用于生成 jsDelivr 链接</li>
-</ul>
-<p>保存配置，并将 <strong>GitHub 设置为默认图床</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo_Github_Setting_0603.png"></p>
-<hr>
-<h2 id="配置输出为-Markdown-格式（强烈推荐）"><a href="#配置输出为-Markdown-格式（强烈推荐）" class="headerlink" title="配置输出为 Markdown 格式（强烈推荐）"></a>配置输出为 Markdown 格式（强烈推荐）</h2><p>在 PicGo 设置中：</p>
-<ol>
-<li>打开 <strong>设置 → 设置 Server</strong></li>
-<li>勾选 <strong>上传后自动复制链接</strong></li>
-<li>链接格式选择：</li>
-</ol>
-<p>生成格式示例：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![image](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
-
-<h2 id="一键截图-→-自动上传-→-自动生成链接"><a href="#一键截图-→-自动上传-→-自动生成链接" class="headerlink" title="一键截图 → 自动上传 → 自动生成链接"></a>一键截图 → 自动上传 → 自动生成链接</h2><p>推荐使用方式</p>
-<ul>
-<li>Windows：截图工具 &#x2F; Snipaste</li>
-<li>macOS：系统截图</li>
-<li>Linux：系统截图工具</li>
-</ul>
-<p>截图完成后：</p>
-<ol>
-<li>复制图片到剪贴板</li>
-<li>点击 PicGo 的 Upload</li>
-<li>PicGo 自动完成：<ul>
-<li>上传图片</li>
-<li>生成 jsDelivr 链接</li>
-<li>复制 Markdown 语法</li>
-</ul>
-</li>
-</ol>
-<p>你只需要<strong>粘贴即可</strong>。</p>
-<h2 id="常见问题与实践建议"><a href="#常见问题与实践建议" class="headerlink" title="常见问题与实践建议"></a>常见问题与实践建议</h2><h3 id="1️⃣-图片覆盖问题"><a href="#1️⃣-图片覆盖问题" class="headerlink" title="1️⃣ 图片覆盖问题"></a>1️⃣ 图片覆盖问题</h3><p>jsDelivr有缓存机制，不建议覆盖同名文件。<br>推荐开启PicGo的<strong>时间戳重命名</strong>，或使用如下命名策略：<br>hexo-arch-20260602-1530.png</p>
-<h3 id="2️⃣-目录规划建议"><a href="#2️⃣-目录规划建议" class="headerlink" title="2️⃣ 目录规划建议"></a>2️⃣ 目录规划建议</h3><p>推荐在 PicGo 中按内容拆分路径，例如：<br>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
-<p>不同文章可使用不同 Path。</p>
-<h3 id="3️⃣-Token-安全"><a href="#3️⃣-Token-安全" class="headerlink" title="3️⃣ Token 安全"></a>3️⃣ Token 安全</h3><ul>
-<li>Token 不要提交到 GitHub</li>
-<li>不要截图公开</li>
-<li>如泄露，立即删除并重新生成</li>
-</ul>
-<hr>
-<h2 id="最总效果总结"><a href="#最总效果总结" class="headerlink" title="最总效果总结"></a>最总效果总结</h2><p>完成以上配置后，图片插入流程将变为：<br>截图 → Ctrl+V → 上传 → 粘贴 Markdown</p>
-<p>无需再手动操作 GitHub 页面。  </p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 PicGo + GitHub 图床 + jsDelivr CDN，可以实现一套：</p>
-<ul>
-<li>✅ 免费</li>
-<li>✅ 稳定</li>
-<li>✅ 高效率</li>
-<li>✅ 适合长期维护</li>
-</ul>
-<p>的图片管理方案。对于 Hexo &#x2F; GitHub Pages &#x2F; NexT 等工程型博客，这是目前性价比极高的一种实践方式。</p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>PicGo - GitHub - 图床 - jsDelivr - Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -3707,6 +3588,155 @@ th {
         <tag>博客开发环境部署</tag>
         <tag>Github</tag>
         <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）</title>
+    <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在上一篇文章中，我已经搭建好了基于 <strong>GitHub 公共仓库 + jsDelivr CDN</strong> 的免费图床方案。<br>但在实际写博客时，如果每次都要：</p>
+<ul>
+<li>手动截图  </li>
+<li>打开 GitHub  </li>
+<li>上传图片  </li>
+<li>复制链接</li>
+</ul>
+<p>这个流程仍然偏重。</p>
+<p>本文将进一步优化这一流程，目标是：</p>
+<blockquote>
+<p><strong>截图 → 自动上传 → 自动生成 Markdown 图片链接</strong></p>
+</blockquote>
+<p>最终实现 <strong>几乎“无感”的图片插入体验</strong>。</p>
+<hr>
+<h2 id="为什么需要-PicGo？"><a href="#为什么需要-PicGo？" class="headerlink" title="为什么需要 PicGo？"></a>为什么需要 PicGo？</h2><p>PicGo 是一款 <strong>开源的图片上传工具</strong>，支持多种图床后端，包括：</p>
+<ul>
+<li>GitHub</li>
+<li>GitLab</li>
+<li>七牛云 &#x2F; 阿里云 OSS</li>
+<li>自定义接口</li>
+</ul>
+<p>在本方案中，PicGo 的作用是：</p>
+<ul>
+<li>自动把图片上传到 GitHub 图床仓库</li>
+<li>自动生成 jsDelivr 访问链接</li>
+<li>自动复制 Markdown 图片语法到剪贴板</li>
+</ul>
+<hr>
+<h2 id="安装-PicGo"><a href="#安装-PicGo" class="headerlink" title="安装 PicGo"></a>安装 PicGo</h2><h3 id="1️⃣-下载-PicGo"><a href="#1️⃣-下载-PicGo" class="headerlink" title="1️⃣ 下载 PicGo"></a>1️⃣ 下载 PicGo</h3><p>官方项目地址：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv">https://github.com/Molunerfinn/PicGo<i class="fa fa-external-link-alt"></i></span></p>
+<p>根据系统下载对应版本：</p>
+<ul>
+<li>Windows：<code>.exe</code></li>
+<li>macOS：<code>.dmg</code></li>
+<li>Linux：AppImage &#x2F; deb</li>
+</ul>
+<p>安装完成后启动 PicGo。</p>
+<hr>
+<h2 id="准备-GitHub-Token（必须）"><a href="#准备-GitHub-Token（必须）" class="headerlink" title="准备 GitHub Token（必须）"></a>准备 GitHub Token（必须）</h2><p>PicGo 通过 GitHub API 上传图片，需要一个 <strong>Personal Access Token</strong>。</p>
+<h3 id="1️⃣-创建-Token"><a href="#1️⃣-创建-Token" class="headerlink" title="1️⃣ 创建 Token"></a>1️⃣ 创建 Token</h3><p>在 GitHub 中：</p>
+<ol>
+<li>进入 <strong>Settings → Developer settings</strong></li>
+<li>打开 <strong>Personal access tokens</strong></li>
+<li>选择 <strong>Tokens (classic)</strong></li>
+<li>点击 <strong>Generate new token</strong></li>
+</ol>
+<h3 id="2️⃣-Token-权限设置"><a href="#2️⃣-Token-权限设置" class="headerlink" title="2️⃣ Token 权限设置"></a>2️⃣ Token 权限设置</h3><p>至少勾选：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo%20Token%20Setting.png"></p>
+<p>✅ repo</p>
+<p>生成后复制 Token（只显示一次）。</p>
+<hr>
+<h2 id="配置-PicGo（GitHub-图床）"><a href="#配置-PicGo（GitHub-图床）" class="headerlink" title="配置 PicGo（GitHub 图床）"></a>配置 PicGo（GitHub 图床）</h2><p>打开 PicGo，进入 <strong>图床设置 → GitHub</strong>，填写如下信息：</p>
+<p>Repo: Burro-CMD&#x2F;burro-imgbed<br>Branch: main<br>Token: &lt;你的 GitHub Token&gt;<br>Path: images&#x2F;blog&#x2F;<br>Custom URL: <span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL0J1cnJvLUNNRC9idXJyby1pbWdiZWQ=">https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed<i class="fa fa-external-link-alt"></i></span></p>
+<p>说明：</p>
+<ul>
+<li><code>Repo</code>：你的图床仓库</li>
+<li><code>Path</code>：图片上传到的子目录</li>
+<li><code>Custom URL</code>：用于生成 jsDelivr 链接</li>
+</ul>
+<p>保存配置，并将 <strong>GitHub 设置为默认图床</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/PicGo_Github_Setting_0603.png"></p>
+<hr>
+<h2 id="配置输出为-Markdown-格式（强烈推荐）"><a href="#配置输出为-Markdown-格式（强烈推荐）" class="headerlink" title="配置输出为 Markdown 格式（强烈推荐）"></a>配置输出为 Markdown 格式（强烈推荐）</h2><p>在 PicGo 设置中：</p>
+<ol>
+<li>打开 <strong>设置 → 设置 Server</strong></li>
+<li>勾选 <strong>上传后自动复制链接</strong></li>
+<li>链接格式选择：</li>
+</ol>
+<p>生成格式示例：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">![image](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>Burro-CMD<span class="regexp">/burro-imgbed/im</span>ages<span class="regexp">/blog/</span>test.png)</span><br></pre></td></tr></table></figure>
+
+<h2 id="一键截图-→-自动上传-→-自动生成链接"><a href="#一键截图-→-自动上传-→-自动生成链接" class="headerlink" title="一键截图 → 自动上传 → 自动生成链接"></a>一键截图 → 自动上传 → 自动生成链接</h2><p>推荐使用方式</p>
+<ul>
+<li>Windows：截图工具 &#x2F; Snipaste</li>
+<li>macOS：系统截图</li>
+<li>Linux：系统截图工具</li>
+</ul>
+<p>截图完成后：</p>
+<ol>
+<li>复制图片到剪贴板</li>
+<li>点击 PicGo 的 Upload</li>
+<li>PicGo 自动完成：<ul>
+<li>上传图片</li>
+<li>生成 jsDelivr 链接</li>
+<li>复制 Markdown 语法</li>
+</ul>
+</li>
+</ol>
+<p>你只需要<strong>粘贴即可</strong>。</p>
+<h2 id="常见问题与实践建议"><a href="#常见问题与实践建议" class="headerlink" title="常见问题与实践建议"></a>常见问题与实践建议</h2><h3 id="1️⃣-图片覆盖问题"><a href="#1️⃣-图片覆盖问题" class="headerlink" title="1️⃣ 图片覆盖问题"></a>1️⃣ 图片覆盖问题</h3><p>jsDelivr有缓存机制，不建议覆盖同名文件。<br>推荐开启PicGo的<strong>时间戳重命名</strong>，或使用如下命名策略：<br>hexo-arch-20260602-1530.png</p>
+<h3 id="2️⃣-目录规划建议"><a href="#2️⃣-目录规划建议" class="headerlink" title="2️⃣ 目录规划建议"></a>2️⃣ 目录规划建议</h3><p>推荐在 PicGo 中按内容拆分路径，例如：<br>images&#x2F;blog&#x2F;hexo&#x2F;<br>images&#x2F;blog&#x2F;diagrams&#x2F;<br>images&#x2F;blog&#x2F;notes&#x2F;  </p>
+<p>不同文章可使用不同 Path。</p>
+<h3 id="3️⃣-Token-安全"><a href="#3️⃣-Token-安全" class="headerlink" title="3️⃣ Token 安全"></a>3️⃣ Token 安全</h3><ul>
+<li>Token 不要提交到 GitHub</li>
+<li>不要截图公开</li>
+<li>如泄露，立即删除并重新生成</li>
+</ul>
+<hr>
+<h2 id="最总效果总结"><a href="#最总效果总结" class="headerlink" title="最总效果总结"></a>最总效果总结</h2><p>完成以上配置后，图片插入流程将变为：<br>截图 → Ctrl+V → 上传 → 粘贴 Markdown</p>
+<p>无需再手动操作 GitHub 页面。  </p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 PicGo + GitHub 图床 + jsDelivr CDN，可以实现一套：</p>
+<ul>
+<li>✅ 免费</li>
+<li>✅ 稳定</li>
+<li>✅ 高效率</li>
+<li>✅ 适合长期维护</li>
+</ul>
+<p>的图片管理方案。对于 Hexo &#x2F; GitHub Pages &#x2F; NexT 等工程型博客，这是目前性价比极高的一种实践方式。</p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>PicGo - GitHub - 图床 - jsDelivr - Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac环境下安装Python3</title>
+    <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  MacOS Mojave:10.14.5</p>
+<h2 id="检查Mac自带Python版本"><a href="#检查Mac自带Python版本" class="headerlink" title="检查Mac自带Python版本"></a>检查Mac自带Python版本</h2><ul>
+<li>在Launchpad找到终端，输入Python；</li>
+<li>终端显示Python2.7.10，按住Control+D来退出Python运行环境。</li>
+</ul>
+<h2 id="安装X-code"><a href="#安装X-code" class="headerlink" title="安装X-code"></a>安装X-code</h2><ul>
+<li>在终端输入X-code-select –install, 按Enter；</li>
+<li>安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。</li>
+</ul>
+<h2 id="安装Brew"><a href="#安装Brew" class="headerlink" title="安装Brew"></a>安装Brew</h2><ul>
+<li>打开Brew官网：<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">https://brew.sh<i class="fa fa-external-link-alt"></i></span>, <code>在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code>，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful</li>
+</ul>
+<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><ul>
+<li>在终端输入brew install python3，等待安装完成。</li>
+<li>在终端输入Python3，会显示输Python3的版本。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>X-code</tag>
+        <tag>Brew</tag>
       </tags>
   </entry>
   <entry>
@@ -3844,33 +3874,54 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Mac环境下安装Python3</title>
-    <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  MacOS Mojave:10.14.5</p>
-<h2 id="检查Mac自带Python版本"><a href="#检查Mac自带Python版本" class="headerlink" title="检查Mac自带Python版本"></a>检查Mac自带Python版本</h2><ul>
-<li>在Launchpad找到终端，输入Python；</li>
-<li>终端显示Python2.7.10，按住Control+D来退出Python运行环境。</li>
+    <title>如何实现两台电脑都可以推送博客</title>
+    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
+<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
+<ul>
+<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
+<li>Github 只认你上传的公钥</li>
+<li>不会自动同步到其他电脑</li>
+<li>每台电脑都要自己的SSH key</li>
+<li>Github 需要一一登记这些钥匙</li>
 </ul>
-<h2 id="安装X-code"><a href="#安装X-code" class="headerlink" title="安装X-code"></a>安装X-code</h2><ul>
-<li>在终端输入X-code-select –install, 按Enter；</li>
-<li>安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。</li>
-</ul>
-<h2 id="安装Brew"><a href="#安装Brew" class="headerlink" title="安装Brew"></a>安装Brew</h2><ul>
-<li>打开Brew官网：<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">https://brew.sh<i class="fa fa-external-link-alt"></i></span>, <code>在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code>，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful</li>
-</ul>
-<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><ul>
-<li>在终端输入brew install python3，等待安装完成。</li>
-<li>在终端输入Python3，会显示输Python3的版本。</li>
-</ul>
+<blockquote>
+<p>现在是work pc没有SSH key，所以被拒绝</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 2：复制公钥</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<p><strong>Step 3：添加到Github</strong> <br></p>
+<ol>
+<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
+<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
+</ol>
+<p><strong>Step 4: 测试</strong></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<p>此时返回：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
+<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
+<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
+</ol>
+<p><strong>Step 5: 再deploy</strong></p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>Python</tag>
-        <tag>X-code</tag>
-        <tag>Brew</tag>
+        <tag>Github</tag>
+        <tag>Blog</tag>
+        <tag>SSH Key</tag>
+        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -3959,57 +4010,6 @@ th {
         <tag>Github</tag>
         <tag>Blog</tag>
         <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何实现两台电脑都可以推送博客</title>
-    <url>/2026/05/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E9%83%BD%E5%8F%AF%E4%BB%A5%E6%8E%A8%E9%80%81%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;起因是需要在home pc或这work pc上写技术总结。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>&emsp;&emsp;在home pc上推送没有问题，但在work pc上总是推送失败。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>&emsp;&emsp;两边都有已经部署了环境，但是home pc已经绑定密钥，而work pc没有。也就是说每一台电脑都要进行单独认证，Github的SSH key认证是基于<strong>设备+私钥</strong>，也就是说:</p>
-<ul>
-<li>SSH key 存在于你这台电脑：<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.ssh/i</span>d_ed25519</span><br></pre></td></tr></table></figure></li>
-<li>Github 只认你上传的公钥</li>
-<li>不会自动同步到其他电脑</li>
-<li>每台电脑都要自己的SSH key</li>
-<li>Github 需要一一登记这些钥匙</li>
-</ul>
-<blockquote>
-<p>现在是work pc没有SSH key，所以被拒绝</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Permission <span class="title function_">denied</span> <span class="params">(publickey)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p><strong>推荐方法:</strong> 每台电脑各自生成一套SSH key， 然后全部添加到Github <br><br><strong>Setp 1：生成key</strong></p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> <span class="symbol">ed25519</span> -C <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 2：复制公钥</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
-
-<p><strong>Step 3：添加到Github</strong> <br></p>
-<ol>
-<li>打开 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2tleXM=">https://github.com/settings/keys<i class="fa fa-external-link-alt"></i></span> <br></li>
-<li>点击 NEW SSH key<br>Title：work-pc<br>Key: 粘贴</li>
-</ol>
-<p><strong>Step 4: 测试</strong></p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>此时返回：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 用户名! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Hi 用户名! —— GitHub 已识别你账（用户名），说明 key 已经绑定成功。</li>
-<li>You’ve successfully authenticated —— 核心信息，SSH 认证成功，GitHub 已信任这台公司电脑。</li>
-<li>but GitHub does not provide shell access —— 是 GitHub 的正常提示，GitHub 不给你远程 shell（不像服务器那样登录），完全不影响 git&#x2F;hexo 使用。</li>
-</ol>
-<p><strong>Step 5: 再deploy</strong></p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-        <tag>Blog</tag>
-        <tag>SSH Key</tag>
-        <tag>Permission denied (publickey)</tag>
       </tags>
   </entry>
   <entry>
@@ -4395,400 +4395,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>换机油篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
-<ol>
-<li>扭力套筒扳手   </li>
-<li>WD-40粘胶去除剂  </li>
-<li>存机油容器  </li>
-<li>餐巾纸  </li>
-<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
-<p><strong>2. 参数</strong></p>
-<p><strong>1) 机油螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M12x1.5</li>
-<li>原厂件号：90131-883-000</li>
-<li>配12mm外径垫圈</li>
-<li>12mm扭力套筒扳手</li>
-<li>扭力：24N.m</li>
-</ul>
-<p><strong>2) 机滤螺丝</strong>  </p>
-<ul>
-<li>螺丝规格：M20x1.5</li>
-<li>原厂件号：90131-K28-A01</li>
-<li>配17mm外径垫圈</li>
-<li>17mm扭力套筒扳手</li>
-<li>扭力：20N.m</li>
-</ul>
-<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
-<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
-<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
-<p>顺时针向上拧紧机滤螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
-<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
-<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
-<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
-        <tag>机油螺丝</tag>
-        <tag>机滤螺丝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微针连接技术选型与应用综述</title>
-    <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
-<ul>
-<li>ACS&#x2F; 硅胶探针  </li>
-<li>Blade Pin&#x2F; 片针&#x2F; 叶片针  </li>
-<li>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</li>
-</ul>
-<p>这三类方案覆盖的 pitch 区间不同，适合的测试对象也不同。下面主要从工程实际使用角度来分享这三类微针的不同。</p>
-<h2 id="分类和技术原理"><a href="#分类和技术原理" class="headerlink" title="分类和技术原理"></a>分类和技术原理</h2><h3 id="ACS-硅胶探针"><a href="#ACS-硅胶探针" class="headerlink" title="ACS&#x2F; 硅胶探针"></a>ACS&#x2F; 硅胶探针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png"></p>
-<p>&emsp;&emsp;ACS (Anisotropic Conductive Sheet) 可以理解为一种基于弹性体的异向导电接触方案。常见形式是在硅胶或类似弹性材料中布置导电介质，通过压缩后实现Z向导通，同时尽量保持平面方向的绝缘。  </p>
-<p>比较典型的pitch区间：0.08 ~ 0.30mm。</p>
-<p>&emsp;&emsp;从使用场景来看，ACS更适合处理超细pitch、较脆弱pad、大面积阵列接触这类问题。———<strong>面向超细间距和柔性接触的测试方案</strong>  </p>
-<h4 id="ACS的优势主要在于："><a href="#ACS的优势主要在于：" class="headerlink" title="ACS的优势主要在于："></a>ACS的优势主要在于：</h4><ul>
-<li>能够支持较小pitch；  </li>
-<li>对被测件表面高度差有一定适应能力；  </li>
-<li>接触应力相对分散；  </li>
-<li>对glass、MEMS、细小 pad 阵列相对友好。</li>
-</ul>
-<h4 id="ACS的局限："><a href="#ACS的局限：" class="headerlink" title="ACS的局限："></a>ACS的局限：</h4><ul>
-<li><strong>电流能力有限；</strong>  </li>
-<li><strong>接触电阻一致性依赖压缩量和压力均匀性；</strong>  </li>
-<li><strong>高频信号能力通常不是强项；</strong>  </li>
-<li><strong>治具结构需要保证比较均匀的压合状态。</strong></li>
-</ul>
-<p>因此，ACS 更适合解决<strong>“接触点很密、被测件较脆弱、测试电流不大”</strong>的问题。</p>
-<h3 id="Blade-Pin-片针-叶片针"><a href="#Blade-Pin-片针-叶片针" class="headerlink" title="Blade Pin&#x2F; 片针&#x2F; 叶片针"></a>Blade Pin&#x2F; 片针&#x2F; 叶片针</h3><p><img src="https://components.omron.com/us-en/sites/components.omron.com.us/files/2023-05/efc-top_05_01_en.jpg"></p>
-<p>&emsp;&emsp;Blade Pin 是一种金属片式接触结构。它不像传统弹簧针那样依靠针管和内部弹簧提供行程，而是通过金属片本身的结构形变、刃口或接触边缘与 pad 形成导通。<br>&emsp;&emsp;在工程应用中，Blade Pin 的定位比较明确：<br><strong>它主要解决 ACS 和传统弹簧针之间的中间 pitch 精密测试问题。</strong></p>
-<p>比较典型的 Blade Pin pitch区间是：0.175 ~ 0.350 mm</p>
-<h4 id="Blade-Pin的优势主要在于："><a href="#Blade-Pin的优势主要在于：" class="headerlink" title="Blade Pin的优势主要在于："></a>Blade Pin的优势主要在于：</h4><ul>
-<li>能支持较高密度的金属接触；</li>
-<li>接触路径比 ACS 更明确；</li>
-<li>接触电阻相对容易控制；</li>
-<li>对 camera module、display module、B-to-B connector 区域测试比较适用。</li>
-</ul>
-<h4 id="Blade-Pin-对结构设计要求也比较高："><a href="#Blade-Pin-对结构设计要求也比较高：" class="headerlink" title="Blade Pin 对结构设计要求也比较高："></a>Blade Pin 对结构设计要求也比较高：</h4><ul>
-<li>对位精度要求高；</li>
-<li>对被测pad的平面度和位置公差敏感；</li>
-<li>不适合直接压在过于脆弱的材料上；</li>
-<li>接触力、刮擦量和 pad 表面处理需要提前验证。</li>
-</ul>
-<p>所以一般不会把Blade Pin视为通用探针，而是把它看作一种针对<strong>fine pitch connector或精密模组接口的专用测试方案</strong>。</p>
-<h3 id="Spring-Pin-弹簧针-Pogo-Pin"><a href="#Spring-Pin-弹簧针-Pogo-Pin" class="headerlink" title="Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin"></a>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</h3><p><img src="https://www.qatech.com/images/home/2020/5_probes_banner.png"></p>
-<p>&emsp;&emsp;弹簧针是测试治具中最常见的方案之一。它依靠内部弹簧提供行程补偿，通过针头与pad接触实现导通。</p>
-<p>弹簧针的优点不在于支持最小 pitch，而在于：</p>
-<ul>
-<li>技术成熟；</li>
-<li>规格丰富；</li>
-<li>寿命较好；</li>
-<li>维护方便；</li>
-<li>对治具公差有一定容忍度；</li>
-<li>可以覆盖信号、电源、功能测试等多种需求。</li>
-</ul>
-<p>一般把弹簧针归类为：<br><strong>面向较大 pitch、通用测试和可靠连接的成熟方案。</strong></p>
-<p>&emsp;&emsp;弹簧针适合ICT、FCT、模组接口、电池接口、电源测试、板级测试等场景。只要pitch 条件允许，弹簧针通常是<strong>优先考虑的方案</strong>。</p>
-<p>在fine pitch场景下，弹簧针会遇到限制：</p>
-<ul>
-<li>结构尺寸较大；</li>
-<li>pitch 缩小后成本和制造难度上升；</li>
-<li>高密度排布下维护难度增加；</li>
-<li>过小 pitch 下容易受到对位、偏摆和针头尺寸限制。</li>
-</ul>
-<p>因此，当pitch 小于0.4 mm时，通常会谨慎评估弹簧针方案的可行性。</p>
-<h2 id="Pitch选型"><a href="#Pitch选型" class="headerlink" title="Pitch选型"></a>Pitch选型</h2><p>&emsp;&emsp;在实际项目中，通常是优先看pitch。pitch决定了接触单元能不能放得下，也决定了后续加工、装配、对位和维护的难度。</p>
-<p>下面是在方案评估中常用的 pitch 分界。</p>
-<h3 id="Pitch-0-10-mm"><a href="#Pitch-0-10-mm" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h3><p>&emsp;&emsp;当 pitch小于0.10mm 时，基本进入超细间距范围。<br>&emsp;&emsp;这个区间内，传统金属针类方案很难稳定实现。接触单元尺寸、加工精度、装配公差和对位能力都会成为问题。</p>
-<p>这种情况下，通常会优先考虑：</p>
-<ul>
-<li>ACS&#x2F; 硅胶探针；</li>
-<li>其他基于弹性体或面接触的方案。</li>
-</ul>
-<p>这个区间的核心不是追求高电流或长寿命，而是先解决“能否稳定接触”的问题</p>
-<h4 id="Pitch-0-10-0-175-mm"><a href="#Pitch-0-10-0-175-mm" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h4><p>&emsp;&emsp;当pitch 在 0.10 ~ 0.175 mm 时，ACS 仍然是主要方案。<br>&emsp;&emsp;这个区间虽然比 0.10 mm 以下稍宽，但对接触结构的尺寸和位置精度仍然非常敏感。<br>&emsp;&emsp;Blade Pin 在这个区间通常不是常规选择，除非供应商有成熟的定制能力，并且项目能够接受较高的开发和验证风险。  </p>
-<p>这个区间通常会重点关注：</p>
-<ul>
-<li>pad尺寸；</li>
-<li>pad表面处理；</li>
-<li>压缩量；</li>
-<li>被测件平面度；</li>
-<li>治具压合均匀性。</li>
-</ul>
-<h4 id="Pitch-0-175-0-30-mm"><a href="#Pitch-0-175-0-30-mm" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h4><p>&emsp;&emsp;当pitch进入 0.175 ~ 0.30 mm 后，ACS 和Blade Pin 会出现重叠。<br>&emsp;&emsp;这个区间是方案判断比较关键的区域。不能只看pitch，还要结合测试目标。  </p>
-<ul>
-<li>如果被测件比较脆弱，例如 glass、MEMS、薄型 sensor或细小pad阵列，倾向 ACS。  </li>
-<li>如果项目更关注接触电阻、金属导通路径、信号稳定性和重复测试寿命，倾向Blade Pin。</li>
-</ul>
-<p>这个区间可以理解为：ACS 和 Blade Pin 的竞争区间。</p>
-<p>在实际评估时，重点看以下几个问题：</p>
-<ul>
-<li>被测pad是否能承受金属接触；</li>
-<li>是否有高速信号；</li>
-<li>是否有电流需求；</li>
-<li>测试寿命要求是多少；</li>
-<li>治具是否能保证稳定对位；</li>
-<li>允许的维护周期和成本是多少。</li>
-</ul>
-<h4 id="Pitch-0-30-0-40-mm"><a href="#Pitch-0-30-0-40-mm" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h4><p>&emsp;&emsp;当pitch在 0.30 ~ 0.40 mm 时，Blade Pin通常会更有优势。<br>&emsp;&emsp;这个区间内，Blade Pin的尺寸、接触稳定性和可制造性相对比较平衡。<br>&emsp;&emsp;相对 ACS，Blade Pin的金属接触路径更清楚；相对弹簧针，Blade Pin又可以支持更小的间距。</p>
-<p>因此，在camera module、display module、fine pitch B-to-B connector测试中，这个区间经常会考虑Blade Pin。  </p>
-<p>&emsp;&emsp;当然，是否最终采用 Blade Pin，还要看 pad设计和被测件结构。如果pad面积太小、表面处理不适合，或者被测件不能承受局部接触力，仍然需要重新评估。</p>
-<h4 id="Pitch-0-40-mm"><a href="#Pitch-0-40-mm" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h4><p>&emsp;&emsp;当pitch 大于 0.40 mm 时，弹簧针通常会成为更自然的选择。</p>
-<p>&emsp;&emsp;这个区间已经有足够空间布置弹簧针结构。</p>
-<p>&emsp;&emsp;相比 ACS 和 Blade Pin，弹簧针在以下方面更成熟：</p>
-<ul>
-<li>行程补偿；</li>
-<li>插拔寿命；</li>
-<li>维护更换；</li>
-<li>标准件选择；</li>
-<li>电流能力；</li>
-<li>治具适配性。</li>
-</ul>
-<p>&emsp;&emsp;所以在 ICT、FCT、板级测试、模组接口、电池连接和电源类测试中，如果 pitch 允许，一般会优先考虑弹簧针。</p>
-<h4 id="Pitch选型总结"><a href="#Pitch选型总结" class="headerlink" title="Pitch选型总结"></a>Pitch选型总结</h4><p>下面是在工程评估中比较常用的简化判断逻辑：</p>
-<h5 id="Pitch-0-10-mm-1"><a href="#Pitch-0-10-mm-1" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h5><p>→ 主要考虑 ACS &#x2F; 硅胶探针</p>
-<h5 id="Pitch-0-10-0-175-mm-1"><a href="#Pitch-0-10-0-175-mm-1" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h5><p>→ ACS &#x2F; 硅胶探针为主</p>
-<h5 id="Pitch-0-175-0-30-mm-1"><a href="#Pitch-0-175-0-30-mm-1" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h5><p>→ ACS 与 Blade Pin 竞争区间</p>
-<h5 id="Pitch-0-30-0-40-mm-1"><a href="#Pitch-0-30-0-40-mm-1" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h5><p>→ Blade Pin &#x2F; 片针为主</p>
-<h5 id="Pitch-0-40-mm-1"><a href="#Pitch-0-40-mm-1" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h5><p>→ 弹簧针 &#x2F; Pogo Pin 为主</p>
-<p>进一步简化，可以概括为：<br><strong>小pitch 看 ACS，中间 pitch 看 Blade Pin，大 pitch 看弹簧针。</strong></p>
-<h2 id="pitch范围"><a href="#pitch范围" class="headerlink" title="pitch范围"></a>pitch范围</h2><table>
-<thead>
-<tr>
-<th>测试方案</th>
-<th>典型 pitch 范围</th>
-<th>推荐应用区间</th>
-<th>工程定位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ACS &#x2F; 硅胶探针</td>
-<td>0.08 ~ 0.30 mm</td>
-<td>0.10 ~ 0.20 mm</td>
-<td>超细 pitch 柔性接触</td>
-</tr>
-<tr>
-<td>Blade Pin &#x2F; 片针</td>
-<td>0.175 ~ 0.350 mm</td>
-<td>0.20 ~ 0.30 mm</td>
-<td>中等 fine pitch 精密金属接触</td>
-</tr>
-<tr>
-<td>弹簧针 &#x2F; Pogo Pin</td>
-<td>0.40 ~ 3.00 mm</td>
-<td>0.50 ~ 1.50 mm</td>
-<td>通用测试与可靠连接</td>
-</tr>
-</tbody></table>
-<p>这里的范围更偏向工程量产可用区间，而不是实验室极限能力。不同供应商、不同材料、不同治具结构下，实际边界会有差异。</p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="MEMS-与超细-pad-阵列"><a href="#MEMS-与超细-pad-阵列" class="headerlink" title="MEMS 与超细 pad 阵列"></a>MEMS 与超细 pad 阵列</h3><p>&emsp;&emsp;MEMS 或超细 pad 阵列通常 pitch 小、pad 面积小，同时被测件本身也比较敏感。</p>
-<p>这类场景下，通常会优先看 ACS。原因主要有三点：</p>
-<ul>
-<li>ACS 支持更小 pitch；</li>
-<li>接触应力分布相对柔和；</li>
-<li>对微小高度差有一定补偿能力。</li>
-</ul>
-<p><strong>如果测试信号电流不大，ACS 往往是更合适的方向。</strong></p>
-<h3 id="Camera-Module测试"><a href="#Camera-Module测试" class="headerlink" title="Camera Module测试"></a>Camera Module测试</h3><p>&emsp;&emsp;Camera module 是比较典型的混合型应用。不同接口位置可能需要不同方案。</p>
-<p>一般会这样拆分：</p>
-<ul>
-<li>sensor 端或细密 pad：优先考虑 ACS；</li>
-<li>B-to-B connector 区域：优先考虑 Blade Pin；</li>
-<li>模组级接口或较大 pad：可以考虑弹簧针。</li>
-</ul>
-<p><strong>Camera module的测试不能只看 pitch，还要考虑高速信号、接地设计、接触电阻、压合结构和模组定位精度。</strong></p>
-<h3 id="Display-Module-测试"><a href="#Display-Module-测试" class="headerlink" title="Display Module 测试"></a>Display Module 测试</h3><p>&emsp;&emsp;Display module 中，如果涉及 glass、FPC、细间距 pad，ACS 通常更合适。  </p>
-<p>&emsp;&emsp;如果测试点位在 B-to-B connector 或相对刚性的模组接口上，Blade Pin 也可以作为候选方案。  </p>
-<p>对于显示模组，会特别关注两个问题：</p>
-<ul>
-<li>被测件是否容易压伤；</li>
-<li>接触区是否允许金属针刮擦或局部压接。</li>
-</ul>
-<p>如果答案不明确，需要提前做样件验证。</p>
-<h3 id="ICT-FCT-与板级测试"><a href="#ICT-FCT-与板级测试" class="headerlink" title="ICT &#x2F; FCT 与板级测试"></a>ICT &#x2F; FCT 与板级测试</h3><p>&emsp;&emsp;ICT 和 FCT 场景中，弹簧针仍然是最常见的方案。</p>
-<p>原因是这类测试通常更关注：</p>
-<ul>
-<li>使用寿命；</li>
-<li>维护效率；</li>
-<li>治具成本；</li>
-<li>标准化；</li>
-<li>稳定接触；</li>
-<li>快速更换。</li>
-</ul>
-<p>只要 pitch 和结构空间允许，弹簧针通常是比较稳妥的选择。</p>
-<h2 id="工程特性对比"><a href="#工程特性对比" class="headerlink" title="工程特性对比"></a>工程特性对比</h2><table>
-<thead>
-<tr>
-<th>对比维度</th>
-<th>ACS &#x2F; 硅胶探针</th>
-<th>Blade Pin &#x2F; 片针</th>
-<th>弹簧针 &#x2F; Pogo Pin</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>适合pitch</td>
-<td>最小</td>
-<td>中等fine pitch</td>
-<td>较大pitch</td>
-</tr>
-<tr>
-<td>接触形式</td>
-<td>弹性体面接触</td>
-<td>金属片接触</td>
-<td>金属点接触</td>
-</tr>
-<tr>
-<td>对位要求</td>
-<td>中等</td>
-<td>较高</td>
-<td>相对较低</td>
-</tr>
-<tr>
-<td>对平面度适应</td>
-<td>较好</td>
-<td>一般</td>
-<td>较好</td>
-</tr>
-<tr>
-<td>接触电阻</td>
-<td>中等</td>
-<td>较低</td>
-<td>较低</td>
-</tr>
-<tr>
-<td>电流能力</td>
-<td>较弱</td>
-<td>中等</td>
-<td>较强</td>
-</tr>
-<tr>
-<td>高频能力</td>
-<td>一般</td>
-<td>较好</td>
-<td>较好</td>
-</tr>
-<tr>
-<td>被测件友好性</td>
-<td>较好</td>
-<td>取决于接触设计</td>
-<td>取决于针头和压力</td>
-</tr>
-<tr>
-<td>寿命与维护</td>
-<td>中等</td>
-<td>中等</td>
-<td>较好</td>
-</tr>
-<tr>
-<td>典型场景</td>
-<td>MEMS、glass、细pad</td>
-<td>camera、display、B-to-B</td>
-<td>ICT、FCT、电源、模组接口</td>
-</tr>
-</tbody></table>
-<h2 id="选型注意事项"><a href="#选型注意事项" class="headerlink" title="选型注意事项"></a>选型注意事项</h2><h3 id="Pitch只是基本条件，不是最终答案"><a href="#Pitch只是基本条件，不是最终答案" class="headerlink" title="Pitch只是基本条件，不是最终答案"></a>Pitch只是基本条件，不是最终答案</h3><p>&emsp;&emsp;Pitch 能帮助快速排除不合适的方案，但不能单独决定最终方案。<br>在pitch满足的前提下，还要看电性能、机械结构和量产维护。</p>
-<p>&emsp;&emsp;例如，0.25 mmpitch的场景，ACS和Blade Pin都可能可行。<br>如果被测件是glass，会更倾向 ACS。</p>
-<p>&emsp;&emsp;如果被测对象是B-to-B connector，并且需要更稳定的金属接触，我会更倾向 Blade Pin。</p>
-<h3 id="被测件能不能承受接触力"><a href="#被测件能不能承受接触力" class="headerlink" title="被测件能不能承受接触力"></a>被测件能不能承受接触力</h3><p>&emsp;&emsp;这是早期评估中很容易被低估的问题。</p>
-<p>不同方案的接触方式不同：</p>
-<ul>
-<li>ACS 的接触压力相对分散；</li>
-<li>lade Pin的局部接触更明显；</li>
-<li>弹簧针的针头形状和弹簧力会直接影响 pad 表面。</li>
-</ul>
-<p>如果被测件容易压伤、刮伤或变形，方案就不能只从电性能角度判断。</p>
-<h3 id="是否涉及高速信号或电源路径"><a href="#是否涉及高速信号或电源路径" class="headerlink" title="是否涉及高速信号或电源路径"></a>是否涉及高速信号或电源路径</h3><p>&emsp;&emsp;如果测试中包含高速信号或电源路径，则需要更谨慎地使用ACS。</p>
-<p>&emsp;&emsp;ACS适合fine pitch和柔性接触，但在高速信号完整性和电流能力方面并不是优势方案。</p>
-<p>&emsp;&emsp;Blade Pin和弹簧针在金属导通路径、接触电阻和电流能力方面通常更容易控制。</p>
-<h3 id="治具结构是否能保证稳定接触"><a href="#治具结构是否能保证稳定接触" class="headerlink" title="治具结构是否能保证稳定接触"></a>治具结构是否能保证稳定接触</h3><p>&emsp;&emsp;微针方案最终都要落到治具结构上。如果治具的定位、压合方向、平面度或行程控制不稳定，再好的探针也很难稳定工作。</p>
-<p>一般会同时检查以下内容：</p>
-<ul>
-<li>被测件定位方式；</li>
-<li>压合方向是否垂直；</li>
-<li>接触区平面度；</li>
-<li>压缩量或工作行程；</li>
-<li>接触力分布；</li>
-<li>pad表面处理；</li>
-<li>测试寿命和维护周期。</li>
-</ul>
-<h2 id="常见问题与风险点"><a href="#常见问题与风险点" class="headerlink" title="常见问题与风险点"></a>常见问题与风险点</h2><h3 id="用弹簧针硬做过小-pitch"><a href="#用弹簧针硬做过小-pitch" class="headerlink" title="用弹簧针硬做过小 pitch"></a>用弹簧针硬做过小 pitch</h3><p>&emsp;&emsp;弹簧针虽然成熟，但不适合无限缩小。<br>当 pitch 太小时，针体尺寸、偏摆、装配公差和维护难度都会明显增加。<br>如果 pitch 已经接近 0.3 mm，需要谨慎评估是否应该切换到 Blade Pin 或其他方案。</p>
-<h3 id="把-ACS-用在大电流或高频场景"><a href="#把-ACS-用在大电流或高频场景" class="headerlink" title="把 ACS 用在大电流或高频场景"></a>把 ACS 用在大电流或高频场景</h3><p>&emsp;&emsp;ACS 的优势是 fine pitch 和柔性接触，不是大电流能力。<br>如果测试中有明显的电源路径、高速信号或严格的接触电阻要求，ACS 需要经过充分验证，不能只因为 pitch 合适就直接选用。</p>
-<h3 id="忽略-pad-表面处理"><a href="#忽略-pad-表面处理" class="headerlink" title="忽略 pad 表面处理"></a>忽略 pad 表面处理</h3><p>&emsp;&emsp;不同探针对 pad 表面处理的敏感度不同。<br>金属接触类方案通常更关注镀层、氧化、污染和磨耗。<br>如果 pad 表面状态不稳定，接触电阻和寿命都会受到影响。</p>
-<h3 id="没有把公差链算清楚"><a href="#没有把公差链算清楚" class="headerlink" title="没有把公差链算清楚"></a>没有把公差链算清楚</h3><p>&emsp;&emsp;fine pitch测试最大的问题往往不是单个零件，而是整个系统的公差叠加。</p>
-<p>常见影响因素包括：</p>
-<ul>
-<li>DUT定位公差；</li>
-<li>载具加工公差；</li>
-<li>探针阵列位置公差；</li>
-<li>压合机构偏差；</li>
-<li>DUT 翘曲；</li>
-<li>pad 实际位置偏差。</li>
-</ul>
-<p>这些因素如果前期没有评估，后期容易出现间歇性接触不良。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;ACS、Blade Pin和弹簧针不是简单的优劣关系，而是分别对应不同的pitch区间和工程约束。</p>
-<p>对三类方案的理解可以总结为：<br>ACS解决超细pitch和柔性接触问题；Blade Pin解决中等fine pitch下的精密金属接触问题；弹簧针解决较大pitch下的通用测试和可靠连接问题。</p>
-<p>在实际选型中，通常按照下面的顺序判断：<br>1.	先看pitch，确认技术边界；<br>2.	再看被测件材质和pad结构；<br>3.	接着看电流、信号和接触电阻要求；<br>4.	最后结合治具结构、寿命和维护成本确定方案。</p>
-<p>一句话总结：<br><strong>Pitch决定可选范围，接触方式决定稳定性，治具结构决定最终效果。</strong></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>Blade Pin</tag>
-        <tag>Pogo Pin</tag>
-        <tag>Pitch</tag>
-        <tag>ACS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换空气滤芯篇（实操）</title>
-    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
-<li>十字螺丝刀</li>
-<li>新空气滤芯，17210-K1Z-CA0</li>
-</ol>
-<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
-<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
-<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
-<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
-<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>PCX160</tag>
-        <tag>Honda WH150T-2</tag>
-        <tag>空气滤芯</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>指纹识别模块多角度压力测试技术总结</title>
     <url>/2023/09/12/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97%E5%A4%9A%E8%A7%92%E5%BA%A6%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="测试概述"><a href="#测试概述" class="headerlink" title="测试概述"></a>测试概述</h2><p>&emsp;&emsp;按压角度与按压力度是决定终端设备指纹解锁、识别成功率的核心工况参数。用户实际使用过程中，手指按压设备姿态随机、按压力度无统一标准，极易出现指纹识别失效、响应延迟、拒真、误识等各类问题。</p>
@@ -4972,6 +4578,93 @@ th {
         <tag>Fingerprint</tag>
         <tag>Multi-angle</tag>
         <tag>多角度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换机油篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E6%9C%BA%E6%B2%B9%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换发动机机油"><a href="#更换发动机机油" class="headerlink" title="更换发动机机油"></a>更换发动机机油</h1><p><strong>1. 准备材料</strong></p>
+<ol>
+<li>扭力套筒扳手   </li>
+<li>WD-40粘胶去除剂  </li>
+<li>存机油容器  </li>
+<li>餐巾纸  </li>
+<li>Shell Helix Utra 超凡喜力 X 5W-30</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/Shell%20Helix%20Utra%20%E8%B6%85%E5%87%A1%E5%96%9C%E5%8A%9B%20X%205W-30_2.png"></p>
+<p><strong>2. 参数</strong></p>
+<p><strong>1) 机油螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M12x1.5</li>
+<li>原厂件号：90131-883-000</li>
+<li>配12mm外径垫圈</li>
+<li>12mm扭力套筒扳手</li>
+<li>扭力：24N.m</li>
+</ul>
+<p><strong>2) 机滤螺丝</strong>  </p>
+<ul>
+<li>螺丝规格：M20x1.5</li>
+<li>原厂件号：90131-K28-A01</li>
+<li>配17mm外径垫圈</li>
+<li>17mm扭力套筒扳手</li>
+<li>扭力：20N.m</li>
+</ul>
+<h2 id="旋开油尺"><a href="#旋开油尺" class="headerlink" title="旋开油尺"></a><strong>旋开</strong>油尺</h2><p>操作：逆时针旋开油尺之后，通过目视检查机油是否有减少（最好有上次机油刻度的照片做对比）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E6%97%8B%E5%BC%80%E6%B2%B9%E5%B0%BA.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%B2%B9%E5%B0%BA.png"></p>
+<h2 id="松开机油螺丝"><a href="#松开机油螺丝" class="headerlink" title="松开机油螺丝"></a><strong>松开</strong>机油螺丝</h2><p>操作：使用12mm的扭力套筒扳手（24N.m）顺时针向左拧开机油螺丝<br><strong>注意</strong>：机油螺丝有一个垫圈</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E5%B7%A6%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%B2%B9%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="放油"><a href="#放油" class="headerlink" title="放油"></a><strong>放油</strong></h2><p>操作：找一个大小适中的容器用来接机油  </p>
+<h2 id="松开机滤螺丝"><a href="#松开机滤螺丝" class="headerlink" title="松开机滤螺丝"></a><strong>松开</strong>机滤螺丝</h2><p>操作：使用17mm的扭力套筒扳手（20N.m）逆时针向下拧开机滤螺丝  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8B%E6%8B%A7%E5%BC%80%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"><a href="#清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝" class="headerlink" title="清理机滤螺丝、机油螺丝，装回并紧固机滤螺丝"></a><strong>清理</strong>机滤螺丝、机油螺丝，<strong>装回并紧固</strong>机滤螺丝</h2><p>注意点：滤网铁网朝外，弹簧大头朝里装回。<br>操作：使用WD-40粘胶去除剂清理机滤，螺丝。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%B8%85%E7%90%861.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D%E5%AE%89%E8%A3%85%E9%A1%BA%E5%BA%8F1.png"></p>
+<p>顺时针向上拧紧机滤螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E5%90%91%E4%B8%8A%E6%8B%A7%E7%B4%A7%E6%9C%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D.png"></p>
+<h2 id="紧固机油螺丝"><a href="#紧固机油螺丝" class="headerlink" title="紧固机油螺丝"></a><strong>紧固</strong>机油螺丝</h2><p>逆时针向右拧紧机油螺丝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%80%86%E6%97%B6%E9%92%88%E5%90%91%E5%8F%B3%E6%8B%A7%E7%B4%A71.png"></p>
+<h2 id="添加新油"><a href="#添加新油" class="headerlink" title="添加新油"></a><strong>添加</strong>新油</h2><p>新添加的机油为0.8升。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/PCX160%20WH150T%E5%8F%91%E5%8A%A8%E6%9C%BA%E6%9C%BA%E6%B2%B9%E6%A3%80%E6%9F%A5%E4%B8%8E%E6%9B%B4%E6%8D%A2.png"></p>
+<h2 id="旋紧油尺"><a href="#旋紧油尺" class="headerlink" title="旋紧油尺"></a><strong>旋紧</strong>油尺</h2><p>顺时针拧紧油尺</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E9%A1%BA%E6%97%B6%E9%92%88%E6%8B%A7%E7%B4%A7%E6%B2%B9%E5%B0%BA.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>Shell Helix Utra 超凡喜力 X 5W-30</tag>
+        <tag>机油螺丝</tag>
+        <tag>机滤螺丝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换空气滤芯篇（实操）</title>
+    <url>/2026/06/04/%E6%8D%A2%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E7%AF%87%EF%BC%88%E5%AE%9E%E6%93%8D%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="更换空气滤芯"><a href="#更换空气滤芯" class="headerlink" title="更换空气滤芯"></a>更换空气滤芯</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>十字螺丝刀</li>
+<li>新空气滤芯，17210-K1Z-CA0</li>
+</ol>
+<h2 id="空滤参数解读"><a href="#空滤参数解读" class="headerlink" title="空滤参数解读"></a>空滤参数解读</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%99%A8%E6%BB%A4%E8%8A%AF%E7%BB%84%E4%BB%B6_17210-K1Z-CA0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E5%AD%97%E8%A7%A3%E8%AF%BB2~1.png"></p>
+<h2 id="拆开空滤外壳"><a href="#拆开空滤外壳" class="headerlink" title="拆开空滤外壳"></a>拆开空滤外壳</h2><p>操作1：逆时针拧开8颗螺丝（外壳）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%B0%94%E6%BB%A4%E8%8A%AF%E5%A4%96%E5%A3%B3.png"></p>
+<p>操作2：逆时针拧开3颗螺丝（空滤）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E7%A9%BA%E6%BB%A4%E8%9E%BA%E4%B8%9D3x.png"></p>
+<h2 id="装上新空滤"><a href="#装上新空滤" class="headerlink" title="装上新空滤"></a>装上新空滤</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E7%A9%BA%E6%BB%A4.png"></p>
+<h2 id="新旧空滤对比图"><a href="#新旧空滤对比图" class="headerlink" title="新旧空滤对比图"></a>新旧空滤对比图</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A41~1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/motorcycle-maintenance/%E6%96%B0%E6%97%A7%E7%A9%BA%E6%BB%A42~1.png"></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>PCX160</tag>
+        <tag>Honda WH150T-2</tag>
+        <tag>空气滤芯</tag>
       </tags>
   </entry>
   <entry>
@@ -5401,56 +5094,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>电机（03）：孔轴配合公差表</title>
-    <url>/2026/08/27/%E7%94%B5%E6%9C%BA%EF%BC%8803%EF%BC%89%EF%BC%9A%E5%AD%94%E8%BD%B4%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="配合尺寸公差表（孔）"><a href="#配合尺寸公差表（孔）" class="headerlink" title="配合尺寸公差表（孔）"></a>配合尺寸公差表（孔）</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E5%AD%941.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E5%AD%942.jpg"></p>
-<h2 id="配合尺寸公差表（轴）"><a href="#配合尺寸公差表（轴）" class="headerlink" title="配合尺寸公差表（轴）"></a>配合尺寸公差表（轴）</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E8%BD%B41.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E8%BD%B42.jpg"></p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>公差表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑端主动屏蔽WiFi方法</title>
-    <url>/2026/09/03/%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%BB%E5%8A%A8%E5%B1%8F%E8%94%BDWiFi%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>主动屏蔽WiFi。</p>
-<h2 id="禁止连接指定-Wi‑Fi操作方法"><a href="#禁止连接指定-Wi‑Fi操作方法" class="headerlink" title="禁止连接指定 Wi‑Fi操作方法"></a>禁止连接指定 Wi‑Fi操作方法</h2><h3 id="以管理员身份打开命令提示符"><a href="#以管理员身份打开命令提示符" class="headerlink" title="以管理员身份打开命令提示符"></a>以管理员身份打开命令提示符</h3><ul>
-<li>开始菜单（最常用）</li>
-<li>按 Win 键。</li>
-<li>输入 cmd 或 命令提示符。</li>
-<li>在搜索结果中，右键 命令提示符。</li>
-<li>选择 以管理员身份运行。</li>
-<li>出现 UAC 提示时点击 是。</li>
-</ul>
-<h3 id="输入指令"><a href="#输入指令" class="headerlink" title="输入指令"></a>输入指令</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=block <span class="attribute">ssid</span>=<span class="string">&quot;WiFi名称&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看当前过滤规则"><a href="#查看当前过滤规则" class="headerlink" title="查看当前过滤规则"></a>查看当前过滤规则</h3><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="keyword">show</span> filters</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除禁止规则"><a href="#删除禁止规则" class="headerlink" title="删除禁止规则"></a>删除禁止规则</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan delete<span class="built_in"> filter </span><span class="attribute">permission</span>=block <span class="attribute">ssid</span>=<span class="string">&quot;Company_Guest&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
-
-<h2 id="只允许连接指定-Wi‑Fi"><a href="#只允许连接指定-Wi‑Fi" class="headerlink" title="只允许连接指定 Wi‑Fi"></a>只允许连接指定 Wi‑Fi</h2><h3 id="如果希望电脑只能连接某几个-Wi‑Fi："><a href="#如果希望电脑只能连接某几个-Wi‑Fi：" class="headerlink" title="如果希望电脑只能连接某几个 Wi‑Fi："></a>如果希望电脑只能连接某几个 Wi‑Fi：</h3><p>允许指定网络：</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=allow <span class="attribute">ssid</span>=<span class="string">&quot;Office_WLAN&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
-
-<h3 id="然后启用白名单模式："><a href="#然后启用白名单模式：" class="headerlink" title="然后启用白名单模式："></a>然后启用白名单模式：</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=denyall <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
-
-<p>这样除了允许列表中的 Wi‑Fi，其余全部无法连接。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>WiFi</tag>
-        <tag>网络</tag>
-        <tag>屏蔽</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>电机（02）：减速器</title>
     <url>/2026/08/25/%E7%94%B5%E6%9C%BA%EF%BC%8802%EF%BC%89%EF%BC%9A%E5%87%8F%E9%80%9F%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -5553,40 +5196,18 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>申请美国EVUS（签证更新电子系统）</title>
-    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
-<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
-<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
-<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
-<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
-<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
-<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
-<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
-<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
-<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
-<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
-<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
-<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
-<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
-<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
-<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
-<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
-<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
-<hr>
-<p><strong>参考网站：</strong></p>
-<ol>
-<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
-<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
-<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
+    <title>电机（03）：孔轴配合公差表</title>
+    <url>/2026/08/27/%E7%94%B5%E6%9C%BA%EF%BC%8803%EF%BC%89%EF%BC%9A%E5%AD%94%E8%BD%B4%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE%E8%A1%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="配合尺寸公差表（孔）"><a href="#配合尺寸公差表（孔）" class="headerlink" title="配合尺寸公差表（孔）"></a>配合尺寸公差表（孔）</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E5%AD%941.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E5%AD%942.jpg"></p>
+<h2 id="配合尺寸公差表（轴）"><a href="#配合尺寸公差表（轴）" class="headerlink" title="配合尺寸公差表（轴）"></a>配合尺寸公差表（轴）</h2><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E8%BD%B41.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E9%85%8D%E5%90%88%E5%B0%BA%E5%AF%B8%E5%85%AC%E5%B7%AE%E8%A1%A8_%E8%BD%B42.jpg"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>Tech</category>
       </categories>
       <tags>
-        <tag>EVUS</tag>
+        <tag>公差表</tag>
       </tags>
   </entry>
   <entry>
@@ -5752,6 +5373,78 @@ th {
         <tag>GB/T 1096-2003</tag>
         <tag>GB/T 1095-2003</tag>
         <tag>GB/T 1568</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑端主动屏蔽WiFi方法</title>
+    <url>/2026/09/03/%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%BB%E5%8A%A8%E5%B1%8F%E8%94%BDWiFi%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>主动屏蔽WiFi。</p>
+<h2 id="禁止连接指定-Wi‑Fi操作方法"><a href="#禁止连接指定-Wi‑Fi操作方法" class="headerlink" title="禁止连接指定 Wi‑Fi操作方法"></a>禁止连接指定 Wi‑Fi操作方法</h2><h3 id="以管理员身份打开命令提示符"><a href="#以管理员身份打开命令提示符" class="headerlink" title="以管理员身份打开命令提示符"></a>以管理员身份打开命令提示符</h3><ul>
+<li>开始菜单（最常用）</li>
+<li>按 Win 键。</li>
+<li>输入 cmd 或 命令提示符。</li>
+<li>在搜索结果中，右键 命令提示符。</li>
+<li>选择 以管理员身份运行。</li>
+<li>出现 UAC 提示时点击 是。</li>
+</ul>
+<h3 id="输入指令"><a href="#输入指令" class="headerlink" title="输入指令"></a>输入指令</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=block <span class="attribute">ssid</span>=<span class="string">&quot;WiFi名称&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看当前过滤规则"><a href="#查看当前过滤规则" class="headerlink" title="查看当前过滤规则"></a>查看当前过滤规则</h3><figure class="highlight dart"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="keyword">show</span> filters</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除禁止规则"><a href="#删除禁止规则" class="headerlink" title="删除禁止规则"></a>删除禁止规则</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan delete<span class="built_in"> filter </span><span class="attribute">permission</span>=block <span class="attribute">ssid</span>=<span class="string">&quot;Company_Guest&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<h2 id="只允许连接指定-Wi‑Fi"><a href="#只允许连接指定-Wi‑Fi" class="headerlink" title="只允许连接指定 Wi‑Fi"></a>只允许连接指定 Wi‑Fi</h2><h3 id="如果希望电脑只能连接某几个-Wi‑Fi："><a href="#如果希望电脑只能连接某几个-Wi‑Fi：" class="headerlink" title="如果希望电脑只能连接某几个 Wi‑Fi："></a>如果希望电脑只能连接某几个 Wi‑Fi：</h3><p>允许指定网络：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=allow <span class="attribute">ssid</span>=<span class="string">&quot;Office_WLAN&quot;</span> <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<h3 id="然后启用白名单模式："><a href="#然后启用白名单模式：" class="headerlink" title="然后启用白名单模式："></a>然后启用白名单模式：</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">netsh wlan <span class="built_in">add</span><span class="built_in"> filter </span><span class="attribute">permission</span>=denyall <span class="attribute">networktype</span>=infrastructure</span><br></pre></td></tr></table></figure>
+
+<p>这样除了允许列表中的 Wi‑Fi，其余全部无法连接。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>WiFi</tag>
+        <tag>网络</tag>
+        <tag>屏蔽</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>申请美国EVUS（签证更新电子系统）</title>
+    <url>/2019/08/23/%E7%BE%8E%E5%9B%BDEVUS/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  <strong>Q&amp;A</strong><br>  Q: 什么是签证更新电子系统?<br>  A: 签证更新电子系统，或EVUS，是一个电子平台，用于确定持有十年B1, B2或B1&#x2F;B2访客签证的旅客因临时商务或旅游前来美国旅行的资格。符合这一描述的旅客必须在前往美国之前进行EVUS登记。  </p>
+<p>  Q: 如果我已经得到了签证，为什么还需要进行EVUS登记？<br>  A: 如果您持有B1，B2或B1&#x2F;B2的访客签证前往美国进行短期商务和旅游，根据美国移民法的规定，<strong>您必须完成EVUS登记</strong>。  </p>
+<p>  Q: EVUS和签证之间的区别是什么？<br>  A: EVUS登记不是签证。它不符合律或法规的要求以替代美国签证，当根据美国法律要求签证时。计划前往美国访问的旅客出行必须持有有效的B1，B2或B1 &#x2F; B2级访客签证。身为中华人民共和国公民&#x2F;国民的旅客仅持有有效的十年B1，B2或B1 &#x2F; B2级签证，必须在EVUS上申请登记，并且在行前持有签证。如果您已在EVUS登记并抵达机场，该旅客将可以前往美国。其他任何非B1，B2或B1 &#x2F; B2具有十年有效期类型的签证，不需要申请EVUS登记。  </p>
+<p>  Q: 如何重新注册您的签证更新电子系统?<br>  A: 成功的EVUS注册通常有效期为两年（自注册之日起），或护照到期的前六个月，或签证到期（以较早者为准）。<br>  如果您的EVUS即将到期或者已经到期的原因是由于护照有效期的问题而引起的，那么请联系您的护照签发机构或离您最近的中国大使馆，并按照他们的指示更新您的护照。然后用您的新护照信息重新注册EVUS。如果您的EVUS即将到期或者已经到期的原因是由于EVUS两年有效期而引起的，请登陆我们的官方网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span>. 重新注册一份 新的EVUS.  </p>
+<h2 id="申请流程"><a href="#申请流程" class="headerlink" title="申请流程"></a>申请流程</h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>点击右上角“中国”，选择中文系统。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=99a986a9c0ea15ce41eee00186013a25/1cc87fd6912397dd3bd670285082b2b7d1a28765.jpg"></p>
+<h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>点击“新登记申请”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=c02714f61cce36d3a20483380af23a24/7527e22297dda14436a6849ebbb7d0a20df48665.jpg"></p>
+<h3 id="Step3"><a href="#Step3" class="headerlink" title="Step3"></a>Step3</h3><p>选择“个人登记”，如有同行的人，可选择“团体登记”。请确保已拥有登记所需的前提材料<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=5578c8d23fd3d539c13d0fcb0a86e927/e8d3e4dca144ad34c5106fabd9a20cf430ad8565.jpg"></p>
+<h3 id="Step4"><a href="#Step4" class="headerlink" title="Step4"></a>Step4</h3><p>点击同意免责声明，点击“下一步”。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=885cebcfdc39b6004dce0fbfd9513526/ee2dd245ad3459822f250dbe05f431adcaef8465.jpg"></p>
+<h3 id="Step5"><a href="#Step5" class="headerlink" title="Step5"></a>Step5</h3><p>填写旅行文件信息，点击“下一步”<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=a8410825bf003af34dbadc68052bc619/d8b4de355982b2b74e30d1e838adcbef77099b65.jpg"></p>
+<h3 id="Step6"><a href="#Step6" class="headerlink" title="Step6"></a>Step6</h3><p>填写登记者相关信息。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=1692e7ef3387e9504217f3642039531b/2072c1b6d0a20cf4913f16f37f094b36adaf9965.jpg"></p>
+<h3 id="Step7"><a href="#Step7" class="headerlink" title="Step7"></a>Step7</h3><p>填写旅行信息，如果在美国没有联系人，可以写unknown。</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">Noted:</span> 因为是商务，所以这边我是写了美国的联系人的，个人觉得这很大程度上能够快速通过的原因之一。</span><br></pre></td></tr></table></figure>
+<p><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9b61e79be050352ab16125006342fb1a/cb47a3a30cf431ad6a7dab154236acaf2fdd9865.jpg"></p>
+<h3 id="Step8"><a href="#Step8" class="headerlink" title="Step8"></a>Step8</h3><p>资格问题，如实填写<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=9815344c3c2ac65c6705667bcbf3b21d/a9527ff531adcbefd49b962aa5af2edda2cc9f65.jpg"></p>
+<h3 id="Step9"><a href="#Step9" class="headerlink" title="Step9"></a>Step9</h3><p>检查登记，全面检查一下信息是否正确。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=4ac2e836cf5c1038247ececa8210931c/750442accbef7609e8a471b327dda3cc7dd99e65.jpg"></p>
+<h3 id="Step10"><a href="#Step10" class="headerlink" title="Step10"></a>Step10</h3><p>提交登记申请。如果没有问题，就可以点击“提交”申请。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=91b81b40193853438ccf8729a312b01f/485db8ee76094b36083df3c1aacc7cd98c109d65.jpg"></p>
+<h3 id="Step11"><a href="#Step11" class="headerlink" title="Step11"></a>Step11</h3><p>等待处理<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=63cecd245a43fbf2c52ca62b807fca1e/b21f05084b36acaf8b4f7ed075d98d1000e99c65.jpg"></p>
+<h3 id="Step12"><a href="#Step12" class="headerlink" title="Step12"></a>Step12</h3><p>查询EVUS申请状态。<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=b6aa8e5ff2f2b211e42e8546fa816511/0ff93837acaf2edd055ea1c5841001e938019365.jpg"></p>
+<h3 id="Step13"><a href="#Step13" class="headerlink" title="Step13"></a>Step13</h3><p>登记成功。我是过了5分钟就通过了，下面是申请通过的图片<br><img src="https://imgsa.baidu.com/forum/w%3D580/sign=f4d126eebb119313c743ffb855390c10/32c6dfae2edda3ccdb4b500c08e93901203f9265.jpg"></p>
+<hr>
+<p><strong>参考网站：</strong></p>
+<ol>
+<li>EVUS官网：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZ1cy5nb3Yv">https://www.evus.gov<i class="fa fa-external-link-alt"></i></span></li>
+<li>美国驻华大使馆和领事馆：<span class="exturl" data-url="aHR0cHM6Ly9jaGluYS51c2VtYmFzc3ktY2hpbmEub3JnLmNuL3poL3Zpc2FzLXpoL25vbmltbWlncmFudC12aXNhcy16aC9ldnVzLXpoLw==">https://china.usembassy-china.org.cn/zh/visas-zh/nonimmigrant-visas-zh/evus-zh/<i class="fa fa-external-link-alt"></i></span></li>
+<li>贴吧：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80ODc5MDEyNzcz">https://tieba.baidu.com/p/4879012773<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>EVUS</tag>
       </tags>
   </entry>
   <entry>
@@ -6145,6 +5838,313 @@ th {
         <tag>USB-C</tag>
         <tag>Receptacle</tag>
         <tag>Plug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微针连接技术选型与应用综述</title>
+    <url>/2026/06/05/%E5%BE%AE%E9%92%88%E8%BF%9E%E6%8E%A5%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BB%BC%E8%BF%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>&emsp;&emsp; 在微电子、模组和连接器测试中，测试探针方案的选择通常不是单纯比较“哪一种更好”，而是要看具体应用条件。尤其在 fine pitch 场景下，pitch、接触方式、被测件材质、信号类型、测试寿命和治具结构都会影响最终方案。<br>&emsp;&emsp;从工程角度看，常见的微针测试 solution 可以大致分为三类：  </p>
+<ul>
+<li>ACS&#x2F; 硅胶探针  </li>
+<li>Blade Pin&#x2F; 片针&#x2F; 叶片针  </li>
+<li>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</li>
+</ul>
+<p>这三类方案覆盖的 pitch 区间不同，适合的测试对象也不同。下面主要从工程实际使用角度来分享这三类微针的不同。</p>
+<h2 id="分类和技术原理"><a href="#分类和技术原理" class="headerlink" title="分类和技术原理"></a>分类和技术原理</h2><h3 id="ACS-硅胶探针"><a href="#ACS-硅胶探针" class="headerlink" title="ACS&#x2F; 硅胶探针"></a>ACS&#x2F; 硅胶探针</h3><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/ACS%20Section%20View.png"></p>
+<p>&emsp;&emsp;ACS (Anisotropic Conductive Sheet) 可以理解为一种基于弹性体的异向导电接触方案。常见形式是在硅胶或类似弹性材料中布置导电介质，通过压缩后实现Z向导通，同时尽量保持平面方向的绝缘。  </p>
+<p>比较典型的pitch区间：0.08 ~ 0.30mm。</p>
+<p>&emsp;&emsp;从使用场景来看，ACS更适合处理超细pitch、较脆弱pad、大面积阵列接触这类问题。———<strong>面向超细间距和柔性接触的测试方案</strong>  </p>
+<h4 id="ACS的优势主要在于："><a href="#ACS的优势主要在于：" class="headerlink" title="ACS的优势主要在于："></a>ACS的优势主要在于：</h4><ul>
+<li>能够支持较小pitch；  </li>
+<li>对被测件表面高度差有一定适应能力；  </li>
+<li>接触应力相对分散；  </li>
+<li>对glass、MEMS、细小 pad 阵列相对友好。</li>
+</ul>
+<h4 id="ACS的局限："><a href="#ACS的局限：" class="headerlink" title="ACS的局限："></a>ACS的局限：</h4><ul>
+<li><strong>电流能力有限；</strong>  </li>
+<li><strong>接触电阻一致性依赖压缩量和压力均匀性；</strong>  </li>
+<li><strong>高频信号能力通常不是强项；</strong>  </li>
+<li><strong>治具结构需要保证比较均匀的压合状态。</strong></li>
+</ul>
+<p>因此，ACS 更适合解决<strong>“接触点很密、被测件较脆弱、测试电流不大”</strong>的问题。</p>
+<h3 id="Blade-Pin-片针-叶片针"><a href="#Blade-Pin-片针-叶片针" class="headerlink" title="Blade Pin&#x2F; 片针&#x2F; 叶片针"></a>Blade Pin&#x2F; 片针&#x2F; 叶片针</h3><p><img src="https://components.omron.com/us-en/sites/components.omron.com.us/files/2023-05/efc-top_05_01_en.jpg"></p>
+<p>&emsp;&emsp;Blade Pin 是一种金属片式接触结构。它不像传统弹簧针那样依靠针管和内部弹簧提供行程，而是通过金属片本身的结构形变、刃口或接触边缘与 pad 形成导通。<br>&emsp;&emsp;在工程应用中，Blade Pin 的定位比较明确：<br><strong>它主要解决 ACS 和传统弹簧针之间的中间 pitch 精密测试问题。</strong></p>
+<p>比较典型的 Blade Pin pitch区间是：0.175 ~ 0.350 mm</p>
+<h4 id="Blade-Pin的优势主要在于："><a href="#Blade-Pin的优势主要在于：" class="headerlink" title="Blade Pin的优势主要在于："></a>Blade Pin的优势主要在于：</h4><ul>
+<li>能支持较高密度的金属接触；</li>
+<li>接触路径比 ACS 更明确；</li>
+<li>接触电阻相对容易控制；</li>
+<li>对 camera module、display module、B-to-B connector 区域测试比较适用。</li>
+</ul>
+<h4 id="Blade-Pin-对结构设计要求也比较高："><a href="#Blade-Pin-对结构设计要求也比较高：" class="headerlink" title="Blade Pin 对结构设计要求也比较高："></a>Blade Pin 对结构设计要求也比较高：</h4><ul>
+<li>对位精度要求高；</li>
+<li>对被测pad的平面度和位置公差敏感；</li>
+<li>不适合直接压在过于脆弱的材料上；</li>
+<li>接触力、刮擦量和 pad 表面处理需要提前验证。</li>
+</ul>
+<p>所以一般不会把Blade Pin视为通用探针，而是把它看作一种针对<strong>fine pitch connector或精密模组接口的专用测试方案</strong>。</p>
+<h3 id="Spring-Pin-弹簧针-Pogo-Pin"><a href="#Spring-Pin-弹簧针-Pogo-Pin" class="headerlink" title="Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin"></a>Spring Pin&#x2F; 弹簧针&#x2F; Pogo Pin</h3><p><img src="https://www.qatech.com/images/home/2020/5_probes_banner.png"></p>
+<p>&emsp;&emsp;弹簧针是测试治具中最常见的方案之一。它依靠内部弹簧提供行程补偿，通过针头与pad接触实现导通。</p>
+<p>弹簧针的优点不在于支持最小 pitch，而在于：</p>
+<ul>
+<li>技术成熟；</li>
+<li>规格丰富；</li>
+<li>寿命较好；</li>
+<li>维护方便；</li>
+<li>对治具公差有一定容忍度；</li>
+<li>可以覆盖信号、电源、功能测试等多种需求。</li>
+</ul>
+<p>一般把弹簧针归类为：<br><strong>面向较大 pitch、通用测试和可靠连接的成熟方案。</strong></p>
+<p>&emsp;&emsp;弹簧针适合ICT、FCT、模组接口、电池接口、电源测试、板级测试等场景。只要pitch 条件允许，弹簧针通常是<strong>优先考虑的方案</strong>。</p>
+<p>在fine pitch场景下，弹簧针会遇到限制：</p>
+<ul>
+<li>结构尺寸较大；</li>
+<li>pitch 缩小后成本和制造难度上升；</li>
+<li>高密度排布下维护难度增加；</li>
+<li>过小 pitch 下容易受到对位、偏摆和针头尺寸限制。</li>
+</ul>
+<p>因此，当pitch 小于0.4 mm时，通常会谨慎评估弹簧针方案的可行性。</p>
+<h2 id="Pitch选型"><a href="#Pitch选型" class="headerlink" title="Pitch选型"></a>Pitch选型</h2><p>&emsp;&emsp;在实际项目中，通常是优先看pitch。pitch决定了接触单元能不能放得下，也决定了后续加工、装配、对位和维护的难度。</p>
+<p>下面是在方案评估中常用的 pitch 分界。</p>
+<h3 id="Pitch-0-10-mm"><a href="#Pitch-0-10-mm" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h3><p>&emsp;&emsp;当 pitch小于0.10mm 时，基本进入超细间距范围。<br>&emsp;&emsp;这个区间内，传统金属针类方案很难稳定实现。接触单元尺寸、加工精度、装配公差和对位能力都会成为问题。</p>
+<p>这种情况下，通常会优先考虑：</p>
+<ul>
+<li>ACS&#x2F; 硅胶探针；</li>
+<li>其他基于弹性体或面接触的方案。</li>
+</ul>
+<p>这个区间的核心不是追求高电流或长寿命，而是先解决“能否稳定接触”的问题</p>
+<h4 id="Pitch-0-10-0-175-mm"><a href="#Pitch-0-10-0-175-mm" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h4><p>&emsp;&emsp;当pitch 在 0.10 ~ 0.175 mm 时，ACS 仍然是主要方案。<br>&emsp;&emsp;这个区间虽然比 0.10 mm 以下稍宽，但对接触结构的尺寸和位置精度仍然非常敏感。<br>&emsp;&emsp;Blade Pin 在这个区间通常不是常规选择，除非供应商有成熟的定制能力，并且项目能够接受较高的开发和验证风险。  </p>
+<p>这个区间通常会重点关注：</p>
+<ul>
+<li>pad尺寸；</li>
+<li>pad表面处理；</li>
+<li>压缩量；</li>
+<li>被测件平面度；</li>
+<li>治具压合均匀性。</li>
+</ul>
+<h4 id="Pitch-0-175-0-30-mm"><a href="#Pitch-0-175-0-30-mm" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h4><p>&emsp;&emsp;当pitch进入 0.175 ~ 0.30 mm 后，ACS 和Blade Pin 会出现重叠。<br>&emsp;&emsp;这个区间是方案判断比较关键的区域。不能只看pitch，还要结合测试目标。  </p>
+<ul>
+<li>如果被测件比较脆弱，例如 glass、MEMS、薄型 sensor或细小pad阵列，倾向 ACS。  </li>
+<li>如果项目更关注接触电阻、金属导通路径、信号稳定性和重复测试寿命，倾向Blade Pin。</li>
+</ul>
+<p>这个区间可以理解为：ACS 和 Blade Pin 的竞争区间。</p>
+<p>在实际评估时，重点看以下几个问题：</p>
+<ul>
+<li>被测pad是否能承受金属接触；</li>
+<li>是否有高速信号；</li>
+<li>是否有电流需求；</li>
+<li>测试寿命要求是多少；</li>
+<li>治具是否能保证稳定对位；</li>
+<li>允许的维护周期和成本是多少。</li>
+</ul>
+<h4 id="Pitch-0-30-0-40-mm"><a href="#Pitch-0-30-0-40-mm" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h4><p>&emsp;&emsp;当pitch在 0.30 ~ 0.40 mm 时，Blade Pin通常会更有优势。<br>&emsp;&emsp;这个区间内，Blade Pin的尺寸、接触稳定性和可制造性相对比较平衡。<br>&emsp;&emsp;相对 ACS，Blade Pin的金属接触路径更清楚；相对弹簧针，Blade Pin又可以支持更小的间距。</p>
+<p>因此，在camera module、display module、fine pitch B-to-B connector测试中，这个区间经常会考虑Blade Pin。  </p>
+<p>&emsp;&emsp;当然，是否最终采用 Blade Pin，还要看 pad设计和被测件结构。如果pad面积太小、表面处理不适合，或者被测件不能承受局部接触力，仍然需要重新评估。</p>
+<h4 id="Pitch-0-40-mm"><a href="#Pitch-0-40-mm" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h4><p>&emsp;&emsp;当pitch 大于 0.40 mm 时，弹簧针通常会成为更自然的选择。</p>
+<p>&emsp;&emsp;这个区间已经有足够空间布置弹簧针结构。</p>
+<p>&emsp;&emsp;相比 ACS 和 Blade Pin，弹簧针在以下方面更成熟：</p>
+<ul>
+<li>行程补偿；</li>
+<li>插拔寿命；</li>
+<li>维护更换；</li>
+<li>标准件选择；</li>
+<li>电流能力；</li>
+<li>治具适配性。</li>
+</ul>
+<p>&emsp;&emsp;所以在 ICT、FCT、板级测试、模组接口、电池连接和电源类测试中，如果 pitch 允许，一般会优先考虑弹簧针。</p>
+<h4 id="Pitch选型总结"><a href="#Pitch选型总结" class="headerlink" title="Pitch选型总结"></a>Pitch选型总结</h4><p>下面是在工程评估中比较常用的简化判断逻辑：</p>
+<h5 id="Pitch-0-10-mm-1"><a href="#Pitch-0-10-mm-1" class="headerlink" title="Pitch &lt; 0.10 mm"></a>Pitch &lt; 0.10 mm</h5><p>→ 主要考虑 ACS &#x2F; 硅胶探针</p>
+<h5 id="Pitch-0-10-0-175-mm-1"><a href="#Pitch-0-10-0-175-mm-1" class="headerlink" title="Pitch 0.10 ~ 0.175 mm"></a>Pitch 0.10 ~ 0.175 mm</h5><p>→ ACS &#x2F; 硅胶探针为主</p>
+<h5 id="Pitch-0-175-0-30-mm-1"><a href="#Pitch-0-175-0-30-mm-1" class="headerlink" title="Pitch 0.175 ~ 0.30 mm"></a>Pitch 0.175 ~ 0.30 mm</h5><p>→ ACS 与 Blade Pin 竞争区间</p>
+<h5 id="Pitch-0-30-0-40-mm-1"><a href="#Pitch-0-30-0-40-mm-1" class="headerlink" title="Pitch 0.30 ~ 0.40 mm"></a>Pitch 0.30 ~ 0.40 mm</h5><p>→ Blade Pin &#x2F; 片针为主</p>
+<h5 id="Pitch-0-40-mm-1"><a href="#Pitch-0-40-mm-1" class="headerlink" title="Pitch &gt; 0.40 mm"></a>Pitch &gt; 0.40 mm</h5><p>→ 弹簧针 &#x2F; Pogo Pin 为主</p>
+<p>进一步简化，可以概括为：<br><strong>小pitch 看 ACS，中间 pitch 看 Blade Pin，大 pitch 看弹簧针。</strong></p>
+<h2 id="pitch范围"><a href="#pitch范围" class="headerlink" title="pitch范围"></a>pitch范围</h2><table>
+<thead>
+<tr>
+<th>测试方案</th>
+<th>典型 pitch 范围</th>
+<th>推荐应用区间</th>
+<th>工程定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ACS &#x2F; 硅胶探针</td>
+<td>0.08 ~ 0.30 mm</td>
+<td>0.10 ~ 0.20 mm</td>
+<td>超细 pitch 柔性接触</td>
+</tr>
+<tr>
+<td>Blade Pin &#x2F; 片针</td>
+<td>0.175 ~ 0.350 mm</td>
+<td>0.20 ~ 0.30 mm</td>
+<td>中等 fine pitch 精密金属接触</td>
+</tr>
+<tr>
+<td>弹簧针 &#x2F; Pogo Pin</td>
+<td>0.40 ~ 3.00 mm</td>
+<td>0.50 ~ 1.50 mm</td>
+<td>通用测试与可靠连接</td>
+</tr>
+</tbody></table>
+<p>这里的范围更偏向工程量产可用区间，而不是实验室极限能力。不同供应商、不同材料、不同治具结构下，实际边界会有差异。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="MEMS-与超细-pad-阵列"><a href="#MEMS-与超细-pad-阵列" class="headerlink" title="MEMS 与超细 pad 阵列"></a>MEMS 与超细 pad 阵列</h3><p>&emsp;&emsp;MEMS 或超细 pad 阵列通常 pitch 小、pad 面积小，同时被测件本身也比较敏感。</p>
+<p>这类场景下，通常会优先看 ACS。原因主要有三点：</p>
+<ul>
+<li>ACS 支持更小 pitch；</li>
+<li>接触应力分布相对柔和；</li>
+<li>对微小高度差有一定补偿能力。</li>
+</ul>
+<p><strong>如果测试信号电流不大，ACS 往往是更合适的方向。</strong></p>
+<h3 id="Camera-Module测试"><a href="#Camera-Module测试" class="headerlink" title="Camera Module测试"></a>Camera Module测试</h3><p>&emsp;&emsp;Camera module 是比较典型的混合型应用。不同接口位置可能需要不同方案。</p>
+<p>一般会这样拆分：</p>
+<ul>
+<li>sensor 端或细密 pad：优先考虑 ACS；</li>
+<li>B-to-B connector 区域：优先考虑 Blade Pin；</li>
+<li>模组级接口或较大 pad：可以考虑弹簧针。</li>
+</ul>
+<p><strong>Camera module的测试不能只看 pitch，还要考虑高速信号、接地设计、接触电阻、压合结构和模组定位精度。</strong></p>
+<h3 id="Display-Module-测试"><a href="#Display-Module-测试" class="headerlink" title="Display Module 测试"></a>Display Module 测试</h3><p>&emsp;&emsp;Display module 中，如果涉及 glass、FPC、细间距 pad，ACS 通常更合适。  </p>
+<p>&emsp;&emsp;如果测试点位在 B-to-B connector 或相对刚性的模组接口上，Blade Pin 也可以作为候选方案。  </p>
+<p>对于显示模组，会特别关注两个问题：</p>
+<ul>
+<li>被测件是否容易压伤；</li>
+<li>接触区是否允许金属针刮擦或局部压接。</li>
+</ul>
+<p>如果答案不明确，需要提前做样件验证。</p>
+<h3 id="ICT-FCT-与板级测试"><a href="#ICT-FCT-与板级测试" class="headerlink" title="ICT &#x2F; FCT 与板级测试"></a>ICT &#x2F; FCT 与板级测试</h3><p>&emsp;&emsp;ICT 和 FCT 场景中，弹簧针仍然是最常见的方案。</p>
+<p>原因是这类测试通常更关注：</p>
+<ul>
+<li>使用寿命；</li>
+<li>维护效率；</li>
+<li>治具成本；</li>
+<li>标准化；</li>
+<li>稳定接触；</li>
+<li>快速更换。</li>
+</ul>
+<p>只要 pitch 和结构空间允许，弹簧针通常是比较稳妥的选择。</p>
+<h2 id="工程特性对比"><a href="#工程特性对比" class="headerlink" title="工程特性对比"></a>工程特性对比</h2><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>ACS &#x2F; 硅胶探针</th>
+<th>Blade Pin &#x2F; 片针</th>
+<th>弹簧针 &#x2F; Pogo Pin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适合pitch</td>
+<td>最小</td>
+<td>中等fine pitch</td>
+<td>较大pitch</td>
+</tr>
+<tr>
+<td>接触形式</td>
+<td>弹性体面接触</td>
+<td>金属片接触</td>
+<td>金属点接触</td>
+</tr>
+<tr>
+<td>对位要求</td>
+<td>中等</td>
+<td>较高</td>
+<td>相对较低</td>
+</tr>
+<tr>
+<td>对平面度适应</td>
+<td>较好</td>
+<td>一般</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>接触电阻</td>
+<td>中等</td>
+<td>较低</td>
+<td>较低</td>
+</tr>
+<tr>
+<td>电流能力</td>
+<td>较弱</td>
+<td>中等</td>
+<td>较强</td>
+</tr>
+<tr>
+<td>高频能力</td>
+<td>一般</td>
+<td>较好</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>被测件友好性</td>
+<td>较好</td>
+<td>取决于接触设计</td>
+<td>取决于针头和压力</td>
+</tr>
+<tr>
+<td>寿命与维护</td>
+<td>中等</td>
+<td>中等</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>典型场景</td>
+<td>MEMS、glass、细pad</td>
+<td>camera、display、B-to-B</td>
+<td>ICT、FCT、电源、模组接口</td>
+</tr>
+</tbody></table>
+<h2 id="选型注意事项"><a href="#选型注意事项" class="headerlink" title="选型注意事项"></a>选型注意事项</h2><h3 id="Pitch只是基本条件，不是最终答案"><a href="#Pitch只是基本条件，不是最终答案" class="headerlink" title="Pitch只是基本条件，不是最终答案"></a>Pitch只是基本条件，不是最终答案</h3><p>&emsp;&emsp;Pitch 能帮助快速排除不合适的方案，但不能单独决定最终方案。<br>在pitch满足的前提下，还要看电性能、机械结构和量产维护。</p>
+<p>&emsp;&emsp;例如，0.25 mmpitch的场景，ACS和Blade Pin都可能可行。<br>如果被测件是glass，会更倾向 ACS。</p>
+<p>&emsp;&emsp;如果被测对象是B-to-B connector，并且需要更稳定的金属接触，我会更倾向 Blade Pin。</p>
+<h3 id="被测件能不能承受接触力"><a href="#被测件能不能承受接触力" class="headerlink" title="被测件能不能承受接触力"></a>被测件能不能承受接触力</h3><p>&emsp;&emsp;这是早期评估中很容易被低估的问题。</p>
+<p>不同方案的接触方式不同：</p>
+<ul>
+<li>ACS 的接触压力相对分散；</li>
+<li>lade Pin的局部接触更明显；</li>
+<li>弹簧针的针头形状和弹簧力会直接影响 pad 表面。</li>
+</ul>
+<p>如果被测件容易压伤、刮伤或变形，方案就不能只从电性能角度判断。</p>
+<h3 id="是否涉及高速信号或电源路径"><a href="#是否涉及高速信号或电源路径" class="headerlink" title="是否涉及高速信号或电源路径"></a>是否涉及高速信号或电源路径</h3><p>&emsp;&emsp;如果测试中包含高速信号或电源路径，则需要更谨慎地使用ACS。</p>
+<p>&emsp;&emsp;ACS适合fine pitch和柔性接触，但在高速信号完整性和电流能力方面并不是优势方案。</p>
+<p>&emsp;&emsp;Blade Pin和弹簧针在金属导通路径、接触电阻和电流能力方面通常更容易控制。</p>
+<h3 id="治具结构是否能保证稳定接触"><a href="#治具结构是否能保证稳定接触" class="headerlink" title="治具结构是否能保证稳定接触"></a>治具结构是否能保证稳定接触</h3><p>&emsp;&emsp;微针方案最终都要落到治具结构上。如果治具的定位、压合方向、平面度或行程控制不稳定，再好的探针也很难稳定工作。</p>
+<p>一般会同时检查以下内容：</p>
+<ul>
+<li>被测件定位方式；</li>
+<li>压合方向是否垂直；</li>
+<li>接触区平面度；</li>
+<li>压缩量或工作行程；</li>
+<li>接触力分布；</li>
+<li>pad表面处理；</li>
+<li>测试寿命和维护周期。</li>
+</ul>
+<h2 id="常见问题与风险点"><a href="#常见问题与风险点" class="headerlink" title="常见问题与风险点"></a>常见问题与风险点</h2><h3 id="用弹簧针硬做过小-pitch"><a href="#用弹簧针硬做过小-pitch" class="headerlink" title="用弹簧针硬做过小 pitch"></a>用弹簧针硬做过小 pitch</h3><p>&emsp;&emsp;弹簧针虽然成熟，但不适合无限缩小。<br>当 pitch 太小时，针体尺寸、偏摆、装配公差和维护难度都会明显增加。<br>如果 pitch 已经接近 0.3 mm，需要谨慎评估是否应该切换到 Blade Pin 或其他方案。</p>
+<h3 id="把-ACS-用在大电流或高频场景"><a href="#把-ACS-用在大电流或高频场景" class="headerlink" title="把 ACS 用在大电流或高频场景"></a>把 ACS 用在大电流或高频场景</h3><p>&emsp;&emsp;ACS 的优势是 fine pitch 和柔性接触，不是大电流能力。<br>如果测试中有明显的电源路径、高速信号或严格的接触电阻要求，ACS 需要经过充分验证，不能只因为 pitch 合适就直接选用。</p>
+<h3 id="忽略-pad-表面处理"><a href="#忽略-pad-表面处理" class="headerlink" title="忽略 pad 表面处理"></a>忽略 pad 表面处理</h3><p>&emsp;&emsp;不同探针对 pad 表面处理的敏感度不同。<br>金属接触类方案通常更关注镀层、氧化、污染和磨耗。<br>如果 pad 表面状态不稳定，接触电阻和寿命都会受到影响。</p>
+<h3 id="没有把公差链算清楚"><a href="#没有把公差链算清楚" class="headerlink" title="没有把公差链算清楚"></a>没有把公差链算清楚</h3><p>&emsp;&emsp;fine pitch测试最大的问题往往不是单个零件，而是整个系统的公差叠加。</p>
+<p>常见影响因素包括：</p>
+<ul>
+<li>DUT定位公差；</li>
+<li>载具加工公差；</li>
+<li>探针阵列位置公差；</li>
+<li>压合机构偏差；</li>
+<li>DUT 翘曲；</li>
+<li>pad 实际位置偏差。</li>
+</ul>
+<p>这些因素如果前期没有评估，后期容易出现间歇性接触不良。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;ACS、Blade Pin和弹簧针不是简单的优劣关系，而是分别对应不同的pitch区间和工程约束。</p>
+<p>对三类方案的理解可以总结为：<br>ACS解决超细pitch和柔性接触问题；Blade Pin解决中等fine pitch下的精密金属接触问题；弹簧针解决较大pitch下的通用测试和可靠连接问题。</p>
+<p>在实际选型中，通常按照下面的顺序判断：<br>1.	先看pitch，确认技术边界；<br>2.	再看被测件材质和pad结构；<br>3.	接着看电流、信号和接触电阻要求；<br>4.	最后结合治具结构、寿命和维护成本确定方案。</p>
+<p>一句话总结：<br><strong>Pitch决定可选范围，接触方式决定稳定性，治具结构决定最终效果。</strong></p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>Pitch</tag>
+        <tag>ACS</tag>
       </tags>
   </entry>
 </search>
