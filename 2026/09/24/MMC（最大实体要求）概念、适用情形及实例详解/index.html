@@ -18,13 +18,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"burro-cmd.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="MMC（Maximum Material Condition，最大实体要求）是 GD&amp;T（几何尺寸和公差）以及 ISO 269 &#x2F; ASME Y14.5 标准中的核心概念之一。它巧妙地将尺寸公差与几何公差关联起来，在保障装配功能的前提下大幅降低制造与检验成本。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="MMC（最大实体要求）概念、适用情形及实例详解">
 <meta property="og:url" content="https://burro-cmd.github.io/2026/09/24/MMC%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AE%9E%E4%BD%93%E8%A6%81%E6%B1%82%EF%BC%89%E6%A6%82%E5%BF%B5%E3%80%81%E9%80%82%E7%94%A8%E6%83%85%E5%BD%A2%E5%8F%8A%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="HUNPHY&#39;S BLOG">
+<meta property="og:description" content="MMC（Maximum Material Condition，最大实体要求）是 GD&amp;T（几何尺寸和公差）以及 ISO 269 &#x2F; ASME Y14.5 标准中的核心概念之一。它巧妙地将尺寸公差与几何公差关联起来，在保障装配功能的前提下大幅降低制造与检验成本。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/20260924172145941.jpg">
 <meta property="article:published_time" content="2026-09-24T17:20:25.000Z">
-<meta property="article:modified_time" content="2026-09-24T09:25:08.182Z">
+<meta property="article:modified_time" content="2026-09-24T09:32:41.278Z">
 <meta property="article:author" content="HUNPHY">
 <meta property="article:tag" content="GD&amp;T">
 <meta property="article:tag" content="Location">
@@ -32,6 +35,7 @@
 <meta property="article:tag" content="GB&#x2F;T 1182-2018">
 <meta property="article:tag" content="MMC">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/20260924172145941.jpg">
 
 
 <link rel="canonical" href="https://burro-cmd.github.io/2026/09/24/MMC%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AE%9E%E4%BD%93%E8%A6%81%E6%B1%82%EF%BC%89%E6%A6%82%E5%BF%B5%E3%80%81%E9%80%82%E7%94%A8%E6%83%85%E5%BD%A2%E5%8F%8A%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/">
@@ -154,7 +158,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -167,6 +171,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">1. 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%A0%B8%E5%BF%83%E8%A1%8D%E7%94%9F%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">两个核心衍生概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%80%82%E7%94%A8%E6%83%85%E5%BD%A2%E4%B8%8E%E9%9D%9E%E9%80%82%E7%94%A8%E6%83%85%E5%BD%A2"><span class="nav-number">2.</span> <span class="nav-text">2. 适用情形与非适用情形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E6%83%85%E5%BD%A2"><span class="nav-number">2.1.</span> <span class="nav-text">适用情形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E9%80%82%E7%94%A8%E6%83%85%E5%BD%A2"><span class="nav-number">2.2.</span> <span class="nav-text">不适用情形</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3%EF%BC%88%E5%B8%A6-2D-%E5%B7%A5%E7%A8%8B%E5%9B%BE%E4%B8%8E%E5%85%AC%E5%B7%AE%E8%AE%A1%E7%AE%97%E8%A1%A8%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3. 实例详解（带 2D 工程图与公差计算表）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2D-%E5%B7%A5%E7%A8%8B%E5%9B%BE%E6%A0%87%E6%B3%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.1.</span> <span class="nav-text">2D 工程图标注示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%BA%B8%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90%EF%BC%9A"><span class="nav-number">3.1.1.</span> <span class="nav-text">图纸参数解析：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A1%A5%E5%81%BF%E5%85%AC%E5%B7%AE%E5%8F%98%E5%8C%96%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">动态补偿公差变化表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E7%BB%93%E8%AE%BA%EF%BC%9A"><span class="nav-number">3.2.1.</span> <span class="nav-text">分析结论：</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -233,7 +238,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="MMC（最大实体要求）概念、适用情形及实例详解 | HUNPHY'S BLOG">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="MMC（Maximum Material Condition，最大实体要求）是 GD&amp;T（几何尺寸和公差）以及 ISO 269 &#x2F; ASME Y14.5 标准中的核心概念之一。它巧妙地将尺寸公差与几何公差关联起来，在保障装配功能的前提下大幅降低制造与检验成本。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -274,24 +279,104 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>0</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
+            <div class="post-description">MMC（Maximum Material Condition，最大实体要求）是 GD&T（几何尺寸和公差）以及 ISO 269 / ASME Y14.5 标准中的核心概念之一。它巧妙地将尺寸公差与几何公差关联起来，在保障装配功能的前提下大幅降低制造与检验成本。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">
+    <div class="post-body" itemprop="articleBody"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>最大实体要求（MMC）是指<strong>尺寸要素（Feature of Size）在其极限尺寸范围内，包含最多材料时的状态</strong>：</p>
+<ul>
+<li><strong>外尺寸要素（如轴、销、凸台、块）：</strong> <strong>最大极限尺寸</strong>是 MMC。此时材料最多。</li>
+<li><strong>内尺寸要素（如孔、槽）：</strong> <strong>最小极限尺寸</strong>是 MMC。孔越小，零件保留的材料越多。</li>
+</ul>
+<p>在 2D 工程图的公差框格中，MMC 标记为 <strong>Ⓜ</strong>。</p>
+<h3 id="两个核心衍生概念"><a href="#两个核心衍生概念" class="headerlink" title="两个核心衍生概念"></a>两个核心衍生概念</h3><ul>
+<li><strong>补偿公差（Bonus Tolerance）：</strong> 当要素的实际尺寸偏离 MMC 向 LMC（最小实体状态）变化时，允许将尺寸偏离量额外补偿给几何公差。<br>$$\text{补偿公差} &#x3D; |\text{实际尺寸} - \text{MMC 尺寸}|$$</li>
+<li><strong>实效状态 &#x2F; 实效边界（Virtual Condition, VC）：</strong> 在 MMC 状态下，结合其几何公差后形成的极端包络边界。<ul>
+<li><strong>外要素（销&#x2F;轴）：</strong> $VC &#x3D; \text{MMC 尺寸} + \text{几何公差}$</li>
+<li><strong>内要素（孔）：</strong> $VC &#x3D; \text{MMC 尺寸} - \text{几何公差}$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-适用情形与非适用情形"><a href="#2-适用情形与非适用情形" class="headerlink" title="2. 适用情形与非适用情形"></a>2. 适用情形与非适用情形</h2><h3 id="适用情形"><a href="#适用情形" class="headerlink" title="适用情形"></a>适用情形</h3><ol>
+<li><strong>保证装配互换性（Clearance &amp; Assembly Fit）：</strong> 两个零件需要穿栓或销孔配合，只要保证最坏情况（销最粗、孔最小且位置偏差最大）下能装进去即可。</li>
+<li><strong>允许使用检具（Functional Gaging）：</strong> MMC 标注允许设计硬质通止规（Go Gauge）进行快速全检，极大地提高了批量生产的检验效率。</li>
+<li><strong>降低废品率：</strong> 尺寸做偏了但位置稍微歪了一点，只要总体包络不超界，零件依然可用，从而释放制造公差。</li>
+</ol>
+<h3 id="不适用情形"><a href="#不适用情形" class="headerlink" title="不适用情形"></a>不适用情形</h3><ul>
+<li><strong>需要精确定位的过盈配合或紧密过盈（Press Fits）：</strong> 如轴承定位孔、销钉定位孔（须用 RFS，独立原则&#x2F;独立要求）。</li>
+<li><strong>保证最小壁厚或强度：</strong> 如果关注的是结构强度，防止壁厚过薄开裂，应采用 <strong>LMC（最小实体要求 Ⓛ）</strong>。</li>
+<li><strong>螺纹或中心孔轴线（大部分精度螺纹）：</strong> 螺纹牙型配合通常采用 RFS（不考虑要素尺寸），防止偏心影响啮合精度。</li>
+</ul>
+<hr>
+<h2 id="3-实例详解（带-2D-工程图与公差计算表）"><a href="#3-实例详解（带-2D-工程图与公差计算表）" class="headerlink" title="3. 实例详解（带 2D 工程图与公差计算表）"></a>3. 实例详解（带 2D 工程图与公差计算表）</h2><h3 id="2D-工程图标注示例"><a href="#2D-工程图标注示例" class="headerlink" title="2D 工程图标注示例"></a>2D 工程图标注示例</h3><p>假设某零件板上有 4 个通孔，用于穿过螺栓装配。2D 图纸标注如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/20260924172145941.jpg"></p>
+<h4 id="图纸参数解析："><a href="#图纸参数解析：" class="headerlink" title="图纸参数解析："></a>图纸参数解析：</h4><ul>
+<li><strong>名义尺寸及公差：</strong> $\varnothing 10.0_{-0.05}^{+0.15}\text{ mm}$<ul>
+<li>$\text{MMC 尺寸（最小孔径）} &#x3D; 10.0 - 0.05 &#x3D; \mathbf{9.95\text{ mm}}$</li>
+<li>$\text{LMC 尺寸（最大孔径）} &#x3D; 10.0 + 0.15 &#x3D; \mathbf{10.15\text{ mm}}$</li>
+</ul>
+</li>
+<li><strong>几何公差：</strong> 位置公差 Zone 为 $\varnothing 0.2\text{ mm}$，加 Ⓜ 修饰符号（表示当孔径处于 $9.95\text{ mm}$ 时，位置度公差为 $0.2\text{ mm}$）。</li>
+<li><strong>实效边界（VC）：</strong> $VC &#x3D; 9.95 - 0.20 &#x3D; \mathbf{9.75\text{ mm}}$。（即只要孔内能穿过一个 $\varnothing 9.75\text{ mm}$ 的刚性销柱，该孔即合格）。</li>
+</ul>
+<hr>
+<h3 id="动态补偿公差变化表"><a href="#动态补偿公差变化表" class="headerlink" title="动态补偿公差变化表"></a>动态补偿公差变化表</h3><p>不同加工实际尺寸下的<strong>位置度公差释放情况</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="left">加工后的实际孔径 ($\text{mm}$)</th>
+<th align="left">状态说明</th>
+<th align="left">偏离 MMC 的量 &#x2F; 补偿公差 ($\text{mm}$)</th>
+<th align="left">允许的最大位置公差区域直径 ($\text{mm}$)</th>
+<th align="left">能否通过 $\varnothing 9.75$ 功能检具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>9.95</strong></td>
+<td align="left"><strong>MMC 状态（最差装配状态）</strong></td>
+<td align="left">$9.95 - 9.95 &#x3D; \mathbf{0.00}$</td>
+<td align="left">$0.20 + 0.00 &#x3D; \mathbf{0.20}$</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left"><strong>10.00</strong></td>
+<td align="left">偏离 MMC 0.05 mm</td>
+<td align="left">$10.00 - 9.95 &#x3D; \mathbf{0.05}$</td>
+<td align="left">$0.20 + 0.05 &#x3D; \mathbf{0.25}$</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left"><strong>10.10</strong></td>
+<td align="left">偏离 MMC 0.15 mm</td>
+<td align="left">$10.10 - 9.95 &#x3D; \mathbf{0.15}$</td>
+<td align="left">$0.20 + 0.15 &#x3D; \mathbf{0.35}$</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left"><strong>10.15</strong></td>
+<td align="left"><strong>LMC 状态（最大孔径状态）</strong></td>
+<td align="left">$10.15 - 9.95 &#x3D; \mathbf{0.20}$</td>
+<td align="left">$0.20 + 0.20 &#x3D; \mathbf{0.40}$</td>
+<td align="left">是</td>
+</tr>
+</tbody></table>
+<h4 id="分析结论："><a href="#分析结论：" class="headerlink" title="分析结论："></a>分析结论：</h4><p>当工人的钻头磨损或偏摆导致实际加工孔径偏大到 $10.15\text{ mm}$ 时，原本图纸给定的位置公差只有 $\varnothing 0.20\text{ mm}$；但因为标注了 <strong>Ⓜ</strong>，位置公差自动放宽到了 $\varnothing 0.40\text{ mm}$，而这个零件依然可以成功装配，不会产生干涉。</p>
+
     </div>
 
     
@@ -350,13 +435,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">120k</span>
+    <span title="Word count total">122k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:49</span>
+    <span title="Reading time total">1:51</span>
   </span>
 </div>
 <div class="busuanzi-count">
