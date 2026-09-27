@@ -396,6 +396,151 @@ search | web前段开发工程师 | 码农
       </tags>
   </entry>
   <entry>
+    <title>B2B Connector测试探针优化复盘</title>
+    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
+<ul>
+<li>同一类产品测试结果不够稳定  </li>
+<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
+<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
+<li>现场维护频率偏高，影响测试效率</li>
+</ul>
+<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
+<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
+<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
+<ul>
+<li>分析接触不稳定的可能根因</li>
+<li>评估不同探针方案的适配性</li>
+<li>设计刀片针（Blade Pin）接触模组</li>
+<li>设计验证思路，对比弹簧探针与刀片针表现</li>
+<li>优化治具压合、定位和接触机构</li>
+<li>支持测试端导入更稳定的量产方案</li>
+</ul>
+<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
+<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
+<ul>
+<li>Conntact Pitch: 0.35mm</li>
+<li>Width of Conntact: 0.24mm</li>
+<li>Number of Signal Contacts: 40</li>
+<li>connector Type: Receptacle</li>
+</ul>
+<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
+<p>结合现场的现象，重点从以下方面排查验证：</p>
+<ul>
+<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
+<li>B2B connector 与转接板的接触是否对正稳定</li>
+<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
+<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
+<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
+</ul>
+<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
+<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
+<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
+<ul>
+<li>应用成熟  </li>
+<li>通用性强  </li>
+<li>维护和更换方便</li>
+</ul>
+<p>不足：  </p>
+<ul>
+<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
+<li>对位置偏差更敏感  </li>
+<li>在某些接触表面条件下，接触电阻波动更明显  </li>
+<li>长时间测试后，现场会出现更多偶发性接触异常</li>
+</ul>
+<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
+<ul>
+<li>接触更“明确”，接触位置更可控</li>
+<li>对表面膜层&#x2F;微弱污染更不敏感</li>
+<li>在该项目中表现出更高的重复稳定性</li>
+<li>对于特定connector结构，能够形成更有效的接触过程</li>
+</ul>
+<p>需要关注的点：</p>
+<ul>
+<li>对对位精度要求更高</li>
+<li>压力控制和行程设计要更合理</li>
+<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
+</ul>
+<p>在两种探针使用验证过程中，发现如下现象：  </p>
+<ul>
+<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
+<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
+</ul>
+<p>针对以上问题，定义了以下清洁步骤：</p>
+<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
+<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
+</ul>
+<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
+<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
+<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
+<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
+</ul>
+<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
+<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
+<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
+<ul>
+<li>保证转接板上的Pad平整且边线平直</li>
+<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
+<li>保证被测件X&#x2F; Y方向基准是明确的</li>
+<li>Z方向的压合高度是稳定的</li>
+<li>Connector 与探针相对位置重复性可控</li>
+</ul>
+<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
+<ul>
+<li>治具针膜上压板的平面度</li>
+<li>压板与被测件的接触顺序</li>
+<li>被测件的受力均匀性</li>
+</ul>
+<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
+<ul>
+<li>定义治具B2B模组的清洁周期</li>
+<li>定义刀片针的更换标准</li>
+<li>定义刀片针的失效判断方法</li>
+</ul>
+<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
+<ul>
+<li>多次重复测试的一致性</li>
+<li>接触电阻波动范围</li>
+<li>fail &#x2F; retest &#x2F; false fail 比例</li>
+<li>一定循环次数后的稳定性</li>
+<li>现场维护频率和更换频率</li>
+</ul>
+<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
+<ol>
+<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
+</ol>
+<ul>
+<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
+<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
+</ul>
+<ol start="2">
+<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
+</ol>
+<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
+<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
+<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
+<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
+<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
+<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
+<blockquote>
+<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
+</blockquote>
+<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>刀片针</tag>
+        <tag>弹簧针</tag>
+        <tag>Blade Pin</tag>
+        <tag>Pogo Pin</tag>
+        <tag>FCT</tag>
+        <tag>Pitch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Camera测试</title>
     <url>/2020/01/10/Camera%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;这是一款运动相机，需要对成品进行功能测试。</p>
@@ -654,151 +799,6 @@ search | web前段开发工程师 | 码农
         <tag>Camera</tag>
         <tag>Chart</tag>
         <tag>FOV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>B2B Connector测试探针优化复盘</title>
-    <url>/2026/06/16/B2B%20Connector%E6%B5%8B%E8%AF%95%E6%8E%A2%E9%92%88%E4%BC%98%E5%8C%96%E5%A4%8D%E7%9B%98/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="项目背景：问题并不是“测不到”，而是“测得不稳定”"><a href="#项目背景：问题并不是“测不到”，而是“测得不稳定”" class="headerlink" title="项目背景：问题并不是“测不到”，而是“测得不稳定”"></a>项目背景：问题并不是“测不到”，而是“测得不稳定”</h2><p>&emsp;&emsp;这个项目针对的是MLB功能测试（FCT），需要通过<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGlyb3NlLmNvbS96aC9wcm9kdWN0L2RvY3VtZW50P2NsY29kZT1DTDA2NzMtNTAxOS0wLTUxJnByb2R1Y3RuYW1lPUJNMjhCMC42LTQwRFMvMi0wLjM1Vig1MSkmc2VyaWVzPUJNMjgmZG9jdW1lbnR0eXBlPUNhdGFsb2cmbGFuZz16aCZkb2N1bWVudGlkPWVuX0JNMjhfQ0FU">B2B connector<i class="fa fa-external-link-alt"></i></span>来传递电信号从而测试MLB的功能。在前两代中一直使用的是pogo pin的方案，但是在前期量产导入和测试验证过程中，测试端总是出现波动：  </p>
-<ul>
-<li>同一类产品测试结果不够稳定  </li>
-<li>存在一定比例的偶发性 fail（重测率高达<code>5%</code>）</li>
-<li>重测后可恢复通过，说明问题更像“接触不良”而非功能性失效</li>
-<li>现场维护频率偏高，影响测试效率</li>
-</ul>
-<p>&emsp;&emsp;最初使用的是比较常规的<strong>弹簧探针（spring probe &#x2F; pogo pin）</strong>方案，这类方案在一般测试中应用很多，优点是成熟、通用、替换方便。</p>
-<p>&emsp;&emsp;但在这个B2B connector场景下，实际表现并不理想，尤其在重复测试一致性方面暴露出问题。</p>
-<h2 id="我在项目中的职责"><a href="#我在项目中的职责" class="headerlink" title="我在项目中的职责"></a>我在项目中的职责</h2><p>&emsp;&emsp;这个项目是比较古早的，前面负责的同事已经离职，所以此次由我接手，我的主要职责是测试治具机械方案评估设计与接触方案优化，核心工作包括：  </p>
-<ul>
-<li>分析接触不稳定的可能根因</li>
-<li>评估不同探针方案的适配性</li>
-<li>设计刀片针（Blade Pin）接触模组</li>
-<li>设计验证思路，对比弹簧探针与刀片针表现</li>
-<li>优化治具压合、定位和接触机构</li>
-<li>支持测试端导入更稳定的量产方案</li>
-</ul>
-<p>&emsp;&emsp;这个项目对我来说最重要的一点是：它不是一个简单的“换一种针试试”的过程，而是一个从失效现象到接触机理，再到方案验证和导入的完整闭环。</p>
-<h2 id="B2B-connector-参数"><a href="#B2B-connector-参数" class="headerlink" title="B2B connector 参数"></a>B2B connector 参数</h2><p>Receptacle Prameters：</p>
-<ul>
-<li>Conntact Pitch: 0.35mm</li>
-<li>Width of Conntact: 0.24mm</li>
-<li>Number of Signal Contacts: 40</li>
-<li>connector Type: Receptacle</li>
-</ul>
-<h2 id="为什么会怀疑探针方案本身的问题"><a href="#为什么会怀疑探针方案本身的问题" class="headerlink" title="为什么会怀疑探针方案本身的问题"></a>为什么会怀疑探针方案本身的问题</h2><p>&emsp;&emsp;在测试异常分析中，比较明显的是fail结果具有明显随机性且fail item与B2B connector相关，而且重测可以pass，所以优先怀疑<strong>接触一致性</strong>。</p>
-<p>结合现场的现象，重点从以下方面排查验证：</p>
-<ul>
-<li>B2B connector 接触区域较小，对定位和接触方式敏感</li>
-<li>B2B connector 与转接板的接触是否对正稳定</li>
-<li>弹簧探针通常是点接触，对局部氧化、灰尘，微小偏移更敏感</li>
-<li>在重复压合过程中，若无足够“擦拭效应（wiping action）”，接触电阻容易波动</li>
-<li>治具本身的平面度、压合一致性和Z向行程也会放大这种波动</li>
-</ul>
-<p>也就是说，这不是单纯的“探针不好”，而是探针形式与被测对象不够匹配。</p>
-<h2 id="方案对比：弹簧探针-vs-刀片针"><a href="#方案对比：弹簧探针-vs-刀片针" class="headerlink" title="方案对比：弹簧探针 vs 刀片针"></a>方案对比：弹簧探针 vs 刀片针</h2><p>在这次优化中，我们重点对比了两类方案：</p>
-<h3 id="方案A：常规弹簧探针"><a href="#方案A：常规弹簧探针" class="headerlink" title="方案A：常规弹簧探针"></a>方案A：常规弹簧探针</h3><p>优点：  </p>
-<ul>
-<li>应用成熟  </li>
-<li>通用性强  </li>
-<li>维护和更换方便</li>
-</ul>
-<p>不足：  </p>
-<ul>
-<li>对B2B connector这类细小接触界面，点接触稳定性有限  </li>
-<li>对位置偏差更敏感  </li>
-<li>在某些接触表面条件下，接触电阻波动更明显  </li>
-<li>长时间测试后，现场会出现更多偶发性接触异常</li>
-</ul>
-<h3 id="方案B：刀片针"><a href="#方案B：刀片针" class="headerlink" title="方案B：刀片针"></a>方案B：刀片针</h3><p>优点：</p>
-<ul>
-<li>接触更“明确”，接触位置更可控</li>
-<li>对表面膜层&#x2F;微弱污染更不敏感</li>
-<li>在该项目中表现出更高的重复稳定性</li>
-<li>对于特定connector结构，能够形成更有效的接触过程</li>
-</ul>
-<p>需要关注的点：</p>
-<ul>
-<li>对对位精度要求更高</li>
-<li>压力控制和行程设计要更合理</li>
-<li>需要兼顾接触可靠性与connector寿命，避免过度损伤</li>
-</ul>
-<p>在两种探针使用验证过程中，发现如下现象：  </p>
-<ul>
-<li>SMT在打件时的Flux会残留在B2B 两侧，而每次测试时，FLux会通过B2B connector传递到治具的B2B刀片针模组上  </li>
-<li>上一个制程在die cut Panel MLB时，会产生粉尘，而这个粉尘会影响接触性</li>
-</ul>
-<p>针对以上问题，定义了以下清洁步骤：</p>
-<h4 id="产品端："><a href="#产品端：" class="headerlink" title="产品端："></a>产品端：</h4><ul>
-<li>使用棉棒蘸着IPA清理产品B2B两侧的焊脚</li>
-</ul>
-<h4 id="治具端："><a href="#治具端：" class="headerlink" title="治具端："></a>治具端：</h4><ul>
-<li>先使用气枪吹去浮动载板与治具B2B模组上的粉尘  </li>
-<li>再使用软毛刷蘸着IPA轻刷B2B模组来清理助焊剂  </li>
-<li>最后使用气枪再次吹掉最后的粉尘与助焊剂混合物微小结块，加快IPA的挥发</li>
-</ul>
-<p>&emsp;&emsp;经过多轮验证后，项目中最终确认：<br><strong>在这个B2B connector的FCT场景下，刀片针方案的稳定性明显优于常规弹簧探针。</strong></p>
-<h2 id="仅仅换刀片针还不够，治具机构也需要一起优化"><a href="#仅仅换刀片针还不够，治具机构也需要一起优化" class="headerlink" title="仅仅换刀片针还不够，治具机构也需要一起优化"></a>仅仅换刀片针还不够，治具机构也需要一起优化</h2><p>项目推进过程中，我最大的体会之一就是：<br>探针选型不是孤立动作，必须和机械治具的一致性设计一起看。<br>为了让刀片针方案真正稳定落地，除了探针本身，我们也同步关注了几个结构要点：</p>
-<h3 id="定位一致性"><a href="#定位一致性" class="headerlink" title="定位一致性"></a>定位一致性</h3><p>刀片针，转接板，被测件的定位</p>
-<ul>
-<li>保证转接板上的Pad平整且边线平直</li>
-<li>转接板上的定位孔与定位销的间隙配合公差要合适</li>
-<li>保证被测件X&#x2F; Y方向基准是明确的</li>
-<li>Z方向的压合高度是稳定的</li>
-<li>Connector 与探针相对位置重复性可控</li>
-</ul>
-<h3 id="压合机构一致性"><a href="#压合机构一致性" class="headerlink" title="压合机构一致性"></a>压合机构一致性</h3><p>刀片针与被测件的压合性</p>
-<ul>
-<li>治具针膜上压板的平面度</li>
-<li>压板与被测件的接触顺序</li>
-<li>被测件的受力均匀性</li>
-</ul>
-<h3 id="维护性与寿命"><a href="#维护性与寿命" class="headerlink" title="维护性与寿命"></a>维护性与寿命</h3><p>产品，刀片针模组的维护</p>
-<ul>
-<li>定义治具B2B模组的清洁周期</li>
-<li>定义刀片针的更换标准</li>
-<li>定义刀片针的失效判断方法</li>
-</ul>
-<h2 id="验证思路：从“感觉更稳定”变成“有证据地更稳定”"><a href="#验证思路：从“感觉更稳定”变成“有证据地更稳定”" class="headerlink" title="验证思路：从“感觉更稳定”变成“有证据地更稳定”"></a>验证思路：从“感觉更稳定”变成“有证据地更稳定”</h2><p>&emsp;&emsp;这个项目中，方案选型不能靠经验拍板，而是需要通过验证来支撑。<br>通常可以从以下几个维度做对比：  </p>
-<ul>
-<li>多次重复测试的一致性</li>
-<li>接触电阻波动范围</li>
-<li>fail &#x2F; retest &#x2F; false fail 比例</li>
-<li>一定循环次数后的稳定性</li>
-<li>现场维护频率和更换频率</li>
-</ul>
-<p>最终整个验证下来的重测率（与刀片针模组相关）从5%下降到1%</p>
-<ol>
-<li>Tester 1 : 67R&#x2F;1546T, 4.3%</li>
-</ol>
-<ul>
-<li>B2B Pogo Pin  Module: (10&#x2F;22~11&#x2F;01):  64R&#x2F;1256T, 5%  </li>
-<li>B2B Blade Probe Module: (11&#x2F;01~11&#x2F;6): 3R&#x2F;290, 1%</li>
-</ul>
-<ol start="2">
-<li>Tester 2 Blade Probe Module: (10&#x2F;22~11&#x2F;06): 34R&#x2F;1528T, 2.2%</li>
-</ol>
-<p>&emsp;&emsp;最终验证结果表明，刀片针方案在该B2B connector测试中具备更好的稳定性，尤其在重复测试表现和长期一致性方面优势更明显。</p>
-<h2 id="这个项目带给我的思考"><a href="#这个项目带给我的思考" class="headerlink" title="这个项目带给我的思考"></a>这个项目带给我的思考</h2><p>这个项目让我进一步意识到：</p>
-<p>1）测试治具设计，本质上也是精度设计<br>很多测试问题并不是“测试程序问题”，而是机械接触界面没有被充分设计好。</p>
-<p>2）加工也是治具设计中重要一环<br>很多的测试问题最终原因来自于加工精度不高，转接板制板精度不高</p>
-<p>3）标准方案不一定适合所有场景<br>弹簧探针是常规方案，但“常规”不代表“最优”。<br>真正合适的方案，要看 connector 结构、接触表面、定位精度和实际测试需求。</p>
-<p>4）工程决策必须靠验证闭环<br>从弹簧探针切换到刀片针，不是经验判断，而是通过问题分析、方案比较和验证结果支撑的。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;回头看，这个项目最有价值的地方，不只是完成了一次探针切换，而是建立了一套更清晰的思路：</p>
-<blockquote>
-<p>面对测试不稳定问题，要从接触机理、治具结构、定位重复性、加工和长期维护策略五个维度一起看。</p>
-</blockquote>
-<p>这类项目也让我更加确认，机械设计在测试场景中的价值，并不只是把治具做出来，而是要让测试过程真正稳定、可重复、可维护。</p>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>刀片针</tag>
-        <tag>弹簧针</tag>
-        <tag>Blade Pin</tag>
-        <tag>Pogo Pin</tag>
-        <tag>FCT</tag>
-        <tag>Pitch</tag>
       </tags>
   </entry>
   <entry>
@@ -1891,7 +1891,7 @@ th {
 </ul>
 <hr>
 <h2 id="3-实例详解（带-2D-工程图与公差计算表）"><a href="#3-实例详解（带-2D-工程图与公差计算表）" class="headerlink" title="3. 实例详解（带 2D 工程图与公差计算表）"></a>3. 实例详解（带 2D 工程图与公差计算表）</h2><h3 id="2D-工程图标注示例"><a href="#2D-工程图标注示例" class="headerlink" title="2D 工程图标注示例"></a>2D 工程图标注示例</h3><p>假设某零件板上有 4 个通孔，用于穿过螺栓装配。2D 图纸标注如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/20260924172145941.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/Snipaste_2026-09-27_09-22-39.png"></p>
 <h4 id="图纸参数解析："><a href="#图纸参数解析：" class="headerlink" title="图纸参数解析："></a>图纸参数解析：</h4><ul>
 <li><strong>名义尺寸及公差：</strong> $\varnothing 10.0_{-0.05}^{+0.15}\text{ mm}$<ul>
 <li>$\text{MMC 尺寸（最小孔径）} &#x3D; 10.0 - 0.05 &#x3D; \mathbf{9.95\text{ mm}}$</li>
@@ -3196,6 +3196,114 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Windows效率工具</title>
+    <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
+<h3 id="7-zip解压缩软件"><a href="#7-zip解压缩软件" class="headerlink" title="7-zip解压缩软件"></a>7-zip解压缩软件</h3><p>&emsp;&emsp;<strong><span class="exturl" data-url="aHR0cHM6Ly9zcGFyYW5vaWQuY29tL2xhYi83ei8=">7-Zip<i class="fa fa-external-link-alt"></i></span></strong> 是一款 <strong>开源</strong> 软件。大多数源代码都基于 <strong>GNU LGPL</strong> 许可协议下发布。AES 代码基于 BSD 许可下发布。unRAR 代码基于两种许可：GNU LGPL 和 unRAR 限制许可。更多下许可信息请查看：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NwYXJhbm9pZC83ei9ibG9iL21hc3Rlci96aC1jbi9MaWNlbnNlLnR4dA==">7-Zip 许可<i class="fa fa-external-link-alt"></i></span>。您可以在任何一台计算机上使用 7-Zip ，包括用在商业用途的计算机，不对 7-Zip 进行捐赠或支付并不影响您的使用。</p>
+<h4 id="7-Zip-主要特征"><a href="#7-Zip-主要特征" class="headerlink" title="7-Zip 主要特征"></a>7-Zip 主要特征</h4><ul>
+<li>使用了 <strong>LZMA</strong> 与 <strong>LZMA2</strong> 算法的 <span class="exturl" data-url="aHR0cHM6Ly9zcGFyYW5vaWQuY29tL2xhYi83ei83ei5odG1s">7z 格式<i class="fa fa-external-link-alt"></i></span> 拥有极高的压缩比</li>
+<li>支持格式：<ul>
+<li>压缩 &#x2F; 解压缩：7z, XZ, BZIP2, GZIP, TAR, ZIP and WIM</li>
+<li>仅解压缩：ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, LZH, LZMA, MBR, MSI, NSIS, NTFS, RAR, RPM, SquashFS, UDF, VHD, WIM, XAR, Z</li>
+</ul>
+</li>
+<li>对于 ZIP 及 GZIP 格式，<strong>7-Zip</strong> 能提供比使用 PKZip 及 WinZip 高 2-10% 的压缩比</li>
+<li>为 7z 与 ZIP 提供更完善的 AES-256 加密算法</li>
+<li>7z 格式支持创建自释放压缩包</li>
+<li>Windows 资源管理器集成</li>
+<li>强大的的文件管理器</li>
+<li>更给力的命令行版本</li>
+<li>支持 FAR Manager 插件</li>
+<li>支持 87 种语言<br><strong>7-Zip</strong> 适用于 Windows 10 &#x2F; 8 &#x2F; 7 &#x2F; Vista &#x2F; XP &#x2F; 2016 &#x2F; 2012 &#x2F; 2008 &#x2F; 2003 &#x2F; 2000 &#x2F; NT。</li>
+</ul>
+<h3 id="福昕PDF套件单文件绿色版高级编辑器"><a href="#福昕PDF套件单文件绿色版高级编辑器" class="headerlink" title="福昕PDF套件单文件绿色版高级编辑器"></a>福昕PDF套件单文件绿色版高级编辑器</h3><h3 id="PDF补丁丁"><a href="#PDF补丁丁" class="headerlink" title="PDF补丁丁"></a>PDF补丁丁</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>PDF补丁丁是一个用于修改PDF文件信息的工具。它具有以下功能：</p>
+<ul>
+<li>修改PDF信息：修改文档属性、页码编号、页面链接、页面尺寸；删除自动打开网页等动作，去除复制及打印限制；设置阅读器初始模式。</li>
+<li>贴心PDF书签编辑器：带有阅读界面（具有便于阅读竖排文档的从右到左阅读方式），可批量修改PDF书签属性（颜色、样式、目标页码、缩放比例等），在书签中执行查找替换（支持正则表达式及XPath匹配、可快速选择篇、章、节书签），<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcGRmcGF0Y2hlci9wLzg0NTIwMjUuaHRtbA==">自动快速生成文档书签<i class="fa fa-external-link-alt"></i></span>。</li>
+<li>生成PDF书签：无需手工输入，自动识别正文标题或目录，为PDF文档生成书签。</li>
+<li>制作PDF文件：合并已有PDF文件或图片，生成新的PDF文件。合并后的PDF文档带有原文档的书签，还可挂上新书签（或根据文件名生成），新书签文本和样式可自定义。</li>
+<li>拆分或合并PDF文件，并保留原文件的书签或挂上新的书签。</li>
+<li>高速无损导出PDF文档的图片。</li>
+<li>提取或删除PDF文档中指定的页面，调整PDF文档的页面顺序。</li>
+<li>根据PDF文档元数据重命名PDF文件名。</li>
+<li>调用微软 Office 的图像识别引擎分析PDF文档图片中的文字；将图片PDF的目录页转换为PDF书签。识别结果可写入PDF文件。</li>
+<li>替换字库：替换文档中使用的字体库；嵌入字库到PDF文档，消除复制文本时的乱码，使之可在没有字库的设备（如Kindle等电子书阅读器）上阅读。</li>
+<li>分析文档结构：以树视图显示PDF文档结构，可编辑修改PDF文档节点，或将PDF文档导出成XML文件，供PDF爱好者分析、调试之用。</li>
+<li>永久免费，绝不过期，无广告，无弹出废话对话框。</li>
+</ul>
+<h4 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h4><ul>
+<li>支持 Windows 7 至 Windows 10 操作系统</li>
+<li>使用文字识别功能需要安装 Microsoft Office 2003（或2007）的 Document Imaging 组件（MODI）<br>说明：Office 2010 及其后的更高版本没有 MODI 组件，请<span class="exturl" data-url="aHR0cDovL3N1cHBvcnQubWljcm9zb2Z0LmNvbS9rYi85ODI3NjAvemgtY24=">参考此文介绍的办法<i class="fa fa-external-link-alt"></i></span>安装该组件。</li>
+</ul>
+<h4 id="下载安装及说明文档"><a href="#下载安装及说明文档" class="headerlink" title="下载安装及说明文档"></a>下载安装及说明文档</h4><ol>
+<li><strong>下载：<span class="exturl" data-url="aHR0cHM6Ly96NzAxLmNvbS9kLzEyNzUxNjA2LTI0OTEwODQ2LTk5NjA1Nw==">测试版 1.0.0.3755<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly96NzAxLmNvbS9kLzEyNzUxNjA2LTI0OTEwODQ2LTk5NjA1Nw==">稳定版 0.6.2.3694<i class="fa fa-external-link-alt"></i></span> 下载密码：8518 。</strong>解压到硬盘后，运行其中的“PDFPatcher.exe”文件。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9maWxlcy5jbmJsb2dzLmNvbS9wZGZwYXRjaGVyL1BERiVFOCVBMSVBNSVFNCVCOCU4MSVFNCVCOCU4MTAuMy4zJUU0JUJEJUJGJUU3JTk0JUE4JUU2JTg5JThCJUU1JTg2JThDLnBkZg==">下载 PDF补丁丁 使用手册<i class="fa fa-external-link-alt"></i></span>（0.3.3.100版，0.6 版暂无文档）测试版使用手册（暂不提供）</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9wZGZwYXRjaGVyL2FyY2hpdmUvMjAxMS8wMi8yMy8xOTU2MzUwLmh0bWw=">软件功能简介及界面截图网页<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9wZGZwYXRjaGVyL2FyY2hpdmUvMjAxMS8wNC8xMi8yMDEzOTc0Lmh0bWw=">开发计划及已知问题<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+<h4 id="SumatraPDF-Viewer"><a href="#SumatraPDF-Viewer" class="headerlink" title="SumatraPDF Viewer"></a>SumatraPDF Viewer</h4><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc3VtYXRyYXBkZnJlYWRlci5vcmcvZnJlZS1wZGYtcmVhZGVy">SumatraPDF<i class="fa fa-external-link-alt"></i></span>Sumatra PDF is a free PDF, eBook (<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL2VwdWItZWJvb2stcmVhZGVyLXZpZXdlci1mb3Itd2luZG93cw==">ePub<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL21vYmktZWJvb2stcmVhZGVyLXZpZXdlci1mb3Itd2luZG93cw==">Mobi<i class="fa fa-external-link-alt"></i></span>), XPS, DjVu, <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL2NobS1yZWFkZXItdmlld2VyLWZvci13aW5kb3dz">CHM<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL2Niei1jYnItY29taWMtYm9vay1yZWFkZXItdmlld2VyLWZvci13aW5kb3dz">Comic Book<i class="fa fa-external-link-alt"></i></span> (CBZ and CBR) viewer for Windows.<br>Sumatra PDF is powerful, small, portable and starts up very fast.<br>Simplicity of the user interface has a high priority.</p>
+<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
+<h3 id="FastStone-Capture截图工具"><a href="#FastStone-Capture截图工具" class="headerlink" title="FastStone Capture截图工具"></a>FastStone Capture截图工具</h3><p>v8.4绿色中文版_屏幕捕捉工具</p>
+<h3 id="ScreenToGif动态图片制作软件"><a href="#ScreenToGif动态图片制作软件" class="headerlink" title="ScreenToGif动态图片制作软件"></a>ScreenToGif动态图片制作软件</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05pY2tlTWFuYXJpbi9TY3JlZW5Ub0dpZg==">ScreenToGif<i class="fa fa-external-link-alt"></i></span> allows you to record a selected area of your <strong>screen</strong>, live feed from your <strong>webcam</strong> or live drawings from a <strong>sketchboard</strong>. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images.</p>
+<h3 id="QuickLook"><a href="#QuickLook" class="headerlink" title="QuickLook"></a>QuickLook</h3><h4 id="官网"><a href="#官网" class="headerlink" title="官网"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1FMLVdpbi9RdWlja0xvb2svcmVsZWFzZXMvdGFnLzMuNy4x">官网<i class="fa fa-external-link-alt"></i></span></h4><p>Windows版本的文件预览工具</p>
+<h3 id="Wox"><a href="#Wox" class="headerlink" title="Wox"></a>Wox</h3><ul>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy53b3gub25lL3BsdWdp">官网<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dveC1sYXVuY2hlci9Xb3g=">Github<i class="fa fa-external-link-alt"></i></span></li>
+<li>Wox是一款定位Windows系统软件快捷启动工具，其主要功能：<ul>
+<li>计算器_</li>
+<li>打开软件</li>
+<li>查找文件和目录_</li>
+<li>打开CMD终端</li>
+<li>使用谷歌和百度搜索内容_</li>
+<li>自定义搜狗微信收索</li>
+<li>自定义京东搜索</li>
+<li>安装有道翻译插件</li>
+<li>详细可以参考：<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82MDQ3Nzg0Nw==">WOX 软件高效使用<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><h5 id="与Everything的搭配使用指南"><a href="#与Everything的搭配使用指南" class="headerlink" title="与Everything的搭配使用指南"></a>与<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dveC1sYXVuY2hlci9Xb3gvcmVsZWFzZXMvdGFnL3YxLjMuNTI0">Everything<i class="fa fa-external-link-alt"></i></span>的搭配使用指南</h5><ul>
+<li>首先安装Everything</li>
+<li>确保Everything和Wox都在运行</li>
+<li>Wox的配置</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>效率</tag>
+        <tag>工具</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>deploy失败解决方法</title>
+    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
+<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
+<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
+<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
+<li>加大提交缓存</li>
+<li>删除坏掉的部署缓存</li>
+<li>重新生成 + 推送</li>
+</ol>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
+<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>deploy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2019/08/12/hello-world/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Welcome to <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span>! This is your very first post. Check <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">documentation<i class="fa fa-external-link-alt"></i></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=">troubleshooting<i class="fa fa-external-link-alt"></i></span> or you can ask me on <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==">GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
@@ -3603,89 +3711,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Windows效率工具</title>
-    <url>/2021/10/01/Windows%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="Dukto免费局域网传输工具"><a href="#Dukto免费局域网传输工具" class="headerlink" title="Dukto免费局域网传输工具"></a>Dukto免费局域网传输工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cubXNlYy5pdC9ibG9nL2R1a3RvLw==">Dukto<i class="fa fa-external-link-alt"></i></span> 是一款非常简单实用的<strong>局域网文件传输工具</strong>，类似国内比较常用的飞鸽传书、飞秋等。而相比它们更出色，<strong>Dukto</strong> 完全免费开源，而且支持 Win、Mac、Linux、iOS、Android等系统的跨平台传文件，拥有Win8的简约风格界面。只要电脑&#x2F;手机们位于同一个局域网下 (不必连接互联网)，就能通过它来互相聊天或传文件甚至文件夹。你所要做的，只是一个简单的拖放，超级方便快捷，绝对是文件传输的必备工具…</p>
-<h3 id="7-zip解压缩软件"><a href="#7-zip解压缩软件" class="headerlink" title="7-zip解压缩软件"></a>7-zip解压缩软件</h3><p>&emsp;&emsp;<strong><span class="exturl" data-url="aHR0cHM6Ly9zcGFyYW5vaWQuY29tL2xhYi83ei8=">7-Zip<i class="fa fa-external-link-alt"></i></span></strong> 是一款 <strong>开源</strong> 软件。大多数源代码都基于 <strong>GNU LGPL</strong> 许可协议下发布。AES 代码基于 BSD 许可下发布。unRAR 代码基于两种许可：GNU LGPL 和 unRAR 限制许可。更多下许可信息请查看：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NwYXJhbm9pZC83ei9ibG9iL21hc3Rlci96aC1jbi9MaWNlbnNlLnR4dA==">7-Zip 许可<i class="fa fa-external-link-alt"></i></span>。您可以在任何一台计算机上使用 7-Zip ，包括用在商业用途的计算机，不对 7-Zip 进行捐赠或支付并不影响您的使用。</p>
-<h4 id="7-Zip-主要特征"><a href="#7-Zip-主要特征" class="headerlink" title="7-Zip 主要特征"></a>7-Zip 主要特征</h4><ul>
-<li>使用了 <strong>LZMA</strong> 与 <strong>LZMA2</strong> 算法的 <span class="exturl" data-url="aHR0cHM6Ly9zcGFyYW5vaWQuY29tL2xhYi83ei83ei5odG1s">7z 格式<i class="fa fa-external-link-alt"></i></span> 拥有极高的压缩比</li>
-<li>支持格式：<ul>
-<li>压缩 &#x2F; 解压缩：7z, XZ, BZIP2, GZIP, TAR, ZIP and WIM</li>
-<li>仅解压缩：ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, LZH, LZMA, MBR, MSI, NSIS, NTFS, RAR, RPM, SquashFS, UDF, VHD, WIM, XAR, Z</li>
-</ul>
-</li>
-<li>对于 ZIP 及 GZIP 格式，<strong>7-Zip</strong> 能提供比使用 PKZip 及 WinZip 高 2-10% 的压缩比</li>
-<li>为 7z 与 ZIP 提供更完善的 AES-256 加密算法</li>
-<li>7z 格式支持创建自释放压缩包</li>
-<li>Windows 资源管理器集成</li>
-<li>强大的的文件管理器</li>
-<li>更给力的命令行版本</li>
-<li>支持 FAR Manager 插件</li>
-<li>支持 87 种语言<br><strong>7-Zip</strong> 适用于 Windows 10 &#x2F; 8 &#x2F; 7 &#x2F; Vista &#x2F; XP &#x2F; 2016 &#x2F; 2012 &#x2F; 2008 &#x2F; 2003 &#x2F; 2000 &#x2F; NT。</li>
-</ul>
-<h3 id="福昕PDF套件单文件绿色版高级编辑器"><a href="#福昕PDF套件单文件绿色版高级编辑器" class="headerlink" title="福昕PDF套件单文件绿色版高级编辑器"></a>福昕PDF套件单文件绿色版高级编辑器</h3><h3 id="PDF补丁丁"><a href="#PDF补丁丁" class="headerlink" title="PDF补丁丁"></a>PDF补丁丁</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>PDF补丁丁是一个用于修改PDF文件信息的工具。它具有以下功能：</p>
-<ul>
-<li>修改PDF信息：修改文档属性、页码编号、页面链接、页面尺寸；删除自动打开网页等动作，去除复制及打印限制；设置阅读器初始模式。</li>
-<li>贴心PDF书签编辑器：带有阅读界面（具有便于阅读竖排文档的从右到左阅读方式），可批量修改PDF书签属性（颜色、样式、目标页码、缩放比例等），在书签中执行查找替换（支持正则表达式及XPath匹配、可快速选择篇、章、节书签），<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcGRmcGF0Y2hlci9wLzg0NTIwMjUuaHRtbA==">自动快速生成文档书签<i class="fa fa-external-link-alt"></i></span>。</li>
-<li>生成PDF书签：无需手工输入，自动识别正文标题或目录，为PDF文档生成书签。</li>
-<li>制作PDF文件：合并已有PDF文件或图片，生成新的PDF文件。合并后的PDF文档带有原文档的书签，还可挂上新书签（或根据文件名生成），新书签文本和样式可自定义。</li>
-<li>拆分或合并PDF文件，并保留原文件的书签或挂上新的书签。</li>
-<li>高速无损导出PDF文档的图片。</li>
-<li>提取或删除PDF文档中指定的页面，调整PDF文档的页面顺序。</li>
-<li>根据PDF文档元数据重命名PDF文件名。</li>
-<li>调用微软 Office 的图像识别引擎分析PDF文档图片中的文字；将图片PDF的目录页转换为PDF书签。识别结果可写入PDF文件。</li>
-<li>替换字库：替换文档中使用的字体库；嵌入字库到PDF文档，消除复制文本时的乱码，使之可在没有字库的设备（如Kindle等电子书阅读器）上阅读。</li>
-<li>分析文档结构：以树视图显示PDF文档结构，可编辑修改PDF文档节点，或将PDF文档导出成XML文件，供PDF爱好者分析、调试之用。</li>
-<li>永久免费，绝不过期，无广告，无弹出废话对话框。</li>
-</ul>
-<h4 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h4><ul>
-<li>支持 Windows 7 至 Windows 10 操作系统</li>
-<li>使用文字识别功能需要安装 Microsoft Office 2003（或2007）的 Document Imaging 组件（MODI）<br>说明：Office 2010 及其后的更高版本没有 MODI 组件，请<span class="exturl" data-url="aHR0cDovL3N1cHBvcnQubWljcm9zb2Z0LmNvbS9rYi85ODI3NjAvemgtY24=">参考此文介绍的办法<i class="fa fa-external-link-alt"></i></span>安装该组件。</li>
-</ul>
-<h4 id="下载安装及说明文档"><a href="#下载安装及说明文档" class="headerlink" title="下载安装及说明文档"></a>下载安装及说明文档</h4><ol>
-<li><strong>下载：<span class="exturl" data-url="aHR0cHM6Ly96NzAxLmNvbS9kLzEyNzUxNjA2LTI0OTEwODQ2LTk5NjA1Nw==">测试版 1.0.0.3755<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly96NzAxLmNvbS9kLzEyNzUxNjA2LTI0OTEwODQ2LTk5NjA1Nw==">稳定版 0.6.2.3694<i class="fa fa-external-link-alt"></i></span> 下载密码：8518 。</strong>解压到硬盘后，运行其中的“PDFPatcher.exe”文件。</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9maWxlcy5jbmJsb2dzLmNvbS9wZGZwYXRjaGVyL1BERiVFOCVBMSVBNSVFNCVCOCU4MSVFNCVCOCU4MTAuMy4zJUU0JUJEJUJGJUU3JTk0JUE4JUU2JTg5JThCJUU1JTg2JThDLnBkZg==">下载 PDF补丁丁 使用手册<i class="fa fa-external-link-alt"></i></span>（0.3.3.100版，0.6 版暂无文档）测试版使用手册（暂不提供）</li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9wZGZwYXRjaGVyL2FyY2hpdmUvMjAxMS8wMi8yMy8xOTU2MzUwLmh0bWw=">软件功能简介及界面截图网页<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9wZGZwYXRjaGVyL2FyY2hpdmUvMjAxMS8wNC8xMi8yMDEzOTc0Lmh0bWw=">开发计划及已知问题<i class="fa fa-external-link-alt"></i></span></li>
-</ol>
-<h4 id="SumatraPDF-Viewer"><a href="#SumatraPDF-Viewer" class="headerlink" title="SumatraPDF Viewer"></a>SumatraPDF Viewer</h4><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc3VtYXRyYXBkZnJlYWRlci5vcmcvZnJlZS1wZGYtcmVhZGVy">SumatraPDF<i class="fa fa-external-link-alt"></i></span>Sumatra PDF is a free PDF, eBook (<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL2VwdWItZWJvb2stcmVhZGVyLXZpZXdlci1mb3Itd2luZG93cw==">ePub<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL21vYmktZWJvb2stcmVhZGVyLXZpZXdlci1mb3Itd2luZG93cw==">Mobi<i class="fa fa-external-link-alt"></i></span>), XPS, DjVu, <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL2NobS1yZWFkZXItdmlld2VyLWZvci13aW5kb3dz">CHM<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmtvd2FsY3p5ay5pbmZvL2FydGljbGVzL2Niei1jYnItY29taWMtYm9vay1yZWFkZXItdmlld2VyLWZvci13aW5kb3dz">Comic Book<i class="fa fa-external-link-alt"></i></span> (CBZ and CBR) viewer for Windows.<br>Sumatra PDF is powerful, small, portable and starts up very fast.<br>Simplicity of the user interface has a high priority.</p>
-<h3 id="Snipaste-免费开源截图工具"><a href="#Snipaste-免费开源截图工具" class="headerlink" title="Snipaste - 免费开源截图工具"></a>Snipaste - 免费开源截图工具</h3><p>&emsp;&emsp;<span class="exturl" data-url="aHR0cHM6Ly93d3cuc25pcGFzdGUuY29tLyM=">Snipaste<i class="fa fa-external-link-alt"></i></span> 是一个简单但强大的<code>免费开源</code>截图工具，也可以让你将截图贴回到屏幕上！下载并打开 Snipaste，按下 <code>F1</code> 来开始截图，再按 <code>F3</code>，截图就在桌面置顶显示了。就这么简单！你还可以将剪贴板里的文字或者颜色信息转化为图片窗口，并且将它们进行缩放、旋转、翻转、设为半透明，甚至让鼠标能穿透它们！如果你是程序员、设计师，或者是大部分工作时间都在电脑前，贴图功能将改变你的工作方式、提升工作效率。Snipaste 使用很简单，但同时也有一些较高级的用法可以进一步提升你的工作效率。</p>
-<h3 id="FastStone-Capture截图工具"><a href="#FastStone-Capture截图工具" class="headerlink" title="FastStone Capture截图工具"></a>FastStone Capture截图工具</h3><p>v8.4绿色中文版_屏幕捕捉工具</p>
-<h3 id="ScreenToGif动态图片制作软件"><a href="#ScreenToGif动态图片制作软件" class="headerlink" title="ScreenToGif动态图片制作软件"></a>ScreenToGif动态图片制作软件</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05pY2tlTWFuYXJpbi9TY3JlZW5Ub0dpZg==">ScreenToGif<i class="fa fa-external-link-alt"></i></span> allows you to record a selected area of your <strong>screen</strong>, live feed from your <strong>webcam</strong> or live drawings from a <strong>sketchboard</strong>. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images.</p>
-<h3 id="QuickLook"><a href="#QuickLook" class="headerlink" title="QuickLook"></a>QuickLook</h3><h4 id="官网"><a href="#官网" class="headerlink" title="官网"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1FMLVdpbi9RdWlja0xvb2svcmVsZWFzZXMvdGFnLzMuNy4x">官网<i class="fa fa-external-link-alt"></i></span></h4><p>Windows版本的文件预览工具</p>
-<h3 id="Wox"><a href="#Wox" class="headerlink" title="Wox"></a>Wox</h3><ul>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy53b3gub25lL3BsdWdp">官网<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dveC1sYXVuY2hlci9Xb3g=">Github<i class="fa fa-external-link-alt"></i></span></li>
-<li>Wox是一款定位Windows系统软件快捷启动工具，其主要功能：<ul>
-<li>计算器_</li>
-<li>打开软件</li>
-<li>查找文件和目录_</li>
-<li>打开CMD终端</li>
-<li>使用谷歌和百度搜索内容_</li>
-<li>自定义搜狗微信收索</li>
-<li>自定义京东搜索</li>
-<li>安装有道翻译插件</li>
-<li>详细可以参考：<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82MDQ3Nzg0Nw==">WOX 软件高效使用<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-</li>
-<li><h5 id="与Everything的搭配使用指南"><a href="#与Everything的搭配使用指南" class="headerlink" title="与Everything的搭配使用指南"></a>与<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1dveC1sYXVuY2hlci9Xb3gvcmVsZWFzZXMvdGFnL3YxLjMuNTI0">Everything<i class="fa fa-external-link-alt"></i></span>的搭配使用指南</h5><ul>
-<li>首先安装Everything</li>
-<li>确保Everything和Wox都在运行</li>
-<li>Wox的配置</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>效率</tag>
-        <tag>工具</tag>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用 PicGo 实现一键截图 → 上传 → 自动生成图床链接（GitHub + jsDelivr）</title>
     <url>/2026/06/02/%E4%BD%BF%E7%94%A8%20PicGo%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E6%88%AA%E5%9B%BE%20%E2%86%92%20%E4%B8%8A%E4%BC%A0%20%E2%86%92%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E5%BA%8A%E9%93%BE%E6%8E%A5%EF%BC%88GitHub%20+%20jsDelivr%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在上一篇文章中，我已经搭建好了基于 <strong>GitHub 公共仓库 + jsDelivr CDN</strong> 的免费图床方案。<br>但在实际写博客时，如果每次都要：</p>
@@ -3935,6 +3960,170 @@ th {
       </tags>
   </entry>
   <entry>
+    <title>Mac环境下安装Python3</title>
+    <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  MacOS Mojave:10.14.5</p>
+<h2 id="检查Mac自带Python版本"><a href="#检查Mac自带Python版本" class="headerlink" title="检查Mac自带Python版本"></a>检查Mac自带Python版本</h2><ul>
+<li>在Launchpad找到终端，输入Python；</li>
+<li>终端显示Python2.7.10，按住Control+D来退出Python运行环境。</li>
+</ul>
+<h2 id="安装X-code"><a href="#安装X-code" class="headerlink" title="安装X-code"></a>安装X-code</h2><ul>
+<li>在终端输入X-code-select –install, 按Enter；</li>
+<li>安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。</li>
+</ul>
+<h2 id="安装Brew"><a href="#安装Brew" class="headerlink" title="安装Brew"></a>安装Brew</h2><ul>
+<li>打开Brew官网：<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">https://brew.sh<i class="fa fa-external-link-alt"></i></span>, <code>在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code>，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful</li>
+</ul>
+<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><ul>
+<li>在终端输入brew install python3，等待安装完成。</li>
+<li>在终端输入Python3，会显示输Python3的版本。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>X-code</tag>
+        <tag>Brew</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac环境下使用GitHub和Hexo搭建博客</title>
+    <url>/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<strong>欢迎参与讨论，转载请注明出处。</strong></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　一直想用一种方式来记录生活以及职业中的感受，所以接触到在Hexo上创建博客，在Github上托管。<br>　　本次博客搭建平台为Mac OS Mojave, 10.14.5，目前发现跟系统的特性没多大关联。这也是借鉴前辈的经验来搭建的，以下操作有做修改，有问题的欢迎各位指出，感谢。</p>
+<h2 id="部署GitHub"><a href="#部署GitHub" class="headerlink" title="部署GitHub"></a>部署GitHub</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><p>　　本次博客的发布网站是在GitHub的GitHub Pages仓库，通过把网站文件存放到这种仓库里，你便可以利用GitHub提供给你的外链访问它。<br>　　声明：以下部分内容转载自铁锚的<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlbmZ1ZmVpL2FydGljbGUvZGV0YWlscy8zNzcyNTA1Nw==">创建GitHub技术博客全攻略<i class="fa fa-external-link-alt"></i></span>和Musoucrow的<span class="exturl" data-url="aHR0cHM6Ly9tdXNvdWNyb3cuZ2l0aHViLmlvLzIwMTcvMDIvMjYvYnVpbGRfYm9sZy8=">在Mac平台使用GitHub和Hexo搭建博客<i class="fa fa-external-link-alt"></i></span>。</p>
+<h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>　　前往<span class="exturl" data-url="aHR0cHM6Ly9tdXNvdWNyb3cuZ2l0aHViLmlvLzIwMTcvMDIvMjYvYnVpbGRfYm9sZy8=">GitHub<i class="fa fa-external-link-alt"></i></span>，参考下图输入账号、邮箱、密码，然后点击注册按钮。<br><img src="https://img-blog.csdn.net/20140712125642518?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVuZnVmZWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<h3 id="初始设置"><a href="#初始设置" class="headerlink" title="初始设置"></a>初始设置</h3><p>　　注册完成后，选择Free免费账号完成设置。<br>　　<img src="https://img-blog.csdn.net/20140712125717088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVuZnVmZWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<h3 id="验证邮箱"><a href="#验证邮箱" class="headerlink" title="验证邮箱"></a>验证邮箱</h3><p>　　请打开你的邮箱，查看发送给你的确认邮件。你需要验证邮箱后，后面生成的个人主页才会被接受和发布。</p>
+<h3 id="创建页面仓库"><a href="#创建页面仓库" class="headerlink" title="创建页面仓库"></a>创建页面仓库</h3><p>　　前往<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25ldw==">创建仓库<i class="fa fa-external-link-alt"></i></span>，参考下图。<br>　　仓库的名字需要和你的账号对应， 如 tiemaocsdn.github.io。<br>　　输入基本信息，然后点击创建仓库。<br>　　<img src="https://img-blog.csdn.net/20140712125914603?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVuZnVmZWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>　　当你创建完页面仓库后，此时你的个人页面<code>https://username.github.io/</code>，已经创建完成（username即你的GitHub用户名，下同），<br>虽然还是空无一物，不过你已可以进行下一步了。</p>
+<h2 id="安装前置软件"><a href="#安装前置软件" class="headerlink" title="安装前置软件"></a>安装前置软件</h2><h3 id="前言-2"><a href="#前言-2" class="headerlink" title="前言"></a>前言</h3><p>　　在进行安装核心软件之前，你需要先准备好其所依赖的软件。包括<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">Git<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tLw==">NPM<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js<i class="fa fa-external-link-alt"></i></span>。</p>
+<h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><p>　　在Mac OS下，你可以选择通过<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">Homebrew<i class="fa fa-external-link-alt"></i></span>来进行许多服务类软件的安装（这样会方便很多），在其他系统下也有类似的替代方案。<br>　　打开终端, 输入以下脚本。</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL &lt;https://raw.githubusercontent.com/Homebrew/install/master/install&gt;)&quot;  
+</code></pre>
+<p>　　等待安装完成后，在终端输入brew进行调试，如无报错则可继续。<br>　　<img src="https://musoucrow.github.io/images/build_bolg/brew.png">  </p>
+<h3 id="通过Homebrew安装其余软件"><a href="#通过Homebrew安装其余软件" class="headerlink" title="通过Homebrew安装其余软件"></a>通过Homebrew安装其余软件</h3><p>　　如果你不用Homebrew，那么请通过其他方式进行下载并安装（例如官网）。以下演示使用Homebrew安装他们，一样是通过终端输入，需要按照顺序。</p>
+<blockquote>
+<p>brew install git<br>  brew install node<br>  brew install npm</p>
+</blockquote>
+<p>与Homebrew一样，安装完成后，你可以尝试依次在终端输入git、node、npm进行调试，如无报错则可继续。</p>
+<h3 id="后记-1"><a href="#后记-1" class="headerlink" title="后记"></a>后记</h3><p>　　如果你觉得Homebrew的速度很慢，那么你可以考虑选择<strong>更换镜像</strong>。请通过搜索引擎寻找相关资料。</p>
+<h2 id="安装Hexo及主题"><a href="#安装Hexo及主题" class="headerlink" title="安装Hexo及主题"></a>安装Hexo及主题</h2><h3 id="前言-3"><a href="#前言-3" class="headerlink" title="前言"></a>前言</h3><p>　　本次博客的框架源自Hexo，我们通过使用它来搭建出博客。Hexo基于Node.js，所以我们可以使用NPM来安装它，这在其他系统下也是一样的。</p>
+<h3 id="使用NPM安装"><a href="#使用NPM安装" class="headerlink" title="使用NPM安装"></a>使用NPM安装</h3><p>　　与之前一样，在终端输入以下内容（选择其中之一），你的网络如果不是很好的话，可以选择方案二（通过淘宝镜像进行下载）。</p>
+<blockquote>
+<p>npm install -g hexo-cli<br>  npm install -g hexo-cli –registry&#x3D;<code>https://registry.npm.taobao.org</code></p>
+</blockquote>
+<h3 id="新建博客工程"><a href="#新建博客工程" class="headerlink" title="新建博客工程"></a>新建博客工程</h3><p>　　接下来你需要在终端切换到你觉得合适的目录下通过Hexo新建你的博客工程（也可以不管，只要你知道当前终端目录的所在）。例如（目录可通过拖动文件夹到终端指定）：</p>
+<blockquote>
+<p>cd &#x2F;Users&#x2F;Username&#x2F;Documents&#x2F;Bolg<br>  hexo init  </p>
+</blockquote>
+<p>经过一段时间后便会在Bolg文件夹下新建一堆文件，如下图这般，如无报错则可继续。<br>　　<img src="https://musoucrow.github.io/images/build_bolg/path.png"></p>
+<h3 id="关于博客主题"><a href="#关于博客主题" class="headerlink" title="关于博客主题"></a>关于博客主题</h3><p>　　在你新建博客工程后仍需要选择一个主题(theme)应用到博客里，主题文件位于博客工程下的<strong>themes</strong>目录，默认便存在一款名为landscape的主题。你可以选择从Hexo官网的**<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=">主题专栏<i class="fa fa-external-link-alt"></i></span><strong>下载其他主题。<br>　　以下便以本博客所使用的</strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0Lw==">NexT<i class="fa fa-external-link-alt"></i></span><strong>为范例进行演示。接下来的内容将会</strong><span class="exturl" data-url="aHR0cDovL3RoZW1lLW5leHQuaWlzc25hbi5jb20vZ2V0dGluZy1zdGFydGVkLmh0bWw=">参考这里<i class="fa fa-external-link-alt"></i></span>**。</p>
+<h3 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h3><p>　　前往**<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L3JlbGVhc2Vz">发布页面<i class="fa fa-external-link-alt"></i></span>**选择你想要的版本（下图0.5.0版仅为示范），下载解压后获得Next主题，然后将其以文件夹的形式放到themes目录下。<br><img src="https://musoucrow.github.io/images/build_bolg/download.png"></p>
+<p>　　贴士：你可以考虑像我这样把解压后的文件夹名称更改为next，这样会更清晰。<br><img src="https://musoucrow.github.io/images/build_bolg/themes.png"></p>
+<h3 id="后记-2"><a href="#后记-2" class="headerlink" title="后记"></a>后记</h3><p>　　关于主题的选择其实远不止官网所刊，关于这些方面的你可以多去寻觅甚至自己动手丰衣足食！</p>
+<h2 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h2><h3 id="前言-4"><a href="#前言-4" class="headerlink" title="前言"></a>前言</h3><p>　　接下来我们要确立一个概念：在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于<strong>博客工程目录（根目录）</strong>下，主要包含 Hexo 本身的配置；另一份位于<strong>主题目录</strong>下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>　　为了描述方便，在以下说明中，将前者称为<strong>站点配置文件</strong>， 后者称为<strong>主题配置文件</strong>。</p>
+<h3 id="启用主题并调试"><a href="#启用主题并调试" class="headerlink" title="启用主题并调试"></a>启用主题并调试</h3><p>　　打开<strong>站点配置</strong>文件，找到theme字段，并将其值更改为next（主题文件夹名称）。<br><img src="https://musoucrow.github.io/images/build_bolg/change_theme.png"><br>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用.<br>　　首先打开终端并切换目录到博客工程，输入 <strong><code>hexo server --debug</code></strong> 进行网站调试。当命令行输出中提示出：<br>　　<strong><code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code></strong><br>　　此时即可使用浏览器访问**<code>http://localhost:4000</code>** ，检查站点是否正确运行。<br>　　当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse。</p>
+<p><img src="https://musoucrow.github.io/images/build_bolg/muse.png"><br>　　现在，你已经成功安装并启用了 NexT 主题。你现在可以在终端按下Ctrl+C结束调试，下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。</p>
+<h3 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h3><p>　　打开站点配置文件( _config.yml)，你可以修改以下字段来实现：</p>
+<ul>
+<li><p>language  </p>
+</li>
+<li><p>设置成你所需要的语言，例如：language: zh-Hans</p>
+</li>
+<li><p>目前 NexT 支持的语言如以下表格所示：language<br><img src="https://musoucrow.github.io/images/build_bolg/language.png"></p>
+</li>
+<li><p>author</p>
+</li>
+<li><p>设置author为你的昵称，例如：Musoucrow</p>
+</li>
+</ul>
+<p>　　打开主题配置文件，你可以修改以下字段来实现：</p>
+<ul>
+<li><p>avatar</p>
+</li>
+<li><p>设置成头像的链接地址，例如：avatar: <code>http://example.com/avatar.png</code></p>
+</li>
+<li><p>其中，头像的链接地址可以是：avatar</p>
+</li>
+<li><p>scheme</p>
+</li>
+<li><p>Scheme是NexT提供的一种特性，借助于Scheme，NexT为你提供多种不同的外观。同时，几乎所有的配置都可以 在Scheme之间共用。目前NexT支持三种Scheme，他们是：</p>
+<ul>
+<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
+<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
+<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
+</ul>
+</li>
+<li><p>搜索scheme关键字。 你会看到有三行scheme的配置，将你需用启用的scheme前面注释#即可。scheme<br><img src="https://musoucrow.github.io/images/build_bolg/scheme.png"></p>
+</li>
+<li><p>menu</p>
+</li>
+<li><p>设定菜单内容，可通过解除几个自带项的注释#来开启栏目。</p>
+</li>
+<li><p>也可以自己进行新增，格式为item name: link。</p>
+<ul>
+<li>item name是一个名称，这个名称并不直接显示在页面上，它将用于匹配图标以及翻译。</li>
+</ul>
+</li>
+<li><p>NexT 默认的菜单项有（标注！的项表示需要手动创建这个页面）：menu<br><img src="https://musoucrow.github.io/images/build_bolg/menu.png"></p>
+</li>
+<li><p>social</p>
+</li>
+<li><p>social可让博客的侧栏里的角色介绍栏目下增加链接项（可添加多个），你可以这样设置：social1<br><img src="https://musoucrow.github.io/images/build_bolg/social1.png"></p>
+</li>
+<li><p>博客的具体效果为：social2<br><img src="https://musoucrow.github.io/images/build_bolg/social2.png"></p>
+</li>
+</ul>
+<h3 id="新建标签和分类栏目"><a href="#新建标签和分类栏目" class="headerlink" title="新建标签和分类栏目"></a>新建标签和分类栏目</h3><p>　　回到终端，仍然是博客工程目录下，依次输入以下两句：</p>
+<blockquote>
+<p>hexo new page tags<br>  hexo new page categories</p>
+</blockquote>
+<p>　　这样便创建好了标签和分类栏目的页面文件，但仍需要做一些处理。<br>　　打开source&#x2F;categories&#x2F;index.md和source&#x2F;tags&#x2F;index.md，分别修改成：</p>
+<blockquote>
+<p>title: categories<br>date: 2017-02-25 21:43:34<br>comments: false<br>type: “categories”</p>
+<p>date: 2017-02-25 22:40:53<br>tcomments: false<br>ttype: “tags”</p>
+</blockquote>
+<p>　　你现在可以再次调试一下看看效果，不出意外的话，已经实现了标签和分类栏目。记得要先结束之前的网站调试（在调试终端下按Ctrl+C），再重新进行。</p>
+<h3 id="后记-3"><a href="#后记-3" class="headerlink" title="后记"></a>后记</h3><p>　　静态站点拥有一定的局限性，因此我们需要借助于第三方服务来扩展站点的功能。 以下是 NexT 目前支持的第三方服务，你可以根据你的需求集成一些功能进来。详情查看</p>
+<h2 id="发表帖子"><a href="#发表帖子" class="headerlink" title="发表帖子"></a>发表帖子</h2><h3 id="前言-5"><a href="#前言-5" class="headerlink" title="前言"></a>前言</h3><p>　　博客的帖子是Markdown格式（后缀名为.md），如果你尚未熟悉，请去进行专门的学习。 　</p>
+<h3 id="新建帖子"><a href="#新建帖子" class="headerlink" title="新建帖子"></a>新建帖子</h3><p>　　在终端、博客工程目录下输入：hexo new post test1以创建一个标题名为test1的帖子。你可以在source&#x2F;_posts&#x2F;目录下看到它。<br>　　在文件顶部有着与source&#x2F;categories&#x2F;index.md和source&#x2F;tags&#x2F;index.md相同格式的配置，该类配置可拥有如下属性（comments属性必须保证已经安装了第三方服务后才能生效）：</p>
+<blockquote>
+<p>title: 文章的标题<br>date: 创建日期，例如(2017-02-26 00:54:28)<br>updated: 修改日期<br>comments: 是否开启评论(true or false)<br>type: 标签，多个时表示为([a, b, c])<br>categories: 分类</p>
+</blockquote>
+<h3 id="修改创建格式"><a href="#修改创建格式" class="headerlink" title="修改创建格式"></a>修改创建格式</h3><p>　　使用命令创建的帖子文件的格式，系源自于scaffolds&#x2F;post.md，你可以通过修改它来达到帖子模板化的效果，例如：<br><img src="https://musoucrow.github.io/images/build_bolg/format.png"></p>
+<h3 id="后记-4"><a href="#后记-4" class="headerlink" title="后记"></a>后记</h3><p>　　帖子文件的本质就是从模板产生的克隆品，所以也可以自己手动新建文件。同理删除帖子也只需要直接删除文件即可，无需通过网站管理之类的手段，非常方便。</p>
+<h2 id="发布网站"><a href="#发布网站" class="headerlink" title="发布网站"></a>发布网站</h2><h3 id="前言-6"><a href="#前言-6" class="headerlink" title="前言"></a>前言</h3><p>　发布网站的原理其实就是生成网站文件夹并传输到GitHub上对应的仓库<code>https://github.com/username/username.github.io</code>, 然后便可通过<code>https://username.github.io</code>, 进行访问。</p>
+<h3 id="上传部署"><a href="#上传部署" class="headerlink" title="上传部署"></a>上传部署</h3><p>　　在终端输入**<code>npm install hexo-deployer-git --save</code>**，安装完毕后打开站点配置文件，添加deploy字段。</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repository: <code>http://github.com/username/username.github.io.git</code><br>branch: master  </p>
+</blockquote>
+<ul>
+<li>注意事项<ul>
+<li>是http而非https。</li>
+<li>在旧版(&lt;3.0)的Hexo里是github而非git。</li>
+<li>username即你的GitHub用户名，实际以你自己创建的仓库地址为准。</li>
+</ul>
+</li>
+</ul>
+<h3 id="生成并上传"><a href="#生成并上传" class="headerlink" title="生成并上传"></a>生成并上传</h3><p>　　在终端、博客工程目录下输入：**<code>hexo generate</code><strong>，完成后便会发现新增了public目录。那便是网站文件夹，用于上传到GitHub仓库。<br>　　接下来再输入</strong><code>hexo deploy</code>**，将网站文件夹上传到GitHub仓库。以后在本地做了修改后，便进行这两个操作将网站生成并上传即可。</p>
+<h3 id="后记-5"><a href="#后记-5" class="headerlink" title="后记"></a>后记</h3><p>　　有时候把一些配置文件搞炸的时候或者上传有问题时，可以使用**<code>hexo clean</code>**来尝试修复。<br>　　如果觉得GitHub的传输速度过慢，可考虑修改host尝试能否增速，以下是一个江湖偏方：<br>　　<strong><code>151.101.88.249 github.global.ssl.fastly.Net</code></strong></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+        <tag>NPM</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Win平台上部署Hexo</title>
     <url>/2026/01/31/%E5%9C%A8Win%E5%B9%B3%E5%8F%B0%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
@@ -4071,36 +4260,6 @@ th {
         <tag>Blog</tag>
         <tag>SSH Key</tag>
         <tag>Permission denied (publickey)</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac环境下安装Python3</title>
-    <url>/2019/08/23/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%B8%8A%E5%AE%89%E8%A3%85Python3/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>  <strong>欢迎参与讨论，转载请注明出处。</strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  MacOS Mojave:10.14.5</p>
-<h2 id="检查Mac自带Python版本"><a href="#检查Mac自带Python版本" class="headerlink" title="检查Mac自带Python版本"></a>检查Mac自带Python版本</h2><ul>
-<li>在Launchpad找到终端，输入Python；</li>
-<li>终端显示Python2.7.10，按住Control+D来退出Python运行环境。</li>
-</ul>
-<h2 id="安装X-code"><a href="#安装X-code" class="headerlink" title="安装X-code"></a>安装X-code</h2><ul>
-<li>在终端输入X-code-select –install, 按Enter；</li>
-<li>安装完成，在终端输入X-code-select -p来检查Xcode的安装位置，按住Control+D结束命令。</li>
-</ul>
-<h2 id="安装Brew"><a href="#安装Brew" class="headerlink" title="安装Brew"></a>安装Brew</h2><ul>
-<li>打开Brew官网：<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">https://brew.sh<i class="fa fa-external-link-alt"></i></span>, <code>在brew官网复制/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code>，粘贴到Mac终端，按Enter，安装完成之后显示Installation successful</li>
-</ul>
-<h2 id="安装Python3"><a href="#安装Python3" class="headerlink" title="安装Python3"></a>安装Python3</h2><ul>
-<li>在终端输入brew install python3，等待安装完成。</li>
-<li>在终端输入Python3，会显示输Python3的版本。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>X-code</tag>
-        <tag>Brew</tag>
       </tags>
   </entry>
   <entry>
@@ -4246,137 +4405,216 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>Mac环境下使用GitHub和Hexo搭建博客</title>
-    <url>/2019/08/13/%E5%9C%A8Mac%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8GitHub%E5%92%8CHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>　　<strong>欢迎参与讨论，转载请注明出处。</strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　一直想用一种方式来记录生活以及职业中的感受，所以接触到在Hexo上创建博客，在Github上托管。<br>　　本次博客搭建平台为Mac OS Mojave, 10.14.5，目前发现跟系统的特性没多大关联。这也是借鉴前辈的经验来搭建的，以下操作有做修改，有问题的欢迎各位指出，感谢。</p>
-<h2 id="部署GitHub"><a href="#部署GitHub" class="headerlink" title="部署GitHub"></a>部署GitHub</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><p>　　本次博客的发布网站是在GitHub的GitHub Pages仓库，通过把网站文件存放到这种仓库里，你便可以利用GitHub提供给你的外链访问它。<br>　　声明：以下部分内容转载自铁锚的<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlbmZ1ZmVpL2FydGljbGUvZGV0YWlscy8zNzcyNTA1Nw==">创建GitHub技术博客全攻略<i class="fa fa-external-link-alt"></i></span>和Musoucrow的<span class="exturl" data-url="aHR0cHM6Ly9tdXNvdWNyb3cuZ2l0aHViLmlvLzIwMTcvMDIvMjYvYnVpbGRfYm9sZy8=">在Mac平台使用GitHub和Hexo搭建博客<i class="fa fa-external-link-alt"></i></span>。</p>
-<h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>　　前往<span class="exturl" data-url="aHR0cHM6Ly9tdXNvdWNyb3cuZ2l0aHViLmlvLzIwMTcvMDIvMjYvYnVpbGRfYm9sZy8=">GitHub<i class="fa fa-external-link-alt"></i></span>，参考下图输入账号、邮箱、密码，然后点击注册按钮。<br><img src="https://img-blog.csdn.net/20140712125642518?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVuZnVmZWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
-<h3 id="初始设置"><a href="#初始设置" class="headerlink" title="初始设置"></a>初始设置</h3><p>　　注册完成后，选择Free免费账号完成设置。<br>　　<img src="https://img-blog.csdn.net/20140712125717088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVuZnVmZWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
-<h3 id="验证邮箱"><a href="#验证邮箱" class="headerlink" title="验证邮箱"></a>验证邮箱</h3><p>　　请打开你的邮箱，查看发送给你的确认邮件。你需要验证邮箱后，后面生成的个人主页才会被接受和发布。</p>
-<h3 id="创建页面仓库"><a href="#创建页面仓库" class="headerlink" title="创建页面仓库"></a>创建页面仓库</h3><p>　　前往<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25ldw==">创建仓库<i class="fa fa-external-link-alt"></i></span>，参考下图。<br>　　仓库的名字需要和你的账号对应， 如 tiemaocsdn.github.io。<br>　　输入基本信息，然后点击创建仓库。<br>　　<img src="https://img-blog.csdn.net/20140712125914603?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcmVuZnVmZWk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>　　当你创建完页面仓库后，此时你的个人页面<code>https://username.github.io/</code>，已经创建完成（username即你的GitHub用户名，下同），<br>虽然还是空无一物，不过你已可以进行下一步了。</p>
-<h2 id="安装前置软件"><a href="#安装前置软件" class="headerlink" title="安装前置软件"></a>安装前置软件</h2><h3 id="前言-2"><a href="#前言-2" class="headerlink" title="前言"></a>前言</h3><p>　　在进行安装核心软件之前，你需要先准备好其所依赖的软件。包括<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">Git<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tLw==">NPM<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">Node.js<i class="fa fa-external-link-alt"></i></span>。</p>
-<h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><p>　　在Mac OS下，你可以选择通过<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">Homebrew<i class="fa fa-external-link-alt"></i></span>来进行许多服务类软件的安装（这样会方便很多），在其他系统下也有类似的替代方案。<br>　　打开终端, 输入以下脚本。</p>
-<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL &lt;https://raw.githubusercontent.com/Homebrew/install/master/install&gt;)&quot;  
-</code></pre>
-<p>　　等待安装完成后，在终端输入brew进行调试，如无报错则可继续。<br>　　<img src="https://musoucrow.github.io/images/build_bolg/brew.png">  </p>
-<h3 id="通过Homebrew安装其余软件"><a href="#通过Homebrew安装其余软件" class="headerlink" title="通过Homebrew安装其余软件"></a>通过Homebrew安装其余软件</h3><p>　　如果你不用Homebrew，那么请通过其他方式进行下载并安装（例如官网）。以下演示使用Homebrew安装他们，一样是通过终端输入，需要按照顺序。</p>
-<blockquote>
-<p>brew install git<br>  brew install node<br>  brew install npm</p>
-</blockquote>
-<p>与Homebrew一样，安装完成后，你可以尝试依次在终端输入git、node、npm进行调试，如无报错则可继续。</p>
-<h3 id="后记-1"><a href="#后记-1" class="headerlink" title="后记"></a>后记</h3><p>　　如果你觉得Homebrew的速度很慢，那么你可以考虑选择<strong>更换镜像</strong>。请通过搜索引擎寻找相关资料。</p>
-<h2 id="安装Hexo及主题"><a href="#安装Hexo及主题" class="headerlink" title="安装Hexo及主题"></a>安装Hexo及主题</h2><h3 id="前言-3"><a href="#前言-3" class="headerlink" title="前言"></a>前言</h3><p>　　本次博客的框架源自Hexo，我们通过使用它来搭建出博客。Hexo基于Node.js，所以我们可以使用NPM来安装它，这在其他系统下也是一样的。</p>
-<h3 id="使用NPM安装"><a href="#使用NPM安装" class="headerlink" title="使用NPM安装"></a>使用NPM安装</h3><p>　　与之前一样，在终端输入以下内容（选择其中之一），你的网络如果不是很好的话，可以选择方案二（通过淘宝镜像进行下载）。</p>
-<blockquote>
-<p>npm install -g hexo-cli<br>  npm install -g hexo-cli –registry&#x3D;<code>https://registry.npm.taobao.org</code></p>
-</blockquote>
-<h3 id="新建博客工程"><a href="#新建博客工程" class="headerlink" title="新建博客工程"></a>新建博客工程</h3><p>　　接下来你需要在终端切换到你觉得合适的目录下通过Hexo新建你的博客工程（也可以不管，只要你知道当前终端目录的所在）。例如（目录可通过拖动文件夹到终端指定）：</p>
-<blockquote>
-<p>cd &#x2F;Users&#x2F;Username&#x2F;Documents&#x2F;Bolg<br>  hexo init  </p>
-</blockquote>
-<p>经过一段时间后便会在Bolg文件夹下新建一堆文件，如下图这般，如无报错则可继续。<br>　　<img src="https://musoucrow.github.io/images/build_bolg/path.png"></p>
-<h3 id="关于博客主题"><a href="#关于博客主题" class="headerlink" title="关于博客主题"></a>关于博客主题</h3><p>　　在你新建博客工程后仍需要选择一个主题(theme)应用到博客里，主题文件位于博客工程下的<strong>themes</strong>目录，默认便存在一款名为landscape的主题。你可以选择从Hexo官网的**<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=">主题专栏<i class="fa fa-external-link-alt"></i></span><strong>下载其他主题。<br>　　以下便以本博客所使用的</strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0Lw==">NexT<i class="fa fa-external-link-alt"></i></span><strong>为范例进行演示。接下来的内容将会</strong><span class="exturl" data-url="aHR0cDovL3RoZW1lLW5leHQuaWlzc25hbi5jb20vZ2V0dGluZy1zdGFydGVkLmh0bWw=">参考这里<i class="fa fa-external-link-alt"></i></span>**。</p>
-<h3 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h3><p>　　前往**<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L3JlbGVhc2Vz">发布页面<i class="fa fa-external-link-alt"></i></span>**选择你想要的版本（下图0.5.0版仅为示范），下载解压后获得Next主题，然后将其以文件夹的形式放到themes目录下。<br><img src="https://musoucrow.github.io/images/build_bolg/download.png"></p>
-<p>　　贴士：你可以考虑像我这样把解压后的文件夹名称更改为next，这样会更清晰。<br><img src="https://musoucrow.github.io/images/build_bolg/themes.png"></p>
-<h3 id="后记-2"><a href="#后记-2" class="headerlink" title="后记"></a>后记</h3><p>　　关于主题的选择其实远不止官网所刊，关于这些方面的你可以多去寻觅甚至自己动手丰衣足食！</p>
-<h2 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h2><h3 id="前言-4"><a href="#前言-4" class="headerlink" title="前言"></a>前言</h3><p>　　接下来我们要确立一个概念：在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于<strong>博客工程目录（根目录）</strong>下，主要包含 Hexo 本身的配置；另一份位于<strong>主题目录</strong>下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>　　为了描述方便，在以下说明中，将前者称为<strong>站点配置文件</strong>， 后者称为<strong>主题配置文件</strong>。</p>
-<h3 id="启用主题并调试"><a href="#启用主题并调试" class="headerlink" title="启用主题并调试"></a>启用主题并调试</h3><p>　　打开<strong>站点配置</strong>文件，找到theme字段，并将其值更改为next（主题文件夹名称）。<br><img src="https://musoucrow.github.io/images/build_bolg/change_theme.png"><br>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用.<br>　　首先打开终端并切换目录到博客工程，输入 <strong><code>hexo server --debug</code></strong> 进行网站调试。当命令行输出中提示出：<br>　　<strong><code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code></strong><br>　　此时即可使用浏览器访问**<code>http://localhost:4000</code>** ，检查站点是否正确运行。<br>　　当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse。</p>
-<p><img src="https://musoucrow.github.io/images/build_bolg/muse.png"><br>　　现在，你已经成功安装并启用了 NexT 主题。你现在可以在终端按下Ctrl+C结束调试，下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。</p>
-<h3 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h3><p>　　打开站点配置文件( _config.yml)，你可以修改以下字段来实现：</p>
+    <title>工程选型计算工具</title>
+    <url>/2026/05/27/%E5%B7%A5%E7%A8%8B%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、电机选型（动力源计算）"><a href="#一、电机选型（动力源计算）" class="headerlink" title="一、电机选型（动力源计算）"></a>一、电机选型（动力源计算）</h2><h3 id="1-MISUMI-综合选型工具（首选）"><a href="#1-MISUMI-综合选型工具（首选）" class="headerlink" title="1. MISUMI 综合选型工具（首选）"></a>1. MISUMI 综合选型工具（首选）</h3><p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mby5taXN1bWkuY29tLmNuL3Rvb2xzLw==">https://techinfo.misumi.com.cn/tools/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>整机驱动能力计算</p>
+<p><strong>可计算内容：</strong></p>
 <ul>
-<li><p>language  </p>
-</li>
-<li><p>设置成你所需要的语言，例如：language: zh-Hans</p>
-</li>
-<li><p>目前 NexT 支持的语言如以下表格所示：language<br><img src="https://musoucrow.github.io/images/build_bolg/language.png"></p>
-</li>
-<li><p>author</p>
-</li>
-<li><p>设置author为你的昵称，例如：Musoucrow</p>
-</li>
+<li>驱动扭矩（Nm）</li>
+<li>电机功率（kW）</li>
+<li>转动惯量匹配</li>
+<li>加减速时间</li>
+<li>负载力 → 扭矩转换</li>
 </ul>
-<p>　　打开主题配置文件，你可以修改以下字段来实现：</p>
+<p><strong>适用场景：</strong></p>
 <ul>
-<li><p>avatar</p>
-</li>
-<li><p>设置成头像的链接地址，例如：avatar: <code>http://example.com/avatar.png</code></p>
-</li>
-<li><p>其中，头像的链接地址可以是：avatar</p>
-</li>
-<li><p>scheme</p>
-</li>
-<li><p>Scheme是NexT提供的一种特性，借助于Scheme，NexT为你提供多种不同的外观。同时，几乎所有的配置都可以 在Scheme之间共用。目前NexT支持三种Scheme，他们是：</p>
+<li>丝杠驱动</li>
+<li>皮带驱动</li>
+<li>直线模组</li>
+</ul>
+<h3 id="2-SMC-FESTO（气动方案选型）"><a href="#2-SMC-FESTO（气动方案选型）" class="headerlink" title="2. SMC &#x2F; FESTO（气动方案选型）"></a>2. SMC &#x2F; FESTO（气动方案选型）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc21jLmNvbS5jbi8=">https://www.smc.com.cn<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZmVzdG8uY29tLw==">https://www.festo.com<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>气缸&#x2F;夹爪替代电机方案</p>
+<p><strong>可计算内容：</strong></p>
 <ul>
-<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
-<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
-<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
+<li>推力（N）</li>
+<li>气缸直径选型</li>
+<li>空气消耗</li>
+<li>负载能力</li>
 </ul>
-</li>
-<li><p>搜索scheme关键字。 你会看到有三行scheme的配置，将你需用启用的scheme前面注释#即可。scheme<br><img src="https://musoucrow.github.io/images/build_bolg/scheme.png"></p>
-</li>
-<li><p>menu</p>
-</li>
-<li><p>设定菜单内容，可通过解除几个自带项的注释#来开启栏目。</p>
-</li>
-<li><p>也可以自己进行新增，格式为item name: link。</p>
+<h3 id="3-SKF（驱动合理性校核）"><a href="#3-SKF（驱动合理性校核）" class="headerlink" title="3. SKF（驱动合理性校核）"></a>3. SKF（驱动合理性校核）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2tmLmNvbS9jbi9kaWdpdGFsLXRvb2xzL3NlbGVjdC1hbmQtZXZhbHVhdGU=">https://www.skf.com/cn/digital-tools/select-and-evaluate<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>验证驱动系统是否合理</p>
+<p><strong>可计算内容：</strong></p>
 <ul>
-<li>item name是一个名称，这个名称并不直接显示在页面上，它将用于匹配图标以及翻译。</li>
+<li>负载分布</li>
+<li>传动效率</li>
+<li>能耗评估</li>
 </ul>
-</li>
-<li><p>NexT 默认的菜单项有（标注！的项表示需要手动创建这个页面）：menu<br><img src="https://musoucrow.github.io/images/build_bolg/menu.png"></p>
-</li>
-<li><p>social</p>
-</li>
-<li><p>social可让博客的侧栏里的角色介绍栏目下增加链接项（可添加多个），你可以这样设置：social1<br><img src="https://musoucrow.github.io/images/build_bolg/social1.png"></p>
-</li>
-<li><p>博客的具体效果为：social2<br><img src="https://musoucrow.github.io/images/build_bolg/social2.png"></p>
-</li>
-</ul>
-<h3 id="新建标签和分类栏目"><a href="#新建标签和分类栏目" class="headerlink" title="新建标签和分类栏目"></a>新建标签和分类栏目</h3><p>　　回到终端，仍然是博客工程目录下，依次输入以下两句：</p>
-<blockquote>
-<p>hexo new page tags<br>  hexo new page categories</p>
-</blockquote>
-<p>　　这样便创建好了标签和分类栏目的页面文件，但仍需要做一些处理。<br>　　打开source&#x2F;categories&#x2F;index.md和source&#x2F;tags&#x2F;index.md，分别修改成：</p>
-<blockquote>
-<p>title: categories<br>date: 2017-02-25 21:43:34<br>comments: false<br>type: “categories”</p>
-<p>date: 2017-02-25 22:40:53<br>tcomments: false<br>ttype: “tags”</p>
-</blockquote>
-<p>　　你现在可以再次调试一下看看效果，不出意外的话，已经实现了标签和分类栏目。记得要先结束之前的网站调试（在调试终端下按Ctrl+C），再重新进行。</p>
-<h3 id="后记-3"><a href="#后记-3" class="headerlink" title="后记"></a>后记</h3><p>　　静态站点拥有一定的局限性，因此我们需要借助于第三方服务来扩展站点的功能。 以下是 NexT 目前支持的第三方服务，你可以根据你的需求集成一些功能进来。详情查看</p>
-<h2 id="发表帖子"><a href="#发表帖子" class="headerlink" title="发表帖子"></a>发表帖子</h2><h3 id="前言-5"><a href="#前言-5" class="headerlink" title="前言"></a>前言</h3><p>　　博客的帖子是Markdown格式（后缀名为.md），如果你尚未熟悉，请去进行专门的学习。 　</p>
-<h3 id="新建帖子"><a href="#新建帖子" class="headerlink" title="新建帖子"></a>新建帖子</h3><p>　　在终端、博客工程目录下输入：hexo new post test1以创建一个标题名为test1的帖子。你可以在source&#x2F;_posts&#x2F;目录下看到它。<br>　　在文件顶部有着与source&#x2F;categories&#x2F;index.md和source&#x2F;tags&#x2F;index.md相同格式的配置，该类配置可拥有如下属性（comments属性必须保证已经安装了第三方服务后才能生效）：</p>
-<blockquote>
-<p>title: 文章的标题<br>date: 创建日期，例如(2017-02-26 00:54:28)<br>updated: 修改日期<br>comments: 是否开启评论(true or false)<br>type: 标签，多个时表示为([a, b, c])<br>categories: 分类</p>
-</blockquote>
-<h3 id="修改创建格式"><a href="#修改创建格式" class="headerlink" title="修改创建格式"></a>修改创建格式</h3><p>　　使用命令创建的帖子文件的格式，系源自于scaffolds&#x2F;post.md，你可以通过修改它来达到帖子模板化的效果，例如：<br><img src="https://musoucrow.github.io/images/build_bolg/format.png"></p>
-<h3 id="后记-4"><a href="#后记-4" class="headerlink" title="后记"></a>后记</h3><p>　　帖子文件的本质就是从模板产生的克隆品，所以也可以自己手动新建文件。同理删除帖子也只需要直接删除文件即可，无需通过网站管理之类的手段，非常方便。</p>
-<h2 id="发布网站"><a href="#发布网站" class="headerlink" title="发布网站"></a>发布网站</h2><h3 id="前言-6"><a href="#前言-6" class="headerlink" title="前言"></a>前言</h3><p>　发布网站的原理其实就是生成网站文件夹并传输到GitHub上对应的仓库<code>https://github.com/username/username.github.io</code>, 然后便可通过<code>https://username.github.io</code>, 进行访问。</p>
-<h3 id="上传部署"><a href="#上传部署" class="headerlink" title="上传部署"></a>上传部署</h3><p>　　在终端输入**<code>npm install hexo-deployer-git --save</code>**，安装完毕后打开站点配置文件，添加deploy字段。</p>
-<blockquote>
-<p>deploy:<br>type: git<br>repository: <code>http://github.com/username/username.github.io.git</code><br>branch: master  </p>
-</blockquote>
+<h2 id="二、丝杠选型（直线传动核心）"><a href="#二、丝杠选型（直线传动核心）" class="headerlink" title="二、丝杠选型（直线传动核心）"></a>二、丝杠选型（直线传动核心）</h2><h3 id="1-MISUMI-丝杠计算工具"><a href="#1-MISUMI-丝杠计算工具" class="headerlink" title="1. MISUMI 丝杠计算工具"></a>1. MISUMI 丝杠计算工具</h3><p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mby5taXN1bWkuY29tLmNuL3Rvb2xzLw==">https://techinfo.misumi.com.cn/tools/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>旋转运动 → 直线运动转换计算</p>
+<p><strong>可计算内容：</strong></p>
 <ul>
-<li>注意事项<ul>
-<li>是http而非https。</li>
-<li>在旧版(&lt;3.0)的Hexo里是github而非git。</li>
-<li>username即你的GitHub用户名，实际以你自己创建的仓库地址为准。</li>
+<li>丝杠驱动扭矩</li>
+<li>推力（N）</li>
+<li>临界转速</li>
+<li>屈曲（失稳）</li>
+<li>寿命（km）</li>
 </ul>
-</li>
+<h3 id="2-THK（高精度应用）"><a href="#2-THK（高精度应用）" class="headerlink" title="2. THK（高精度应用）"></a>2. THK（高精度应用）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudGhrLmNvbS8=">https://www.thk.com<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong></p>
+<ul>
+<li>高端设备（半导体&#x2F;精密）</li>
 </ul>
-<h3 id="生成并上传"><a href="#生成并上传" class="headerlink" title="生成并上传"></a>生成并上传</h3><p>　　在终端、博客工程目录下输入：**<code>hexo generate</code><strong>，完成后便会发现新增了public目录。那便是网站文件夹，用于上传到GitHub仓库。<br>　　接下来再输入</strong><code>hexo deploy</code>**，将网站文件夹上传到GitHub仓库。以后在本地做了修改后，便进行这两个操作将网站生成并上传即可。</p>
-<h3 id="后记-5"><a href="#后记-5" class="headerlink" title="后记"></a>后记</h3><p>　　有时候把一些配置文件搞炸的时候或者上传有问题时，可以使用**<code>hexo clean</code>**来尝试修复。<br>　　如果觉得GitHub的传输速度过慢，可考虑修改host尝试能否增速，以下是一个江湖偏方：<br>　　<strong><code>151.101.88.249 github.global.ssl.fastly.Net</code></strong></p>
+<p><strong>可关注：</strong></p>
+<ul>
+<li>精度等级（C3、C5）</li>
+<li>刚性</li>
+<li>寿命</li>
+</ul>
+<h3 id="3-Mechtool（丝杠快速校核）"><a href="#3-Mechtool（丝杠快速校核）" class="headerlink" title="3. Mechtool（丝杠快速校核）"></a>3. Mechtool（丝杠快速校核）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjaHRvb2wuY24v">https://www.mechtool.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>独立验证计算是否合理</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>丝杠寿命</li>
+<li>轴向负载</li>
+<li>扭矩</li>
+</ul>
+<h2 id="三、导轨选型（刚度-寿命计算）"><a href="#三、导轨选型（刚度-寿命计算）" class="headerlink" title="三、导轨选型（刚度&#x2F;寿命计算）"></a>三、导轨选型（刚度&#x2F;寿命计算）</h2><h3 id="1-MISUMI-导轨选型"><a href="#1-MISUMI-导轨选型" class="headerlink" title="1. MISUMI 导轨选型"></a>1. MISUMI 导轨选型</h3><p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mby5taXN1bWkuY29tLmNuL3Rvb2xzLw==">https://techinfo.misumi.com.cn/tools/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>承载 + 精度系统设计</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>动&#x2F;静载荷（N）</li>
+<li>力矩（Mx&#x2F;My&#x2F;Mz）</li>
+<li>使用寿命（km）</li>
+<li>安全系数</li>
+</ul>
+<h3 id="2-THK-HIWIN"><a href="#2-THK-HIWIN" class="headerlink" title="2. THK &#x2F; HIWIN"></a>2. THK &#x2F; HIWIN</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudGhrLmNvbS8=">https://www.thk.com<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuaGl3aW4uY24v">https://www.hiwin.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>标准工业导轨</p>
+<p><strong>可关注：</strong></p>
+<ul>
+<li>额定载荷</li>
+<li>刚度曲线</li>
+<li>精度等级</li>
+</ul>
+<h2 id="四、结构设计（建模-选型）"><a href="#四、结构设计（建模-选型）" class="headerlink" title="四、结构设计（建模+选型）"></a>四、结构设计（建模+选型）</h2><h3 id="1-MISUMI-3D库"><a href="#1-MISUMI-3D库" class="headerlink" title="1. MISUMI 3D库"></a>1. MISUMI 3D库</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWlzdW1pLmNvbS5jbi8=">https://www.misumi.com.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>快速搭建标准件结构</p>
+<p><strong>功能：</strong></p>
+<ul>
+<li>标准件选型</li>
+<li>自动生成CAD模型</li>
+<li>参数配置</li>
+</ul>
+<h3 id="2-TraceParts"><a href="#2-TraceParts" class="headerlink" title="2. TraceParts"></a>2. TraceParts</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhY2VwYXJ0cy5jb20v">https://www.traceparts.com<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>非标品牌模型补充</p>
+<p><strong>内容：</strong></p>
+<ul>
+<li>电机</li>
+<li>减速机</li>
+<li>结构件</li>
+</ul>
+<h3 id="3-3D-ContentCentral"><a href="#3-3D-ContentCentral" class="headerlink" title="3. 3D ContentCentral"></a>3. 3D ContentCentral</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuM2Rjb250ZW50Y2VudHJhbC5jb20v">https://www.3dcontentcentral.com<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>SolidWorks生态模型下载</p>
+<h2 id="五、结构强度与设计校核"><a href="#五、结构强度与设计校核" class="headerlink" title="五、结构强度与设计校核"></a>五、结构强度与设计校核</h2><h3 id="1-Mechtool（万能计算工具）"><a href="#1-Mechtool（万能计算工具）" class="headerlink" title="1. Mechtool（万能计算工具）"></a>1. Mechtool（万能计算工具）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjaHRvb2wuY24v">https://www.mechtool.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>结构是否安全</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>轴强度（弯曲&#x2F;扭转）</li>
+<li>螺栓强度</li>
+<li>齿轮设计</li>
+<li>公差配合</li>
+</ul>
+<h3 id="2-SKF-工具（轴承-系统）"><a href="#2-SKF-工具（轴承-系统）" class="headerlink" title="2. SKF 工具（轴承+系统）"></a>2. SKF 工具（轴承+系统）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2tmLmNvbS9jbi9kaWdpdGFsLXRvb2xzL3NlbGVjdC1hbmQtZXZhbHVhdGU=">https://www.skf.com/cn/digital-tools/select-and-evaluate<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>旋转系统可靠性</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>轴承寿命（L10）</li>
+<li>润滑周期</li>
+<li>转速极限</li>
+</ul>
+<h3 id="3-MITCalc（进阶专业计算）"><a href="#3-MITCalc（进阶专业计算）" class="headerlink" title="3. MITCalc（进阶专业计算）"></a>3. MITCalc（进阶专业计算）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWl0Y2FsYy5jb20v">https://www.mitcalc.com<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>工程级设计校核</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>ISO标准安全系数</li>
+<li>疲劳寿命</li>
+<li>多工况负载</li>
+</ul>
+<h2 id="六、密封系统选型"><a href="#六、密封系统选型" class="headerlink" title="六、密封系统选型"></a>六、密封系统选型</h2><h3 id="1-Trelleborg-O‑Ring-Calculator"><a href="#1-Trelleborg-O‑Ring-Calculator" class="headerlink" title="1. Trelleborg O‑Ring Calculator"></a>1. Trelleborg O‑Ring Calculator</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJlbGxlYm9yZy5jb20vemgtY24vc2VhbHMvcmVzb3VyY2VzL2Rlc2lnbi1zdXBwb3J0LWFuZC1lbmdpbmVlcmluZy10b29scy9vLXJpbmctY2FsY3VsYXRvcg==">https://www.trelleborg.com/zh-cn/seals/resources/design-support-and-engineering-tools/o-ring-calculator<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>O形圈的计算</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>沟槽设计</li>
+<li>压缩力气</li>
+<li>直径</li>
+<li>间隙</li>
+<li>拉伸率</li>
+</ul>
+<h3 id="2-Parker-O‑Ring-Selector"><a href="#2-Parker-O‑Ring-Selector" class="headerlink" title="2. Parker O‑Ring Selector"></a>2. Parker O‑Ring Selector</h3><p><span class="exturl" data-url="aHR0cHM6Ly9zb2x1dGlvbnMucGFya2VyLmNvbS9PUmluZ1NlbGVjdG9yX2Vu">https://solutions.parker.com/ORingSelector_en<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>完整密封系统选型（材料 + 尺寸一体化）</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>O型圈尺寸（内径、截面）</li>
+<li>材料选择（NBR &#x2F; FKM 等）</li>
+<li>热膨胀影响</li>
+<li>化学介质兼容性</li>
+<li>公差 + 装配匹配</li>
+</ul>
+<h2 id="七、通用压缩弹簧计算"><a href="#七、通用压缩弹簧计算" class="headerlink" title="七、通用压缩弹簧计算"></a>七、通用压缩弹簧计算</h2><h3 id="1-综合压缩弹簧设计工具（推荐）"><a href="#1-综合压缩弹簧设计工具（推荐）" class="headerlink" title="1. 综合压缩弹簧设计工具（推荐）"></a>1. 综合压缩弹簧设计工具（推荐）</h3><p><span class="exturl" data-url="aHR0cHM6Ly9rb25iaW5veHgtY2VsbC5naXRodWIuaW8vY29tcHJlc3Npb24tc3ByaW5nLWRlc2lnbmVyLw==">https://konbinoxx-cell.github.io/compression-spring-designer/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>完整弹簧设计（从0开始设计）</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>弹簧刚度 k（N&#x2F;mm）</li>
+<li>载荷-位移关系</li>
+<li>剪应力校核</li>
+<li>材料选择</li>
+<li>技术图自动生成</li>
+</ul>
+<h3 id="2-压缩弹簧工程计算器"><a href="#2-压缩弹簧工程计算器" class="headerlink" title="2. 压缩弹簧工程计算器"></a>2. 压缩弹簧工程计算器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmNocnQuY29tL3Rvb2xzL2NvbXByZXNzaW9uLXNwcmluZy1jYWxjdWxhdG9yLw==">https://www.bchrt.com/tools/compression-spring-calculator/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>标准工程计算 + 寿命校核</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>弹簧刚度</li>
+<li>最大剪应力（τ）</li>
+<li>Wahl修正系数</li>
+<li>疲劳寿命估算</li>
+</ul>
+<p><strong>基于经典公式：</strong></p>
+<ul>
+<li>k &#x3D; Gd⁴ &#x2F; (8D³n)</li>
+<li>τ &#x3D; 8FD &#x2F; (πd³)</li>
+</ul>
+<p><strong>可直接判断：</strong></p>
+<ul>
+<li>会不会断</li>
+<li>能不能长期用 [bchrt.com]</li>
+</ul>
+<h3 id="3-PCB-Tools-弹簧计算器（工程校核专用）"><a href="#3-PCB-Tools-弹簧计算器（工程校核专用）" class="headerlink" title="3. PCB Tools 弹簧计算器（工程校核专用）"></a>3. PCB Tools 弹簧计算器（工程校核专用）</h3><p><span class="exturl" data-url="aHR0cHM6Ly9wY2ItdG9vbHMuY24vc3ByaW5nX2NhbGN1bGF0b3IucGhw">https://pcb-tools.cn/spring_calculator.php<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>强度校核 + 工况分析</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>刚度（k）</li>
+<li>工作载荷（F1 &#x2F; F2）</li>
+<li>极限载荷（压死）</li>
+<li>应力校核（是否超许用）</li>
+</ul>
+<h3 id="4-AI-CNC-弹簧计算器（快速估算）"><a href="#4-AI-CNC-弹簧计算器（快速估算）" class="headerlink" title="4. AI CNC 弹簧计算器（快速估算）"></a>4. AI CNC 弹簧计算器（快速估算）</h3><p><span class="exturl" data-url="aHR0cHM6Ly9haWNuYy5vcmcvemgvdG9vbHMvc3ByaW5nLWNhbGN1bGF0b3Iv">https://aicnc.org/zh/tools/spring-calculator/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>快速参数估算</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>刚度 k</li>
+<li>载荷 F</li>
+<li>剪应力 τ</li>
+<li>弹簧指数 C</li>
+</ul>
+<h3 id="5-ZenQuery-弹簧设计工具（完整分析）"><a href="#5-ZenQuery-弹簧设计工具（完整分析）" class="headerlink" title="5. ZenQuery 弹簧设计工具（完整分析）"></a>5. ZenQuery 弹簧设计工具（完整分析）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2V0emVucXVlcnkuY29tL3Rvb2xzL2NvbXByZXNzaW9uLXNwcmluZy1jYWxjdWxhdG9yLw==">https://www.getzenquery.com/tools/compression-spring-calculator/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>主要用于：</strong>设计 + 分析 +优化</p>
+<p><strong>可计算内容：</strong></p>
+<ul>
+<li>刚度（k）</li>
+<li>变形（δ）</li>
+<li>最大应力</li>
+<li>压实高度（Solid height）</li>
+<li>载荷曲线</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-        <tag>Node.js</tag>
-        <tag>NPM</tag>
+        <tag>选型</tag>
+        <tag>电机</tag>
+        <tag>O-ring</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -4987,219 +5225,6 @@ th {
       </tags>
   </entry>
   <entry>
-    <title>工程选型计算工具</title>
-    <url>/2026/05/27/%E5%B7%A5%E7%A8%8B%E9%80%89%E5%9E%8B%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、电机选型（动力源计算）"><a href="#一、电机选型（动力源计算）" class="headerlink" title="一、电机选型（动力源计算）"></a>一、电机选型（动力源计算）</h2><h3 id="1-MISUMI-综合选型工具（首选）"><a href="#1-MISUMI-综合选型工具（首选）" class="headerlink" title="1. MISUMI 综合选型工具（首选）"></a>1. MISUMI 综合选型工具（首选）</h3><p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mby5taXN1bWkuY29tLmNuL3Rvb2xzLw==">https://techinfo.misumi.com.cn/tools/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>整机驱动能力计算</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>驱动扭矩（Nm）</li>
-<li>电机功率（kW）</li>
-<li>转动惯量匹配</li>
-<li>加减速时间</li>
-<li>负载力 → 扭矩转换</li>
-</ul>
-<p><strong>适用场景：</strong></p>
-<ul>
-<li>丝杠驱动</li>
-<li>皮带驱动</li>
-<li>直线模组</li>
-</ul>
-<h3 id="2-SMC-FESTO（气动方案选型）"><a href="#2-SMC-FESTO（气动方案选型）" class="headerlink" title="2. SMC &#x2F; FESTO（气动方案选型）"></a>2. SMC &#x2F; FESTO（气动方案选型）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc21jLmNvbS5jbi8=">https://www.smc.com.cn<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZmVzdG8uY29tLw==">https://www.festo.com<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>气缸&#x2F;夹爪替代电机方案</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>推力（N）</li>
-<li>气缸直径选型</li>
-<li>空气消耗</li>
-<li>负载能力</li>
-</ul>
-<h3 id="3-SKF（驱动合理性校核）"><a href="#3-SKF（驱动合理性校核）" class="headerlink" title="3. SKF（驱动合理性校核）"></a>3. SKF（驱动合理性校核）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2tmLmNvbS9jbi9kaWdpdGFsLXRvb2xzL3NlbGVjdC1hbmQtZXZhbHVhdGU=">https://www.skf.com/cn/digital-tools/select-and-evaluate<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>验证驱动系统是否合理</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>负载分布</li>
-<li>传动效率</li>
-<li>能耗评估</li>
-</ul>
-<h2 id="二、丝杠选型（直线传动核心）"><a href="#二、丝杠选型（直线传动核心）" class="headerlink" title="二、丝杠选型（直线传动核心）"></a>二、丝杠选型（直线传动核心）</h2><h3 id="1-MISUMI-丝杠计算工具"><a href="#1-MISUMI-丝杠计算工具" class="headerlink" title="1. MISUMI 丝杠计算工具"></a>1. MISUMI 丝杠计算工具</h3><p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mby5taXN1bWkuY29tLmNuL3Rvb2xzLw==">https://techinfo.misumi.com.cn/tools/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>旋转运动 → 直线运动转换计算</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>丝杠驱动扭矩</li>
-<li>推力（N）</li>
-<li>临界转速</li>
-<li>屈曲（失稳）</li>
-<li>寿命（km）</li>
-</ul>
-<h3 id="2-THK（高精度应用）"><a href="#2-THK（高精度应用）" class="headerlink" title="2. THK（高精度应用）"></a>2. THK（高精度应用）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudGhrLmNvbS8=">https://www.thk.com<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong></p>
-<ul>
-<li>高端设备（半导体&#x2F;精密）</li>
-</ul>
-<p><strong>可关注：</strong></p>
-<ul>
-<li>精度等级（C3、C5）</li>
-<li>刚性</li>
-<li>寿命</li>
-</ul>
-<h3 id="3-Mechtool（丝杠快速校核）"><a href="#3-Mechtool（丝杠快速校核）" class="headerlink" title="3. Mechtool（丝杠快速校核）"></a>3. Mechtool（丝杠快速校核）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjaHRvb2wuY24v">https://www.mechtool.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>独立验证计算是否合理</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>丝杠寿命</li>
-<li>轴向负载</li>
-<li>扭矩</li>
-</ul>
-<h2 id="三、导轨选型（刚度-寿命计算）"><a href="#三、导轨选型（刚度-寿命计算）" class="headerlink" title="三、导轨选型（刚度&#x2F;寿命计算）"></a>三、导轨选型（刚度&#x2F;寿命计算）</h2><h3 id="1-MISUMI-导轨选型"><a href="#1-MISUMI-导轨选型" class="headerlink" title="1. MISUMI 导轨选型"></a>1. MISUMI 导轨选型</h3><p><span class="exturl" data-url="aHR0cHM6Ly90ZWNoaW5mby5taXN1bWkuY29tLmNuL3Rvb2xzLw==">https://techinfo.misumi.com.cn/tools/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>承载 + 精度系统设计</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>动&#x2F;静载荷（N）</li>
-<li>力矩（Mx&#x2F;My&#x2F;Mz）</li>
-<li>使用寿命（km）</li>
-<li>安全系数</li>
-</ul>
-<h3 id="2-THK-HIWIN"><a href="#2-THK-HIWIN" class="headerlink" title="2. THK &#x2F; HIWIN"></a>2. THK &#x2F; HIWIN</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudGhrLmNvbS8=">https://www.thk.com<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuaGl3aW4uY24v">https://www.hiwin.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>标准工业导轨</p>
-<p><strong>可关注：</strong></p>
-<ul>
-<li>额定载荷</li>
-<li>刚度曲线</li>
-<li>精度等级</li>
-</ul>
-<h2 id="四、结构设计（建模-选型）"><a href="#四、结构设计（建模-选型）" class="headerlink" title="四、结构设计（建模+选型）"></a>四、结构设计（建模+选型）</h2><h3 id="1-MISUMI-3D库"><a href="#1-MISUMI-3D库" class="headerlink" title="1. MISUMI 3D库"></a>1. MISUMI 3D库</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWlzdW1pLmNvbS5jbi8=">https://www.misumi.com.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>快速搭建标准件结构</p>
-<p><strong>功能：</strong></p>
-<ul>
-<li>标准件选型</li>
-<li>自动生成CAD模型</li>
-<li>参数配置</li>
-</ul>
-<h3 id="2-TraceParts"><a href="#2-TraceParts" class="headerlink" title="2. TraceParts"></a>2. TraceParts</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhY2VwYXJ0cy5jb20v">https://www.traceparts.com<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>非标品牌模型补充</p>
-<p><strong>内容：</strong></p>
-<ul>
-<li>电机</li>
-<li>减速机</li>
-<li>结构件</li>
-</ul>
-<h3 id="3-3D-ContentCentral"><a href="#3-3D-ContentCentral" class="headerlink" title="3. 3D ContentCentral"></a>3. 3D ContentCentral</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuM2Rjb250ZW50Y2VudHJhbC5jb20v">https://www.3dcontentcentral.com<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>SolidWorks生态模型下载</p>
-<h2 id="五、结构强度与设计校核"><a href="#五、结构强度与设计校核" class="headerlink" title="五、结构强度与设计校核"></a>五、结构强度与设计校核</h2><h3 id="1-Mechtool（万能计算工具）"><a href="#1-Mechtool（万能计算工具）" class="headerlink" title="1. Mechtool（万能计算工具）"></a>1. Mechtool（万能计算工具）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjaHRvb2wuY24v">https://www.mechtool.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>结构是否安全</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>轴强度（弯曲&#x2F;扭转）</li>
-<li>螺栓强度</li>
-<li>齿轮设计</li>
-<li>公差配合</li>
-</ul>
-<h3 id="2-SKF-工具（轴承-系统）"><a href="#2-SKF-工具（轴承-系统）" class="headerlink" title="2. SKF 工具（轴承+系统）"></a>2. SKF 工具（轴承+系统）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2tmLmNvbS9jbi9kaWdpdGFsLXRvb2xzL3NlbGVjdC1hbmQtZXZhbHVhdGU=">https://www.skf.com/cn/digital-tools/select-and-evaluate<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>旋转系统可靠性</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>轴承寿命（L10）</li>
-<li>润滑周期</li>
-<li>转速极限</li>
-</ul>
-<h3 id="3-MITCalc（进阶专业计算）"><a href="#3-MITCalc（进阶专业计算）" class="headerlink" title="3. MITCalc（进阶专业计算）"></a>3. MITCalc（进阶专业计算）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWl0Y2FsYy5jb20v">https://www.mitcalc.com<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>工程级设计校核</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>ISO标准安全系数</li>
-<li>疲劳寿命</li>
-<li>多工况负载</li>
-</ul>
-<h2 id="六、密封系统选型"><a href="#六、密封系统选型" class="headerlink" title="六、密封系统选型"></a>六、密封系统选型</h2><h3 id="1-Trelleborg-O‑Ring-Calculator"><a href="#1-Trelleborg-O‑Ring-Calculator" class="headerlink" title="1. Trelleborg O‑Ring Calculator"></a>1. Trelleborg O‑Ring Calculator</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHJlbGxlYm9yZy5jb20vemgtY24vc2VhbHMvcmVzb3VyY2VzL2Rlc2lnbi1zdXBwb3J0LWFuZC1lbmdpbmVlcmluZy10b29scy9vLXJpbmctY2FsY3VsYXRvcg==">https://www.trelleborg.com/zh-cn/seals/resources/design-support-and-engineering-tools/o-ring-calculator<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>O形圈的计算</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>沟槽设计</li>
-<li>压缩力气</li>
-<li>直径</li>
-<li>间隙</li>
-<li>拉伸率</li>
-</ul>
-<h3 id="2-Parker-O‑Ring-Selector"><a href="#2-Parker-O‑Ring-Selector" class="headerlink" title="2. Parker O‑Ring Selector"></a>2. Parker O‑Ring Selector</h3><p><span class="exturl" data-url="aHR0cHM6Ly9zb2x1dGlvbnMucGFya2VyLmNvbS9PUmluZ1NlbGVjdG9yX2Vu">https://solutions.parker.com/ORingSelector_en<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>完整密封系统选型（材料 + 尺寸一体化）</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>O型圈尺寸（内径、截面）</li>
-<li>材料选择（NBR &#x2F; FKM 等）</li>
-<li>热膨胀影响</li>
-<li>化学介质兼容性</li>
-<li>公差 + 装配匹配</li>
-</ul>
-<h2 id="七、通用压缩弹簧计算"><a href="#七、通用压缩弹簧计算" class="headerlink" title="七、通用压缩弹簧计算"></a>七、通用压缩弹簧计算</h2><h3 id="1-综合压缩弹簧设计工具（推荐）"><a href="#1-综合压缩弹簧设计工具（推荐）" class="headerlink" title="1. 综合压缩弹簧设计工具（推荐）"></a>1. 综合压缩弹簧设计工具（推荐）</h3><p><span class="exturl" data-url="aHR0cHM6Ly9rb25iaW5veHgtY2VsbC5naXRodWIuaW8vY29tcHJlc3Npb24tc3ByaW5nLWRlc2lnbmVyLw==">https://konbinoxx-cell.github.io/compression-spring-designer/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>完整弹簧设计（从0开始设计）</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>弹簧刚度 k（N&#x2F;mm）</li>
-<li>载荷-位移关系</li>
-<li>剪应力校核</li>
-<li>材料选择</li>
-<li>技术图自动生成</li>
-</ul>
-<h3 id="2-压缩弹簧工程计算器"><a href="#2-压缩弹簧工程计算器" class="headerlink" title="2. 压缩弹簧工程计算器"></a>2. 压缩弹簧工程计算器</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmNocnQuY29tL3Rvb2xzL2NvbXByZXNzaW9uLXNwcmluZy1jYWxjdWxhdG9yLw==">https://www.bchrt.com/tools/compression-spring-calculator/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>标准工程计算 + 寿命校核</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>弹簧刚度</li>
-<li>最大剪应力（τ）</li>
-<li>Wahl修正系数</li>
-<li>疲劳寿命估算</li>
-</ul>
-<p><strong>基于经典公式：</strong></p>
-<ul>
-<li>k &#x3D; Gd⁴ &#x2F; (8D³n)</li>
-<li>τ &#x3D; 8FD &#x2F; (πd³)</li>
-</ul>
-<p><strong>可直接判断：</strong></p>
-<ul>
-<li>会不会断</li>
-<li>能不能长期用 [bchrt.com]</li>
-</ul>
-<h3 id="3-PCB-Tools-弹簧计算器（工程校核专用）"><a href="#3-PCB-Tools-弹簧计算器（工程校核专用）" class="headerlink" title="3. PCB Tools 弹簧计算器（工程校核专用）"></a>3. PCB Tools 弹簧计算器（工程校核专用）</h3><p><span class="exturl" data-url="aHR0cHM6Ly9wY2ItdG9vbHMuY24vc3ByaW5nX2NhbGN1bGF0b3IucGhw">https://pcb-tools.cn/spring_calculator.php<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>强度校核 + 工况分析</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>刚度（k）</li>
-<li>工作载荷（F1 &#x2F; F2）</li>
-<li>极限载荷（压死）</li>
-<li>应力校核（是否超许用）</li>
-</ul>
-<h3 id="4-AI-CNC-弹簧计算器（快速估算）"><a href="#4-AI-CNC-弹簧计算器（快速估算）" class="headerlink" title="4. AI CNC 弹簧计算器（快速估算）"></a>4. AI CNC 弹簧计算器（快速估算）</h3><p><span class="exturl" data-url="aHR0cHM6Ly9haWNuYy5vcmcvemgvdG9vbHMvc3ByaW5nLWNhbGN1bGF0b3Iv">https://aicnc.org/zh/tools/spring-calculator/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>快速参数估算</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>刚度 k</li>
-<li>载荷 F</li>
-<li>剪应力 τ</li>
-<li>弹簧指数 C</li>
-</ul>
-<h3 id="5-ZenQuery-弹簧设计工具（完整分析）"><a href="#5-ZenQuery-弹簧设计工具（完整分析）" class="headerlink" title="5. ZenQuery 弹簧设计工具（完整分析）"></a>5. ZenQuery 弹簧设计工具（完整分析）</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2V0emVucXVlcnkuY29tL3Rvb2xzL2NvbXByZXNzaW9uLXNwcmluZy1jYWxjdWxhdG9yLw==">https://www.getzenquery.com/tools/compression-spring-calculator/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>主要用于：</strong>设计 + 分析 +优化</p>
-<p><strong>可计算内容：</strong></p>
-<ul>
-<li>刚度（k）</li>
-<li>变形（δ）</li>
-<li>最大应力</li>
-<li>压实高度（Solid height）</li>
-<li>载荷曲线</li>
-</ul>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>选型</tag>
-        <tag>电机</tag>
-        <tag>O-ring</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>新建组件</title>
     <url>/2026/07/01/%E6%96%B0%E5%BB%BA%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"><a href="#情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看" class="headerlink" title="情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看"></a>情景：当接收到的通用格式零件，全是零散的部件，并没有子装配体，不方便查看</h2><ul>
@@ -5394,6 +5419,235 @@ th {
       <tags>
         <tag>E-cigarette</tag>
         <tag>标准</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电机（01）：基础理论篇——公差与配合</title>
+    <url>/2026/08/24/%E7%94%B5%E6%9C%BA%EF%BC%8801%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E7%AF%87%E2%80%94%E2%80%94%E5%85%AC%E5%B7%AE%E4%B8%8E%E9%85%8D%E5%90%88/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="尺寸公差与配合体系"><a href="#尺寸公差与配合体系" class="headerlink" title="尺寸公差与配合体系"></a>尺寸公差与配合体系</h2><h3 id="公差与配合基础："><a href="#公差与配合基础：" class="headerlink" title="公差与配合基础："></a>公差与配合基础：</h3><ul>
+<li><p>ISO 286 Geometrical product specifications: 产品技术几何规范</p>
+<ul>
+<li>ISO 286-1 Part 1 Basis of tolerances deviations and fits: 第1部分：公差、偏差和配合的基础</li>
+<li>ISO 286-2 Part 2 Tables of standard tolerance classes and limit deviations for holes and shafts: 第2部分：孔和轴的标准公差等级表及极限偏差表</li>
+</ul>
+</li>
+<li><p>中国国家标准 GB&#x2F;T 1800.1 &#x2F; GB&#x2F;T 1800.2 《产品几何技术规范 (GPS) 极限与配合》）。</p>
+</li>
+</ul>
+<h3 id="孔轴偏差"><a href="#孔轴偏差" class="headerlink" title="孔轴偏差"></a>孔轴偏差</h3><p>在机械制造与公差配合（GB&#x2F;T 1800 &#x2F; ISO 286）中，这四个概念是确定零件精确尺寸与装配关系的基石：</p>
+<h3 id="1-孔偏差（Hole-Deviation）"><a href="#1-孔偏差（Hole-Deviation）" class="headerlink" title="1. 孔偏差（Hole Deviation）"></a>1. 孔偏差（Hole Deviation）</h3><p>指<strong>孔的实际尺寸或极限尺寸</strong>与<strong>基本尺寸</strong>之间的代数差。它包含两种形式：</p>
+<ul>
+<li><strong>上偏差（ES）</strong>：最大极限尺寸减去基本尺寸的代数差。</li>
+<li><strong>下偏差（EI）</strong>：最小极限尺寸减去基本尺寸的代数差。</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：孔的公差（允许的尺寸变动量）即为上偏差与下偏差之差（Th &#x3D; ES - EI）。在 ISO&#x2F;国标中，孔的偏差用<strong>大写字母</strong>（如 H, J, K, P 等）表示。</p>
+</blockquote>
+<hr>
+<h3 id="2-轴偏差（Shaft-Deviation）"><a href="#2-轴偏差（Shaft-Deviation）" class="headerlink" title="2. 轴偏差（Shaft Deviation）"></a>2. 轴偏差（Shaft Deviation）</h3><p>指<strong>轴的实际尺寸或极限尺寸</strong>与<strong>基本尺寸</strong>之间的代数差。同样包含两种形式：</p>
+<ul>
+<li><strong>上偏差（es）</strong>：最大极限尺寸减去基本尺寸的代数差。</li>
+<li><strong>下偏差（ei）</strong>：最小极限尺寸减去基本尺寸的代数差。</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：轴的公差即为上偏差与下偏差之差（Ts &#x3D; es - ei）。在 ISO&#x2F;国标中，轴的偏差用<strong>小写字母</strong>（如 h, g, k, p 等）表示。</p>
+</blockquote>
+<hr>
+<h3 id="3-基孔制配合（Basic-Hole-System）"><a href="#3-基孔制配合（Basic-Hole-System）" class="headerlink" title="3. 基孔制配合（Basic Hole System）"></a>3. 基孔制配合（Basic Hole System）</h3><p>指<strong>以基本偏差为特定位置的孔</strong>作为基准，将不同基本偏差的轴与该基准孔组合，从而形成各种不同配合性质（间隙、过渡或过盈）的制度。</p>
+<ul>
+<li><strong>基准孔代号</strong>：<strong>H</strong>（其下偏差 EI &#x3D; 0，基本尺寸即为孔的最小极限尺寸）。</li>
+<li><strong>工程应用</strong>：<strong>绝对主流（约占 80%~90%）</strong>。因为加工和测量高精度的孔（如用铰刀、拉刀）成本高且刀具规格固定，先固定孔的尺寸，只需改变外圆磨削&#x2F;车削轴的尺寸即可调整配合，能大幅减少定型刀具和量具的数量。</li>
+</ul>
+<hr>
+<h3 id="4-基轴制配合（Basic-Shaft-System）"><a href="#4-基轴制配合（Basic-Shaft-System）" class="headerlink" title="4. 基轴制配合（Basic Shaft System）"></a>4. 基轴制配合（Basic Shaft System）</h3><p>指<strong>以基本偏差为特定位置的轴</strong>作为基准，将不同基本偏差的孔与该基准轴组合，从而形成各种不同配合性质（间隙、过渡或过盈）的制度。</p>
+<ul>
+<li><strong>基准轴代号</strong>：<strong>h</strong>（其上偏差 es &#x3D; 0，基本尺寸即为轴的最大极限尺寸）。</li>
+<li><strong>工程应用</strong>：常用于以下特殊结构场景：<ol>
+<li><strong>冷拉钢材直轴</strong>：直接采用无需切削加工的标准冷拉圆钢做轴（如传动轴），通过改变加工孔来获得不同配合。</li>
+<li><strong>同一轴上有多处不同配合</strong>：例如同一根光滑轴上，某一位置需要过盈固定轴承，另一位置需要间隙配合滑动套筒时，采用基轴制可避免将轴加工成复杂的阶梯轴。</li>
+<li><strong>标准件接口</strong>：外圈安装在机壳孔内的标准轴承（轴承外圈与机壳孔的配合即按基轴制设计）。</li>
+</ol>
+</li>
+</ul>
+<h3 id="孔轴偏差查询"><a href="#孔轴偏差查询" class="headerlink" title="孔轴偏差查询"></a>孔轴偏差查询</h3><h4 id="传统孔轴的公差等级可以查询相对应的表格"><a href="#传统孔轴的公差等级可以查询相对应的表格" class="headerlink" title="传统孔轴的公差等级可以查询相对应的表格"></a>传统孔轴的公差等级可以查询相对应的表格</h4><p><span class="exturl" data-url="aHR0cDovL3d3dy5yZWVnLmNuLzEwNDkv">REEG机械设计<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%85%AC%E5%B7%AE%E5%B8%A6.png"></p>
+<h5 id="孔的配合尺寸公差表"><a href="#孔的配合尺寸公差表" class="headerlink" title="孔的配合尺寸公差表"></a>孔的配合尺寸公差表</h5><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AD%94%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE.jpg"></p>
+<h5 id="轴的配合尺寸公差表"><a href="#轴的配合尺寸公差表" class="headerlink" title="轴的配合尺寸公差表"></a>轴的配合尺寸公差表</h5><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%B4%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE.jpg"></p>
+<h4 id="快速查询"><a href="#快速查询" class="headerlink" title="快速查询"></a>快速查询</h4><ul>
+<li><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span><ul>
+<li>轴偏差<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%B4%E5%81%8F%E5%B7%AE.jpg"></li>
+<li>孔偏差<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AD%94%E5%81%8F%E5%B7%AE.jpg"></li>
+<li>基孔制配合<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%9F%BA%E5%AD%94%E5%88%B6%E9%85%8D%E5%90%88.jpg"></li>
+<li>基轴制配合<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%9F%BA%E8%BD%B4%E5%88%B6%E9%85%8D%E5%90%88.jpg"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="强烈推荐"><a href="#强烈推荐" class="headerlink" title="强烈推荐"></a><strong>强烈推荐</strong></h3><ul>
+<li>查询示例:<ul>
+<li>轴的示例：Φ10 h9</li>
+</ul>
+</li>
+</ul>
+<h4 id="meCalculator"><a href="#meCalculator" class="headerlink" title="meCalculator"></a><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjYWxjdWxhdG9yLnR3Lw==">meCalculator<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/www.mecalculator.tw_zh-tw_calculators_mechanical_tolerance.png"></p>
+<h4 id="英科宇机械设计云平台"><a href="#英科宇机械设计云平台" class="headerlink" title="英科宇机械设计云平台"></a><strong><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/dia%2010%20h9.jpg"></p>
+<ul>
+<li>孔的示例：Φ10 H7</li>
+</ul>
+<h4 id="meCalculator-1"><a href="#meCalculator-1" class="headerlink" title="meCalculator"></a><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjYWxjdWxhdG9yLnR3Lw==">meCalculator<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/www.mecalculator.tw_zh-tw_calculators_mechanical_tolerance%20(1).png"></p>
+<h4 id="英科宇机械设计云平台-1"><a href="#英科宇机械设计云平台-1" class="headerlink" title="英科宇机械设计云平台"></a><strong><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/dia%2010%20H7.jpg"></p>
+<h4 id="Tolerance-Fits-Calculator-查询孔轴配合公差等级"><a href="#Tolerance-Fits-Calculator-查询孔轴配合公差等级" class="headerlink" title="Tolerance &amp; Fits Calculator: 查询孔轴配合公差等级"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9tZWNoc2ltdWxhdG9yLmNvbS90b29scy90b2xlcmFuY2UtZml0cy8/ZD0zNCZob2xlPUg3JnNoYWZ0PXA2">Tolerance &amp; Fits Calculator<i class="fa fa-external-link-alt"></i></span></strong>: 查询孔轴配合公差等级</h4><ul>
+<li>查询示例： Φ10 H7&#x2F;p6<ul>
+<li><p>使用界面<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6.png"></p>
+</li>
+<li><p>计算步骤</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6%20Calculation%20step.png"></p>
+<h2 id="三大基本配合模式（按配合性质分类）"><a href="#三大基本配合模式（按配合性质分类）" class="headerlink" title="三大基本配合模式（按配合性质分类）"></a>三大基本配合模式（按配合性质分类）</h2><p>在 ISO 286 标准中，配合性质由孔公差带与轴公差带的相对位置决定：</p>
+<ul>
+<li>**间隙配合 (Clearance Fit)**：孔尺寸 &gt; 轴尺寸（始终有间隙）</li>
+<li>**过渡配合 (Transition Fit)**：可能产生间隙，也可能产生过盈</li>
+<li>**过盈配合 (Interference Fit)**：轴尺寸 &gt; 孔尺寸（始终有过盈）</li>
+</ul>
+<h4 id="间隙配合（Clearance-Fit）"><a href="#间隙配合（Clearance-Fit）" class="headerlink" title="间隙配合（Clearance Fit）"></a>间隙配合（Clearance Fit）</h4><ul>
+<li><strong>定义</strong>：孔的公差带完全位于轴的公差带之上。装配后<strong>孔的实际尺寸始终大于或等于轴的实际尺寸</strong>，形成具有活动能力的间隙。</li>
+<li><strong>极限参数</strong>：<ul>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 (EI - es)</li>
+</ul>
+</li>
+<li><strong>典型应用</strong>：转动轴承套筒、滑动轴承、导向柱（如 <strong>H7&#x2F;g6</strong>, <strong>H8&#x2F;f7</strong>）。</li>
+</ul>
+<h4 id="过渡配合（Transition-Fit）"><a href="#过渡配合（Transition-Fit）" class="headerlink" title="过渡配合（Transition Fit）"></a>过渡配合（Transition Fit）</h4><ul>
+<li><strong>定义</strong>：孔与轴的公差带相互重叠。装配后<strong>可能产生间隙，也可能产生过盈</strong>，具体取决于零件的实际加工尺寸。</li>
+<li><strong>极限参数</strong>：<ul>
+<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
+<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
+</ul>
+</li>
+<li><strong>典型应用</strong>：需要精确对中且便于拆卸定位的结构，如定位销、联轴器轴套、无框电机转子基座（如 <strong>H7&#x2F;k6</strong>, <strong>H7&#x2F;m6</strong>）。</li>
+</ul>
+<h4 id="过盈配合（Interference-Fit）"><a href="#过盈配合（Interference-Fit）" class="headerlink" title="过盈配合（Interference Fit）"></a>过盈配合（Interference Fit）</h4><ul>
+<li><strong>定义</strong>：孔的公差带完全位于轴的公差带之下。装配后<strong>轴的实际尺寸始终大于或等于孔的实际尺寸</strong>，形成静止紧固的结合状态。</li>
+<li><strong>极限参数</strong>：<ul>
+<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
+<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 (ei - ES)</li>
+</ul>
+</li>
+<li><strong>典型应用</strong>：靠摩擦力直接传递大扭矩或永久固定的装配，如电机定子压入外壳、齿轮与轴的重载固定（如 <strong>H7&#x2F;p6</strong>, <strong>H7&#x2F;s6</strong>）。</li>
+</ul>
+<hr>
+<h3 id="ISO-286-常用配合模式汇总（基孔制-vs-基轴制）"><a href="#ISO-286-常用配合模式汇总（基孔制-vs-基轴制）" class="headerlink" title="ISO 286 常用配合模式汇总（基孔制 vs. 基轴制）"></a>ISO 286 常用配合模式汇总（基孔制 vs. 基轴制）</h3><p>为了减少定型刀具和量具的数量，ISO 286 优先推荐以 <strong>基孔制（以 H 孔为基准）</strong> 为主，特殊场景辅以 <strong>基轴制（以 h 轴为基准）</strong>。</p>
+<h4 id="1-基孔制配合（Basic-Hole-System-基准孔代号：H）"><a href="#1-基孔制配合（Basic-Hole-System-基准孔代号：H）" class="headerlink" title="1. 基孔制配合（Basic Hole System, 基准孔代号：H）"></a>1. 基孔制配合（Basic Hole System, 基准孔代号：H）</h4><table>
+<thead>
+<tr>
+<th align="left">配合性质</th>
+<th align="left">ISO 286 常用代号组合</th>
+<th align="left">配合特征描述</th>
+<th align="left">典型工程场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>精密间隙</strong></td>
+<td align="left"><strong>H7&#x2F;h6</strong></td>
+<td align="left">零间隙定位配合</td>
+<td align="left">手动对中、可沿轴向轻松移动的滑动件</td>
+</tr>
+<tr>
+<td align="left"><strong>微小间隙</strong></td>
+<td align="left"><strong>H7&#x2F;g6</strong></td>
+<td align="left">极小间隙，高精度旋转</td>
+<td align="left">精密机床主轴、机器人关节滑动支撑</td>
+</tr>
+<tr>
+<td align="left"><strong>普通旋转</strong></td>
+<td align="left"><strong>H7&#x2F;f7</strong> 或 <strong>H8&#x2F;f7</strong></td>
+<td align="left">标准旋转间隙</td>
+<td align="left">通用转动轴承座、导向套筒</td>
+</tr>
+<tr>
+<td align="left"><strong>粗糙间隙</strong></td>
+<td align="left"><strong>H11&#x2F;c11</strong></td>
+<td align="left">极大间隙</td>
+<td align="left">粗糙暴露环境、热膨胀量大的机械结构</td>
+</tr>
+<tr>
+<td align="left"><strong>精密过渡</strong></td>
+<td align="left"><strong>H7&#x2F;k6</strong></td>
+<td align="left">微过盈&#x2F;微间隙，无间隙定位</td>
+<td align="left">需高同轴度的定位销、齿轮轴套（手锤轻击即可装拆）</td>
+</tr>
+<tr>
+<td align="left"><strong>较紧过渡</strong></td>
+<td align="left"><strong>H7&#x2F;m6</strong></td>
+<td align="left">平均呈微过盈</td>
+<td align="left">承受轻微冲击扭矩的固定键槽配合、伺服轴端</td>
+</tr>
+<tr>
+<td align="left"><strong>轻型过盈</strong></td>
+<td align="left"><strong>H7&#x2F;p6</strong></td>
+<td align="left">稳定过盈，需压床力</td>
+<td align="left">无框电机转子固定、轻载滚珠轴承内圈</td>
+</tr>
+<tr>
+<td align="left"><strong>重型过盈</strong></td>
+<td align="left"><strong>H7&#x2F;s6</strong> 或 <strong>H7&#x2F;r6</strong></td>
+<td align="left">强过盈，需加热&#x2F;冷冻装配</td>
+<td align="left">关节电机定子与铝外壳热套、重载齿轮轮毂</td>
+</tr>
+</tbody></table>
+<h4 id="2-基轴制配合（Basic-Shaft-System-基准轴代号：h）"><a href="#2-基轴制配合（Basic-Shaft-System-基准轴代号：h）" class="headerlink" title="2. 基轴制配合（Basic Shaft System, 基准轴代号：h）"></a>2. 基轴制配合（Basic Shaft System, 基准轴代号：h）</h4><table>
+<thead>
+<tr>
+<th align="left">配合性质</th>
+<th align="left">ISO 286 常用代号组合</th>
+<th align="left">典型工程场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>间隙配合</strong></td>
+<td align="left"><strong>G7&#x2F;h6</strong> 或 <strong>F8&#x2F;h7</strong></td>
+<td align="left">冷拉光圆钢轴配滑动套筒</td>
+</tr>
+<tr>
+<td align="left"><strong>过渡配合</strong></td>
+<td align="left"><strong>K7&#x2F;h6</strong></td>
+<td align="left">滚动轴承外圈与机壳孔（轴承外圈为基轴制标准件）</td>
+</tr>
+<tr>
+<td align="left"><strong>过盈配合</strong></td>
+<td align="left"><strong>P7&#x2F;h6</strong></td>
+<td align="left">轴承外圈在受到高频振动&#x2F;冲击载荷机壳孔内的固定</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="快捷记忆法则（公差带字母分布）"><a href="#快捷记忆法则（公差带字母分布）" class="headerlink" title="快捷记忆法则（公差带字母分布）"></a>快捷记忆法则（公差带字母分布）</h3><p>在 ISO 286 标准中，轴与孔的基本偏差字母代表了公差带相对于零线的位置：</p>
+<ul>
+<li><strong>轴的公差带字母（小写）</strong>：<ul>
+<li><code>a ~ h</code>：位于零线下方 → <strong>间隙配合</strong>（<code>h</code> 上偏差为 0）。</li>
+<li><code>j, k, m, n</code>：跨越或紧贴零线 → <strong>过渡配合</strong>。</li>
+<li><code>p ~ z</code>：位于零线上方 → <strong>过盈配合</strong>。</li>
+</ul>
+</li>
+<li><strong>孔的公差带字母（大写）</strong>：<ul>
+<li><code>A ~ H</code>：位于零线上方 → <strong>间隙配合</strong>（<code>H</code> 下偏差为 0）。</li>
+<li><code>J, K, M, N</code>：跨越或紧贴零线 → <strong>过渡配合</strong>。</li>
+<li><code>P ~ Z</code>：位于零线下方 → <strong>过盈配合</strong>。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+      <tags>
+        <tag>公差与配合</tag>
+        <tag>Tolerance and Fits Calculator</tag>
+        <tag>Me Tools</tag>
+        <tag>ISO 286 - 1/ 286 - 2</tag>
+        <tag>GB/T 1800.1 / GB/T 1800.2</tag>
       </tags>
   </entry>
   <entry>
@@ -5711,235 +5965,6 @@ th {
         <tag>WiFi</tag>
         <tag>网络</tag>
         <tag>屏蔽</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电机（01）：基础理论篇——公差与配合</title>
-    <url>/2026/08/24/%E7%94%B5%E6%9C%BA%EF%BC%8801%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E7%AF%87%E2%80%94%E2%80%94%E5%85%AC%E5%B7%AE%E4%B8%8E%E9%85%8D%E5%90%88/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="尺寸公差与配合体系"><a href="#尺寸公差与配合体系" class="headerlink" title="尺寸公差与配合体系"></a>尺寸公差与配合体系</h2><h3 id="公差与配合基础："><a href="#公差与配合基础：" class="headerlink" title="公差与配合基础："></a>公差与配合基础：</h3><ul>
-<li><p>ISO 286 Geometrical product specifications: 产品技术几何规范</p>
-<ul>
-<li>ISO 286-1 Part 1 Basis of tolerances deviations and fits: 第1部分：公差、偏差和配合的基础</li>
-<li>ISO 286-2 Part 2 Tables of standard tolerance classes and limit deviations for holes and shafts: 第2部分：孔和轴的标准公差等级表及极限偏差表</li>
-</ul>
-</li>
-<li><p>中国国家标准 GB&#x2F;T 1800.1 &#x2F; GB&#x2F;T 1800.2 《产品几何技术规范 (GPS) 极限与配合》）。</p>
-</li>
-</ul>
-<h3 id="孔轴偏差"><a href="#孔轴偏差" class="headerlink" title="孔轴偏差"></a>孔轴偏差</h3><p>在机械制造与公差配合（GB&#x2F;T 1800 &#x2F; ISO 286）中，这四个概念是确定零件精确尺寸与装配关系的基石：</p>
-<h3 id="1-孔偏差（Hole-Deviation）"><a href="#1-孔偏差（Hole-Deviation）" class="headerlink" title="1. 孔偏差（Hole Deviation）"></a>1. 孔偏差（Hole Deviation）</h3><p>指<strong>孔的实际尺寸或极限尺寸</strong>与<strong>基本尺寸</strong>之间的代数差。它包含两种形式：</p>
-<ul>
-<li><strong>上偏差（ES）</strong>：最大极限尺寸减去基本尺寸的代数差。</li>
-<li><strong>下偏差（EI）</strong>：最小极限尺寸减去基本尺寸的代数差。</li>
-</ul>
-<blockquote>
-<p><strong>注</strong>：孔的公差（允许的尺寸变动量）即为上偏差与下偏差之差（Th &#x3D; ES - EI）。在 ISO&#x2F;国标中，孔的偏差用<strong>大写字母</strong>（如 H, J, K, P 等）表示。</p>
-</blockquote>
-<hr>
-<h3 id="2-轴偏差（Shaft-Deviation）"><a href="#2-轴偏差（Shaft-Deviation）" class="headerlink" title="2. 轴偏差（Shaft Deviation）"></a>2. 轴偏差（Shaft Deviation）</h3><p>指<strong>轴的实际尺寸或极限尺寸</strong>与<strong>基本尺寸</strong>之间的代数差。同样包含两种形式：</p>
-<ul>
-<li><strong>上偏差（es）</strong>：最大极限尺寸减去基本尺寸的代数差。</li>
-<li><strong>下偏差（ei）</strong>：最小极限尺寸减去基本尺寸的代数差。</li>
-</ul>
-<blockquote>
-<p><strong>注</strong>：轴的公差即为上偏差与下偏差之差（Ts &#x3D; es - ei）。在 ISO&#x2F;国标中，轴的偏差用<strong>小写字母</strong>（如 h, g, k, p 等）表示。</p>
-</blockquote>
-<hr>
-<h3 id="3-基孔制配合（Basic-Hole-System）"><a href="#3-基孔制配合（Basic-Hole-System）" class="headerlink" title="3. 基孔制配合（Basic Hole System）"></a>3. 基孔制配合（Basic Hole System）</h3><p>指<strong>以基本偏差为特定位置的孔</strong>作为基准，将不同基本偏差的轴与该基准孔组合，从而形成各种不同配合性质（间隙、过渡或过盈）的制度。</p>
-<ul>
-<li><strong>基准孔代号</strong>：<strong>H</strong>（其下偏差 EI &#x3D; 0，基本尺寸即为孔的最小极限尺寸）。</li>
-<li><strong>工程应用</strong>：<strong>绝对主流（约占 80%~90%）</strong>。因为加工和测量高精度的孔（如用铰刀、拉刀）成本高且刀具规格固定，先固定孔的尺寸，只需改变外圆磨削&#x2F;车削轴的尺寸即可调整配合，能大幅减少定型刀具和量具的数量。</li>
-</ul>
-<hr>
-<h3 id="4-基轴制配合（Basic-Shaft-System）"><a href="#4-基轴制配合（Basic-Shaft-System）" class="headerlink" title="4. 基轴制配合（Basic Shaft System）"></a>4. 基轴制配合（Basic Shaft System）</h3><p>指<strong>以基本偏差为特定位置的轴</strong>作为基准，将不同基本偏差的孔与该基准轴组合，从而形成各种不同配合性质（间隙、过渡或过盈）的制度。</p>
-<ul>
-<li><strong>基准轴代号</strong>：<strong>h</strong>（其上偏差 es &#x3D; 0，基本尺寸即为轴的最大极限尺寸）。</li>
-<li><strong>工程应用</strong>：常用于以下特殊结构场景：<ol>
-<li><strong>冷拉钢材直轴</strong>：直接采用无需切削加工的标准冷拉圆钢做轴（如传动轴），通过改变加工孔来获得不同配合。</li>
-<li><strong>同一轴上有多处不同配合</strong>：例如同一根光滑轴上，某一位置需要过盈固定轴承，另一位置需要间隙配合滑动套筒时，采用基轴制可避免将轴加工成复杂的阶梯轴。</li>
-<li><strong>标准件接口</strong>：外圈安装在机壳孔内的标准轴承（轴承外圈与机壳孔的配合即按基轴制设计）。</li>
-</ol>
-</li>
-</ul>
-<h3 id="孔轴偏差查询"><a href="#孔轴偏差查询" class="headerlink" title="孔轴偏差查询"></a>孔轴偏差查询</h3><h4 id="传统孔轴的公差等级可以查询相对应的表格"><a href="#传统孔轴的公差等级可以查询相对应的表格" class="headerlink" title="传统孔轴的公差等级可以查询相对应的表格"></a>传统孔轴的公差等级可以查询相对应的表格</h4><p><span class="exturl" data-url="aHR0cDovL3d3dy5yZWVnLmNuLzEwNDkv">REEG机械设计<i class="fa fa-external-link-alt"></i></span><br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%85%AC%E5%B7%AE%E5%B8%A6.png"></p>
-<h5 id="孔的配合尺寸公差表"><a href="#孔的配合尺寸公差表" class="headerlink" title="孔的配合尺寸公差表"></a>孔的配合尺寸公差表</h5><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AD%94%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE.jpg"></p>
-<h5 id="轴的配合尺寸公差表"><a href="#轴的配合尺寸公差表" class="headerlink" title="轴的配合尺寸公差表"></a>轴的配合尺寸公差表</h5><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%B4%E9%85%8D%E5%90%88%E5%85%AC%E5%B7%AE.jpg"></p>
-<h4 id="快速查询"><a href="#快速查询" class="headerlink" title="快速查询"></a>快速查询</h4><ul>
-<li><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span><ul>
-<li>轴偏差<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E8%BD%B4%E5%81%8F%E5%B7%AE.jpg"></li>
-<li>孔偏差<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%AD%94%E5%81%8F%E5%B7%AE.jpg"></li>
-<li>基孔制配合<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%9F%BA%E5%AD%94%E5%88%B6%E9%85%8D%E5%90%88.jpg"></li>
-<li>基轴制配合<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/%E5%9F%BA%E8%BD%B4%E5%88%B6%E9%85%8D%E5%90%88.jpg"></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="强烈推荐"><a href="#强烈推荐" class="headerlink" title="强烈推荐"></a><strong>强烈推荐</strong></h3><ul>
-<li>查询示例:<ul>
-<li>轴的示例：Φ10 h9</li>
-</ul>
-</li>
-</ul>
-<h4 id="meCalculator"><a href="#meCalculator" class="headerlink" title="meCalculator"></a><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjYWxjdWxhdG9yLnR3Lw==">meCalculator<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/www.mecalculator.tw_zh-tw_calculators_mechanical_tolerance.png"></p>
-<h4 id="英科宇机械设计云平台"><a href="#英科宇机械设计云平台" class="headerlink" title="英科宇机械设计云平台"></a><strong><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/dia%2010%20h9.jpg"></p>
-<ul>
-<li>孔的示例：Φ10 H7</li>
-</ul>
-<h4 id="meCalculator-1"><a href="#meCalculator-1" class="headerlink" title="meCalculator"></a><strong><span class="exturl" data-url="aHR0cHM6Ly93d3cubWVjYWxjdWxhdG9yLnR3Lw==">meCalculator<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/www.mecalculator.tw_zh-tw_calculators_mechanical_tolerance%20(1).png"></p>
-<h4 id="英科宇机械设计云平台-1"><a href="#英科宇机械设计云平台-1" class="headerlink" title="英科宇机械设计云平台"></a><strong><span class="exturl" data-url="aHR0cDovL2Rldi5pbmtjYWQuY29tL1dlYkNhbGN1bGF0ZS9DaGFuZ0d1aUppU3Vhbi9Hb25nQ2hhUGVpSGUuYXNweA==">英科宇机械设计云平台<i class="fa fa-external-link-alt"></i></span></strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/dia%2010%20H7.jpg"></p>
-<h4 id="Tolerance-Fits-Calculator-查询孔轴配合公差等级"><a href="#Tolerance-Fits-Calculator-查询孔轴配合公差等级" class="headerlink" title="Tolerance &amp; Fits Calculator: 查询孔轴配合公差等级"></a><strong><span class="exturl" data-url="aHR0cHM6Ly9tZWNoc2ltdWxhdG9yLmNvbS90b29scy90b2xlcmFuY2UtZml0cy8/ZD0zNCZob2xlPUg3JnNoYWZ0PXA2">Tolerance &amp; Fits Calculator<i class="fa fa-external-link-alt"></i></span></strong>: 查询孔轴配合公差等级</h4><ul>
-<li>查询示例： Φ10 H7&#x2F;p6<ul>
-<li><p>使用界面<br><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6.png"></p>
-</li>
-<li><p>计算步骤</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Burro-CMD/burro-imgbed/images/blog/mechsimulator.com_tools_tolerance-fits__d%3D34%26hole%3DH7%26shaft%3Dp6%20Calculation%20step.png"></p>
-<h2 id="三大基本配合模式（按配合性质分类）"><a href="#三大基本配合模式（按配合性质分类）" class="headerlink" title="三大基本配合模式（按配合性质分类）"></a>三大基本配合模式（按配合性质分类）</h2><p>在 ISO 286 标准中，配合性质由孔公差带与轴公差带的相对位置决定：</p>
-<ul>
-<li>**间隙配合 (Clearance Fit)**：孔尺寸 &gt; 轴尺寸（始终有间隙）</li>
-<li>**过渡配合 (Transition Fit)**：可能产生间隙，也可能产生过盈</li>
-<li>**过盈配合 (Interference Fit)**：轴尺寸 &gt; 孔尺寸（始终有过盈）</li>
-</ul>
-<h4 id="间隙配合（Clearance-Fit）"><a href="#间隙配合（Clearance-Fit）" class="headerlink" title="间隙配合（Clearance Fit）"></a>间隙配合（Clearance Fit）</h4><ul>
-<li><strong>定义</strong>：孔的公差带完全位于轴的公差带之上。装配后<strong>孔的实际尺寸始终大于或等于轴的实际尺寸</strong>，形成具有活动能力的间隙。</li>
-<li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
-<li><strong>最小间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最小极限尺寸 - 轴最大极限尺寸 (EI - es)</li>
-</ul>
-</li>
-<li><strong>典型应用</strong>：转动轴承套筒、滑动轴承、导向柱（如 <strong>H7&#x2F;g6</strong>, <strong>H8&#x2F;f7</strong>）。</li>
-</ul>
-<h4 id="过渡配合（Transition-Fit）"><a href="#过渡配合（Transition-Fit）" class="headerlink" title="过渡配合（Transition Fit）"></a>过渡配合（Transition Fit）</h4><ul>
-<li><strong>定义</strong>：孔与轴的公差带相互重叠。装配后<strong>可能产生间隙，也可能产生过盈</strong>，具体取决于零件的实际加工尺寸。</li>
-<li><strong>极限参数</strong>：<ul>
-<li><strong>最大间隙 (X<sub>max</sub>)</strong> &#x3D; 孔最大极限尺寸 - 轴最小极限尺寸 (ES - ei)</li>
-<li><strong>最大过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
-</ul>
-</li>
-<li><strong>典型应用</strong>：需要精确对中且便于拆卸定位的结构，如定位销、联轴器轴套、无框电机转子基座（如 <strong>H7&#x2F;k6</strong>, <strong>H7&#x2F;m6</strong>）。</li>
-</ul>
-<h4 id="过盈配合（Interference-Fit）"><a href="#过盈配合（Interference-Fit）" class="headerlink" title="过盈配合（Interference Fit）"></a>过盈配合（Interference Fit）</h4><ul>
-<li><strong>定义</strong>：孔的公差带完全位于轴的公差带之下。装配后<strong>轴的实际尺寸始终大于或等于孔的实际尺寸</strong>，形成静止紧固的结合状态。</li>
-<li><strong>极限参数</strong>：<ul>
-<li><strong>最大过盈 (Y<sub>max</sub>)</strong> &#x3D; 轴最大极限尺寸 - 孔最小极限尺寸 (es - EI)</li>
-<li><strong>最小过盈 (Y<sub>min</sub>)</strong> &#x3D; 轴最小极限尺寸 - 孔最大极限尺寸 (ei - ES)</li>
-</ul>
-</li>
-<li><strong>典型应用</strong>：靠摩擦力直接传递大扭矩或永久固定的装配，如电机定子压入外壳、齿轮与轴的重载固定（如 <strong>H7&#x2F;p6</strong>, <strong>H7&#x2F;s6</strong>）。</li>
-</ul>
-<hr>
-<h3 id="ISO-286-常用配合模式汇总（基孔制-vs-基轴制）"><a href="#ISO-286-常用配合模式汇总（基孔制-vs-基轴制）" class="headerlink" title="ISO 286 常用配合模式汇总（基孔制 vs. 基轴制）"></a>ISO 286 常用配合模式汇总（基孔制 vs. 基轴制）</h3><p>为了减少定型刀具和量具的数量，ISO 286 优先推荐以 <strong>基孔制（以 H 孔为基准）</strong> 为主，特殊场景辅以 <strong>基轴制（以 h 轴为基准）</strong>。</p>
-<h4 id="1-基孔制配合（Basic-Hole-System-基准孔代号：H）"><a href="#1-基孔制配合（Basic-Hole-System-基准孔代号：H）" class="headerlink" title="1. 基孔制配合（Basic Hole System, 基准孔代号：H）"></a>1. 基孔制配合（Basic Hole System, 基准孔代号：H）</h4><table>
-<thead>
-<tr>
-<th align="left">配合性质</th>
-<th align="left">ISO 286 常用代号组合</th>
-<th align="left">配合特征描述</th>
-<th align="left">典型工程场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>精密间隙</strong></td>
-<td align="left"><strong>H7&#x2F;h6</strong></td>
-<td align="left">零间隙定位配合</td>
-<td align="left">手动对中、可沿轴向轻松移动的滑动件</td>
-</tr>
-<tr>
-<td align="left"><strong>微小间隙</strong></td>
-<td align="left"><strong>H7&#x2F;g6</strong></td>
-<td align="left">极小间隙，高精度旋转</td>
-<td align="left">精密机床主轴、机器人关节滑动支撑</td>
-</tr>
-<tr>
-<td align="left"><strong>普通旋转</strong></td>
-<td align="left"><strong>H7&#x2F;f7</strong> 或 <strong>H8&#x2F;f7</strong></td>
-<td align="left">标准旋转间隙</td>
-<td align="left">通用转动轴承座、导向套筒</td>
-</tr>
-<tr>
-<td align="left"><strong>粗糙间隙</strong></td>
-<td align="left"><strong>H11&#x2F;c11</strong></td>
-<td align="left">极大间隙</td>
-<td align="left">粗糙暴露环境、热膨胀量大的机械结构</td>
-</tr>
-<tr>
-<td align="left"><strong>精密过渡</strong></td>
-<td align="left"><strong>H7&#x2F;k6</strong></td>
-<td align="left">微过盈&#x2F;微间隙，无间隙定位</td>
-<td align="left">需高同轴度的定位销、齿轮轴套（手锤轻击即可装拆）</td>
-</tr>
-<tr>
-<td align="left"><strong>较紧过渡</strong></td>
-<td align="left"><strong>H7&#x2F;m6</strong></td>
-<td align="left">平均呈微过盈</td>
-<td align="left">承受轻微冲击扭矩的固定键槽配合、伺服轴端</td>
-</tr>
-<tr>
-<td align="left"><strong>轻型过盈</strong></td>
-<td align="left"><strong>H7&#x2F;p6</strong></td>
-<td align="left">稳定过盈，需压床力</td>
-<td align="left">无框电机转子固定、轻载滚珠轴承内圈</td>
-</tr>
-<tr>
-<td align="left"><strong>重型过盈</strong></td>
-<td align="left"><strong>H7&#x2F;s6</strong> 或 <strong>H7&#x2F;r6</strong></td>
-<td align="left">强过盈，需加热&#x2F;冷冻装配</td>
-<td align="left">关节电机定子与铝外壳热套、重载齿轮轮毂</td>
-</tr>
-</tbody></table>
-<h4 id="2-基轴制配合（Basic-Shaft-System-基准轴代号：h）"><a href="#2-基轴制配合（Basic-Shaft-System-基准轴代号：h）" class="headerlink" title="2. 基轴制配合（Basic Shaft System, 基准轴代号：h）"></a>2. 基轴制配合（Basic Shaft System, 基准轴代号：h）</h4><table>
-<thead>
-<tr>
-<th align="left">配合性质</th>
-<th align="left">ISO 286 常用代号组合</th>
-<th align="left">典型工程场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>间隙配合</strong></td>
-<td align="left"><strong>G7&#x2F;h6</strong> 或 <strong>F8&#x2F;h7</strong></td>
-<td align="left">冷拉光圆钢轴配滑动套筒</td>
-</tr>
-<tr>
-<td align="left"><strong>过渡配合</strong></td>
-<td align="left"><strong>K7&#x2F;h6</strong></td>
-<td align="left">滚动轴承外圈与机壳孔（轴承外圈为基轴制标准件）</td>
-</tr>
-<tr>
-<td align="left"><strong>过盈配合</strong></td>
-<td align="left"><strong>P7&#x2F;h6</strong></td>
-<td align="left">轴承外圈在受到高频振动&#x2F;冲击载荷机壳孔内的固定</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="快捷记忆法则（公差带字母分布）"><a href="#快捷记忆法则（公差带字母分布）" class="headerlink" title="快捷记忆法则（公差带字母分布）"></a>快捷记忆法则（公差带字母分布）</h3><p>在 ISO 286 标准中，轴与孔的基本偏差字母代表了公差带相对于零线的位置：</p>
-<ul>
-<li><strong>轴的公差带字母（小写）</strong>：<ul>
-<li><code>a ~ h</code>：位于零线下方 → <strong>间隙配合</strong>（<code>h</code> 上偏差为 0）。</li>
-<li><code>j, k, m, n</code>：跨越或紧贴零线 → <strong>过渡配合</strong>。</li>
-<li><code>p ~ z</code>：位于零线上方 → <strong>过盈配合</strong>。</li>
-</ul>
-</li>
-<li><strong>孔的公差带字母（大写）</strong>：<ul>
-<li><code>A ~ H</code>：位于零线上方 → <strong>间隙配合</strong>（<code>H</code> 下偏差为 0）。</li>
-<li><code>J, K, M, N</code>：跨越或紧贴零线 → <strong>过渡配合</strong>。</li>
-<li><code>P ~ Z</code>：位于零线下方 → <strong>过盈配合</strong>。</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Tech</category>
-      </categories>
-      <tags>
-        <tag>公差与配合</tag>
-        <tag>Tolerance and Fits Calculator</tag>
-        <tag>Me Tools</tag>
-        <tag>ISO 286 - 1/ 286 - 2</tag>
-        <tag>GB/T 1800.1 / GB/T 1800.2</tag>
       </tags>
   </entry>
   <entry>
@@ -6370,31 +6395,6 @@ th {
         <tag>USB-C</tag>
         <tag>Receptacle</tag>
         <tag>Plug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>deploy失败解决方法</title>
-    <url>/2026/05/15/deploy%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="在执行deploy后出现："><a href="#在执行deploy后出现：" class="headerlink" title="在执行deploy后出现："></a>在执行deploy后出现：</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="built_in">warning</span>: <span class="keyword">in</span> the working <span class="keyword">copy</span> <span class="keyword">of</span> <span class="string">&#x27;tags/精度/index.html&#x27;</span>, LF will be replaced <span class="keyword">by</span> CRLF the next <span class="type">time</span> Git touches it</span><br><span class="line">[master e7cf5cb] Site updated: <span class="number">2026</span><span class="number">-05</span><span class="number">-15</span> <span class="number">14</span>:<span class="number">21</span>:<span class="number">57</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">fatal: unable <span class="keyword">to</span> <span class="keyword">access</span> <span class="string">&#x27;https://github.com/Burro-CMD/Burro-CMD.github.io.git/&#x27;</span>: Failed <span class="keyword">to</span> <span class="keyword">connect</span> <span class="keyword">to</span> github.com port <span class="number">443</span></span><br><span class="line"><span class="keyword">after</span> <span class="number">21220</span> ms: Could <span class="keyword">not</span> <span class="keyword">connect</span> <span class="keyword">to</span> <span class="keyword">server</span></span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (G:\Hexo\burroblog-src\node_modules\hexo-util\lib\spawn.js:51:21)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:508:28)</span></span><br><span class="line"><span class="string">    at cp.emit (G:\Hexo\burroblog-src\node_modules\cross-spawn\lib\enoent.js:34:29)</span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)</span></span><br></pre></td></tr></table></figure>
-<p>这意味着是 GitHub 服务器在国内被墙 &#x2F; 连接不稳定</p>
-<h3 id="执行这四个命令，就可以解决"><a href="#执行这四个命令，就可以解决" class="headerlink" title="执行这四个命令，就可以解决"></a>执行这四个命令，就可以解决</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.sslBackend</span> <span class="string">&quot;schannel&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> http<span class="selector-class">.postBuffer</span> <span class="number">524288000</span></span><br><span class="line">rd /s /<span class="selector-tag">q</span> <span class="selector-class">.deploy_git</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="selector-tag">g</span> &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="这4个命令修复了"><a href="#这4个命令修复了" class="headerlink" title="这4个命令修复了"></a>这4个命令修复了</h3><ol>
-<li>修复 Git 在 Windows 上的 GitHub 连接问题</li>
-<li>加大提交缓存</li>
-<li>删除坏掉的部署缓存</li>
-<li>重新生成 + 推送</li>
-</ol>
-<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><ol>
-<li>继续使用这3个命令就行了。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li>如果再遇到，也可以尝试：<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">rd <span class="string">/s</span> <span class="string">/q</span> <span class="string">.deploy_git</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>deploy</tag>
       </tags>
   </entry>
 </search>
